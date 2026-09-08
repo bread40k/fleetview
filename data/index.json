@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-09-08T19:48:42.334Z",
+ "generated": "2026-09-08T21:30:14.430Z",
  "war": { "start": "1939-09-01T00:00", "end": "1945-09-02T12:00", "label": "The war at sea, 1939–45" },
  "default": "leyte",
  "ships": "ships.json",
@@ -24,6 +24,24 @@
    "bytes": 42342
   },
   {
+   "id": "midway",
+   "title": "Battle of Midway",
+   "subtitle": "Central Pacific · 25 May – 7 June 1942",
+   "theatre": "Central Pacific",
+   "file": "scenarios/midway.json",
+   "start": "1942-05-25T00:00",
+   "end": "1942-06-08T00:00",
+   "defaultTime": "1942-06-04T10:22",
+   "tz": "Midway time · UTC−12",
+   "utcOffset": -12,
+   "ships": 70,
+   "losses": 7,
+   "airOps": 31,
+   "events": 52,
+   "routed": true,
+   "bytes": 72103
+  },
+  {
    "id": "leyte",
    "title": "Battle of Leyte Gulf",
    "subtitle": "Philippines · 17–28 October 1944",
@@ -44,20 +62,20 @@
   {
    "id": "tengo",
    "title": "Operation Ten-Go — the last sortie of Yamato",
-   "subtitle": "East China Sea · 5–7 April 1945",
+   "subtitle": "East China Sea · 5–8 April 1945",
    "theatre": "East China Sea",
    "file": "scenarios/tengo.json",
    "start": "1945-04-05T00:00",
-   "end": "1945-04-07T16:00",
+   "end": "1945-04-08T12:00",
    "defaultTime": "1945-04-07T12:30",
    "tz": "Tokyo time · UTC+9",
    "utcOffset": 9,
-   "ships": 1,
-   "losses": 1,
-   "airOps": 0,
-   "events": 16,
+   "ships": 30,
+   "losses": 6,
+   "airOps": 11,
+   "events": 37,
    "routed": true,
-   "bytes": 4719
+   "bytes": 35422
   }
  ]
 }

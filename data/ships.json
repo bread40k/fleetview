@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-09-08T19:48:42.334Z",
+ "generated": "2026-09-08T21:30:14.430Z",
  "note": "Cross-campaign ship registry. name/nation/class/wiki/fate and any extra fields you add are preserved on rebuild; appearances are regenerated from data/scenarios/*.json by tools/build-data.mjs.",
  "ships": {
   "abukuma": {
@@ -10,6 +10,17 @@
    "class": "Light cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Abukuma",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "abukuma",
+     "force": "northern",
+     "type": "Light cruiser (Ōmori flagship)",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "abukuma",
@@ -23,6 +34,132 @@
     }
    ],
    "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "akagi": {
+   "id": "akagi",
+   "name": "Akagi",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Akagi",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "akagi",
+     "force": "kdb",
+     "type": "Fleet carrier (Nagumo flagship)",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-05T05:20",
+     "sunk": "1942-06-05T05:20",
+     "sunkBy": "Bomb hit by USS Enterprise SBD, scuttled by destroyers",
+     "lost": 267
+    }
+   ],
+   "fate": "sunk 5 Jun 1942 — Battle of Midway"
+  },
+  "akebonomaru": {
+   "id": "akebonomaru",
+   "name": "Akebono Maru",
+   "nation": "IJN",
+   "class": "Fleet oiler",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "akebonomaru",
+     "force": "transports",
+     "type": "Fleet oiler",
+     "from": "1942-05-27T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "anderson": {
+   "id": "anderson",
+   "name": "USS Anderson",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Anderson_(DD-411)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "anderson",
+     "force": "tf17",
+     "type": "Destroyer",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "arashi": {
+   "id": "arashi",
+   "name": "Arashi",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashi",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "arashi",
+     "force": "kdb",
+     "type": "Destroyer — her wake led McClusky to the carriers",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "arashio": {
+   "id": "arashio",
+   "name": "Arashio",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashio",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "arashio",
+     "force": "crudiv7",
+     "type": "Destroyer",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "argentinamaru": {
+   "id": "argentinamaru",
+   "name": "Argentina Maru",
+   "nation": "IJN",
+   "class": "Transport",
+   "wiki": "https://en.wikipedia.org/wiki/Argentina_Maru",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "argentinamaru",
+     "force": "transports",
+     "type": "Transport — Ichiki Detachment",
+     "from": "1942-05-27T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "arkroyal": {
    "id": "arkroyal",
@@ -66,6 +203,48 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "asashimo": {
+   "id": "asashimo",
+   "name": "Asashimo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asashimo",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "asashimo",
+     "force": "ito",
+     "type": "Destroyer (Kotaki, DesDiv 21)",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T13:10",
+     "sunk": "1945-04-07T13:10",
+     "sunkBy": "Bunker Hill and San Jacinto aircraft — lost with all hands",
+     "lost": 326
+    }
+   ],
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
+  "asashio": {
+   "id": "asashio",
+   "name": "Asashio",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asashio_(1936)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "asashio",
+     "force": "crudiv7",
+     "type": "Destroyer",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "ashigara": {
    "id": "ashigara",
    "name": "Ashigara",
@@ -87,6 +266,27 @@
    ],
    "fate": null
   },
+  "astoria": {
+   "id": "astoria",
+   "name": "USS Astoria",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Astoria_(CA-34)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "astoria",
+     "force": "tf17",
+     "type": "Heavy cruiser (Fletcher's flagship from 13:00, 4 June)",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "atago": {
    "id": "atago",
    "name": "Atago",
@@ -94,6 +294,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Atago",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "atago",
+     "force": "kondo",
+     "type": "Heavy cruiser (Kondō flagship)",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "atago",
@@ -107,6 +318,132 @@
     }
    ],
    "fate": "sunk 23 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "atlanta": {
+   "id": "atlanta",
+   "name": "USS Atlanta",
+   "nation": "USN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Atlanta_(CL-51)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "atlanta",
+     "force": "tf16",
+     "type": "Light cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "balch": {
+   "id": "balch",
+   "name": "USS Balch",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Balch_(DD-363)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "balch",
+     "force": "tf16",
+     "type": "Destroyer",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "bataan": {
+   "id": "bataan",
+   "name": "USS Bataan",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Bataan_(CVL-29)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "bataan",
+     "force": "tf58",
+     "type": "Light carrier — TG 58.3",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "belleauwood": {
+   "id": "belleauwood",
+   "name": "USS Belleau Wood",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Belleau_Wood_(CVL-24)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "belleauwood",
+     "force": "tf58",
+     "type": "Light carrier — TG 58.1",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "benham": {
+   "id": "benham",
+   "name": "USS Benham",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Benham_(DD-397)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "benham",
+     "force": "tf16",
+     "type": "Destroyer",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "bennington": {
+   "id": "bennington",
+   "name": "USS Bennington",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Bennington",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "bennington",
+     "force": "tf58",
+     "type": "Fleet carrier — TG 58.1",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "bismarck": {
    "id": "bismarck",
@@ -128,6 +465,48 @@
     }
    ],
    "fate": "sunk 27 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "bunkerhill": {
+   "id": "bunkerhill",
+   "name": "USS Bunker Hill",
+   "nation": "USN",
+   "class": "Fleet carrier (Mitscher flagship)",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Bunker_Hill_(CV-17)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "bunkerhill",
+     "force": "tf58",
+     "type": "Fleet carrier (Mitscher flagship) — TG 58.3",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "cabot": {
+   "id": "cabot",
+   "name": "USS Cabot",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Cabot_(CVL-28)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "cabot",
+     "force": "tf58",
+     "type": "Light carrier — TG 58.3",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "california": {
    "id": "california",
@@ -157,6 +536,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chikuma_(1938)",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "chikuma",
+     "force": "kdb",
+     "type": "Heavy cruiser",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "chikuma",
@@ -220,6 +610,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chōkai",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "chokai",
+     "force": "kondo",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "chokai",
@@ -347,6 +748,17 @@
    "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "enterprise",
+     "force": "tf16",
+     "type": "Fleet carrier (Spruance flagship)",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "enterprise",
      "force": "tf38",
@@ -374,6 +786,17 @@
      "type": "Fleet carrier — TG 38.3",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "essex",
+     "force": "tf58",
+     "type": "Fleet carrier (Sherman flagship) — TG 58.3",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -465,6 +888,27 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "fuyutsuki": {
+   "id": "fuyutsuki",
+   "name": "Fuyutsuki",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Fuyutsuki",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "fuyutsuki",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "galatea": {
    "id": "galatea",
    "name": "HMS Galatea",
@@ -507,6 +951,48 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "hackleback": {
+   "id": "hackleback",
+   "name": "USS Hackleback",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hackleback",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "hackleback",
+     "force": "ussubs",
+     "type": "Submarine",
+     "from": "1945-04-06T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hagikaze": {
+   "id": "hagikaze",
+   "name": "Hagikaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hagikaze",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hagikaze",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "haguro": {
    "id": "haguro",
    "name": "Haguro",
@@ -515,12 +1001,97 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Haguro",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "haguro",
+     "force": "kondo",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "haguro",
      "force": "center",
      "type": "Heavy cruiser",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hamakaze": {
+   "id": "hamakaze",
+   "name": "Hamakaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hamakaze_(1940)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hamakaze",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "hamakaze",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T12:49",
+     "sunk": "1945-04-07T12:49",
+     "sunkBy": "Hornet Avengers, first wave",
+     "lost": 100
+    }
+   ],
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
+  "hammann": {
+   "id": "hammann",
+   "name": "USS Hammann",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hammann_(DD-412)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hammann",
+     "force": "tf17",
+     "type": "Destroyer",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-06T13:39",
+     "sunk": "1942-06-06T13:39",
+     "sunkBy": "Submarine I-168",
+     "lost": 80
+    }
+   ],
+   "fate": "sunk 6 Jun 1942 — Battle of Midway"
+  },
+  "hancock": {
+   "id": "hancock",
+   "name": "USS Hancock",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hancock_(CV-19)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "hancock",
+     "force": "tf58",
+     "type": "Fleet carrier — TG 58.3",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -536,12 +1107,44 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Haruna",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "haruna",
+     "force": "kdb",
+     "type": "Battleship",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "haruna",
      "force": "center",
      "type": "Battleship",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hatsushimo": {
+   "id": "hatsushimo",
+   "name": "Hatsushimo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hatsushimo_(1933)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "hatsushimo",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T09:45",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -569,6 +1172,48 @@
     }
    ],
    "fate": null
+  },
+  "hiei": {
+   "id": "hiei",
+   "name": "Hiei",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Hiei",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hiei",
+     "force": "kondo",
+     "type": "Battleship",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hiryu": {
+   "id": "hiryu",
+   "name": "Hiryū",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Hiry%C5%AB",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hiryu",
+     "force": "kdb",
+     "type": "Fleet carrier (Yamaguchi, CarDiv 2)",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-05T09:12",
+     "sunk": "1942-06-05T09:12",
+     "sunkBy": "USS Enterprise SBDs, scuttled by Makigumo",
+     "lost": 389
+    }
+   ],
+   "fate": "sunk 5 Jun 1942 — Battle of Midway"
   },
   "hoel": {
    "id": "hoel",
@@ -629,6 +1274,81 @@
      "sunk": null,
      "sunkBy": null,
      "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "hornet",
+     "force": "tf58",
+     "type": "Fleet carrier (Clark flagship) — TG 58.1",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hornet_cv8": {
+   "id": "hornet_cv8",
+   "name": "USS Hornet",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-8)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hornet",
+     "force": "tf16",
+     "type": "Fleet carrier (Capt Mitscher)",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 27 Oct 1942 — Battle of the Santa Cruz Islands",
+   "note": "CV-8, the Doolittle-raid carrier; not the Essex-class Hornet (CV-12) of Leyte Gulf and Ten-Go"
+  },
+  "hosho": {
+   "id": "hosho",
+   "name": "Hōshō",
+   "nation": "IJN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_H%C5%8Dsh%C5%8D",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hosho",
+     "force": "main",
+     "type": "Light carrier",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hughes": {
+   "id": "hughes",
+   "name": "USS Hughes",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hughes_(DD-410)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "hughes",
+     "force": "tf17",
+     "type": "Destroyer",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
     }
    ],
    "fate": null
@@ -654,6 +1374,69 @@
    ],
    "fate": null
   },
+  "i168": {
+   "id": "i168",
+   "name": "I-168",
+   "nation": "IJN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-168",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "i168",
+     "force": "ijnsubs",
+     "type": "Submarine (Lt Cdr Yahachi Tanabe)",
+     "from": "1942-05-31T12:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "idaho": {
+   "id": "idaho",
+   "name": "USS Idaho",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Idaho_(BB-42)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "idaho",
+     "force": "tf54",
+     "type": "Battleship",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "indianapolis": {
+   "id": "indianapolis",
+   "name": "USS Indianapolis",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Indianapolis_(CA-35)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "indianapolis",
+     "force": "tf8",
+     "type": "Heavy cruiser",
+     "from": "1942-06-01T00:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "intrepid": {
    "id": "intrepid",
    "name": "USS Intrepid",
@@ -668,6 +1451,17 @@
      "type": "Fleet carrier — TG 38.2",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "intrepid",
+     "force": "tf58",
+     "type": "Fleet carrier — TG 58.4",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -717,6 +1511,59 @@
    ],
    "fate": null
   },
+  "isokaze": {
+   "id": "isokaze",
+   "name": "Isokaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Isokaze_(1939)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "isokaze",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "isokaze",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T22:40",
+     "sunk": "1945-04-07T22:40",
+     "sunkBy": "Bomb damage; scuttled by Yukikaze",
+     "lost": 20
+    }
+   ],
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
+  "jintsu": {
+   "id": "jintsu",
+   "name": "Jintsū",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Jints%C5%AB",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "jintsu",
+     "force": "transports",
+     "type": "Light cruiser (Tanaka flagship)",
+     "from": "1942-05-27T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "johnston": {
    "id": "johnston",
    "name": "USS Johnston",
@@ -737,6 +1584,48 @@
     }
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "junyo": {
+   "id": "junyo",
+   "name": "Jun'yō",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Jun%27y%C5%8D",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "junyo",
+     "force": "northern",
+     "type": "Fleet carrier",
+     "from": "1942-05-25T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kaga": {
+   "id": "kaga",
+   "name": "Kaga",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Kaga",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "kaga",
+     "force": "kdb",
+     "type": "Fleet carrier",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-04T19:25",
+     "sunk": "1942-06-04T19:25",
+     "sunkBy": "USS Enterprise SBDs (McClusky)",
+     "lost": 811
+    }
+   ],
+   "fate": "sunk 4 Jun 1942 — Battle of Midway"
   },
   "kalinin": {
    "id": "kalinin",
@@ -759,6 +1648,27 @@
    ],
    "fate": null
   },
+  "kasumi": {
+   "id": "kasumi",
+   "name": "Kasumi",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kasumi_(1937)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "kasumi",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T17:00",
+     "sunk": "1945-04-07T17:00",
+     "sunkBy": "Bomb damage; scuttled by Fuyutsuki",
+     "lost": 17
+    }
+   ],
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
   "kgv": {
    "id": "kgv",
    "name": "HMS King George V",
@@ -773,6 +1683,48 @@
      "type": "Battleship (Tovey flagship)",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kirishima": {
+   "id": "kirishima",
+   "name": "Kirishima",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kirishima",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "kirishima",
+     "force": "kdb",
+     "type": "Battleship",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kiso": {
+   "id": "kiso",
+   "name": "Kiso",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kiso",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "kiso",
+     "force": "northern",
+     "type": "Light cruiser",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -809,6 +1761,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kongō",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "kongo",
+     "force": "kondo",
+     "type": "Battleship",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "kongo",
      "force": "center",
@@ -830,12 +1793,44 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kumano",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "kumano",
+     "force": "crudiv7",
+     "type": "Heavy cruiser (Kurita flagship)",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "kumano",
      "force": "center",
      "type": "Heavy cruiser",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "langley": {
+   "id": "langley",
+   "name": "USS Langley",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Langley_(CVL-27)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "langley",
+     "force": "tf58",
+     "type": "Light carrier — TG 58.4",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -885,6 +1880,48 @@
    ],
    "fate": null
   },
+  "maikaze": {
+   "id": "maikaze",
+   "name": "Maikaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Maikaze",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "maikaze",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "makigumo": {
+   "id": "makigumo",
+   "name": "Makigumo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Makigumo_(1941)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "makigumo",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "maori": {
    "id": "maori",
    "name": "HMS Maori",
@@ -899,6 +1936,27 @@
      "type": "Tribal-class destroyer",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "maryland": {
+   "id": "maryland",
+   "name": "USS Maryland",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Maryland_(BB-46)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "maryland",
+     "force": "tf54",
+     "type": "Battleship — kamikaze hit 7 April",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -935,6 +1993,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Maya",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "maya",
+     "force": "northern",
+     "type": "Heavy cruiser",
+     "from": "1942-05-25T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "maya",
      "force": "center",
@@ -969,6 +2038,48 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "mikuma": {
+   "id": "mikuma",
+   "name": "Mikuma",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mikuma",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "mikuma",
+     "force": "crudiv7",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-06T19:30",
+     "sunk": "1942-06-06T19:30",
+     "sunkBy": "USS Enterprise and Hornet SBDs",
+     "lost": 700
+    }
+   ],
+   "fate": "sunk 6 Jun 1942 — Battle of Midway"
+  },
+  "minneapolis": {
+   "id": "minneapolis",
+   "name": "USS Minneapolis",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Minneapolis_(CA-36)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "minneapolis",
+     "force": "tf16",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "mississippi": {
    "id": "mississippi",
    "name": "USS Mississippi",
@@ -990,6 +2101,27 @@
    ],
    "fate": null
   },
+  "missouri": {
+   "id": "missouri",
+   "name": "USS Missouri",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Missouri_(BB-63)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "missouri",
+     "force": "tf58",
+     "type": "Battleship — TF 58 screen",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "mogami": {
    "id": "mogami",
    "name": "Mogami",
@@ -997,6 +2129,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "mogami",
+     "force": "crudiv7",
+     "type": "Heavy cruiser — bow crushed in the collision",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "mogami",
@@ -1010,6 +2153,27 @@
     }
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "monaghan": {
+   "id": "monaghan",
+   "name": "USS Monaghan",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Monaghan_(DD-354)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "monaghan",
+     "force": "tf16",
+     "type": "Destroyer",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "musashi": {
    "id": "musashi",
@@ -1032,6 +2196,27 @@
    ],
    "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
   },
+  "mutsu": {
+   "id": "mutsu",
+   "name": "Mutsu",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Mutsu",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "mutsu",
+     "force": "main",
+     "type": "Battleship",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "myoko": {
    "id": "myoko",
    "name": "Myōkō",
@@ -1039,6 +2224,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Myōkō",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "myoko",
+     "force": "kondo",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "myoko",
@@ -1061,12 +2257,44 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nachi",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "nachi",
+     "force": "northern",
+     "type": "Heavy cruiser (Hosogaya flagship)",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "nachi",
      "force": "shima",
      "type": "Heavy cruiser (Shima flagship)",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nagara": {
+   "id": "nagara",
+   "name": "Nagara",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nagara",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "nagara",
+     "force": "kdb",
+     "type": "Light cruiser (Nagumo's flagship from 11:30, 4 June)",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1082,12 +2310,65 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Nagato",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "nagato",
+     "force": "main",
+     "type": "Battleship",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "nagato",
      "force": "center",
      "type": "Battleship",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nashville": {
+   "id": "nashville",
+   "name": "USS Nashville",
+   "nation": "USN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Nashville_(CL-43)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "nashville",
+     "force": "tf8",
+     "type": "Light cruiser (Theobald flagship)",
+     "from": "1942-06-01T00:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nautilus": {
+   "id": "nautilus",
+   "name": "USS Nautilus",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Nautilus_(SS-168)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "nautilus",
+     "force": "ussubs",
+     "type": "Submarine (Lt Cdr William Brockman)",
+     "from": "1942-05-31T00:00",
+     "to": "1942-06-08T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1112,6 +2393,38 @@
      "sunk": null,
      "sunkBy": null,
      "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "newjersey",
+     "force": "tf58",
+     "type": "Battleship — TF 58 screen",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "neworleans": {
+   "id": "neworleans",
+   "name": "USS New Orleans",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_New_Orleans_(CA-32)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "neworleans",
+     "force": "tf16",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
     }
    ],
    "fate": null
@@ -1130,6 +2443,27 @@
      "type": "Heavy cruiser (Wake-Walker flagship)",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "northampton": {
+   "id": "northampton",
+   "name": "USS Northampton",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Northampton_(CA-26)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "northampton",
+     "force": "tf16",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1166,6 +2500,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Nowaki_(1940)",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "nowaki",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "nowaki",
      "force": "center",
@@ -1200,6 +2545,48 @@
    ],
    "fate": null
   },
+  "pensacola": {
+   "id": "pensacola",
+   "name": "USS Pensacola",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Pensacola_(CA-24)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "pensacola",
+     "force": "tf16",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "phelps": {
+   "id": "phelps",
+   "name": "USS Phelps",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Phelps_(DD-360)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "phelps",
+     "force": "tf16",
+     "type": "Destroyer",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "piorun": {
    "id": "piorun",
    "name": "ORP Piorun",
@@ -1214,6 +2601,27 @@
      "type": "Polish destroyer — first to sight Bismarck on the 26th",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "portland": {
+   "id": "portland",
+   "name": "USS Portland",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Portland_(CA-33)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "portland",
+     "force": "tf17",
+     "type": "Heavy cruiser",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-08T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1326,6 +2734,48 @@
    ],
    "fate": null
   },
+  "ryujo": {
+   "id": "ryujo",
+   "name": "Ryūjō",
+   "nation": "IJN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Ry%C5%ABj%C5%8D",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "ryujo",
+     "force": "northern",
+     "type": "Light carrier (Kakuta flagship)",
+     "from": "1942-05-25T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "sanjacinto": {
+   "id": "sanjacinto",
+   "name": "USS San Jacinto",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_San_Jacinto_(CVL-30)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "sanjacinto",
+     "force": "tf58",
+     "type": "Light carrier — TG 58.1",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "sbr": {
    "id": "sbr",
    "name": "USS Samuel B. Roberts",
@@ -1431,6 +2881,27 @@
    ],
    "fate": null
   },
+  "soryu": {
+   "id": "soryu",
+   "name": "Sōryū",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_S%C5%8Dry%C5%AB",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "soryu",
+     "force": "kdb",
+     "type": "Fleet carrier",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-04T19:13",
+     "sunk": "1942-06-04T19:13",
+     "sunkBy": "USS Yorktown SBDs (Leslie), scuttled by Isokaze",
+     "lost": 711
+    }
+   ],
+   "fate": "sunk 4 Jun 1942 — Battle of Midway"
+  },
   "stlo": {
    "id": "stlo",
    "name": "USS St. Lo",
@@ -1473,6 +2944,27 @@
    ],
    "fate": null
   },
+  "suzutsuki": {
+   "id": "suzutsuki",
+   "name": "Suzutsuki",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Suzutsuki",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "suzutsuki",
+     "force": "ito",
+     "type": "Destroyer",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "suzuya": {
    "id": "suzuya",
    "name": "Suzuya",
@@ -1480,6 +2972,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Suzuya_(1934)",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "suzuya",
+     "force": "crudiv7",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "suzuya",
@@ -1502,6 +3005,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Takao_(1930)",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "takao",
+     "force": "northern",
+     "type": "Heavy cruiser",
+     "from": "1942-05-25T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "takao",
      "force": "center",
@@ -1523,6 +3037,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tama",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "tama",
+     "force": "northern",
+     "type": "Light cruiser",
+     "from": "1942-05-28T03:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "tama",
      "force": "northern",
@@ -1535,6 +3060,48 @@
     }
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "tambor": {
+   "id": "tambor",
+   "name": "USS Tambor",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Tambor",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "tambor",
+     "force": "ussubs",
+     "type": "Submarine (Lt Cdr John Murphy)",
+     "from": "1942-05-31T00:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "tanikaze": {
+   "id": "tanikaze",
+   "name": "Tanikaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Tanikaze_(1940)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "tanikaze",
+     "force": "kdb",
+     "type": "Destroyer",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "tartar": {
    "id": "tartar",
@@ -1557,6 +3124,48 @@
    ],
    "fate": null
   },
+  "tennessee": {
+   "id": "tennessee",
+   "name": "USS Tennessee",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Tennessee_(BB-43)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "tennessee",
+     "force": "tf54",
+     "type": "Battleship (Deyo flagship)",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "threadfin": {
+   "id": "threadfin",
+   "name": "USS Threadfin",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Threadfin",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "threadfin",
+     "force": "ussubs",
+     "type": "Submarine",
+     "from": "1945-04-06T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "tone": {
    "id": "tone",
    "name": "Tone",
@@ -1564,6 +3173,17 @@
    "class": "Heavy cruiser",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tone_(1937)",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "tone",
+     "force": "kdb",
+     "type": "Heavy cruiser",
+     "from": "1942-05-26T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "tone",
@@ -1641,6 +3261,48 @@
    ],
    "fate": null
   },
+  "vincennes": {
+   "id": "vincennes",
+   "name": "USS Vincennes",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Vincennes_(CA-44)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "vincennes",
+     "force": "tf16",
+     "type": "Heavy cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "vireo": {
+   "id": "vireo",
+   "name": "USS Vireo",
+   "nation": "USN",
+   "class": "Fleet tug",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Vireo_(AM-52)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "vireo",
+     "force": "tf17",
+     "type": "Fleet tug (ex-minesweeper)",
+     "from": "1942-06-04T12:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "wv": {
    "id": "wv",
    "name": "USS West Virginia",
@@ -1655,6 +3317,17 @@
      "type": "Battleship (Pearl Harbor survivor)",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "wv",
+     "force": "tf54",
+     "type": "Battleship",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1679,9 +3352,20 @@
      "sunk": null,
      "sunkBy": null,
      "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "yahagi",
+     "force": "ito",
+     "type": "Light cruiser (Komura, DesRon 2)",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T14:05",
+     "sunk": "1945-04-07T14:05",
+     "sunkBy": "TF 58 carrier aircraft — 12 bombs and 7 torpedoes",
+     "lost": 446
     }
    ],
-   "fate": null
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
   },
   "yamagumo": {
    "id": "yamagumo",
@@ -1733,6 +3417,17 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamato",
    "appearances": [
     {
+     "scenario": "midway",
+     "shipId": "yamato",
+     "force": "main",
+     "type": "Battleship (Yamamoto flagship)",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "leyte",
      "shipId": "yamato",
      "force": "center",
@@ -1747,15 +3442,100 @@
      "scenario": "tengo",
      "shipId": "yamato",
      "force": "ito",
-     "type": "Battleship",
+     "type": "Battleship (Itō flagship)",
      "from": "1945-04-05T00:00",
      "to": "1945-04-07T14:23",
      "sunk": "1945-04-07T14:23",
-     "sunkBy": "Aircraft bombs and torpedoes",
-     "lost": 3332
+     "sunkBy": "TF 58 carrier aircraft — at least 11 torpedoes and 6 bombs",
+     "lost": 3055
     }
    ],
    "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
+  "yorktown": {
+   "id": "yorktown",
+   "name": "USS Yorktown",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5)",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "yorktown",
+     "force": "tf17",
+     "type": "Fleet carrier (Fletcher flagship)",
+     "from": "1942-05-30T09:00",
+     "to": "1942-06-07T05:01",
+     "sunk": "1942-06-07T05:01",
+     "sunkBy": "Hiryū's aircraft and submarine I-168",
+     "lost": 141
+    }
+   ],
+   "fate": "sunk 7 Jun 1942 — Battle of Midway"
+  },
+  "yorktown_cv10": {
+   "id": "yorktown_cv10",
+   "name": "USS Yorktown",
+   "nation": "USN",
+   "class": "Fleet carrier (Radford flagship)",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-10)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "yorktown",
+     "force": "tf58",
+     "type": "Fleet carrier (Radford flagship) — TG 58.4",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null,
+   "note": "CV-10, the Essex-class Yorktown; not CV-5, lost at Midway"
+  },
+  "yukikaze": {
+   "id": "yukikaze",
+   "name": "Yukikaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Yukikaze_(1939)",
+   "appearances": [
+    {
+     "scenario": "tengo",
+     "shipId": "yukikaze",
+     "force": "ito",
+     "type": "Destroyer — the 'unsinkable' ship",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-08T09:45",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "yura": {
+   "id": "yura",
+   "name": "Yura",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Yura",
+   "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "yura",
+     "force": "kondo",
+     "type": "Light cruiser",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "zuiho": {
    "id": "zuiho",
@@ -1764,6 +3544,17 @@
    "class": "Light carrier",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuihō",
    "appearances": [
+    {
+     "scenario": "midway",
+     "shipId": "zuiho",
+     "force": "kondo",
+     "type": "Light carrier",
+     "from": "1942-05-28T09:00",
+     "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "leyte",
      "shipId": "zuiho",
