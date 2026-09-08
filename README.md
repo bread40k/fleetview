@@ -2,6 +2,8 @@
 
 **An interactive, time-scrubbable map of WW2 naval battles.**
 
+**▶ Live site: https://bread40k.github.io/fleetview/**
+
 Drag the timeline and watch fleets move, aircraft strike, guns fire and ships go down — with every position, sortie and loss placed in time and space. Built for people who read Morison and Tully for fun and wondered why nobody had drawn it.
 
 Currently included:
@@ -23,11 +25,13 @@ Currently included:
 - Documented vs reconstructed positions distinguished (solid vs dotted routes, popup confidence note)
 - Follow-a-ship, search, keyboard shortcuts, four UI themes (modern / wartime chart × light / dark)
 
-Deep links: `index.html#s=bismarck&t=1941-05-27T10:30`
+Deep links: `https://bread40k.github.io/fleetview/#s=bismarck&t=1941-05-27T10:30`
 
 ## Running it
 
-It's a single file. Open `index.html` in a browser, or serve the folder with any static host (GitHub Pages, Cloudflare Pages, Netlify).
+The site is published with GitHub Pages from the `main` branch — every commit to `index.html` goes live within a minute.
+
+To run it locally, just open `index.html` in a browser; no build step or server is needed. (Scenario and time can be given in the URL, e.g. `index.html#s=leyte&t=1944-10-25T08:30`.)
 
 Runtime dependencies (loaded from CDNs, none installed):
 
@@ -56,7 +60,13 @@ Times are in the scenario's zone time (Tokyo UTC+9 for Leyte; ~UTC+2 for the Bis
 - Ludovic Kennedy, *Pursuit*; Iain Ballantyne, *Killing the Bismarck*; naval-history.net
 - Wikipedia articles for individual ships (linked from each ship's popup)
 
-Corrections and new scenarios are very welcome — open an issue or a pull request.
+### Contributing
+
+Corrections and new scenarios are very welcome — open an issue, or edit the data block in `index.html` and send a pull request. When adding waypoints please note your source, and mark documented fixes with a fifth element `'S'` (or `'R'` for reconstructed) so the confidence display stays honest.
+
+## Status
+
+Prototype. Two campaigns so far; the goal is the whole war at sea, 1939–45. Planned next: splitting scenario data into `data/*.json`, a two-level (war / battle) timeline, a per-ship registry across campaigns, and mobile layout.
 
 ## Licence
 
