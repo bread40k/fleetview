@@ -1,0 +1,1824 @@
+{
+ "schema": 1,
+ "generated": "2026-09-08T19:48:42.334Z",
+ "note": "Cross-campaign ship registry. name/nation/class/wiki/fate and any extra fields you add are preserved on rebuild; appearances are regenerated from data/scenarios/*.json by tools/build-data.mjs.",
+ "ships": {
+  "abukuma": {
+   "id": "abukuma",
+   "name": "Abukuma",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Abukuma",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "abukuma",
+     "force": "shima",
+     "type": "Light cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-26T12:42",
+     "sunk": "1944-10-26T12:42",
+     "sunkBy": "USAAF B-24s",
+     "lost": 250
+    }
+   ],
+   "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "arkroyal": {
+   "id": "arkroyal",
+   "name": "HMS Ark Royal",
+   "nation": "RN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ark_Royal_(91)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "arkroyal",
+     "force": "forceh",
+     "type": "Fleet carrier — 810, 818, 820 Sqns Swordfish",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "asagumo": {
+   "id": "asagumo",
+   "name": "Asagumo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asagumo_(1937)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "asagumo",
+     "force": "southern",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T07:21",
+     "sunk": "1944-10-25T07:21",
+     "sunkBy": "US cruiser & destroyer gunfire",
+     "lost": 191
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "ashigara": {
+   "id": "ashigara",
+   "name": "Ashigara",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Ashigara",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "ashigara",
+     "force": "shima",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "atago": {
+   "id": "atago",
+   "name": "Atago",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Atago",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "atago",
+     "force": "center",
+     "type": "Heavy cruiser (Kurita flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-23T05:53",
+     "sunk": "1944-10-23T05:53",
+     "sunkBy": "USS Darter",
+     "lost": 360
+    }
+   ],
+   "fate": "sunk 23 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "bismarck": {
+   "id": "bismarck",
+   "name": "Bismarck",
+   "nation": "KM",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Bismarck",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "bismarck",
+     "force": "lutjens",
+     "type": "Battleship (Lütjens flagship)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-27T10:39",
+     "sunk": "1941-05-27T10:39",
+     "sunkBy": "Gunfire of Rodney & King George V, torpedoes from Dorsetshire, and scuttling charges — 114 survivors of 2,200",
+     "lost": 2086
+    }
+   ],
+   "fate": "sunk 27 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "california": {
+   "id": "california",
+   "name": "USS California",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_California_(BB-44)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "california",
+     "force": "tg772",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "chikuma": {
+   "id": "chikuma",
+   "name": "Chikuma",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chikuma_(1938)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "chikuma",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T11:30",
+     "sunk": "1944-10-25T11:30",
+     "sunkBy": "Taffy 3 aircraft; scuttled",
+     "lost": 100
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "chitose": {
+   "id": "chitose",
+   "name": "Chitose",
+   "nation": "IJN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Chitose",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "chitose",
+     "force": "northern",
+     "type": "Light carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T09:37",
+     "sunk": "1944-10-25T09:37",
+     "sunkBy": "TF 38 aircraft",
+     "lost": 903
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "chiyoda": {
+   "id": "chiyoda",
+   "name": "Chiyoda",
+   "nation": "IJN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Chiyoda",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "chiyoda",
+     "force": "northern",
+     "type": "Light carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T16:55",
+     "sunk": "1944-10-25T16:55",
+     "sunkBy": "TF 38 aircraft, then US cruiser gunfire",
+     "lost": 1470
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "chokai": {
+   "id": "chokai",
+   "name": "Chōkai",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chōkai",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "chokai",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T11:00",
+     "sunk": "1944-10-25T11:00",
+     "sunkBy": "Taffy 3 aircraft & gunfire; scuttled",
+     "lost": 150
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "cossack": {
+   "id": "cossack",
+   "name": "HMS Cossack",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Cossack_(F03)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "cossack",
+     "force": "vian",
+     "type": "Tribal-class destroyer (Vian)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "dace": {
+   "id": "dace",
+   "name": "USS Dace",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Dace_(SS-247)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "dace",
+     "force": "subs",
+     "type": "Submarine",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "darter": {
+   "id": "darter",
+   "name": "USS Darter",
+   "nation": "USN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Darter_(SS-227)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "darter",
+     "force": "subs",
+     "type": "Submarine",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-24T00:05",
+     "sunk": "1944-10-24T00:05",
+     "sunkBy": "Grounded on Bombay Shoal; crew rescued by Dace",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "dorsetshire": {
+   "id": "dorsetshire",
+   "name": "HMS Dorsetshire",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Dorsetshire_(40)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "dorsetshire",
+     "force": "others",
+     "type": "Heavy cruiser",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "electra": {
+   "id": "electra",
+   "name": "HMS Electra",
+   "nation": "RN",
+   "class": "E-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Electra_(H27)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "electra",
+     "force": "holland",
+     "type": "E-class destroyer",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "enterprise": {
+   "id": "enterprise",
+   "name": "USS Enterprise",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "enterprise",
+     "force": "tf38",
+     "type": "Fleet carrier — TG 38.4",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "essex": {
+   "id": "essex",
+   "name": "USS Essex",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Essex_(CV-9)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "essex",
+     "force": "tf38",
+     "type": "Fleet carrier — TG 38.3",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "eugen": {
+   "id": "eugen",
+   "name": "Prinz Eugen",
+   "nation": "KM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Prinz_Eugen",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "eugen",
+     "force": "lutjens",
+     "type": "Heavy cruiser",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "fanshaw": {
+   "id": "fanshaw",
+   "name": "USS Fanshaw Bay",
+   "nation": "USN",
+   "class": "Escort carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Fanshaw_Bay",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "fanshaw",
+     "force": "taffy3",
+     "type": "Escort carrier (Sprague flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "fujinami": {
+   "id": "fujinami",
+   "name": "Fujinami",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Fujinami",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "fujinami",
+     "force": "center",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-27T12:00",
+     "sunk": "1944-10-27T12:00",
+     "sunkBy": "TG 38.2 aircraft — lost with all hands and every Chōkai survivor aboard",
+     "lost": 900
+    }
+   ],
+   "fate": "sunk 27 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "fuso": {
+   "id": "fuso",
+   "name": "Fusō",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Fusō",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "fuso",
+     "force": "southern",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T03:38",
+     "sunk": "1944-10-25T03:38",
+     "sunkBy": "USS Melvin torpedoes",
+     "lost": 1620
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "galatea": {
+   "id": "galatea",
+   "name": "HMS Galatea",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Galatea_(71)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "galatea",
+     "force": "tovey",
+     "type": "Light cruiser",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "gambier": {
+   "id": "gambier",
+   "name": "USS Gambier Bay",
+   "nation": "USN",
+   "class": "Escort carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Gambier_Bay",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "gambier",
+     "force": "taffy3",
+     "type": "Escort carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T09:07",
+     "sunk": "1944-10-25T09:07",
+     "sunkBy": "IJN cruiser gunfire — only US carrier sunk by surface ships",
+     "lost": 147
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "haguro": {
+   "id": "haguro",
+   "name": "Haguro",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Haguro",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "haguro",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "haruna": {
+   "id": "haruna",
+   "name": "Haruna",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Haruna",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "haruna",
+     "force": "center",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "heermann": {
+   "id": "heermann",
+   "name": "USS Heermann",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Heermann",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "heermann",
+     "force": "taffy3",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hoel": {
+   "id": "hoel",
+   "name": "USS Hoel",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hoel_(DD-533)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "hoel",
+     "force": "taffy3",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T08:55",
+     "sunk": "1944-10-25T08:55",
+     "sunkBy": "IJN battleship & cruiser gunfire",
+     "lost": 253
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "hood": {
+   "id": "hood",
+   "name": "HMS Hood",
+   "nation": "RN",
+   "class": "Battlecruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hood",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "hood",
+     "force": "holland",
+     "type": "Battlecruiser (Holland flagship)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-24T06:00",
+     "sunk": "1941-05-24T06:00",
+     "sunkBy": "Bismarck's fifth salvo — magazine explosion; 3 survivors of 1,418",
+     "lost": 1415
+    }
+   ],
+   "fate": "sunk 24 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "hornet": {
+   "id": "hornet",
+   "name": "USS Hornet",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-12)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "hornet",
+     "force": "tf38",
+     "type": "Fleet carrier — TG 38.1",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hyuga": {
+   "id": "hyuga",
+   "name": "Hyūga",
+   "nation": "IJN",
+   "class": "Hybrid battleship-carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Hyūga",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "hyuga",
+     "force": "northern",
+     "type": "Hybrid battleship-carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "intrepid": {
+   "id": "intrepid",
+   "name": "USS Intrepid",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Intrepid_(CV-11)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "intrepid",
+     "force": "tf38",
+     "type": "Fleet carrier — TG 38.2",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "iowa": {
+   "id": "iowa",
+   "name": "USS Iowa",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Iowa_(BB-61)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "iowa",
+     "force": "tf38",
+     "type": "Battleship — TF 34",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "ise": {
+   "id": "ise",
+   "name": "Ise",
+   "nation": "IJN",
+   "class": "Hybrid battleship-carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Ise",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "ise",
+     "force": "northern",
+     "type": "Hybrid battleship-carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "johnston": {
+   "id": "johnston",
+   "name": "USS Johnston",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Johnston_(DD-557)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "johnston",
+     "force": "taffy3",
+     "type": "Destroyer (Cdr. Ernest Evans)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T10:10",
+     "sunk": "1944-10-25T10:10",
+     "sunkBy": "IJN gunfire; a Japanese destroyer captain salutes the survivors",
+     "lost": 186
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "kalinin": {
+   "id": "kalinin",
+   "name": "USS Kalinin Bay",
+   "nation": "USN",
+   "class": "Escort carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Kalinin_Bay",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "kalinin",
+     "force": "taffy3",
+     "type": "Escort carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kgv": {
+   "id": "kgv",
+   "name": "HMS King George V",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_King_George_V_(41)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "kgv",
+     "force": "tovey",
+     "type": "Battleship (Tovey flagship)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kiyoshimo": {
+   "id": "kiyoshimo",
+   "name": "Kiyoshimo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kiyoshimo",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "kiyoshimo",
+     "force": "center",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kongo": {
+   "id": "kongo",
+   "name": "Kongō",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kongō",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "kongo",
+     "force": "center",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kumano": {
+   "id": "kumano",
+   "name": "Kumano",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kumano",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "kumano",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "lexington": {
+   "id": "lexington",
+   "name": "USS Lexington",
+   "nation": "USN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Lexington_(CV-16)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "lexington",
+     "force": "tf38",
+     "type": "Fleet carrier — TG 38.3 (Mitscher flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "louisville": {
+   "id": "louisville",
+   "name": "USS Louisville",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Louisville_(CA-28)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "louisville",
+     "force": "tg772",
+     "type": "Heavy cruiser (Oldendorf flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "maori": {
+   "id": "maori",
+   "name": "HMS Maori",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Maori_(F24)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "maori",
+     "force": "vian",
+     "type": "Tribal-class destroyer",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "mashona": {
+   "id": "mashona",
+   "name": "HMS Mashona",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Mashona_(F59)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "mashona",
+     "force": "rodney",
+     "type": "Tribal-class destroyer (Rodney's escort)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T13:00",
+     "sunk": "1941-05-28T13:00",
+     "sunkBy": "He 111 bomb in the forward boiler room while returning short of fuel — 46 killed, 184 rescued by Tartar",
+     "lost": 46
+    }
+   ],
+   "fate": "sunk 28 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "maya": {
+   "id": "maya",
+   "name": "Maya",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Maya",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "maya",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-23T06:05",
+     "sunk": "1944-10-23T06:05",
+     "sunkBy": "USS Dace",
+     "lost": 336
+    }
+   ],
+   "fate": "sunk 23 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "michishio": {
+   "id": "michishio",
+   "name": "Michishio",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Michishio",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "michishio",
+     "force": "southern",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T03:58",
+     "sunk": "1944-10-25T03:58",
+     "sunkBy": "US destroyer torpedoes",
+     "lost": 265
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "mississippi": {
+   "id": "mississippi",
+   "name": "USS Mississippi",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Mississippi_(BB-41)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "mississippi",
+     "force": "tg772",
+     "type": "Battleship — fired the last battleship salvo in history",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "mogami": {
+   "id": "mogami",
+   "name": "Mogami",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "mogami",
+     "force": "southern",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T13:07",
+     "sunk": "1944-10-25T13:07",
+     "sunkBy": "Gunfire, collision, aircraft; scuttled",
+     "lost": 192
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "musashi": {
+   "id": "musashi",
+   "name": "Musashi",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Musashi",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "musashi",
+     "force": "center",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-24T19:35",
+     "sunk": "1944-10-24T19:35",
+     "sunkBy": "TF 38 carrier aircraft, Sibuyan Sea",
+     "lost": 1023
+    }
+   ],
+   "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "myoko": {
+   "id": "myoko",
+   "name": "Myōkō",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Myōkō",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "myoko",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nachi": {
+   "id": "nachi",
+   "name": "Nachi",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nachi",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "nachi",
+     "force": "shima",
+     "type": "Heavy cruiser (Shima flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nagato": {
+   "id": "nagato",
+   "name": "Nagato",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Nagato",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "nagato",
+     "force": "center",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "newjersey": {
+   "id": "newjersey",
+   "name": "USS New Jersey",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_New_Jersey_(BB-62)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "newjersey",
+     "force": "tf38",
+     "type": "Battleship — Halsey flagship (TF 34)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "norfolk": {
+   "id": "norfolk",
+   "name": "HMS Norfolk",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "norfolk",
+     "force": "wakewalker",
+     "type": "Heavy cruiser (Wake-Walker flagship)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "noshiro": {
+   "id": "noshiro",
+   "name": "Noshiro",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Noshiro",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "noshiro",
+     "force": "center",
+     "type": "Light cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-26T11:39",
+     "sunk": "1944-10-26T11:39",
+     "sunkBy": "TF 38 aircraft",
+     "lost": 328
+    }
+   ],
+   "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "nowaki": {
+   "id": "nowaki",
+   "name": "Nowaki",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Nowaki_(1940)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "nowaki",
+     "force": "center",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-26T01:35",
+     "sunk": "1944-10-26T01:35",
+     "sunkBy": "Cruisers Vincennes, Biloxi, Miami and destroyers of TF 34 — lost with all hands, including Chikuma's survivors (one man survived)",
+     "lost": 1000
+    }
+   ],
+   "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "oyodo": {
+   "id": "oyodo",
+   "name": "Ōyodo",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Ōyodo",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "oyodo",
+     "force": "northern",
+     "type": "Light cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "piorun": {
+   "id": "piorun",
+   "name": "ORP Piorun",
+   "nation": "RN",
+   "class": "Polish destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/ORP_Piorun_(G65)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "piorun",
+     "force": "vian",
+     "type": "Polish destroyer — first to sight Bismarck on the 26th",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "pow": {
+   "id": "pow",
+   "name": "HMS Prince of Wales",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "pow",
+     "force": "holland",
+     "type": "Battleship (dockyard workers still aboard)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "princeton": {
+   "id": "princeton",
+   "name": "USS Princeton",
+   "nation": "USN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Princeton_(CVL-23)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "princeton",
+     "force": "tf38",
+     "type": "Light carrier — TG 38.3",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-24T17:50",
+     "sunk": "1944-10-24T17:50",
+     "sunkBy": "Land-based Judy dive bomber; scuttled",
+     "lost": 108
+    }
+   ],
+   "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "renown": {
+   "id": "renown",
+   "name": "HMS Renown",
+   "nation": "RN",
+   "class": "Battlecruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Renown_(1916)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "renown",
+     "force": "forceh",
+     "type": "Battlecruiser (Somerville flagship)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "repulse": {
+   "id": "repulse",
+   "name": "HMS Repulse",
+   "nation": "RN",
+   "class": "Battlecruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Repulse_(1916)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "repulse",
+     "force": "tovey",
+     "type": "Battlecruiser",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "rodney": {
+   "id": "rodney",
+   "name": "HMS Rodney",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Rodney_(29)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "rodney",
+     "force": "rodney",
+     "type": "Battleship — nine 16-inch guns",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "sbr": {
+   "id": "sbr",
+   "name": "USS Samuel B. Roberts",
+   "nation": "USN",
+   "class": "Destroyer escort",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Samuel_B._Roberts_(DE-413)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "sbr",
+     "force": "taffy3",
+     "type": "Destroyer escort",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T10:05",
+     "sunk": "1944-10-25T10:05",
+     "sunkBy": "IJN gunfire — \"the destroyer escort that fought like a battleship\"",
+     "lost": 89
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "sheffield": {
+   "id": "sheffield",
+   "name": "HMS Sheffield",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Sheffield_(C24)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "sheffield",
+     "force": "forceh",
+     "type": "Light cruiser",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "shigure": {
+   "id": "shigure",
+   "name": "Shigure",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shigure_(1935)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "shigure",
+     "force": "southern",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "shimakaze": {
+   "id": "shimakaze",
+   "name": "Shimakaze",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shimakaze_(1942)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "shimakaze",
+     "force": "center",
+     "type": "Destroyer — fastest in the IJN (40 kn)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "sikh": {
+   "id": "sikh",
+   "name": "HMS Sikh",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Sikh_(F82)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "sikh",
+     "force": "vian",
+     "type": "Tribal-class destroyer",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "stlo": {
+   "id": "stlo",
+   "name": "USS St. Lo",
+   "nation": "USN",
+   "class": "Escort carrier",
+   "wiki": "https://en.wikipedia.org/wiki/USS_St._Lo",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "stlo",
+     "force": "taffy3",
+     "type": "Escort carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T11:25",
+     "sunk": "1944-10-25T11:25",
+     "sunkBy": "Kamikaze — first major warship lost to one",
+     "lost": 113
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "suffolk": {
+   "id": "suffolk",
+   "name": "HMS Suffolk",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Suffolk_(55)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "suffolk",
+     "force": "wakewalker",
+     "type": "Heavy cruiser — Type 284 radar",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "suzuya": {
+   "id": "suzuya",
+   "name": "Suzuya",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Suzuya_(1934)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "suzuya",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T13:22",
+     "sunk": "1944-10-25T13:22",
+     "sunkBy": "Taffy 3 aircraft",
+     "lost": 247
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "takao": {
+   "id": "takao",
+   "name": "Takao",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Takao_(1930)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "takao",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "tama": {
+   "id": "tama",
+   "name": "Tama",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tama",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "tama",
+     "force": "northern",
+     "type": "Light cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T23:10",
+     "sunk": "1944-10-25T23:10",
+     "sunkBy": "USS Jallao",
+     "lost": 450
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "tartar": {
+   "id": "tartar",
+   "name": "HMS Tartar",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Tartar_(F43)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "tartar",
+     "force": "rodney",
+     "type": "Tribal-class destroyer (Rodney's escort)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "tone": {
+   "id": "tone",
+   "name": "Tone",
+   "nation": "IJN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tone_(1937)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "tone",
+     "force": "center",
+     "type": "Heavy cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u556": {
+   "id": "u556",
+   "name": "U-556",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-556_(1940)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "u556",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Wohlfarth)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u74": {
+   "id": "u74",
+   "name": "U-74",
+   "nation": "KM",
+   "class": "Type VIIB U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-74_(1940)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "u74",
+     "force": "uboats",
+     "type": "Type VIIB U-boat (Kentrat)",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "victorious": {
+   "id": "victorious",
+   "name": "HMS Victorious",
+   "nation": "RN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Victorious_(R38)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "victorious",
+     "force": "tovey",
+     "type": "Fleet carrier — 9 Swordfish, 6 Fulmars, first operation",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "wv": {
+   "id": "wv",
+   "name": "USS West Virginia",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_West_Virginia_(BB-48)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "wv",
+     "force": "tg772",
+     "type": "Battleship (Pearl Harbor survivor)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "yahagi": {
+   "id": "yahagi",
+   "name": "Yahagi",
+   "nation": "IJN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Yahagi_(1942)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "yahagi",
+     "force": "center",
+     "type": "Light cruiser",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "yamagumo": {
+   "id": "yamagumo",
+   "name": "Yamagumo",
+   "nation": "IJN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Yamagumo_(1937)",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "yamagumo",
+     "force": "southern",
+     "type": "Destroyer",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T03:19",
+     "sunk": "1944-10-25T03:19",
+     "sunkBy": "US destroyer torpedoes",
+     "lost": 238
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "yamashiro": {
+   "id": "yamashiro",
+   "name": "Yamashiro",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamashiro",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "yamashiro",
+     "force": "southern",
+     "type": "Battleship (Nishimura flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T04:19",
+     "sunk": "1944-10-25T04:19",
+     "sunkBy": "Torpedoes and battleship gunfire, Surigao Strait",
+     "lost": 1626
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "yamato": {
+   "id": "yamato",
+   "name": "Yamato",
+   "nation": "IJN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamato",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "yamato",
+     "force": "center",
+     "type": "Battleship",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "tengo",
+     "shipId": "yamato",
+     "force": "ito",
+     "type": "Battleship",
+     "from": "1945-04-05T00:00",
+     "to": "1945-04-07T14:23",
+     "sunk": "1945-04-07T14:23",
+     "sunkBy": "Aircraft bombs and torpedoes",
+     "lost": 3332
+    }
+   ],
+   "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
+  },
+  "zuiho": {
+   "id": "zuiho",
+   "name": "Zuihō",
+   "nation": "IJN",
+   "class": "Light carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuihō",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "zuiho",
+     "force": "northern",
+     "type": "Light carrier",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T15:26",
+     "sunk": "1944-10-25T15:26",
+     "sunkBy": "TF 38 aircraft",
+     "lost": 215
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "zuikaku": {
+   "id": "zuikaku",
+   "name": "Zuikaku",
+   "nation": "IJN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku",
+   "appearances": [
+    {
+     "scenario": "leyte",
+     "shipId": "zuikaku",
+     "force": "northern",
+     "type": "Fleet carrier (Ozawa flagship)",
+     "from": "1944-10-17T00:00",
+     "to": "1944-10-25T14:14",
+     "sunk": "1944-10-25T14:14",
+     "sunkBy": "TF 38 aircraft, off Cape Engaño",
+     "lost": 843
+    }
+   ],
+   "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "zulu": {
+   "id": "zulu",
+   "name": "HMS Zulu",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Zulu_(F18)",
+   "appearances": [
+    {
+     "scenario": "bismarck",
+     "shipId": "zulu",
+     "force": "vian",
+     "type": "Tribal-class destroyer",
+     "from": "1941-05-18T00:00",
+     "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  }
+ }
+}

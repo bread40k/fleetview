@@ -12,6 +12,7 @@ Currently included:
 |---|---|---|---|
 | Battle of Leyte Gulf | 17–28 Oct 1944 | 57 | 24 |
 | Operation Rheinübung — the Bismarck chase | 18–28 May 1941 | 23 | 13 |
+| Operation Ten-Go — the last sortie of Yamato (skeleton) | 5–7 Apr 1945 | 1 | 0 |
 
 ## Features
 
