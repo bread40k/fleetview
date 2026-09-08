@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FleetView — Battle of Leyte Gulf, October 1944</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{
+    --bg:#0b1220; --panel:rgba(13,20,36,.92); --panel2:rgba(20,30,52,.95); --line:rgba(255,255,255,.08);
+    --fg:#e6edf7; --fg2:#c3cfe0; --muted:#8b98ad; --faint:#5f6b7f; --accent:#f5c451; --accentText:#1a1400; --accentHover:#ffd36b;
+    --btn:#1a2740; --btnHover:#243554; --track:#243250; --sel:rgba(245,196,81,.08);
+    --lossText:#f1d1d3; --lossFaint:#8a6a6e; --r:8px; --r-lg:12px; --r-pill:20px; --shadow:0 10px 30px rgba(0,0,0,.35); --panelBorder:var(--line); --blur:blur(10px); --mapFilter:none;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html[data-style="modern"][data-mode="light"]{
+    --bg:#e9eef5; --panel:rgba(255,255,255,.9); --panel2:#ffffff; --line:rgba(15,23,42,.1);
+    --fg:#111827; --fg2:#334155; --muted:#64748b; --faint:#a1a1aa; --accent:#c2410c; --accentText:#fff; --accentHover:#ea580c;
+    --btn:#f1f5f9; --btnHover:#e2e8f0; --track:#cbd5e1; --sel:rgba(194,65,12,.08); --shadow:0 10px 30px rgba(15,23,42,.15);
+    --lossText:#7f1d1d; --lossFaint:#b07a7a;
+  }
+  html[data-style="chart"]{
+    --font:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --mono:"Courier New",Courier,"Lucida Console",monospace;
+    --r:2px; --r-lg:3px; --r-pill:2px; --blur:none;
+  }
+  html[data-style="chart"][data-mode="light"]{
+    --bg:#d8c9a6; --panel:rgba(242,231,207,.96); --panel2:#f2e7cf; --line:rgba(80,60,30,.22); --panelBorder:#8b7a57;
+    --fg:#2b2418; --fg2:#4a3f2c; --muted:#7a6a4f; --faint:#a89a80; --accent:#9a3b1c; --accentText:#f7efdc; --accentHover:#b4472a;
+    --btn:#e6d8b8; --btnHover:#d9c9a4; --track:#c4b28a; --sel:rgba(154,59,28,.1); --shadow:0 6px 18px rgba(60,40,10,.3);
+    --lossText:#6e1a10; --lossFaint:#a8776d;
+    --mapFilter:sepia(.62) saturate(.62) contrast(.95) brightness(1.03);
+  }
+  html[data-style="chart"][data-mode="dark"]{
+    --bg:#121716; --panel:rgba(28,34,32,.96); --panel2:#1f2624; --line:rgba(214,190,140,.18); --panelBorder:#6b6046;
+    --fg:#e8dcc3; --fg2:#cdbf9d; --muted:#9a8c6c; --faint:#6b6350; --accent:#e0b04f; --accentText:#1a1400; --accentHover:#f0c565;
+    --btn:#2a312e; --btnHover:#38413d; --track:#3a423e; --sel:rgba(224,176,79,.1); --shadow:0 6px 18px rgba(0,0,0,.5);
+    --lossText:#f0b8a8; --lossFaint:#8a6a5e;
+    --mapFilter:sepia(.5) saturate(.55) brightness(.72) contrast(1.05);
+  }
+  html[data-style="chart"] .panel{background-image:linear-gradient(rgba(255,255,255,.18),rgba(0,0,0,.03)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.012) 3px 4px)}
+  html[data-style="chart"] #side h1{font-variant:small-caps;letter-spacing:1.5px}
+  html[data-style="chart"] .nation{letter-spacing:1.2px}
+  .leaflet-tile-pane{filter:var(--mapFilter)}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:13px;overflow:hidden}
+  #map{position:absolute;inset:0;z-index:0;background:#0b1a2e}
+  .leaflet-container{font-family:var(--font)}
+  .leaflet-control-attribution{background:var(--panel)!important;color:var(--muted)!important;font-size:10px}
+  .leaflet-control-attribution a{color:var(--fg2)!important}
+  .leaflet-bar a{background:var(--panel2);color:var(--fg);border-color:var(--line)}
+  .leaflet-bar a:hover{background:var(--track)}
+  .leaflet-control-zoom{margin-top:14px!important;margin-right:410px!important;z-index:1000}
+
+  /* ---- panels ---- */
+  .panel{position:absolute;z-index:1100;background:var(--panel);backdrop-filter:var(--blur);border:1px solid var(--panelBorder);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+  #side{top:14px;left:14px;width:300px;max-height:calc(100% - 150px);display:flex;flex-direction:column;overflow:hidden}
+  #side header{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+  #side h1{margin:0;font-size:17px;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+  #side h1 span{color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:600;border:1px solid rgba(245,196,81,.4);padding:1px 6px;border-radius:5px}
+  #side .sub{color:var(--muted);margin:6px 0 0;font-size:11.5px}
+  #scenario{width:100%;margin-top:8px;height:30px;font-weight:600;text-align:left}
+  #scenes{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line)}
+  .chip{background:var(--btn);border:1px solid var(--line);color:var(--fg);border-radius:var(--r-pill);padding:4px 10px;font-size:11.5px;cursor:pointer;white-space:nowrap}
+  .chip:hover{background:var(--btnHover);border-color:rgba(255,255,255,.2)}
+  #forces{overflow-y:auto;padding:6px 8px 8px;flex:1}
+  .force{margin:4px 0;border-radius:var(--r)}
+  .nation{display:flex;align-items:center;gap:8px;margin:10px 8px 4px;padding:0 0 6px;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--fg2)}
+  .nation:first-child{margin-top:4px}
+  .nation svg{width:22px;height:15px;border:1px solid rgba(255,255,255,.25);border-radius:2px;flex:none}
+  .nation .sub{margin-left:auto;font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)}
+  .force > .fh{display:flex;align-items:center;gap:8px;padding:6px 8px;cursor:pointer;border-radius:var(--r);user-select:none}
+  .force > .fh:hover{background:rgba(255,255,255,.04)}
+  .sw{width:10px;height:10px;border-radius:3px;flex:none}
+  .fh .nm{flex:1;font-weight:600;font-size:12.5px}
+  .fh .cnt{color:var(--muted);font-family:var(--mono);font-size:11px}
+  .fh .car{color:var(--muted);transition:transform .15s;font-size:10px}
+  .force.open .fh .car{transform:rotate(90deg)}
+  .ships{display:none;padding:0 6px 6px 26px}
+  .force.open .ships{display:block}
+  .ship{display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:var(--r);cursor:pointer;color:var(--fg2)}
+  .ship:hover{background:var(--sel);color:var(--fg)}
+  .ship .gl{width:20px;height:16px;display:flex;align-items:center;justify-content:center;flex:none}
+  .ship .gl svg{display:block;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+  .ship .gl path{fill:var(--c);stroke:rgba(0,0,0,.35);stroke-width:.6}
+  .ship.sunk .gl path{fill:var(--faint)}
+  .ship.flash{animation:rowflash 1.6s ease-out}
+  .ship.flash .gl path{animation:glflash 1.6s ease-out}
+  .force.flash > .fh{animation:rowflash 1.6s ease-out}
+  @keyframes rowflash{0%{background:rgba(255,176,32,.55);box-shadow:inset 3px 0 0 #ff6a1a}40%{background:rgba(255,120,30,.35)}100%{background:transparent;box-shadow:none}}
+  @keyframes glflash{0%,30%{fill:#ffd54a}100%{fill:var(--faint)}}
+  .ship .st{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .ship.sunk{color:var(--faint)}
+  .ship.sunk .st{color:#e5484d}
+  input[type=checkbox]{accent-color:var(--accent);margin:0;width:13px;height:13px}
+  #opts{padding:10px 16px;border-top:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap;color:var(--fg2);font-size:12px}
+  #opts label{display:flex;align-items:center;gap:6px;cursor:pointer}
+  #seastatus{padding:6px 16px 0;color:var(--muted);font-size:10.5px;font-family:var(--mono)}
+  #foot{padding:8px 16px 10px;color:var(--muted);font-size:10.5px;line-height:1.4;border-top:1px solid var(--line)}
+
+  #events{top:14px;right:14px;width:380px;max-height:calc(100% - 150px);display:flex;flex-direction:column;overflow:hidden}
+  #events header{padding:12px 16px 8px;border-bottom:1px solid var(--line);font-weight:600;font-size:12.5px;display:flex;justify-content:space-between;color:var(--fg2)}
+  #events header span{color:var(--muted);font-weight:400}
+  #evlist{overflow-y:auto;padding:6px 0}
+  .ev{display:grid;grid-template-columns:104px 1fr;gap:10px;padding:6px 14px;align-items:start;cursor:pointer;border-left:3px solid transparent;color:var(--fg2)}
+  .ev:hover{background:rgba(255,255,255,.04)}
+  .ev .t{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;padding-top:1px}
+  .ev .n{line-height:1.35}
+  .ev.past{color:var(--muted)}
+  .ev.cur{border-left-color:var(--accent);background:var(--sel);color:var(--fg)}
+  .ev.cur .t{color:var(--accent)}
+  .ev.future{color:var(--faint)}
+  .ev.future .t{color:var(--faint)}
+  .ev .d{font-size:10px;color:var(--muted);display:block;margin-top:1px}
+
+  /* ---- time bar ---- */
+  #timebar{left:14px;right:14px;bottom:14px;padding:12px 16px 10px}
+  .row{display:flex;align-items:center;gap:10px}
+  .btn{background:var(--btn);border:1px solid var(--line);color:var(--fg);border-radius:var(--r);height:32px;min-width:32px;padding:0 10px;cursor:pointer;font-size:12.5px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+  .btn:hover{background:var(--btnHover)}
+  .btn.primary{background:var(--accent);color:var(--accentText);border-color:transparent;font-weight:700;min-width:84px}
+  .btn.primary:hover{background:var(--accentHover)}
+  select.btn{appearance:none;padding-right:22px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 12px) 14px,calc(100% - 8px) 14px;background-size:4px 4px;background-repeat:no-repeat}
+  #clock{margin-left:auto;text-align:right}
+  #clock .d{font-size:16px;font-weight:700;letter-spacing:.2px}
+  #clock .h{font-family:var(--mono);font-size:22px;color:var(--accent);font-weight:600;line-height:1}
+  #clock small{display:block;color:var(--muted);font-size:10.5px;margin-top:2px}
+  #track{position:relative;margin:14px 6px 18px;height:26px}
+  #slider{position:absolute;left:0;right:0;top:4px;width:100%;margin:0;-webkit-appearance:none;appearance:none;background:transparent;height:18px;z-index:3;cursor:pointer}
+  #slider::-webkit-slider-runnable-track{height:6px;background:linear-gradient(90deg,var(--accent) var(--p,0%),var(--track) var(--p,0%));border-radius:3px}
+  #slider::-moz-range-track{height:6px;background:var(--track);border-radius:3px}
+  #slider::-moz-range-progress{height:6px;background:var(--accent);border-radius:3px}
+  #slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent);margin-top:-5px;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+  #slider::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+  .tick{position:absolute;top:2px;width:2px;height:10px;background:#e5484d;opacity:.85;border-radius:1px;z-index:2;pointer-events:none}
+  .tick.us{background:#3b82f6}
+  .day{position:absolute;top:22px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .day::before{content:"";position:absolute;left:50%;top:-8px;height:6px;width:1px;background:rgba(255,255,255,.18)}
+  .day.major{color:var(--fg2)}
+
+    #themebar{display:flex;gap:6px;margin-top:8px}
+  #themebar select,#themebar button{height:26px;font-size:11px;padding:0 8px;min-width:0;flex:1}
+  #themebar button{flex:0 0 auto;min-width:72px}
+/* ---- ship markers ---- */
+  .shp{position:relative;width:0;height:0}
+  .shp{--sz:14px}
+  .shp .arrow{position:absolute;left:calc(var(--sz) / -2);top:calc(var(--sz) / -2);width:var(--sz);height:var(--sz);transform-origin:50% 50%;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
+  .shp .arrow path{fill:var(--c);stroke:#0b1220;stroke-width:1}
+  .shp .lbl{position:absolute;left:calc(var(--sz) / 2 + 3px);top:-8px;padding:1px 3px;white-space:nowrap;font-size:11px;font-weight:600;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 2px #000;cursor:pointer}
+  .shp .hit{position:absolute;left:calc(max(var(--sz), 22px) / -2);top:calc(max(var(--sz), 22px) / -2);width:max(var(--sz), 22px);height:max(var(--sz), 22px);border-radius:50%;cursor:pointer}
+  .shp .lbl:hover{text-decoration:underline}
+  .shp.wreck .arrow{display:none}
+  .shp .x{display:none;position:absolute;left:-6px;top:-6px;width:12px;height:12px;color:#ff6b6b;font-weight:900;font-size:13px;line-height:12px;text-align:center;text-shadow:0 0 3px #000}
+  .shp.wreck .x{display:block}
+  .shp.wreck .lbl{color:#c9a1a1;font-weight:500;left:8px}
+  .shp.dim .lbl{display:none}
+  .leaflet-marker-icon.fv{background:none;border:none}
+  .leaflet-popup-content-wrapper{background:var(--panel2);color:var(--fg);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.5);border:1px solid var(--line)}
+  .leaflet-popup-tip{background:var(--panel2)}
+  .leaflet-popup-content{margin:12px 14px;font-size:12px;line-height:1.45}
+  .pp h3{margin:0 0 2px;font-size:14px}
+  .pp .k{color:var(--muted)}
+  .pp .status{display:inline-block;margin:6px 0;padding:2px 8px;border-radius:5px;font-size:11px;font-weight:600;background:rgba(34,197,94,.15);color:#7ee2a0}
+  .pp .status.sunk{background:rgba(229,72,77,.18);color:#ff8a8f}
+  .pp .status.anchor{background:rgba(148,163,184,.15);color:var(--fg2)}
+  .pp .wk{margin-top:6px;font-size:11px}
+  .pp .wk a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)}
+  .pp .wk a:hover{color:var(--accent);border-color:var(--accent)}
+  .pp .note{margin-top:6px;padding-top:6px;border-top:1px solid var(--line);color:var(--fg2);font-style:italic}
+
+  /* ---- aircraft ---- */
+  .ac{position:relative;width:0;height:0}
+  .ac .pl{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.8))}
+  .ac .pl svg{position:absolute;left:0;top:0;width:var(--as,14px);height:var(--as,14px);margin:calc(var(--as,14px) / -2) 0 0 calc(var(--as,14px) / -2);transform-origin:50% 50%;transition:transform .9s ease}
+  .ac.attack .pl svg{transition:transform .32s linear}
+  .ac .pl path{fill:var(--c);stroke:none}
+  .ac .pl path.o{fill:#fff;stroke:#fff;stroke-width:2.2;stroke-linejoin:round}
+  .ac .lbl{position:absolute;left:14px;top:-7px;white-space:nowrap;font-size:10.5px;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;pointer-events:none;opacity:.95}
+  .ac .lbl b{font-weight:600}
+  .ac.dim .lbl{display:none}
+  /* ---- fleet flags ---- */
+  .flag{position:relative;width:0;height:0;cursor:pointer}
+  .flag .cloth:hover{filter:drop-shadow(0 0 4px #fff)}
+  .flag .pole{position:absolute;left:0;top:-30px;width:1px;height:30px;background:rgba(255,255,255,.55)}
+  .flag .cloth{position:absolute;left:1px;top:-31px;width:30px;height:20px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+  .flag .cloth svg{display:block;width:100%;height:100%}
+  .flag .gn{position:absolute;left:34px;top:-30px;white-space:nowrap;font-size:10.5px;font-weight:700;letter-spacing:.3px;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 2px #000}
+  .flag .gn small{display:block;font-weight:500;color:#d7deea;font-size:9.5px;letter-spacing:0}
+  .legend{display:flex;gap:14px;align-items:center;padding:8px 16px 0;font-size:11px;color:#c3cfe0}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend svg{width:22px;height:15px;border:1px solid rgba(255,255,255,.25)}
+  .legend.sizes{padding-top:6px;color:var(--muted);font-size:10.5px;gap:8px}
+  .legend.sizes b{color:#c3cfe0;font-weight:600}
+  .legend.sizes svg{border:none;width:auto;height:14px}
+
+  /* ---- sinking flash ---- */
+  .boom{position:relative;width:0;height:0;pointer-events:none}
+  .boom .dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#ffb020;animation:flash .45s ease-in-out infinite alternate}
+  .boom .ring{position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,160,40,.85);animation:ring 1.6s ease-out infinite}
+  .boom .ring2{position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,120,30,.6);animation:ring 1.6s ease-out .8s infinite}
+  @keyframes flash{from{background:#ffd54a;box-shadow:0 0 8px 3px rgba(255,200,60,.75)}to{background:#ff6a1a;box-shadow:0 0 16px 6px rgba(255,110,30,.55)}}
+  /* ---- gunfire / bomb / AA flashes ---- */
+  .gun{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,225,130,.95);opacity:0;pointer-events:none}
+  .gun.on{animation:gunflash .22s ease-out}
+  .gun.hit{width:8px;height:8px;margin:-4px 0 0 -4px;background:#ffb347;box-shadow:0 0 10px 4px rgba(255,120,40,.85)}
+  .gun.hit.on{animation:gunflash .5s ease-out}
+  .gun.aa{width:3px;height:3px;background:#fff;box-shadow:0 0 4px 1px rgba(255,255,200,.9)}
+  @keyframes gunflash{0%{opacity:1;transform:scale(.5)}60%{opacity:.9}100%{opacity:0;transform:scale(1.8)}}
+  @keyframes ring{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.3);opacity:0}}
+  /* ---- losses in the timeline ---- */
+  .ev.loss .t::before{content:"✕ ";color:var(--lc,#e5484d);font-weight:900}
+  .ev.loss{background:linear-gradient(90deg,rgba(229,72,77,.10),transparent 60%)}
+  .ev.loss.cur{background:rgba(245,196,81,.10)}
+  .ev.loss .n, .ev.loss.past .n, .ev.loss.cur .n{color:var(--lossText);font-weight:600}
+  .ev.loss.future .n{color:var(--lossFaint);font-weight:500}
+  html[data-mode="light"] .ev.loss{background:linear-gradient(90deg,rgba(127,29,29,.10),transparent 60%)}
+  #toast.loss{border-color:rgba(229,72,77,.7)}
+  #toast.loss b{color:#ff8a8f}
+  .tick.hot{animation:flash .5s ease-in-out infinite alternate;width:3px}
+  /* ---- ports & airfields ---- */
+  .port{position:relative;width:0;height:0}
+  .port .ic{position:absolute;left:-10px;top:-6px;width:20px;height:13px;border:1px solid rgba(255,255,255,.8);box-shadow:0 1px 3px rgba(0,0,0,.6);overflow:hidden;background:#fff}
+  .port .ic svg{display:block;width:100%;height:100%}
+  .port.air .ic{width:14px;height:14px;left:-7px;top:-7px;border:none;background:none;overflow:visible;box-shadow:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
+  .port.air .ic.wide{width:24px;left:-12px}
+  .port.hq .ic{top:-14px;height:11px;width:17px;left:-8px}
+  .port.hq .pole{position:absolute;left:-9px;top:-14px;width:1px;height:16px;background:rgba(255,255,255,.85)}
+  .port.hq .hqb{position:absolute;left:-10px;top:1px;font:700 10px/13px var(--mono);letter-spacing:.8px;background:#111;color:#fff;padding:0 4px;border-radius:3px;border:1px solid rgba(255,255,255,.75);box-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .port .kd{position:absolute;left:12px;top:-7px;width:13px;height:13px;border-radius:3px;background:var(--kc,#2563eb);border:1px solid rgba(255,255,255,.85);color:#fff;font-size:8.5px;line-height:11px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .port.air .kd{left:9px;border-radius:50%}
+  .port .lbl{position:absolute;left:29px;top:-7px;white-space:nowrap;font-size:10.5px;color:#e6edf7;text-shadow:0 0 3px #000,0 0 3px #000;pointer-events:none}
+  .port.air .lbl{left:26px}
+  .port.hq .lbl{left:12px;top:-12px;font-weight:600}
+  .port .lbl small{display:block;color:#aab6c8;font-size:9px;margin-top:-1px;font-weight:400}
+  .port.dim .lbl small{display:none}
+  .port.dim2 .lbl{display:none}  #search{width:100%;margin-top:8px;height:28px;border-radius:var(--r);border:1px solid var(--line);background:var(--btn);color:var(--fg);padding:0 10px;font-size:12px;font-family:var(--font)}
+  #search:focus{outline:none;border-color:var(--accent)}
+  #losses{display:flex;flex-direction:column;gap:3px;margin-left:auto;font-size:11px;font-family:var(--mono);color:var(--fg2)}
+  #losses .ls{display:flex;align-items:center;gap:6px;white-space:nowrap}
+  #losses .ls i{width:8px;height:8px;border-radius:2px;display:inline-block}
+  #losses .ls b{color:var(--fg)}
+  #losses .ls small{color:var(--muted)}
+  #clock{margin-left:14px}
+  #followchip b{color:var(--accent);margin:0 2px}
+  .btn.mini{height:22px;font-size:11px;padding:0 8px;min-width:0;margin-right:8px}
+  .btn.mini.on{background:var(--accent);color:var(--accentText)}
+  .pp .cf{font-family:var(--font);font-size:10.5px;color:var(--muted);margin-left:6px}
+  .pp .cf.ok{color:#7ee2a0}
+  .cc h3{margin:0 0 2px;font-size:14px}
+  .cc .k{color:var(--muted);font-size:11.5px}
+  .cc p{margin:6px 0;color:var(--fg2);line-height:1.45}
+  .cc .fate{color:var(--muted);font-style:italic}
+  #clock small.slow{color:var(--accent)}
+  .force.hidden, .ship.hidden{display:none}
+  .tp{cursor:pointer}
+  #slowbanner{display:none;align-items:center;gap:10px;padding:8px 12px;background:var(--panel2);border:1px solid var(--accent);border-radius:var(--r);color:var(--fg);box-shadow:var(--shadow);max-width:360px}
+  #slowbanner.show{display:flex;animation:bannerin .25s ease-out}
+  #slowbanner .ic{font-size:18px;color:var(--accent);animation:tick 1s steps(2) infinite}
+  #slowbanner b{display:block;font-size:12px;color:var(--accent)}
+  #slowbanner small{display:block;font-size:11px;color:var(--fg2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+  @keyframes bannerin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes tick{to{opacity:.55}}
+  .slowring{position:relative;width:0;height:0;pointer-events:none}
+  .slowring .r1,.slowring .r2{position:absolute;left:-30px;top:-30px;width:60px;height:60px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:slowpulse 2s ease-out infinite}
+  .slowring .r2{animation-delay:1s}
+  @keyframes slowpulse{0%{transform:scale(.25);opacity:.9}100%{transform:scale(1.4);opacity:0}}
+  @media (max-width:1300px){ #help{display:none} }
+
+  #stack{position:absolute;z-index:1200;left:50%;bottom:128px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;max-width:min(70%, 720px)}
+  #stack > *{pointer-events:auto}
+  #toast{display:none;background:var(--panel2);border:1px solid var(--accent);color:var(--fg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:all .25s;z-index:1000;max-width:100%;text-align:center}
+  #toast.show{display:block;opacity:1;animation:bannerin .25s ease-out}
+  #toast b{color:var(--accent);font-family:var(--mono);margin-right:8px}
+
+  #help{white-space:nowrap;color:var(--muted);font-size:10.5px;font-family:var(--mono);background:var(--panel);padding:4px 8px;border-radius:6px}
+  @media (max-width:1100px){ #events{display:none} .leaflet-control-zoom{margin-right:10px!important} }
+  @media (max-width:700px){ #side{width:calc(100% - 28px);max-height:44%} #help{display:none} #clock .h{font-size:16px} }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<aside id="side" class="panel">
+  <header>
+    <h1>FleetView <span>PROTOTYPE</span></h1>
+    <select id="scenario" class="btn" title="Campaign"></select>
+    <p class="sub"></p>
+    <input id="search" type="search" placeholder="Search ships & air ops…  ( / )" autocomplete="off">
+    <div id="themebar"><select id="uiStyle" class="btn" title="UI style"><option value="modern">Modern UI</option><option value="chart">Wartime chart</option></select><button id="uiMode" class="btn" title="Light / dark">☾ Dark</button></div>
+  </header>
+  <div id="scenes"></div>
+  <div id="forces"></div>
+  <div id="opts">
+    <label>Trails <select id="optTrail" class="btn" style="height:22px;font-size:11px;padding:0 18px 0 6px;min-width:0"><option value="0">Off</option><option value="6">Short · 6 h</option><option value="24" selected>Long · 24 h</option></select></label>
+    <label><input type="checkbox" id="optRoutes"> Full routes</label>
+    <label><input type="checkbox" id="optLabels" checked> Labels</label>
+    <label><input type="checkbox" id="optAir" checked> Aircraft</label>
+    <label><input type="checkbox" id="optFlags" checked> Flags</label>
+    <label><input type="checkbox" id="optPorts" checked> Bases</label>
+    <label><input type="checkbox" id="optNight" checked> Day/night</label>
+    <label><input type="checkbox" id="optAutoSlow" checked> Auto-slow at events</label>
+  </div>
+  <div class="legend" id="legend"></div>
+  <div id="foot">Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don't overlap.</div>
+</aside>
+
+<aside id="events" class="panel">
+  <header>Timeline <span id="evcount"></span></header>
+  <div id="evlist"></div>
+</aside>
+
+<div id="timebar" class="panel">
+  <div class="row">
+    <button class="btn primary" id="play" title="Space">▶ Play</button>
+    <button class="btn" id="bDay" title="Shift+←">−1 d</button>
+    <button class="btn" id="bHour" title="←">−1 h</button>
+    <button class="btn" id="fHour" title="→">+1 h</button>
+    <button class="btn" id="fDay" title="Shift+→">+1 d</button>
+    <button class="btn" id="followchip" style="display:none" title="Esc to stop">◎ Following <b></b> ✕</button>
+    <select class="btn" id="speed" title="Playback speed"></select>
+    <div id="losses"></div>
+    <div id="clock"><div class="d"></div><div class="h"></div><small>Tokyo time · UTC+9</small></div>
+  </div>
+  <div id="track"><input type="range" id="slider" min="0" max="100" step="1" value="0"></div>
+</div>
+<div id="stack">
+<div id="slowbanner"></div>
+<div id="toast"></div>
+<div id="help">space play · ←/→ ±1h · shift ±1d · [ ] events · F follow · L labels · T trails · N night · / search</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// ====================== DATA ======================
+// ============================================================================
+// FLEETVIEW — Leyte Gulf dataset, 17–28 October 1944
+// ----------------------------------------------------------------------------
+// All times are Tokyo Standard Time (UTC+9) — used by both the IJN and the USN
+// (zone "Item") in the Philippines. Encoded as 'DD HH:MM' within October 1944.
+//
+// Waypoint: [time, lat, lon, note?]
+//  - Battle and sinking positions come from published records (Wikipedia,
+//    DANFS, combinedfleet.com TROMs).
+//  - Transit positions between ports are reconstructed along plausible sea
+//    routes and should be treated as schematic.
+//  - Ships in the same formation share a base route; a small deterministic
+//    offset is applied at render time so they don't stack on one pixel.
+//
+// Schema:
+//   ROUTES : named base tracks
+//   SHIPS  : { id, name, force, type, route, until?, extra?, sunk?, sunkBy? }
+//            until = time the ship leaves the base route; extra = own track after
+//   EVENTS : [time, title, lat, lon]
+// ============================================================================
+
+const L_FORCES = {
+  center:   { name: "IJN Center Force (Kurita)",           color: "#e5484d", nation: "IJN" },
+  southern: { name: "IJN Southern Force (Nishimura)",      color: "#f97316", nation: "IJN" },
+  shima:    { name: "IJN 2nd Striking Force (Shima)",      color: "#eab308", nation: "IJN" },
+  northern: { name: "IJN Northern Force (Ozawa)",          color: "#d946ef", nation: "IJN" },
+  taffy3:   { name: "USN Taffy 3 (C. Sprague)",            color: "#3b82f6", nation: "USN" },
+  tf38:     { name: "USN Task Force 38 (Halsey/Mitscher)", color: "#06b6d4", nation: "USN" },
+  tg772:    { name: "USN TG 77.2 (Oldendorf)",             color: "#22c55e", nation: "USN" },
+  subs:     { name: "USN Submarines",                      color: "#94a3b8", nation: "USN" },
+};
+
+const L_ROUTES = {
+  center: [
+    ['17 00:00', 0.20, 104.58, 'At anchor, Lingga Roads'],
+    ['18 01:00', 0.20, 104.58, 'Center Force sorties from Lingga Roads'],
+    ['18 12:00', 1.60, 106.50],
+    ['19 12:00', 3.40, 110.80],
+    ['20 12:00', 5.05, 115.05, 'Arrives Brunei Bay; refuels'],
+    ['22 08:00', 5.05, 115.05, 'Departs Brunei for Palawan Passage'],
+    ['22 18:00', 6.90, 115.90],
+    ['23 00:00', 8.30, 116.60, 'Enters Palawan Passage; shadowed by Darter & Dace'],
+    ['23 05:30', 9.45, 117.25, 'Atago & Maya torpedoed; Kurita shifts flag to Yamato'],
+    ['23 12:00', 10.70, 118.10],
+    ['23 20:00', 11.70, 119.40],
+    ['24 00:00', 12.25, 120.30, 'Mindoro Strait'],
+    ['24 06:00', 12.35, 121.20, 'Tablas Strait'],
+    ['24 08:10', 12.50, 121.60, 'Sighted by Intrepid scout plane'],
+    ['24 10:26', 12.70, 122.00, 'First TF 38 air strike'],
+    ['24 14:00', 12.90, 122.50, 'Repeated strikes; Musashi falls behind'],
+    ['24 15:30', 12.95, 122.75, 'Kurita reverses course west'],
+    ['24 17:15', 12.85, 122.35, 'Turns back east for San Bernardino'],
+    ['24 22:00', 12.70, 123.40],
+    ['25 00:35', 12.55, 124.20, 'Transits San Bernardino Strait unopposed'],
+    ['25 03:00', 12.65, 124.65, 'Exits strait into Philippine Sea'],
+    ['25 05:30', 12.30, 125.70],
+    ['25 06:45', 12.05, 126.15, 'Sights Taffy 3 — Battle off Samar begins'],
+    ['25 08:00', 11.90, 126.30, 'General pursuit'],
+    ['25 09:20', 11.65, 126.20, 'Kurita orders break-off and regroup'],
+    ['25 11:00', 11.95, 126.40],
+    ['25 12:36', 11.80, 126.05, 'Feints toward Leyte Gulf, then turns north'],
+    ['25 13:30', 12.15, 125.90],
+    ['25 17:00', 12.50, 125.20],
+    ['25 21:30', 12.55, 124.40, 'Re-enters San Bernardino Strait'],
+    ['26 00:00', 12.55, 124.00],
+    ['26 08:30', 12.70, 122.60, 'Air attacks in Sibuyan Sea / Tablas Strait'],
+    ['26 12:00', 12.00, 121.50],
+    ['26 20:00', 11.00, 119.80],
+    ['27 12:00', 8.50, 117.50],
+    ['28 21:00', 5.05, 115.05, 'Center Force anchors at Brunei'],
+    ['29 00:00', 5.05, 115.05],
+  ],
+  southern: [
+    ['17 00:00', 0.20, 104.58, 'At anchor, Lingga Roads'],
+    ['18 01:00', 0.20, 104.58, 'Sorties with Center Force'],
+    ['18 12:00', 1.60, 106.50],
+    ['19 12:00', 3.40, 110.80],
+    ['20 12:00', 5.05, 115.05, 'Arrives Brunei'],
+    ['22 15:00', 5.05, 115.05, 'Southern Force departs Brunei'],
+    ['23 04:00', 7.60, 117.00, 'Balabac Strait'],
+    ['23 16:00', 8.30, 119.60, 'Sulu Sea'],
+    ['24 09:18', 9.00, 121.50, 'Attacked by Enterprise aircraft'],
+    ['24 18:00', 9.15, 123.60, 'Mindanao Sea'],
+    ['24 22:00', 9.45, 124.90, 'PT-boat attacks begin'],
+    ['25 01:00', 9.85, 125.20, 'Enters Surigao Strait'],
+    ['25 03:00', 10.15, 125.35, 'US destroyer torpedo attacks'],
+    ['25 03:51', 10.35, 125.35, 'Oldendorf battle line opens fire'],
+    ['25 04:19', 10.37, 125.355, 'Yamashiro capsizes and sinks'],
+  ],
+  shima: [
+    ['17 00:00', 23.55, 119.55, 'Mako, Pescadores'],
+    ['21 16:00', 23.55, 119.55, 'Second Striking Force departs Mako'],
+    ['22 12:00', 19.50, 118.60],
+    ['23 12:00', 14.60, 119.20],
+    ['23 20:00', 12.00, 120.20, 'Coron Bay; refuels'],
+    ['24 02:00', 12.00, 120.20, 'Departs Coron'],
+    ['24 12:00', 10.10, 121.60, 'Sulu Sea'],
+    ['24 22:00', 9.20, 123.90],
+    ['25 03:25', 9.90, 125.20, 'Enters Surigao Strait astern of Nishimura'],
+    ['25 04:30', 10.28, 125.35, 'Nachi collides with Mogami; Shima reverses course'],
+    ['25 06:00', 9.80, 125.20],
+    ['25 14:00', 9.30, 124.00],
+    ['26 06:00', 9.40, 122.70],
+    ['26 20:00', 11.00, 121.00],
+    ['27 12:00', 12.00, 120.20, 'Coron Bay'],
+    ['28 12:00', 14.55, 120.90, 'Manila Bay'],
+    ['29 00:00', 14.55, 120.90],
+  ],
+  northern: [
+    ['17 00:00', 34.20, 132.50, 'Kure / Inland Sea'],
+    ['20 17:00', 32.70, 132.10, 'Northern Force sorties via Bungo Suido'],
+    ['21 12:00', 30.00, 131.20],
+    ['22 12:00', 26.50, 129.20],
+    ['23 12:00', 22.50, 127.30],
+    ['24 06:00', 19.20, 126.00],
+    ['24 11:45', 18.60, 125.70, 'Launches strike against TG 38.3'],
+    ['24 16:00', 18.20, 125.50, "Sighted by Sherman's scouts"],
+    ['24 22:00', 18.60, 125.80, 'Turns north — Halsey takes the bait'],
+    ['25 08:00', 19.00, 126.00, 'First US strike arrives 08:48'],
+    ['25 14:14', 19.33, 125.85, 'Zuikaku sinks'],
+  ],
+  taffy3: [
+    ['17 00:00', 8.50, 130.00, 'En route from Manus'],
+    ['18 12:00', 10.50, 128.00],
+    ['19 06:00', 11.20, 126.70, 'Begins air support for Leyte landings'],
+    ['19 18:00', 11.00, 127.30],
+    ['20 06:00', 11.30, 126.60, 'A-Day: 6th Army lands on Leyte'],
+    ['20 18:00', 11.00, 127.30],
+    ['21 06:00', 11.30, 126.60], ['21 18:00', 11.00, 127.30],
+    ['22 06:00', 11.30, 126.60], ['22 18:00', 11.00, 127.30],
+    ['23 06:00', 11.30, 126.60], ['23 18:00', 11.00, 127.30],
+    ['24 06:00', 11.30, 126.60], ['24 18:00', 11.20, 127.00],
+    ['25 06:00', 11.75, 126.55, 'Dawn CAP launched'],
+    ['25 06:58', 11.70, 126.50, 'Yamato opens fire — Battle off Samar'],
+    ['25 08:00', 11.50, 126.35, 'Fleeing south under smoke'],
+    ['25 09:30', 11.30, 126.20],
+    ['25 10:50', 11.22, 126.10, 'Kamikaze attacks'],
+    ['25 12:00', 11.00, 126.20],
+    ['25 18:00', 10.50, 126.60],
+    ['26 12:00', 10.00, 127.80, 'Retires toward Manus'],
+    ['28 12:00', 8.00, 130.50],
+    ['29 00:00', 7.50, 131.00],
+  ],
+  tg383: [
+    ['17 00:00', 15.50, 131.00, 'Refuelling east of Luzon'],
+    ['18 06:00', 16.00, 124.80, 'Strikes on Luzon airfields'],
+    ['19 06:00', 16.00, 124.80],
+    ['20 06:00', 15.50, 125.20],
+    ['21 06:00', 15.00, 126.50],
+    ['22 12:00', 15.50, 128.00, 'Refuelling'],
+    ['23 12:00', 15.50, 125.50],
+    ['24 06:00', 15.35, 123.80, 'Off Polillo; strikes Sibuyan Sea, then Ozawa'],
+    ['24 16:00', 15.30, 124.00],
+    ['24 20:22', 15.50, 124.80, 'Halsey orders TF 38 north after Ozawa'],
+    ['25 00:00', 16.50, 125.30],
+    ['25 06:00', 17.40, 125.90, 'Launches strikes vs Northern Force'],
+    ['25 12:00', 18.30, 126.00],
+    ['25 18:00', 18.90, 126.10],
+    ['26 06:00', 18.50, 126.60],
+    ['26 18:00', 17.00, 127.20],
+    ['27 12:00', 15.00, 128.50],
+    ['28 12:00', 12.00, 132.00],
+    ['29 00:00', 11.00, 133.50],
+  ],
+  tg382: [
+    ['17 00:00', 15.00, 131.00],
+    ['18 06:00', 14.50, 125.50, 'Strikes on Luzon'],
+    ['19 06:00', 14.50, 125.50],
+    ['20 06:00', 13.50, 126.00],
+    ['21 06:00', 13.00, 126.50],
+    ['22 12:00', 13.50, 128.50, 'Refuelling'],
+    ['23 12:00', 13.20, 126.00],
+    ['24 06:00', 13.20, 125.50, 'East of San Bernardino; strikes Center Force'],
+    ['24 20:22', 14.00, 125.50, 'Ordered north'],
+    ['25 00:00', 15.80, 125.70],
+    ['25 06:00', 17.00, 125.90],
+    ['25 11:15', 17.50, 126.00, 'TF 34 and TG 38.2 detached; turn south'],
+    ['25 18:00', 15.00, 125.60],
+    ['26 01:00', 12.90, 124.90, 'Off San Bernardino — Kurita already gone; Nowaki sunk'],
+    ['26 06:00', 13.30, 125.50, 'Launches strikes on retreating Center Force'],
+    ['26 12:00', 13.50, 125.80],
+    ['27 12:00', 14.00, 127.50],
+    ['28 12:00', 12.00, 132.00],
+    ['29 00:00', 11.00, 133.50],
+  ],
+  tg384: [
+    ['17 00:00', 10.50, 131.50],
+    ['18 06:00', 11.00, 127.50, 'Strikes Leyte / Mindanao'],
+    ['19 06:00', 11.00, 127.50],
+    ['20 06:00', 11.00, 127.50],
+    ['21 06:00', 11.00, 127.50],
+    ['22 12:00', 11.50, 130.00, 'Toward Ulithi; recalled'],
+    ['23 12:00', 11.50, 128.00],
+    ['24 06:00', 11.20, 127.20, 'Strikes Nishimura in Sulu Sea'],
+    ['24 20:22', 12.50, 126.50, 'Ordered north'],
+    ['25 00:00', 14.30, 126.20],
+    ['25 06:00', 16.60, 126.00],
+    ['25 12:00', 17.80, 126.10],
+    ['25 18:00', 18.50, 126.20],
+    ['26 06:00', 18.20, 126.70],
+    ['26 18:00', 16.80, 127.30],
+    ['27 12:00', 14.80, 128.60],
+    ['28 12:00', 12.00, 132.00],
+    ['29 00:00', 11.00, 133.50],
+  ],
+  tg381: [
+    ['17 00:00', 13.00, 131.00],
+    ['18 06:00', 13.00, 127.00, 'Strikes Visayas'],
+    ['19 06:00', 13.00, 127.00],
+    ['20 06:00', 12.50, 127.50],
+    ['21 06:00', 12.50, 127.50],
+    ['22 12:00', 13.00, 129.50, 'Detached to Ulithi'],
+    ['23 12:00', 13.50, 132.00],
+    ['24 12:00', 13.50, 133.50, 'Recalled by Halsey'],
+    ['25 06:00', 13.20, 130.50],
+    ['25 12:00', 13.00, 129.30, 'Long-range strikes on Kurita'],
+    ['26 06:00', 12.60, 127.80, 'Strikes retreating Center Force'],
+    ['27 12:00', 13.00, 129.50],
+    ['28 12:00', 12.00, 132.00],
+    ['29 00:00', 11.00, 133.50],
+  ],
+  tg772: [
+    ['17 00:00', 9.50, 128.50, 'Approaching Leyte from Manus'],
+    ['18 08:00', 10.80, 125.60, 'Bombardment of Leyte landing beaches'],
+    ['19 12:00', 10.90, 125.30],
+    ['20 10:00', 10.90, 125.20, 'A-Day fire support'],
+    ['21 12:00', 10.90, 125.30],
+    ['22 12:00', 10.90, 125.30],
+    ['23 12:00', 10.90, 125.30],
+    ['24 20:00', 10.60, 125.40, 'Battle line forms across Surigao Strait'],
+    ['25 03:51', 10.55, 125.38, 'Opens fire on Yamashiro'],
+    ['25 04:30', 10.50, 125.36],
+    ['25 06:00', 10.30, 125.30, 'Pursuit south'],
+    ['25 10:00', 10.80, 125.30, 'Returns to Leyte Gulf'],
+    ['29 00:00', 10.85, 125.30],
+  ],
+  darter: [
+    ['17 00:00', 9.00, 116.80, 'Patrolling Palawan Passage'],
+    ['21 12:00', 8.50, 116.70],
+    ['23 00:16', 9.30, 117.10, 'Radar contact on Center Force at 30,000 yd'],
+    ['23 05:24', 9.47, 117.27, 'Torpedoes Atago and Takao'],
+    ['23 12:00', 9.50, 117.10, 'Trails damaged Takao'],
+    ['24 00:05', 9.45, 116.93, 'Runs aground on Bombay Shoal'],
+  ],
+};
+
+const L_SHIPS = [
+  // Center Force
+  { id:'yamato',  name:'Yamato',  force:'center', type:'Battleship', route:'center' },
+  { id:'musashi', name:'Musashi', force:'center', type:'Battleship', route:'center', until:'24 14:00',
+    extra:[['24 19:35', 13.12, 122.53, 'Capsizes after ~19 torpedo and 17 bomb hits']], sunk:'24 19:35', sunkBy:'TF 38 carrier aircraft, Sibuyan Sea' },
+  { id:'nagato',  name:'Nagato',  force:'center', type:'Battleship', route:'center' },
+  { id:'kongo',   name:'Kongō',   force:'center', type:'Battleship', route:'center' },
+  { id:'haruna',  name:'Haruna',  force:'center', type:'Battleship', route:'center' },
+  { id:'atago',   name:'Atago',   force:'center', type:'Heavy cruiser (Kurita flagship)', route:'center', until:'23 05:30',
+    extra:[['23 05:53', 9.47, 117.28, 'Sinks 30 min after four torpedo hits']], sunk:'23 05:53', sunkBy:'USS Darter' },
+  { id:'maya',    name:'Maya',    force:'center', type:'Heavy cruiser', route:'center', until:'23 05:30',
+    extra:[['23 06:05', 9.45, 117.38, 'Explodes and sinks']], sunk:'23 06:05', sunkBy:'USS Dace' },
+  { id:'takao',   name:'Takao',   force:'center', type:'Heavy cruiser', route:'center', until:'23 05:30',
+    extra:[['23 05:34', 9.46, 117.27, 'Two torpedo hits; detached to Brunei'], ['23 18:00', 8.0, 116.6], ['24 12:00', 6.0, 115.6], ['24 20:00', 5.05, 115.05, 'Brunei (later Singapore for repairs)'], ['29 00:00', 5.05, 115.05]] },
+  { id:'myoko',   name:'Myōkō',   force:'center', type:'Heavy cruiser', route:'center', until:'24 10:26',
+    extra:[['24 10:29', 12.70, 122.00, 'Aerial torpedo hit; detached'], ['24 20:00', 12.3, 120.8], ['25 12:00', 10.0, 118.5], ['26 06:00', 7.5, 116.5], ['26 16:00', 5.05, 115.05, 'Brunei'], ['29 00:00', 5.05, 115.05]] },
+  { id:'haguro',  name:'Haguro',  force:'center', type:'Heavy cruiser', route:'center' },
+  { id:'chokai',  name:'Chōkai',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
+    extra:[['25 08:00', 11.70, 126.45], ['25 09:05', 11.45, 126.40, 'Disabled by gunfire and bombs'], ['25 11:00', 11.37, 126.37, 'Scuttled by Fujinami']], sunk:'25 11:00', sunkBy:'Taffy 3 aircraft & gunfire; scuttled' },
+  { id:'chikuma', name:'Chikuma', force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
+    extra:[['25 08:00', 11.70, 126.55], ['25 09:00', 11.55, 126.55, 'Aerial torpedo hit; steering lost'], ['25 11:30', 11.37, 126.27, 'Scuttled by Nowaki']], sunk:'25 11:30', sunkBy:'Taffy 3 aircraft; scuttled' },
+  { id:'tone',    name:'Tone',    force:'center', type:'Heavy cruiser', route:'center' },
+  { id:'suzuya',  name:'Suzuya',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
+    extra:[['25 08:00', 11.80, 126.40], ['25 10:50', 11.75, 126.20, 'Near-miss detonates own torpedoes'], ['25 13:22', 11.75, 126.18, 'Sinks']], sunk:'25 13:22', sunkBy:'Taffy 3 aircraft' },
+  { id:'kumano',  name:'Kumano',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
+    extra:[['25 07:27', 11.85, 126.25, 'Bow blown off by Johnston torpedo'], ['25 09:00', 12.1, 126.0], ['25 14:00', 12.5, 125.2], ['25 20:00', 12.55, 124.3], ['26 06:00', 12.6, 123.2], ['26 14:00', 12.2, 121.8], ['27 12:00', 12.0, 120.2, 'Coron Bay'], ['28 12:00', 14.55, 120.9, 'Manila Bay'], ['29 00:00', 14.55, 120.9]] },
+  { id:'yahagi',  name:'Yahagi',  force:'center', type:'Light cruiser', route:'center' },
+  { id:'noshiro', name:'Noshiro', force:'center', type:'Light cruiser', route:'center', until:'26 08:30',
+    extra:[['26 11:39', 11.70, 121.68, 'Sinks south of Mindoro']], sunk:'26 11:39', sunkBy:'TF 38 aircraft' },
+
+  // Southern Force
+  { id:'yamashiro', name:'Yamashiro', force:'southern', type:'Battleship (Nishimura flagship)', route:'southern', sunk:'25 04:19', sunkBy:'Torpedoes and battleship gunfire, Surigao Strait' },
+  { id:'fuso',      name:'Fusō',      force:'southern', type:'Battleship', route:'southern', until:'25 03:00',
+    extra:[['25 03:09', 10.15, 125.38, 'Torpedoed by USS Melvin'], ['25 03:38', 10.15, 125.40, 'Sinks (long thought to have broken in two)']], sunk:'25 03:38', sunkBy:'USS Melvin torpedoes' },
+  { id:'mogami',    name:'Mogami',    force:'southern', type:'Heavy cruiser', route:'southern', until:'25 03:51',
+    extra:[['25 04:30', 10.30, 125.35, 'Collides with Nachi'], ['25 06:00', 9.9, 125.2], ['25 09:00', 9.7, 124.9, 'Air attack; dead in water'], ['25 13:07', 9.67, 124.83, 'Scuttled by Akebono']], sunk:'25 13:07', sunkBy:'Gunfire, collision, aircraft; scuttled' },
+  { id:'shigure',   name:'Shigure',   force:'southern', type:'Destroyer', route:'southern', until:'25 03:51',
+    extra:[['25 05:00', 10.0, 125.3, "Sole survivor of Nishimura's force retires"], ['25 12:00', 9.3, 124.3], ['26 12:00', 8.5, 121.5], ['27 12:00', 7.5, 118.0], ['27 20:00', 5.05, 115.05, 'Brunei'], ['29 00:00', 5.05, 115.05]] },
+  { id:'yamagumo',  name:'Yamagumo',  force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
+    extra:[['25 03:19', 10.25, 125.38, 'Torpedoed; blows up']], sunk:'25 03:19', sunkBy:'US destroyer torpedoes' },
+  { id:'michishio', name:'Michishio', force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
+    extra:[['25 03:20', 10.24, 125.40, 'Torpedoed, dead in water'], ['25 03:58', 10.24, 125.40, 'Sinks']], sunk:'25 03:58', sunkBy:'US destroyer torpedoes' },
+  { id:'asagumo',   name:'Asagumo',   force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
+    extra:[['25 03:20', 10.20, 125.35, 'Bow blown off'], ['25 07:21', 10.07, 125.35, 'Sunk by cruiser/destroyer gunfire']], sunk:'25 07:21', sunkBy:'US cruiser & destroyer gunfire' },
+
+  // Shima
+  { id:'nachi',    name:'Nachi',    force:'shima', type:'Heavy cruiser (Shima flagship)', route:'shima' },
+  { id:'ashigara', name:'Ashigara', force:'shima', type:'Heavy cruiser', route:'shima' },
+  { id:'abukuma',  name:'Abukuma',  force:'shima', type:'Light cruiser', route:'shima', until:'25 03:25',
+    extra:[['25 03:25', 9.90, 125.22, 'Torpedoed by PT-137'], ['25 06:00', 9.6, 124.9], ['25 14:00', 9.4, 124.0], ['26 06:00', 9.35, 122.6, 'Air attack off Negros'], ['26 12:42', 9.33, 122.53, 'Sinks']], sunk:'26 12:42', sunkBy:'USAAF B-24s' },
+
+  // Northern Force
+  { id:'zuikaku', name:'Zuikaku', force:'northern', type:'Fleet carrier (Ozawa flagship)', route:'northern', sunk:'25 14:14', sunkBy:'TF 38 aircraft, off Cape Engaño' },
+  { id:'zuiho',   name:'Zuihō',   force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
+    extra:[['25 15:26', 19.33, 125.25, 'Sinks']], sunk:'25 15:26', sunkBy:'TF 38 aircraft' },
+  { id:'chitose', name:'Chitose', force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
+    extra:[['25 09:37', 19.33, 126.33, 'Sinks in first strike']], sunk:'25 09:37', sunkBy:'TF 38 aircraft' },
+  { id:'chiyoda', name:'Chiyoda', force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
+    extra:[['25 10:00', 19.10, 126.30, 'Crippled, dead in water'], ['25 16:55', 18.62, 126.75, 'Sunk by cruiser gunfire — no survivors']], sunk:'25 16:55', sunkBy:'TF 38 aircraft, then US cruiser gunfire' },
+  { id:'ise',     name:'Ise',     force:'northern', type:'Hybrid battleship-carrier', route:'northern', until:'25 08:00',
+    extra:[['25 14:00', 19.4, 125.9, 'Dodges dozens of bombs'], ['25 20:00', 20.5, 125.6, 'Retires north'], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
+  { id:'hyuga',   name:'Hyūga',   force:'northern', type:'Hybrid battleship-carrier', route:'northern', until:'25 08:00',
+    extra:[['25 14:00', 19.4, 125.9], ['25 20:00', 20.5, 125.6, 'Retires north'], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
+  { id:'oyodo',   name:'Ōyodo',   force:'northern', type:'Light cruiser', route:'northern', until:'25 08:00',
+    extra:[['25 11:00', 19.3, 126.0, 'Ozawa shifts flag from Zuikaku'], ['25 20:00', 20.5, 125.6], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
+  { id:'tama',    name:'Tama',    force:'northern', type:'Light cruiser', route:'northern', until:'25 08:00',
+    extra:[['25 10:00', 19.3, 126.1, 'Aerial torpedo hit; detached toward Okinawa'], ['25 23:10', 21.38, 127.32, 'Torpedoed — lost with all hands']], sunk:'25 23:10', sunkBy:'USS Jallao' },
+
+  // Taffy 3
+  { id:'fanshaw',  name:'USS Fanshaw Bay', force:'taffy3', type:'Escort carrier (Sprague flagship)', route:'taffy3' },
+  { id:'gambier',  name:'USS Gambier Bay', force:'taffy3', type:'Escort carrier', route:'taffy3', until:'25 08:00',
+    extra:[['25 08:40', 11.55, 126.25, 'Dead in water under cruiser fire'], ['25 09:07', 11.52, 126.20, 'Capsizes']], sunk:'25 09:07', sunkBy:'IJN cruiser gunfire — only US carrier sunk by surface ships' },
+  { id:'stlo',     name:'USS St. Lo',      force:'taffy3', type:'Escort carrier', route:'taffy3', until:'25 10:50',
+    extra:[['25 11:25', 11.22, 126.08, 'Sinks after kamikaze hit']], sunk:'25 11:25', sunkBy:'Kamikaze — first major warship lost to one' },
+  { id:'kalinin',  name:'USS Kalinin Bay',  force:'taffy3', type:'Escort carrier', route:'taffy3' },
+  { id:'johnston', name:'USS Johnston',     force:'taffy3', type:'Destroyer (Cdr. Ernest Evans)', route:'taffy3', until:'25 06:58',
+    extra:[['25 07:10', 11.76, 126.42, 'Charges Kumano alone through the smoke'], ['25 07:27', 11.87, 126.28, 'Torpedoes Kumano; hit by Kongō 14-inch shells'], ['25 08:00', 11.75, 126.25, 'Rejoins the fight on one engine'], ['25 09:00', 11.70, 126.20, 'Engages entire destroyer squadron'], ['25 09:45', 11.77, 126.16, 'Abandon ship'], ['25 10:10', 11.77, 126.15, 'Rolls over and sinks']], sunk:'25 10:10', sunkBy:'IJN gunfire; a Japanese destroyer captain salutes the survivors' },
+  { id:'hoel',     name:'USS Hoel',         force:'taffy3', type:'Destroyer', route:'taffy3', until:'25 06:58',
+    extra:[['25 07:25', 11.90, 126.50, 'Torpedo attack on Kongō'], ['25 08:30', 11.80, 126.55, 'Dead in water, 40+ hits'], ['25 08:55', 11.77, 126.55, 'Sinks']], sunk:'25 08:55', sunkBy:'IJN battleship & cruiser gunfire' },
+  { id:'heermann', name:'USS Heermann',     force:'taffy3', type:'Destroyer', route:'taffy3' },
+  { id:'sbr',      name:'USS Samuel B. Roberts', force:'taffy3', type:'Destroyer escort', route:'taffy3', until:'25 06:58',
+    extra:[['25 08:00', 11.70, 126.30, 'Torpedoes Chōkai'], ['25 09:00', 11.75, 126.20, 'Hit by Kongō'], ['25 10:05', 11.75, 126.17, 'Sinks']], sunk:'25 10:05', sunkBy:'IJN gunfire — "the destroyer escort that fought like a battleship"' },
+
+  // TF 38
+  { id:'essex',      name:'USS Essex',      force:'tf38', type:'Fleet carrier — TG 38.3', route:'tg383' },
+  { id:'lexington',  name:'USS Lexington',  force:'tf38', type:'Fleet carrier — TG 38.3 (Mitscher flagship)', route:'tg383' },
+  { id:'princeton',  name:'USS Princeton',  force:'tf38', type:'Light carrier — TG 38.3', route:'tg383', until:'24 06:00',
+    extra:[['24 09:38', 15.35, 123.50, 'Single bomb; fires reach torpedo stowage'], ['24 17:50', 15.35, 123.52, 'Scuttled by Reno']], sunk:'24 17:50', sunkBy:'Land-based Judy dive bomber; scuttled' },
+  { id:'intrepid',   name:'USS Intrepid',   force:'tf38', type:'Fleet carrier — TG 38.2', route:'tg382' },
+  { id:'newjersey',  name:'USS New Jersey', force:'tf38', type:'Battleship — Halsey flagship (TF 34)', route:'tg382' },
+  { id:'iowa',       name:'USS Iowa',       force:'tf38', type:'Battleship — TF 34', route:'tg382' },
+  { id:'enterprise', name:'USS Enterprise', force:'tf38', type:'Fleet carrier — TG 38.4', route:'tg384' },
+  { id:'hornet',     name:'USS Hornet',     force:'tf38', type:'Fleet carrier — TG 38.1', route:'tg381' },
+
+  // Oldendorf
+  { id:'wv',          name:'USS West Virginia', force:'tg772', type:'Battleship (Pearl Harbor survivor)', route:'tg772' },
+  { id:'california',  name:'USS California',    force:'tg772', type:'Battleship', route:'tg772' },
+  { id:'mississippi', name:'USS Mississippi',   force:'tg772', type:'Battleship — fired the last battleship salvo in history', route:'tg772' },
+  { id:'louisville',  name:'USS Louisville',    force:'tg772', type:'Heavy cruiser (Oldendorf flagship)', route:'tg772' },
+
+  // Submarines
+  { id:'darter', name:'USS Darter', force:'subs', type:'Submarine', route:'darter', sunk:'24 00:05', sunkBy:'Grounded on Bombay Shoal; crew rescued by Dace' },
+  { id:'dace',   name:'USS Dace',   force:'subs', type:'Submarine', route:'darter', until:'23 05:24',
+    extra:[['23 05:56', 9.45, 117.38, 'Torpedoes Maya'], ['23 12:00', 9.5, 117.1], ['24 00:05', 9.45, 116.93, "Rescues Darter's crew"], ['24 06:00', 9.3, 116.7], ['25 12:00', 7.5, 115.8], ['27 12:00', 3.0, 114.0, 'Toward Fremantle'], ['29 00:00', 0.5, 113.0]] },
+];
+
+const L_EVENTS = [
+  ['18 01:00', 'Center Force sorties from Lingga Roads', 0.2, 104.58],
+  ['20 10:00', 'A-Day: US 6th Army lands on Leyte', 11.05, 125.05],
+  ['20 17:00', "Ozawa's decoy Northern Force sorties from Bungo Suido", 32.7, 132.1],
+  ['22 08:00', 'Kurita departs Brunei', 5.05, 115.05],
+  ['22 15:00', 'Nishimura departs Brunei', 5.05, 115.05],
+  ['23 05:24', 'Darter torpedoes Atago (Kurita swims for it) and Takao', 9.47, 117.27],
+  ['23 06:05', 'Dace sinks Maya', 9.45, 117.38],
+  ['24 00:05', 'Darter runs aground on Bombay Shoal', 9.45, 116.93],
+  ['24 08:10', 'Center Force sighted entering Tablas Strait', 12.5, 121.6],
+  ['24 09:18', 'Southern Force attacked in Sulu Sea', 9.0, 121.5],
+  ['24 09:38', 'Princeton hit by a single bomb', 15.35, 123.5],
+  ['24 10:26', 'Battle of the Sibuyan Sea: first strike on Kurita', 12.7, 122.0],
+  ['24 15:30', 'Kurita reverses course — Halsey believes he is beaten', 12.95, 122.75],
+  ['24 16:40', 'Ozawa finally sighted; Halsey decides to go north', 18.2, 125.5],
+  ['24 17:15', 'Kurita turns back toward San Bernardino', 12.85, 122.35],
+  ['24 17:50', 'Princeton scuttled', 15.35, 123.52],
+  ['24 19:35', 'Musashi sinks', 13.12, 122.53],
+  ['24 20:22', 'Halsey takes all of TF 38 north; strait left unguarded', 15.5, 124.8],
+  ['25 00:35', 'Center Force transits San Bernardino Strait', 12.55, 124.2],
+  ['25 03:09', 'Battle of Surigao Strait: Fusō torpedoed', 10.15, 125.38],
+  ['25 03:51', "Oldendorf's battle line opens fire", 10.55, 125.38],
+  ['25 04:19', 'Yamashiro sinks with Nishimura aboard', 10.37, 125.355],
+  ['25 04:30', 'Nachi collides with Mogami; Shima retreats', 10.28, 125.35],
+  ['25 06:45', 'Battle off Samar begins — Kurita sights Taffy 3', 12.05, 126.15],
+  ['25 07:27', 'Johnston torpedoes Kumano', 11.87, 126.28],
+  ['25 08:48', 'Battle off Cape Engaño: first strike hits Ozawa', 19.0, 126.0],
+  ['25 08:55', 'Hoel sinks', 11.77, 126.55],
+  ['25 09:07', 'Gambier Bay sinks', 11.52, 126.2],
+  ['25 09:20', 'Kurita breaks off the pursuit', 11.65, 126.2],
+  ['25 09:37', 'Chitose sinks', 19.33, 126.33],
+  ['25 10:00', 'Nimitz to Halsey: "Where is TF 34? The world wonders"', 17.4, 125.9],
+  ['25 10:05', 'Samuel B. Roberts sinks', 11.75, 126.17],
+  ['25 10:10', 'Johnston sinks', 11.77, 126.15],
+  ['25 11:15', 'TF 34 (Lee) turns south — too late', 17.5, 126.0],
+  ['25 11:25', 'St. Lo sunk by kamikaze', 11.22, 126.08],
+  ['25 12:36', 'Kurita abandons attack on Leyte Gulf', 11.8, 126.05],
+  ['25 13:07', 'Mogami scuttled', 9.67, 124.83],
+  ['25 13:22', 'Suzuya sinks', 11.75, 126.18],
+  ['25 14:14', 'Zuikaku — last Pearl Harbor carrier — sinks', 19.33, 125.85],
+  ['25 15:26', 'Zuihō sinks', 19.33, 125.25],
+  ['25 16:55', 'Chiyoda sunk by cruiser gunfire', 18.62, 126.75],
+  ['25 21:30', 'Kurita re-enters San Bernardino Strait', 12.55, 124.4],
+  ['25 23:10', 'Tama torpedoed by USS Jallao', 21.38, 127.32],
+  ['26 11:39', 'Noshiro sinks', 11.7, 121.68],
+  ['26 12:42', 'Abukuma sinks', 9.33, 122.53],
+  ['28 21:00', 'Remnants of Center Force reach Brunei', 5.05, 115.05],
+];
+
+// ---- Carrier (and a few land-based) air strikes. Times Tokyo (UTC+9).
+//   from   : {route:'tg382'} = launched from that group's position, or {lat,lon} for airfields
+//   target : {ship:'yamato'} = follows that ship, or {lat,lon}
+//   launch → arrive (outbound), arrive → leave (attacking / orbiting), leave → recover (return)
+//   recoverAt : optional {lat,lon} landing point if not the launching group; oneway: no return leg
+//   land: true = land-based aircraft (shown for context)
+const L_STRIKES = [
+  { id:'st1',  name:'TG 38.2 strike 1',      nation:'USN', from:{route:'tg382'}, target:{ship:'yamato'},   launch:'24 09:10', arrive:'24 10:26', leave:'24 10:50', recover:'24 12:00', count:45,  note:'Intrepid & Cabot open the Battle of the Sibuyan Sea; first torpedo hit on Musashi' },
+  { id:'st2',  name:'TG 38.2 strike 2',      nation:'USN', from:{route:'tg382'}, target:{ship:'musashi'},  launch:'24 11:45', arrive:'24 12:45', leave:'24 13:05', recover:'24 14:15', count:42,  note:'Musashi takes 3 more torpedoes and 2 bombs; speed drops to 22 kn' },
+  { id:'st3',  name:'TG 38.3 strike',        nation:'USN', from:{route:'tg383'}, target:{ship:'musashi'},  launch:'24 12:15', arrive:'24 13:30', leave:'24 13:50', recover:'24 15:00', count:68,  note:'Essex & Lexington Helldivers and Avengers concentrate on the lagging Musashi' },
+  { id:'st4',  name:'TG 38.4 strike',        nation:'USN', from:{route:'tg384'}, target:{ship:'musashi'},  launch:'24 13:00', arrive:'24 14:15', leave:'24 14:40', recover:'24 16:00', count:65,  note:'Enterprise & Franklin: Musashi down by the bow, Myōkō already detached' },
+  { id:'st5',  name:'TG 38.2/38.4 strike 3', nation:'USN', from:{route:'tg382'}, target:{ship:'musashi'},  launch:'24 14:00', arrive:'24 15:10', leave:'24 15:35', recover:'24 16:50', count:75,  note:'Final strike of the day: 10+ torpedo hits; Kurita reverses course at 15:30' },
+  { id:'st6',  name:'Enterprise strike (Sulu Sea)', nation:'USN', from:{route:'tg384'}, target:{ship:'yamashiro'}, launch:'24 06:30', arrive:'24 09:18', leave:'24 09:40', recover:'24 12:30', count:26, note:'Fusō catapult hit, Shigure damaged — the only air attack Nishimura faces' },
+  { id:'st7',  name:'Luzon land-based raid', nation:'IJN', land:true, from:{lat:15.19, lon:120.56}, target:{ship:'princeton'}, launch:'24 08:00', arrive:'24 09:38', leave:'24 10:00', recover:'24 11:30', count:60, note:'Clark Field aircraft; a lone Judy puts a 250 kg bomb through Princeton\'s deck' },
+  { id:'st8',  name:'Ozawa\'s carrier strike', nation:'IJN', from:{route:'northern'}, target:{ship:'essex'}, launch:'24 11:45', arrive:'24 13:15', leave:'24 13:40', recover:'24 15:30', oneway:true, recoverAt:{lat:15.19, lon:120.56}, count:76, note:'Mostly shot down by Sherman\'s CAP; survivors fly on to Luzon, leaving Ozawa ~29 aircraft' },
+  { id:'st9',  name:'Taffy 3 strike',        nation:'USN', from:{route:'taffy3'}, target:{ship:'yamato'},   launch:'25 07:00', arrive:'25 07:20', leave:'25 08:30', recover:'25 09:30', recoverAt:{lat:11.2, lon:125.0}, count:60, note:'Everything that can fly is launched; many aircraft recover at Tacloban airstrip' },
+  { id:'st10', name:'Taffy 2 strike 1',      nation:'USN', from:{lat:10.9, lon:126.8}, target:{ship:'chokai'}, launch:'25 07:45', arrive:'25 08:20', leave:'25 09:15', recover:'25 10:00', count:50, note:'Stump\'s Taffy 2 Avengers cripple Chōkai and Chikuma' },
+  { id:'st11', name:'Taffy 2/3 strike 2',    nation:'USN', from:{lat:10.9, lon:126.8}, target:{ship:'suzuya'}, launch:'25 10:15', arrive:'25 10:50', leave:'25 11:30', recover:'25 12:15', count:70, note:'Near-miss sets off Suzuya\'s torpedoes; Kurita\'s force is now circling' },
+  { id:'st12', name:'Taffy 1 strike',        nation:'USN', from:{lat:10.0, lon:127.0}, target:{ship:'mogami'}, launch:'25 07:45', arrive:'25 09:00', leave:'25 09:20', recover:'25 10:30', count:30, note:'Avengers finish the crippled Mogami retreating from Surigao' },
+  { id:'st13', name:'Cape Engaño strike 1',  nation:'USN', from:{route:'tg383'}, target:{ship:'chitose'},  launch:'25 06:00', arrive:'25 08:48', leave:'25 09:10', recover:'25 10:30', count:180, note:'Dawn launch, held orbiting until Ozawa located; Chitose sunk, Zuikaku torpedoed' },
+  { id:'st14', name:'Cape Engaño strike 2',  nation:'USN', from:{route:'tg383'}, target:{ship:'chiyoda'},  launch:'25 08:35', arrive:'25 09:45', leave:'25 10:05', recover:'25 11:20', count:36,  note:'Chiyoda crippled and left dead in the water' },
+  { id:'st15', name:'Cape Engaño strike 3',  nation:'USN', from:{route:'tg383'}, target:{ship:'zuikaku'},  launch:'25 11:45', arrive:'25 13:10', leave:'25 13:40', recover:'25 15:00', count:200, note:'Largest strike of the battle; Zuikaku and Zuihō both sunk' },
+  { id:'st16', name:'Cape Engaño strike 4',  nation:'USN', from:{route:'tg383'}, target:{ship:'ise'},      launch:'25 13:15', arrive:'25 14:45', leave:'25 15:10', recover:'25 16:30', count:40,  note:'Ise dodges 34 near-misses; Hyūga also escapes' },
+  { id:'st17', name:'Kamikaze — Shikishima unit', nation:'IJN', land:true, oneway:true, from:{lat:15.22, lon:120.55}, target:{ship:'stlo'}, launch:'25 07:25', arrive:'25 10:49', leave:'25 10:53', recover:'25 10:53', count:9, note:'Lt Yukio Seki\'s 5 Zeros with 4 escorts from Mabalacat: first organised kamikaze attack' },
+  { id:'st18', name:'TG 38.1 long-range strike', nation:'USN', from:{route:'tg381'}, target:{ship:'yamato'}, launch:'25 10:30', arrive:'25 13:15', leave:'25 13:40', recover:'25 16:15', count:100, note:'McCain launches at ~335 nm — the longest carrier strike of the war' },
+  { id:'st19', name:'TG 38.2 strike (26 Oct)', nation:'USN', from:{route:'tg382'}, target:{ship:'yamato'}, launch:'26 06:00', arrive:'26 08:30', leave:'26 09:00', recover:'26 10:30', count:80, note:'Kurita harried through the Sibuyan Sea; Yamato takes two bombs' },
+  { id:'st20', name:'TG 38.1 strike (26 Oct)', nation:'USN', from:{route:'tg381'}, target:{ship:'noshiro'}, launch:'26 09:30', arrive:'26 11:00', leave:'26 11:40', recover:'26 13:30', count:60, note:'Light cruiser Noshiro sunk south of Mindoro' },
+];
+
+// Display names for formation flags (keyed by route)
+const L_GROUPS = { center:'Center Force', southern:'Southern Force', shima:'2nd Striking Force', northern:'Northern Force', taffy3:'Taffy 3', tg383:'TG 38.3', tg382:'TG 38.2 / TF 34', tg384:'TG 38.4', tg381:'TG 38.1', tg772:'TG 77.2', darter:'Darter & Dace' };
+L_STRIKES.push(
+  { id:'st21', name:'Luzon land-based raids on TG 38.3', nation:'IJN', land:true, from:{lat:15.19, lon:120.56}, target:{ship:'essex'}, launch:'24 07:15', arrive:'24 08:30', leave:'24 09:35', recover:'24 10:45', count:150, note:'Three waves from Clark; Essex CAP breaks them up — McCampbell shoots down nine in one sortie' },
+  { id:'st22', name:'Kamikaze — Asahi/Kikusui units (Davao)', nation:'IJN', land:true, oneway:true, from:{lat:7.07, lon:125.60}, target:{lat:10.0, lon:127.0}, launch:'25 06:30', arrive:'25 07:40', leave:'25 07:45', recover:'25 07:45', count:6, note:'Hit escort carriers Santee and Suwannee of Taffy 1 — the first kamikaze hits of the war, three hours before St. Lo' },
+  { id:'st23', name:'USAAF B-24s from Morotai', nation:'USN', land:true, from:{lat:2.05, lon:128.30}, target:{ship:'abukuma'}, launch:'26 07:30', arrive:'26 10:06', leave:'26 10:45', recover:'26 13:45', count:44, note:'5th and 13th Air Force Liberators catch Shima\'s cripples off Negros; Abukuma sinks at 12:42' },
+  { id:'st24', name:'Kamikaze on Taffy 1 (Cebu)', nation:'IJN', land:true, oneway:true, from:{lat:10.30, lon:123.90}, target:{lat:10.0, lon:127.5}, launch:'26 11:30', arrive:'26 12:40', leave:'26 12:45', recover:'26 12:45', count:4, note:'Suwannee hit a second time while landing aircraft; 85 killed' },
+);
+
+// ---- Ports, anchorages and airfields. control: 'IJN' | 'USN'; captured: time control passes to USN
+const L_PORTS = [
+  { name:'Kure',              lat:34.23, lon:132.57, control:'IJN', kind:'port', note:'IJN home port; Ozawa sorties via Bungo Suido' },
+  { name:'Amami Ōshima',      lat:28.30, lon:129.40, control:'IJN', kind:'port', note:'Anchorage; Ise & Hyūga shelter here 27 Oct' },
+  { name:'Mako (Pescadores)', lat:23.55, lon:119.55, control:'IJN', kind:'port', note:"Shima's 2nd Striking Force base" },
+  { name:'Manila',            lat:14.58, lon:120.97, control:'IJN', kind:'port', note:'Main IJN base in the Philippines' },
+  { name:'Clark / Mabalacat', lat:15.19, lon:120.56, control:'IJN', kind:'air',  note:'1st Air Fleet; kamikaze units form here' },
+  { name:'Coron Bay',         lat:12.00, lon:120.20, control:'IJN', kind:'port', note:'Fuelling anchorage for Shima' },
+  { name:'Cebu',              lat:10.30, lon:123.90, control:'IJN', kind:'air',  note:'Land-based air; kamikaze staging' },
+  { name:'Davao',             lat:7.07,  lon:125.60, control:'IJN', kind:'air',  note:'Southern air base' },
+  { name:'Ormoc',             lat:11.00, lon:124.60, control:'IJN', kind:'port', note:'Japanese supply port on west Leyte' },
+  { name:'Brunei Bay',        lat:5.05,  lon:115.05, control:'IJN', kind:'port', note:'Fuelling base for Kurita & Nishimura' },
+  { name:'Lingga Roads',      lat:0.20,  lon:104.58, control:'IJN', kind:'port', note:'Fleet anchorage near Singapore' },
+  { name:'Tacloban',          lat:11.24, lon:125.00, control:'IJN', captured:'20 10:00', kind:'air', note:'Leyte landing beaches; airstrip used by Taffy aircraft 25 Oct' },
+  { name:'Dulag',             lat:10.95, lon:125.03, control:'IJN', captured:'20 10:00', kind:'port', note:'Southern landing beaches, Leyte Gulf' },
+  { name:'Ulithi',            lat:10.00, lon:139.70, control:'USN', kind:'port', note:'Third Fleet fleet anchorage' },
+  { name:'Kossol Roads',      lat:7.80,  lon:134.50, control:'USN', kind:'port', note:'Forward anchorage, Palau' },
+  { name:'Peleliu',           lat:7.00,  lon:134.25, control:'USN', kind:'air',  note:'Airfield taken Sept–Oct 1944' },
+  { name:'Morotai',           lat:2.05,  lon:128.30, control:'USN', kind:'air',  note:'Airfield taken Sept 1944' },
+  { name:'Manus (Seeadler)',  lat:-2.00, lon:147.40, control:'USN', kind:'port', note:'Seventh Fleet staging base' },
+];
+
+L_PORTS.push({ name:'Tacloban airstrip', lat:11.22, lon:125.03, control:'IJN', captured:'20 10:00', kind:'air', note:'Taffy aircraft land here on 25 Oct; Army fighters arrive 27 Oct' });
+L_PORTS.push(
+  { name:'Tokyo — Imperial GHQ', lat:35.68, lon:139.69, control:'IJN', kind:'hq', hq:'Navy General Staff · Combined Fleet HQ at Hiyoshi', note:'Toyoda\'s Combined Fleet staff directs Shō-Gō 1 from an underground bunker at Hiyoshi, near Tokyo' },
+  { name:'Manila — SW Area Fleet HQ', lat:14.60, lon:121.00, control:'IJN', kind:'hq', hq:'Southwest Area Fleet · 1st Air Fleet (Ōnishi)', note:'Ōnishi organises the first kamikaze units here on 19–20 Oct' },
+  { name:'Hollandia — GHQ SWPA', lat:-2.55, lon:140.70, control:'USN', kind:'hq', hq:'MacArthur\'s General Headquarters', note:'MacArthur embarks in cruiser Nashville for the Leyte landings; 7th Fleet answers to him, not Nimitz' },
+  { name:'Pearl Harbor — CINCPAC', lat:21.35, lon:-157.95, control:'USN', kind:'hq', hq:'Nimitz — Pacific Fleet HQ', note:'Origin of the "Where is Task Force 34? The world wonders" signal' },
+);
+
+// ---- register scenario
+const SCENARIOS = {};
+SCENARIOS.leyte = {
+  id:'leyte', title:'Battle of Leyte Gulf', subtitle:'Philippines · 17–28 October 1944',
+  base:[1944, 9], start:'17 00:00', end:'29 00:00', tz:'Tokyo time · UTC+9', majorDays:[24, 25],
+  view:{ center:[13.5, 124.0], zoom:6, min:4, max:11 },
+  routing:{ res:0.02, bbox:[-1, 103, 26, 136] },
+  keyShips:['yamato','musashi','yamashiro','zuikaku','nachi','fanshaw','johnston','essex','newjersey','wv','darter'],
+  scenes:[
+    ['Overview', '25 06:30', [13.5, 124.0], 6],
+    ['Palawan Passage', '23 05:20', [9.5, 117.2], 9],
+    ['Sibuyan Sea', '24 14:30', [12.9, 122.5], 8],
+    ['Surigao Strait', '25 03:45', [10.3, 125.35], 9],
+    ['Samar', '25 08:30', [11.75, 126.3], 9],
+    ['Cape Engaño', '25 13:00', [19.1, 126.0], 8],
+  ],
+  defaultTime:'25 06:30',
+  footnote:'Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don\'t overlap.',
+  forces:L_FORCES, routes:L_ROUTES, ships:L_SHIPS, strikes:L_STRIKES, groups:L_GROUPS, events:L_EVENTS, ports:L_PORTS,
+};
+
+// ============================================================================
+// OPERATION RHEINÜBUNG — the Bismarck chase, 18–28 May 1941
+// Times as commonly cited in British/German accounts (roughly UTC+2, double summer time).
+// Sinking positions: Hood 63°20′N 31°50′W; Bismarck 48°10′N 16°12′W; Mashona 52°58′N 11°36′W.
+// ============================================================================
+const B_FORCES = {
+  lutjens:  { name:"KM Battle Group (Lütjens)",            color:"#e5484d", nation:"KM" },
+  uboats:   { name:"KM U-boats",                            color:"#9ca3af", nation:"KM" },
+  holland:  { name:"RN Battlecruiser Force (Holland)",      color:"#3b82f6", nation:"RN" },
+  wakewalker:{ name:"RN 1st Cruiser Sqn (Wake-Walker)",     color:"#22c55e", nation:"RN" },
+  tovey:    { name:"RN Home Fleet (Tovey)",                 color:"#06b6d4", nation:"RN" },
+  rodney:   { name:"RN Rodney group",                       color:"#eab308", nation:"RN" },
+  forceh:   { name:"RN Force H (Somerville)",               color:"#a855f7", nation:"RN" },
+  vian:     { name:"RN 4th Destroyer Flotilla (Vian)",      color:"#f97316", nation:"RN" },
+  others:   { name:"RN Detached cruisers",                  color:"#94a3b8", nation:"RN" },
+};
+const B_ROUTES = {
+  bismarck: [
+    ['18 00:00', 54.52, 18.55, 'Gotenhafen (Gdynia)'],
+    ['19 02:00', 54.52, 18.55, 'Bismarck sails; Prinz Eugen sailed the evening before'],
+    ['19 12:00', 54.70, 13.40, 'Rendezvous off Cape Arkona'],
+    ['20 13:00', 57.00, 11.50, 'Kattegat — sighted and reported by Swedish cruiser Gotland'],
+    ['20 22:00', 58.00, 9.50, 'Passes Skagen; seen from the Norwegian coast'],
+    ['21 09:00', 60.35, 5.25, 'Anchors in Grimstadfjord near Bergen; Prinz Eugen refuels'],
+    ['21 19:30', 60.35, 5.25, 'Sails from Bergen after dark'],
+    ['22 12:00', 64.50, 3.00, 'Heads north; Lütjens chooses the Denmark Strait'],
+    ['22 20:00', 66.00, 0.00],
+    ['23 10:00', 67.50, -15.00, 'Rounds Iceland to the north in fog and snow'],
+    ['23 19:22', 66.70, -27.50, 'Sighted by Suffolk at the edge of the ice'],
+    ['24 02:00', 65.00, -30.00, 'Shadowed by radar all night'],
+    ['24 05:52', 63.30, -31.70, 'Battle of the Denmark Strait — opens fire on Hood'],
+    ['24 06:00', 63.28, -31.75, 'Hood blows up; Prince of Wales hit and retires'],
+    ['24 12:00', 61.80, -34.00, 'Bow flooding, oil leak; speed reduced to 28 kn'],
+    ['24 18:14', 60.40, -36.80, 'Turns on shadowers; Prinz Eugen detached to the south'],
+    ['25 00:00', 58.60, -37.60, "Victorious's Swordfish attack — one torpedo hit amidships"],
+    ['25 03:06', 57.30, -37.90, 'Suffolk loses radar contact; Bismarck turns for France'],
+    ['25 12:00', 55.50, -32.00, "Long signal to Germany betrays position — but Tovey misplots it"],
+    ['26 00:00', 52.50, -26.50],
+    ['26 10:30', 49.55, -21.80, 'Sighted by Catalina Z/209 after 31 hours lost'],
+    ['26 18:00', 48.90, -18.00, 'Sheffield shadowing'],
+    ['26 20:47', 48.50, -16.80, "Ark Royal's Swordfish jam the rudders — Bismarck can only circle"],
+    ['27 00:00', 48.35, -16.50, 'Night torpedo attacks by Vian\'s destroyers'],
+    ['27 08:47', 48.20, -16.25, 'Rodney and King George V open fire'],
+    ['27 10:39', 48.17, -16.20, 'Bismarck sinks'],
+  ],
+  eugen: [
+    ['25 12:00', 56.00, -38.50, 'Detached — heads south for the convoy routes'],
+    ['26 12:00', 49.00, -40.00, 'Refuels from tanker Spichern'],
+    ['27 12:00', 46.00, -35.00, 'Engine trouble; abandons commerce raiding'],
+    ['28 18:00', 45.50, -28.00, 'Bound for Brest (arrives 1 June)'],
+  ],
+  holland: [
+    ['18 00:00', 58.90, -3.10, 'Scapa Flow'],
+    ['21 00:52', 58.90, -3.10, 'Hood and Prince of Wales sail for Iceland'],
+    ['22 12:00', 61.50, -10.00],
+    ['23 12:00', 62.50, -20.00, 'South of Iceland, covering the Denmark Strait'],
+    ['23 20:00', 62.70, -24.00, "Suffolk's report received; Holland turns to intercept at 27 kn"],
+    ['24 02:00', 63.00, -28.50, 'Contact lost overnight; destroyers detached'],
+    ['24 05:35', 63.30, -31.55, 'Enemy in sight'],
+    ['24 05:52', 63.33, -31.75, 'Hood opens fire on Prinz Eugen by mistake'],
+    ['24 06:00', 63.33, -31.83, 'Hood blows up — 3 survivors of 1,418'],
+  ],
+  pow: [
+    ['24 06:13', 63.25, -31.72, 'Prince of Wales retires under smoke — 7 hits, Y turret jammed'],
+    ['24 12:00', 62.00, -33.50, 'Joins Wake-Walker shadowing'],
+    ['24 18:40', 60.50, -36.50, 'Brief second exchange of fire'],
+    ['25 06:00', 58.50, -34.00, 'Detached to Iceland, short of fuel'],
+    ['26 12:00', 62.50, -26.00],
+    ['27 12:00', 64.40, -21.80, 'Hvalfjörður, Iceland'],
+    ['28 18:00', 64.40, -21.80],
+  ],
+  wakewalker: [
+    ['18 00:00', 64.40, -21.80, 'Hvalfjörður'],
+    ['22 12:00', 65.50, -24.50, 'Patrolling the Denmark Strait'],
+    ['23 12:00', 66.80, -26.50],
+    ['23 19:22', 66.75, -27.30, 'Suffolk sights Bismarck 7 miles off; ducks into the fog'],
+    ['24 02:00', 65.00, -29.50, 'Shadowing by radar through the night'],
+    ['24 05:52', 63.60, -31.00, 'Watches the Denmark Strait battle from astern'],
+    ['24 12:00', 62.00, -33.80],
+    ['24 18:14', 60.60, -36.50, 'Bismarck turns on the shadowers; Suffolk falls back'],
+    ['25 00:00', 58.80, -37.30],
+    ['25 03:06', 57.50, -37.70, 'Contact lost during a zig-zag'],
+    ['25 12:00', 56.50, -39.00, 'Searches south-west — the wrong way'],
+    ['26 12:00', 52.50, -30.00, 'Norfolk turns for Brest on her own judgement'],
+    ['27 08:47', 48.30, -16.30, 'Norfolk arrives in time for the final battle'],
+    ['27 12:00', 48.40, -16.00],
+    ['28 18:00', 53.00, -10.00, 'Home'],
+  ],
+  suffolk: [
+    ['26 12:00', 54.00, -35.00],
+    ['27 12:00', 52.00, -28.00],
+    ['28 18:00', 55.00, -18.00, 'Returning to Iceland / Clyde'],
+  ],
+  tovey: [
+    ['18 00:00', 58.90, -3.10, 'Scapa Flow'],
+    ['22 22:45', 58.90, -3.10, 'Tovey sails with King George V, Victorious, Repulse and cruisers'],
+    ['23 12:00', 59.50, -6.00],
+    ['24 06:00', 60.10, -17.50, 'Hears of Hood\'s loss'],
+    ['24 12:00', 60.30, -23.50],
+    ['24 15:00', 60.40, -25.00, 'Victorious detached to strike'],
+    ['25 03:06', 59.20, -29.50, 'Contact lost — Tovey 100 miles away'],
+    ['25 12:00', 59.80, -27.00, 'Misplots Bismarck\'s signals; steams north-east for 7 hours'],
+    ['25 19:00', 59.50, -25.00, 'Turns south-east for Brest'],
+    ['26 12:00', 53.50, -22.00, 'Catalina report — 130 miles behind Bismarck, fuel critical'],
+    ['26 22:00', 50.00, -18.50, 'Joined by Rodney; waits for dawn'],
+    ['27 08:47', 48.35, -16.45, 'Rodney opens fire at 08:47, KGV a minute later'],
+    ['27 10:20', 48.20, -16.30, 'Bismarck silenced; Tovey breaks off to save fuel'],
+    ['27 11:00', 48.50, -16.50, 'Departs for Loch Ewe at 19 kn'],
+    ['28 18:00', 53.00, -10.00],
+  ],
+  victorious: [
+    ['24 22:10', 60.10, -32.50, 'Launches 9 Swordfish (825 Sqn) at 120 miles'],
+    ['25 03:00', 59.50, -33.00, 'Recovers aircraft in darkness; Fulmars lost'],
+    ['25 12:00', 59.00, -36.00, 'Searches north-west'],
+    ['26 12:00', 61.00, -25.00],
+    ['28 18:00', 58.90, -3.10, 'Scapa Flow'],
+  ],
+  rodney: [
+    ['18 00:00', 55.95, -4.75, 'Clyde — escorting troopship Britannic to Halifax'],
+    ['22 12:00', 55.90, -8.00],
+    ['24 12:00', 54.50, -18.00, 'Detached from Britannic to hunt Bismarck'],
+    ['25 12:00', 52.50, -22.00],
+    ['26 12:00', 50.80, -20.80, 'Gambles on Brest — right'],
+    ['26 22:00', 50.00, -18.50, 'Joins King George V'],
+    ['27 08:47', 48.35, -16.40, 'Opens fire; her 16-inch shells wreck Bismarck\'s forward turrets'],
+    ['27 10:20', 48.22, -16.28],
+    ['27 11:00', 48.50, -16.50],
+    ['28 18:00', 53.00, -10.00],
+  ],
+  forceh: [
+    ['18 00:00', 36.13, -5.35, 'Gibraltar'],
+    ['24 02:00', 36.13, -5.35, 'Force H sails north to cut Bismarck off from France'],
+    ['25 12:00', 42.00, -12.00, 'Heavy weather; Ark Royal\'s deck pitching 50 ft'],
+    ['26 10:00', 48.50, -18.30, 'Swordfish confirm Catalina sighting'],
+    ['26 14:50', 48.70, -17.60, 'First strike launched — attacks Sheffield by mistake'],
+    ['26 19:10', 48.80, -17.20, 'Second strike: 15 Swordfish'],
+    ['27 00:00', 48.30, -17.00, 'Stands off to the south overnight'],
+    ['27 09:26', 47.90, -16.60, 'Third strike launched but cannot attack through the gunfire'],
+    ['27 12:00', 47.80, -16.50],
+    ['28 18:00', 43.00, -13.00, 'Returning to Gibraltar'],
+  ],
+  sheffield: [
+    ['26 13:15', 48.60, -17.90, 'Detached to shadow Bismarck'],
+    ['26 14:50', 48.65, -17.40, 'Attacked by her own side\'s Swordfish — 11 torpedoes dodged'],
+    ['26 17:40', 48.70, -17.20, 'In visual contact with Bismarck; homes the second strike'],
+    ['26 21:40', 48.50, -16.80, 'Straddled by Bismarck; 3 killed'],
+    ['27 08:47', 48.10, -16.00],
+    ['27 12:00', 47.90, -16.30],
+    ['28 18:00', 43.00, -13.00],
+  ],
+  vian: [
+    ['18 00:00', 55.95, -4.75, 'Clyde'],
+    ['22 12:00', 54.50, -8.50, 'Escorting troop convoy WS 8B'],
+    ['25 12:00', 51.00, -13.00],
+    ['26 02:00', 50.50, -14.00, 'Vian detached on his own initiative to find Bismarck'],
+    ['26 22:38', 48.60, -16.60, 'Piorun makes contact; Vian\'s destroyers close in'],
+    ['27 01:00', 48.45, -16.50, 'Night torpedo attacks in heavy seas; Cossack and Maori claim hits'],
+    ['27 07:00', 48.35, -16.40, 'Maori fires starshell to mark Bismarck for the battleships'],
+    ['27 12:00', 48.30, -16.30],
+    ['28 18:00', 51.00, -6.00, 'Plymouth'],
+  ],
+  dorsetshire: [
+    ['18 00:00', 44.00, -22.00, 'Escorting convoy SL 74 north from Freetown'],
+    ['26 12:00', 45.00, -21.00, 'Leaves the convoy on her own initiative'],
+    ['27 09:00', 48.15, -16.50, 'Arrives during the battle'],
+    ['27 10:36', 48.17, -16.22, 'Fires the final torpedoes; Bismarck sinks at 10:39'],
+    ['27 11:40', 48.18, -16.20, 'Rescues 110 survivors; leaves after a U-boat alarm'],
+    ['28 18:00', 51.50, -12.00, 'Newcastle-bound'],
+  ],
+  mashona: [
+    ['26 22:00', 50.00, -18.50, 'Turns for home with Tartar and Somali, low on fuel'],
+    ['27 12:00', 51.50, -15.50],
+    ['28 09:00', 52.90, -11.80, 'Attacked by He 111s of KG 28'],
+    ['28 13:00', 52.97, -11.60, 'Capsizes and sinks off Galway'],
+  ],
+  u556: [
+    ['18 00:00', 47.00, -22.00, 'Returning from patrol, no torpedoes left'],
+    ['26 19:48', 48.30, -16.20, 'Renown and Ark Royal cross her bows — nothing to fire'],
+    ['27 00:00', 48.30, -16.40, 'Homes other U-boats; watches the destroyer attacks'],
+    ['27 12:00', 48.10, -16.00],
+    ['28 18:00', 47.50, -10.00, 'To Lorient'],
+  ],
+  u74: [
+    ['18 00:00', 46.50, -18.00, 'On patrol'],
+    ['26 22:00', 47.90, -16.30, 'Ordered to Bismarck\'s position'],
+    ['27 19:00', 47.80, -16.05, 'Picks up 3 survivors from a raft'],
+    ['28 18:00', 47.00, -10.00],
+  ],
+};
+
+const B_SHIPS = [
+  // Kriegsmarine
+  { id:'bismarck', name:'Bismarck', force:'lutjens', type:'Battleship (Lütjens flagship)', route:'bismarck', sunk:'27 10:39', sunkBy:'Gunfire of Rodney & King George V, torpedoes from Dorsetshire, and scuttling charges — 114 survivors of 2,200' },
+  { id:'eugen',    name:'Prinz Eugen', force:'lutjens', type:'Heavy cruiser', route:'bismarck', until:'24 18:14', extra:B_ROUTES.eugen },
+  { id:'u556', name:'U-556', force:'uboats', type:'Type VIIC U-boat (Wohlfarth)', route:'u556' },
+  { id:'u74',  name:'U-74',  force:'uboats', type:'Type VIIB U-boat (Kentrat)',  route:'u74' },
+  // Royal Navy — Holland
+  { id:'hood', name:'HMS Hood', force:'holland', type:'Battlecruiser (Holland flagship)', route:'holland', sunk:'24 06:00', sunkBy:"Bismarck's fifth salvo — magazine explosion; 3 survivors of 1,418" },
+  { id:'pow',  name:'HMS Prince of Wales', force:'holland', type:'Battleship (dockyard workers still aboard)', route:'holland', until:'24 06:00', extra:B_ROUTES.pow },
+  // Wake-Walker
+  { id:'norfolk', name:'HMS Norfolk', force:'wakewalker', type:'Heavy cruiser (Wake-Walker flagship)', route:'wakewalker' },
+  { id:'suffolk', name:'HMS Suffolk', force:'wakewalker', type:'Heavy cruiser — Type 284 radar', route:'wakewalker', until:'25 12:00', extra:B_ROUTES.suffolk },
+  // Tovey
+  { id:'kgv',        name:'HMS King George V', force:'tovey', type:'Battleship (Tovey flagship)', route:'tovey' },
+  { id:'repulse',    name:'HMS Repulse', force:'tovey', type:'Battlecruiser', route:'tovey', until:'25 09:00',
+    extra:[['25 09:00', 59.6, -28.0, 'Detached to Newfoundland, short of fuel'], ['26 12:00', 55.0, -40.0], ['28 18:00', 48.0, -52.0, 'Conception Bay']] },
+  { id:'victorious', name:'HMS Victorious', force:'tovey', type:'Fleet carrier — 9 Swordfish, 6 Fulmars, first operation', route:'tovey', until:'24 15:00', extra:B_ROUTES.victorious },
+  { id:'galatea',    name:'HMS Galatea', force:'tovey', type:'Light cruiser', route:'tovey', until:'24 15:00', extra:B_ROUTES.victorious },
+  { id:'mashona',    name:'HMS Mashona', force:'rodney', type:'Tribal-class destroyer (Rodney\'s escort)', route:'rodney', until:'26 22:00', extra:B_ROUTES.mashona, sunk:'28 13:00', sunkBy:'He 111 bomb in the forward boiler room while returning short of fuel — 46 killed, 184 rescued by Tartar' },
+  // Rodney
+  { id:'rodney', name:'HMS Rodney', force:'rodney', type:'Battleship — nine 16-inch guns', route:'rodney' },
+  // Force H
+  { id:'renown',   name:'HMS Renown',   force:'forceh', type:'Battlecruiser (Somerville flagship)', route:'forceh' },
+  { id:'arkroyal', name:'HMS Ark Royal', force:'forceh', type:'Fleet carrier — 810, 818, 820 Sqns Swordfish', route:'forceh' },
+  { id:'sheffield', name:'HMS Sheffield', force:'forceh', type:'Light cruiser', route:'forceh', until:'26 13:15', extra:B_ROUTES.sheffield },
+  // Vian
+  { id:'cossack', name:'HMS Cossack', force:'vian', type:'Tribal-class destroyer (Vian)', route:'vian' },
+  { id:'maori',   name:'HMS Maori',   force:'vian', type:'Tribal-class destroyer', route:'vian' },
+  { id:'zulu',    name:'HMS Zulu',    force:'vian', type:'Tribal-class destroyer', route:'vian' },
+  { id:'sikh',    name:'HMS Sikh',    force:'vian', type:'Tribal-class destroyer', route:'vian' },
+  { id:'piorun',  name:'ORP Piorun',  force:'vian', type:'Polish destroyer — first to sight Bismarck on the 26th', route:'vian' },
+  // Others
+  { id:'dorsetshire', name:'HMS Dorsetshire', force:'others', type:'Heavy cruiser', route:'dorsetshire' },
+];
+
+const B_STRIKES = [
+  { id:'b1', name:'Spitfire recce (Wick)', nation:'RN', land:true, from:{lat:58.45, lon:-3.10}, target:{ship:'bismarck'}, launch:'21 11:00', arrive:'21 13:15', leave:'21 13:25', recover:'21 15:30', count:1, note:'P/O Suckling photographs Bismarck in Grimstadfjord from 25,000 ft — the Admiralty knows she is out' },
+  { id:'b2', name:'Maryland recce (Hatston)', nation:'RN', land:true, from:{lat:59.00, lon:-3.00}, target:{lat:60.35, lon:5.25}, launch:'22 16:30', arrive:'22 19:30', leave:'22 19:45', recover:'22 22:30', count:1, note:'Flies below the cloud to find the fjord empty — Tovey sails that night' },
+  { id:'b3', name:'Sunderland Z/201 (Reykjavik)', nation:'RN', land:true, from:{lat:64.13, lon:-21.90}, target:{ship:'bismarck'}, launch:'24 03:30', arrive:'24 06:10', leave:'24 08:00', recover:'24 10:30', count:1, note:"Arrives over the battle in time to see Hood's wreckage and report Bismarck's oil slick" },
+  { id:'b4', name:'Victorious Swordfish (825 Sqn)', nation:'RN', from:{route:'victorious'}, target:{ship:'bismarck'}, launch:'24 22:10', arrive:'25 00:00', leave:'25 00:15', recover:'25 02:30', count:9, note:"Esmonde's crews, most on their first strike, hit Bismarck once amidships in the dark; all return" },
+  { id:'b5', name:'Catalina Z/209 (Lough Erne)', nation:'RN', land:true, from:{lat:54.45, lon:-7.75}, target:{ship:'bismarck'}, launch:'26 03:45', arrive:'26 10:30', leave:'26 12:00', recover:'26 18:00', count:1, note:'US Navy Ensign Leonard Smith, officially a "special observer", finds Bismarck 690 miles from Brest' },
+  { id:'b6', name:'Ark Royal strike 1', nation:'RN', from:{route:'forceh'}, target:{ship:'sheffield'}, launch:'26 14:50', arrive:'26 15:50', leave:'26 16:00', recover:'26 17:20', count:15, note:'Attacks Sheffield by mistake; the magnetic-pistol torpedoes fail — contact pistols used for the next strike' },
+  { id:'b7', name:'Ark Royal strike 2', nation:'RN', from:{route:'forceh'}, target:{ship:'bismarck'}, launch:'26 19:10', arrive:'26 20:47', leave:'26 21:25', recover:'26 22:20', count:15, note:'Two hits; the second jams both rudders at 12° port — the chase is decided' },
+  { id:'b8', name:'Ark Royal strike 3', nation:'RN', from:{route:'forceh'}, target:{ship:'bismarck'}, launch:'27 09:26', arrive:'27 10:15', leave:'27 10:40', recover:'27 11:30', count:12, note:"Cannot attack through the battleships' gunfire; watches Bismarck sink" },
+  { id:'b9', name:'Luftwaffe (Fw 200 / He 111) from Bordeaux', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'kgv'}, launch:'27 08:00', arrive:'27 12:30', leave:'27 13:30', recover:'27 17:30', count:20, note:'Arrives after Bismarck has gone; bombs the withdrawing British fleet without success' },
+  { id:'b10', name:'Luftwaffe strike (28 May)', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'mashona'}, launch:'28 05:30', arrive:'28 09:00', leave:'28 10:00', recover:'28 14:00', count:12, note:'Catches the fuel-starved destroyers Mashona and Tartar; Mashona sunk' },
+];
+
+const B_GROUPS = { bismarck:'Lütjens', holland:'Holland', wakewalker:'Wake-Walker', tovey:'Home Fleet', rodney:'Rodney', forceh:'Force H', vian:'Vian', dorsetshire:'Dorsetshire', u556:'U-556', u74:'U-74' };
+B_STRIKES.push(
+  { id:'b11', name:'Luftwaffe recce of Scapa Flow (Stavanger)', nation:'KM', land:true, from:{lat:58.88, lon:5.63}, target:{lat:58.9, lon:-3.1}, launch:'22 11:00', arrive:'22 13:00', leave:'22 13:20', recover:'22 15:00', count:1, note:'Reports the Home Fleet still in harbour through cloud — wrongly reassuring Lütjens' },
+  { id:'b12', name:'Catalina M/240 (Lough Erne)', nation:'RN', land:true, from:{lat:54.45, lon:-7.75}, target:{ship:'bismarck'}, launch:'26 04:00', arrive:'26 11:30', leave:'26 15:00', recover:'26 21:00', count:1, note:'Second Catalina to find Bismarck; shadows until fuel runs low' },
+  { id:'b13', name:'Fw 200 Condor recce (Bordeaux)', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'renown'}, launch:'26 09:00', arrive:'26 13:30', leave:'26 14:30', recover:'26 19:00', count:2, note:'KG 40 Condors report Force H closing from the south' },
+);
+
+const B_EVENTS = [
+  ['19 02:00', 'Bismarck sails from Gotenhafen — Operation Rheinübung begins', 54.52, 18.55],
+  ['20 13:00', 'Swedish cruiser Gotland reports the German squadron', 57.0, 11.5],
+  ['21 00:52', 'Hood and Prince of Wales sail from Scapa Flow', 58.9, -3.1],
+  ['21 09:00', 'Bismarck anchors near Bergen', 60.35, 5.25],
+  ['21 13:15', 'Spitfire photographs Bismarck in Grimstadfjord', 60.35, 5.25],
+  ['21 19:30', "Lütjens sails from Bergen without topping up Bismarck's fuel", 60.35, 5.25],
+  ['22 19:30', 'Reconnaissance finds Bergen empty', 60.35, 5.25],
+  ['22 22:45', 'Tovey sails with the Home Fleet', 58.9, -3.1],
+  ['23 19:22', 'Suffolk sights Bismarck in the Denmark Strait', 66.7, -27.5],
+  ['24 02:00', 'Force H ordered north from Gibraltar', 36.13, -5.35],
+  ['24 05:52', 'Battle of the Denmark Strait — Hood opens fire', 63.32, -31.6],
+  ['24 06:00', 'Hood blows up and sinks in three minutes', 63.33, -31.83],
+  ['24 06:13', 'Prince of Wales breaks off, damaged', 63.1, -31.6],
+  ['24 18:14', 'Prinz Eugen detached; Bismarck turns on her shadowers', 60.4, -36.8],
+  ['24 22:10', 'Victorious launches nine Swordfish', 60.1, -32.5],
+  ['25 00:00', 'Swordfish torpedo hits Bismarck amidships', 58.6, -37.6],
+  ['25 03:06', 'Suffolk loses contact — Bismarck vanishes', 57.3, -37.9],
+  ['25 12:00', "Bismarck's long signal misplotted; Tovey heads north-east", 55.5, -32.0],
+  ['25 19:00', 'Admiralty and Tovey settle on Brest; Home Fleet turns south-east', 59.5, -25.0],
+  ['26 10:30', 'Catalina Z/209 finds Bismarck after 31 hours', 49.55, -21.8],
+  ['26 14:50', "Ark Royal's first strike attacks Sheffield by mistake", 48.65, -17.4],
+  ['26 20:47', "Swordfish torpedo jams Bismarck's rudders", 48.5, -16.8],
+  ['26 22:38', "Piorun sights Bismarck; Vian's destroyers attack through the night", 48.6, -16.6],
+  ['27 08:47', 'Rodney and King George V open fire', 48.35, -16.4],
+  ['27 09:31', "Bismarck's forward turrets knocked out", 48.3, -16.35],
+  ['27 10:15', 'Bismarck silent; Dorsetshire closes to torpedo', 48.2, -16.3],
+  ['27 10:39', 'Bismarck sinks', 48.17, -16.2],
+  ['27 11:40', 'Dorsetshire abandons rescue after U-boat alarm — 110 saved', 48.18, -16.2],
+  ['27 19:00', 'U-74 picks up three more survivors', 47.8, -16.05],
+  ['28 13:00', 'Mashona sunk by Luftwaffe bombers off Ireland', 52.97, -11.6],
+];
+
+const B_PORTS = [
+  { name:'Gotenhafen',       lat:54.52, lon:18.55, control:'KM', kind:'port', note:"Bismarck's departure port (Gdynia)" },
+  { name:'Kiel',             lat:54.32, lon:10.14, control:'KM', kind:'port', note:'Kriegsmarine Baltic base' },
+  { name:'Bergen (Grimstadfjord)', lat:60.35, lon:5.25, control:'KM', kind:'port', note:'Anchorage 21 May; Prinz Eugen refuels, Bismarck does not' },
+  { name:'Trondheim',        lat:63.43, lon:10.40, control:'KM', kind:'port', note:'Norwegian base' },
+  { name:'Brest',            lat:48.39, lon:-4.49, control:'KM', kind:'port', note:"Lütjens' destination; Scharnhorst & Gneisenau already here" },
+  { name:'St-Nazaire',       lat:47.27, lon:-2.20, control:'KM', kind:'port', note:'Only Atlantic-coast dry dock big enough for Bismarck' },
+  { name:'Bordeaux-Mérignac', lat:44.83, lon:-0.70, control:'KM', kind:'air', note:'KG 40 Fw 200 Condors' },
+  { name:'Stavanger-Sola',    lat:58.88, lon:5.63, control:'KM', kind:'air', note:'Luftwaffe reconnaissance over Scapa Flow' },
+  { name:'Lorient',          lat:47.75, lon:-3.37, control:'KM', kind:'port', note:'U-boat base' },
+  { name:'Scapa Flow',       lat:58.90, lon:-3.10, control:'RN', kind:'port', note:'Home Fleet anchorage' },
+  { name:'Hvalfjörður',      lat:64.40, lon:-21.80, control:'RN', kind:'port', note:'Fuelling anchorage, Iceland' },
+  { name:'Reykjavik',        lat:64.13, lon:-21.90, control:'RN', kind:'air', note:'Coastal Command Sunderlands' },
+  { name:'Hatston / Wick',   lat:58.75, lon:-3.05, control:'RN', kind:'air', note:'Reconnaissance over Norway' },
+  { name:'Lough Erne',       lat:54.45, lon:-7.75, control:'RN', kind:'air', note:'209 Sqn Catalinas' },
+  { name:'Clyde',            lat:55.95, lon:-4.75, control:'RN', kind:'port', note:'Convoy assembly; Rodney and Vian sail from here' },
+  { name:'Loch Ewe',         lat:57.85, lon:-5.60, control:'RN', kind:'port', note:"Tovey's fuel stop after the battle" },
+  { name:'Plymouth',         lat:50.37, lon:-4.14, control:'RN', kind:'port', note:'Western Approaches' },
+  { name:'Gibraltar',        lat:36.13, lon:-5.35, control:'RN', kind:'port', note:'Force H base' },
+];
+
+SCENARIOS.bismarck = {
+  id:'bismarck', title:'Operation Rheinübung — the Bismarck Chase', subtitle:'North Atlantic · 18–28 May 1941',
+  base:[1941, 4], start:'18 00:00', end:'28 18:00', tz:'Zone time · ~UTC+2', majorDays:[24, 27],
+  view:{ center:[56.0, -18.0], zoom:4.5, min:3, max:11 },
+  keyShips:['bismarck','eugen','hood','pow','suffolk','kgv','rodney','arkroyal','victorious','dorsetshire','u556'],
+  scenes:[
+    ['Overview', '25 12:00', [56.0, -18.0], 4.5],
+    ['Bergen', '21 13:00', [60.3, 5.2], 8],
+    ['Denmark Strait', '24 05:50', [64.0, -30.0], 6],
+    ['Contact lost', '25 03:00', [57.5, -37.5], 6],
+    ['Catalina sighting', '26 10:30', [49.5, -21.8], 6],
+    ['Swordfish strike', '26 20:45', [48.6, -17.0], 8],
+    ['Final battle', '27 09:30', [48.25, -16.3], 9],
+  ],
+  defaultTime:'24 05:50',
+  footnote:"Times as cited in standard accounts (~UTC+2). Sinking positions from records; transit positions are reconstructed from hourly narratives and are approximate. Formation members are spread slightly so they don't overlap.",
+  forces:B_FORCES, routes:B_ROUTES, ships:B_SHIPS, strikes:B_STRIKES, groups:B_GROUPS, events:B_EVENTS, ports:B_PORTS,
+};
+B_PORTS.push(
+  { name:'London — Admiralty', lat:51.505, lon:-0.125, control:'RN', kind:'hq', hq:'Admiralty Operational Intelligence Centre', note:'Pound and the OIC direct the hunt; Tovey commands at sea' },
+  { name:'Liverpool — Western Approaches', lat:53.40, lon:-3.00, control:'RN', kind:'hq', hq:'Western Approaches Command (Derby House)', note:'Controls convoy escorts — Vian\'s destroyers and Dorsetshire are detached from convoys' },
+  { name:'Berlin — OKM / Seekriegsleitung', lat:52.52, lon:13.40, control:'KM', kind:'hq', hq:'Naval High Command (Raeder)', note:'Raeder approves Rheinübung over Hitler\'s misgivings' },
+  { name:'Wilhelmshaven — Group North', lat:53.52, lon:8.11, control:'KM', kind:'hq', hq:'Marinegruppenkommando Nord (Carls)', note:'Controls Bismarck until she passes south of the Denmark Strait' },
+  { name:'Paris — Group West', lat:48.86, lon:2.35, control:'KM', kind:'hq', hq:'Marinegruppenkommando West (Saalwächter)', note:'Takes over Bismarck on 25 May and coordinates U-boats and Luftwaffe' },
+);
+
+// ---- Gun engagements: ships firing between from/to (rate = flash probability per tick, 0–1)
+SCENARIOS.leyte.engagements = [
+  // Surigao Strait
+  { ships:['yamashiro','fuso','mogami','shigure','yamagumo','michishio','asagumo'], from:'25 03:00', to:'25 03:50', rate:.25, note:'Destroyer torpedo attacks' },
+  { ships:['wv','california','mississippi','louisville'], from:'25 03:51', to:'25 04:09', rate:.55, note:'Battle line opens fire' },
+  { ships:['yamashiro','mogami','shigure'], from:'25 03:51', to:'25 04:19', rate:.45 },
+  { ships:['louisville','mogami','asagumo'], from:'25 04:20', to:'25 07:21', rate:.12, note:'Pursuit and mopping up' },
+  // Samar
+  { ships:['yamato','nagato','kongo','haruna','haguro','chokai','chikuma','tone','suzuya','yahagi','noshiro'], from:'25 06:58', to:'25 09:20', rate:.45 },
+  { ships:['kumano'], from:'25 06:58', to:'25 07:27', rate:.45 },
+  { ships:['johnston'], from:'25 07:00', to:'25 09:45', rate:.6 },
+  { ships:['hoel'], from:'25 07:05', to:'25 08:40', rate:.55 },
+  { ships:['heermann'], from:'25 07:15', to:'25 09:10', rate:.5 },
+  { ships:['sbr'], from:'25 07:30', to:'25 09:50', rate:.55 },
+  { ships:['gambier','fanshaw','kalinin'], from:'25 07:30', to:'25 09:15', rate:.2, note:'Single 5-inch guns' },
+  { ships:['yamato','nagato','haruna','tone','haguro'], from:'25 09:20', to:'25 09:35', rate:.15 },
+];
+SCENARIOS.bismarck.engagements = [
+  { ships:['bismarck','eugen','hood','pow'], from:'24 05:52', to:'24 06:13', rate:.6, note:'Battle of the Denmark Strait' },
+  { ships:['bismarck','pow','suffolk'], from:'24 18:30', to:'24 18:50', rate:.3, note:'Second exchange' },
+  { ships:['bismarck'], from:'26 21:40', to:'26 21:52', rate:.4, note:'Fires on Sheffield' },
+  { ships:['bismarck','cossack','maori','zulu','sikh','piorun'], from:'26 22:38', to:'27 07:00', rate:.12, note:'Night destroyer actions' },
+  { ships:['rodney','kgv'], from:'27 08:47', to:'27 10:15', rate:.6, note:'Final battle' },
+  { ships:['norfolk'], from:'27 08:54', to:'27 10:15', rate:.45 },
+  { ships:['dorsetshire'], from:'27 09:04', to:'27 10:36', rate:.45 },
+  { ships:['bismarck'], from:'27 08:49', to:'27 09:50', rate:.5 },
+];
+
+// ---- Wikipedia article titles per ship id
+const WIKI = {
+  leyte: {
+    yamato:'Japanese_battleship_Yamato', musashi:'Japanese_battleship_Musashi', nagato:'Japanese_battleship_Nagato', kongo:'Japanese_battleship_Kongō', haruna:'Japanese_battleship_Haruna',
+    atago:'Japanese_cruiser_Atago', maya:'Japanese_cruiser_Maya', takao:'Japanese_cruiser_Takao_(1930)', myoko:'Japanese_cruiser_Myōkō', haguro:'Japanese_cruiser_Haguro', chokai:'Japanese_cruiser_Chōkai',
+    chikuma:'Japanese_cruiser_Chikuma_(1938)', tone:'Japanese_cruiser_Tone_(1937)', suzuya:'Japanese_cruiser_Suzuya_(1934)', kumano:'Japanese_cruiser_Kumano', yahagi:'Japanese_cruiser_Yahagi_(1942)', noshiro:'Japanese_cruiser_Noshiro',
+    yamashiro:'Japanese_battleship_Yamashiro', fuso:'Japanese_battleship_Fusō', mogami:'Japanese_cruiser_Mogami_(1934)', shigure:'Japanese_destroyer_Shigure_(1935)', yamagumo:'Japanese_destroyer_Yamagumo_(1937)', michishio:'Japanese_destroyer_Michishio', asagumo:'Japanese_destroyer_Asagumo_(1937)',
+    nachi:'Japanese_cruiser_Nachi', ashigara:'Japanese_cruiser_Ashigara', abukuma:'Japanese_cruiser_Abukuma',
+    zuikaku:'Japanese_aircraft_carrier_Zuikaku', zuiho:'Japanese_aircraft_carrier_Zuihō', chitose:'Japanese_aircraft_carrier_Chitose', chiyoda:'Japanese_aircraft_carrier_Chiyoda', ise:'Japanese_battleship_Ise', hyuga:'Japanese_battleship_Hyūga', oyodo:'Japanese_cruiser_Ōyodo', tama:'Japanese_cruiser_Tama',
+    fanshaw:'USS_Fanshaw_Bay', gambier:'USS_Gambier_Bay', stlo:'USS_St._Lo', kalinin:'USS_Kalinin_Bay', johnston:'USS_Johnston_(DD-557)', hoel:'USS_Hoel_(DD-533)', heermann:'USS_Heermann', sbr:'USS_Samuel_B._Roberts_(DE-413)',
+    essex:'USS_Essex_(CV-9)', lexington:'USS_Lexington_(CV-16)', princeton:'USS_Princeton_(CVL-23)', intrepid:'USS_Intrepid_(CV-11)', newjersey:'USS_New_Jersey_(BB-62)', iowa:'USS_Iowa_(BB-61)', enterprise:'USS_Enterprise_(CV-6)', hornet:'USS_Hornet_(CV-12)',
+    wv:'USS_West_Virginia_(BB-48)', california:'USS_California_(BB-44)', mississippi:'USS_Mississippi_(BB-41)', louisville:'USS_Louisville_(CA-28)', darter:'USS_Darter_(SS-227)', dace:'USS_Dace_(SS-247)',
+  },
+  bismarck: {
+    bismarck:'German_battleship_Bismarck', eugen:'German_cruiser_Prinz_Eugen', u556:'German_submarine_U-556_(1940)', u74:'German_submarine_U-74_(1940)',
+    hood:'HMS_Hood', pow:'HMS_Prince_of_Wales_(53)', norfolk:'HMS_Norfolk_(78)', suffolk:'HMS_Suffolk_(55)', kgv:'HMS_King_George_V_(41)', repulse:'HMS_Repulse_(1916)', victorious:'HMS_Victorious_(R38)', galatea:'HMS_Galatea_(71)', mashona:'HMS_Mashona_(F59)',
+    rodney:'HMS_Rodney_(29)', renown:'HMS_Renown_(1916)', arkroyal:'HMS_Ark_Royal_(91)', sheffield:'HMS_Sheffield_(C24)', cossack:'HMS_Cossack_(F03)', maori:'HMS_Maori_(F24)', zulu:'HMS_Zulu_(F18)', sikh:'HMS_Sikh_(F82)', piorun:'ORP_Piorun_(G65)', dorsetshire:'HMS_Dorsetshire_(40)',
+  },
+};
+for (const [sid, m] of Object.entries(WIKI)) SCENARIOS[sid].ships.forEach(s => { if (m[s.id]) s.wiki = 'https://en.wikipedia.org/wiki/' + m[s.id]; });
+
+// ============================================================================
+// Commanders (by flag group / route), casualties, torpedo attacks, gun targets, UTC offsets
+// ============================================================================
+SCENARIOS.leyte.utcOffset = 9; SCENARIOS.bismarck.utcOffset = 2;
+
+SCENARIOS.leyte.commanders = {
+  center:  { name:'Vice Admiral Takeo Kurita', role:'Commander, First Diversion Attack Force (Center Force)', flagship:'Atago, then Yamato', bio:'A cautious, experienced surface officer who had commanded cruiser divisions since Java Sea. Swam for his life when Atago went down under him on 23 October, then led the surviving fleet through San Bernardino Strait. His decision to break off the pursuit off Samar at 09:20 — believing he faced Halsey\'s fleet carriers — remains one of the most debated calls of the war.', fate:'Survived the war; died 1977 aged 88.', wiki:'Takeo_Kurita' },
+  southern:{ name:'Vice Admiral Shōji Nishimura', role:'Commander, Force C (Southern Force)', flagship:'Yamashiro', bio:'Ordered to force Surigao Strait and reach Leyte Gulf at dawn in concert with Kurita, he pressed on through PT-boat and destroyer attacks into the guns of six battleships, despite knowing Kurita had been delayed. Made no attempt to coordinate with Shima\'s force following behind.', fate:'Went down with Yamashiro at 04:19 on 25 October.', wiki:'Shōji_Nishimura' },
+  shima:   { name:'Vice Admiral Kiyohide Shima', role:'Commander, Second Striking Force', flagship:'Nachi', bio:'Arrived in Surigao Strait 40 minutes behind Nishimura to find burning wreckage. After Nachi collided with the crippled Mogami he judged the battle lost and withdrew — the only Japanese admiral at Leyte to retreat with his force largely intact.', fate:'Survived the war; died 1973.', wiki:'Kiyohide_Shima' },
+  northern:{ name:'Vice Admiral Jisaburō Ozawa', role:'Commander, Mobile Force (Northern / decoy force)', flagship:'Zuikaku, then Ōyodo', bio:'Commanded the carrier force at the Philippine Sea and now led the near-empty carriers north as bait. His plan worked perfectly — Halsey took the whole of TF 38 after him — at the cost of all four carriers. Regarded by both sides as one of the ablest Japanese admirals of the war.', fate:'Survived; last commander of the Combined Fleet. Died 1966.', wiki:'Jisaburō_Ozawa' },
+  taffy3:  { name:'Rear Admiral Clifton A. F. Sprague', role:'Commander, Task Unit 77.4.3 (Taffy 3)', flagship:'Fanshaw Bay', bio:'"Ziggy" Sprague found four battleships and eight cruisers on his horizon at dawn and fought them for two and a half hours with six escort carriers, three destroyers and four destroyer escorts. His handling — running into the wind to launch, then turning into rain squalls and smoke while his escorts charged — is a textbook of small-ship tactics.', fate:'Died 1955; USS Clifton Sprague named for him.', wiki:'Clifton_Sprague' },
+  tg383:   { name:'Rear Admiral Frederick C. Sherman', role:'Commander, Task Group 38.3', flagship:'Essex', bio:'Fought off three land-based raids on 24 October (losing Princeton) while striking Kurita, then located Ozawa that afternoon. His group led the strikes off Cape Engaño.', fate:'Retired 1947; died 1957.', wiki:'Frederick_C._Sherman' },
+  tg382:   { name:'Admiral William F. Halsey Jr.', role:'Commander, Third Fleet (embarked in New Jersey with TG 38.2)', flagship:'New Jersey', bio:'Aggressive to a fault, Halsey took every carrier and fast battleship north after Ozawa on the night of 24 October, leaving San Bernardino Strait unguarded. Nimitz\'s query — "Where is, repeat, where is Task Force 34? The world wonders" — reduced him to tears of rage. He turned south too late to catch Kurita.', fate:'Fleet Admiral 1945; died 1959.', wiki:'William_Halsey_Jr.' },
+  tg384:   { name:'Rear Admiral Ralph E. Davison', role:'Commander, Task Group 38.4', flagship:'Franklin', bio:'His Enterprise aircraft found and attacked Nishimura in the Sulu Sea on the morning of 24 October, then his group joined the run north.', fate:'Died 1972.', wiki:'Ralph_E._Davison' },
+  tg381:   { name:'Vice Admiral John S. McCain Sr.', role:'Commander, Task Group 38.1', flagship:'Wasp', bio:'Recalled while steaming to Ulithi, he launched strikes at Kurita from 335 nautical miles on 25 October — the longest carrier strike of the war — and harried the retreating Center Force on the 26th.', fate:'Died 1945, four days after the Japanese surrender.', wiki:'John_S._McCain_Sr.' },
+  tg772:   { name:'Rear Admiral Jesse B. Oldendorf', role:'Commander, Task Group 77.2 (Bombardment and Fire Support Group)', flagship:'Louisville', bio:'Laid a textbook trap across Surigao Strait: PT boats, then destroyers, then six battleships — five of them Pearl Harbor survivors — crossing the T of Nishimura\'s line. The last battleship-versus-battleship action in history.', fate:'Died 1974.', wiki:'Jesse_B._Oldendorf' },
+  darter:  { name:'Cdr David H. McClintock & Cdr Bladen D. Claggett', role:'Commanding officers, USS Darter and USS Dace', flagship:'Darter', bio:'Working as a pair in the Palawan Passage, they made the first contact report on Kurita and sank two heavy cruisers and crippled a third before Darter grounded on Bombay Shoal. Dace took off her entire crew.', fate:'Both survived the war.', wiki:'USS_Darter_(SS-227)' },
+};
+SCENARIOS.bismarck.commanders = {
+  bismarck:   { name:'Admiral Günther Lütjens', role:'Fleet Commander (Flottenchef)', flagship:'Bismarck', bio:'A reserved, pessimistic professional who had already taken Scharnhorst and Gneisenau into the Atlantic. Chose the Denmark Strait, declined to finish Prince of Wales after sinking Hood, and made for France. His long radio signal on 25 May — sent believing he was still being shadowed — helped the British relocate him. Captain Ernst Lindemann commanded the ship itself.', fate:'Killed in the final battle, 27 May 1941, two days after his 52nd birthday.', wiki:'Günther_Lütjens' },
+  holland:    { name:'Vice Admiral Lancelot Holland', role:'Commander, Battlecruiser Squadron', flagship:'Hood', bio:'Intercepted Bismarck at dawn on 24 May with Hood and the brand-new Prince of Wales. Closed rapidly to shorten the time Hood\'s thin deck armour was exposed to plunging fire — and initially engaged the wrong ship.', fate:'Lost with Hood at 06:00, 24 May; 1,415 died, 3 survived.', wiki:'Lancelot_Holland' },
+  wakewalker: { name:'Rear Admiral Frederic Wake-Walker', role:'Commander, 1st Cruiser Squadron', flagship:'Norfolk', bio:'Shadowed Bismarck for 30 hours through the Denmark Strait and beyond using Suffolk\'s radar, then lost her on the 25th during a zig-zag. Criticised by Pound for not re-engaging with Prince of Wales; defended by Tovey.', fate:'Third Sea Lord 1942–45; died 1945.', wiki:'Frederic_Wake-Walker' },
+  tovey:      { name:'Admiral Sir John Tovey', role:'Commander-in-Chief, Home Fleet', flagship:'King George V', bio:'Directed the hunt from sea. Misplotted Bismarck\'s signals on 25 May and steamed north-east for seven hours before turning for Brest. Fought the final action with fuel so low he had to break off within the hour of Bismarck falling silent.', fate:'Admiral of the Fleet 1943; died 1971.', wiki:'John_Tovey,_1st_Baron_Tovey' },
+  rodney:     { name:'Captain Frederick Dalrymple-Hamilton', role:'Commanding Officer, HMS Rodney', flagship:'Rodney', bio:'Left the troopship Britannic on his own judgement and gambled correctly that Bismarck was making for Brest. Rodney\'s nine 16-inch guns wrecked Bismarck\'s forward turrets in the first quarter-hour of the final battle.', fate:'Retired as Admiral; died 1974.', wiki:'Frederick_Dalrymple-Hamilton' },
+  forceh:     { name:'Vice Admiral Sir James Somerville', role:'Commander, Force H', flagship:'Renown', bio:'Brought Force H north from Gibraltar through a full gale to cut Bismarck off from France. Ark Royal\'s second Swordfish strike, launched on his order in appalling conditions, jammed Bismarck\'s rudders and decided the chase.', fate:'Admiral of the Fleet 1945; died 1949.', wiki:'James_Somerville' },
+  vian:       { name:'Captain Philip Vian', role:'Captain (D), 4th Destroyer Flotilla', flagship:'Cossack', bio:'Left convoy WS 8B on his own initiative to find Bismarck, then harried her all night with five destroyers in heavy seas, keeping her fixed for the battleships at dawn.', fate:'Admiral of the Fleet 1952; died 1968.', wiki:'Philip_Vian' },
+  dorsetshire:{ name:'Captain Benjamin Martin', role:'Commanding Officer, HMS Dorsetshire', flagship:'Dorsetshire', bio:'Left convoy SL 74 unasked, arrived during the battle and fired the torpedoes that preceded Bismarck\'s sinking. Rescued 85 survivors before a U-boat alarm forced him to leave hundreds in the water.', fate:'Retired as Rear Admiral.', wiki:'HMS_Dorsetshire_(40)' },
+  u556:       { name:'Kapitänleutnant Herbert Wohlfarth', role:'Commanding Officer, U-556', flagship:'U-556', bio:'"Parzival" Wohlfarth had jokingly signed a certificate promising to protect his "godmother" Bismarck. On 26 May Renown and Ark Royal passed directly across his bows — and he had no torpedoes left.', fate:'Captured June 1941; died 1982.', wiki:'Herbert_Wohlfarth' },
+  u74:        { name:'Kapitänleutnant Eitel-Friedrich Kentrat', role:'Commanding Officer, U-74', flagship:'U-74', bio:'Ordered to Bismarck\'s position to collect her war diary; arrived after the sinking and picked up three survivors from a raft.', fate:'Survived the war; died 1974.', wiki:'Eitel-Friedrich_Kentrat' },
+};
+
+// approximate men lost at the sinking (published figures; ~ where accounts differ)
+const LOST = {
+  leyte: { musashi:1023, atago:360, maya:336, chokai:800, chikuma:900, suzuya:247, noshiro:328, yamashiro:1626, fuso:1620, mogami:192, yamagumo:238, michishio:265, asagumo:191, abukuma:250, zuikaku:843, zuiho:215, chitose:903, chiyoda:1470, tama:450, gambier:147, stlo:113, johnston:186, hoel:253, sbr:89, princeton:108, darter:0 },
+  bismarck: { hood:1415, bismarck:2086, mashona:46 },
+};
+for (const [sid, m] of Object.entries(LOST)) SCENARIOS[sid].ships.forEach(s => { if (m[s.id] !== undefined) s.lost = m[s.id]; });
+
+// torpedo attacks: from ship id or {lat,lon,label}; to ship id; t = launch; run = minutes to target; n = torpedoes; hit = true/false
+SCENARIOS.leyte.torpedoes = [
+  { from:'darter', to:'atago', t:'23 05:24', run:2, n:6, hit:true, note:'Four hits — Atago sinks in 20 minutes' },
+  { from:'darter', to:'takao', t:'23 05:27', n:4, run:2, hit:true, note:'Two hits; Takao out of the war' },
+  { from:'dace',   to:'maya',  t:'23 05:54', n:4, run:2, hit:true, note:'Four hits; Maya blows up' },
+  { from:{lat:10.28, lon:125.50, label:'USS Melvin (DesRon 54)'}, to:'fuso', t:'25 03:05', run:4, n:5, hit:true, note:'One hit; Fusō falls out of line and sinks' },
+  { from:{lat:10.40, lon:125.28, label:'DesRon 54 / 24'}, to:'yamagumo', t:'25 03:15', run:4, n:5, hit:true, note:'Yamagumo blows up; Michishio and Asagumo also hit' },
+  { from:{lat:10.40, lon:125.28, label:'DesRon 24'}, to:'yamashiro', t:'25 03:30', run:6, n:8, hit:true, note:'Yamashiro takes up to four torpedoes before the battle line opens fire' },
+  { from:{lat:9.85, lon:125.15, label:'PT-137'}, to:'abukuma', t:'25 03:22', run:3, n:1, hit:true, note:'A torpedo aimed at a destroyer runs on and hits Abukuma' },
+  { from:'johnston', to:'kumano', t:'25 07:20', run:7, n:10, hit:true, note:'Bow blown off; Kumano and Suzuya (taking off Kumano\'s admiral) both leave the battle' },
+  { from:'hoel', to:'kongo', t:'25 07:25', run:6, n:5, hit:false, note:'Kongō combs the spread' },
+  { from:'hoel', to:'haguro', t:'25 07:50', run:5, n:5, hit:false, note:'Haguro evades; Hoel now has two guns and no torpedoes' },
+  { from:'heermann', to:'haguro', t:'25 07:54', run:5, n:7, hit:false, note:'Haguro turns away' },
+  { from:'heermann', to:'yamato', t:'25 07:56', run:9, n:3, hit:false, note:'Yamato turns north to comb the torpedoes — and steams out of the battle for ten minutes' },
+  { from:'sbr', to:'chokai', t:'25 08:00', run:5, n:3, hit:false, note:'Roberts\' three torpedoes miss, but she then closes to 4,000 yd with her 5-inch guns' },
+];
+SCENARIOS.bismarck.torpedoes = [
+  { from:'rodney', to:'bismarck', t:'27 09:30', run:5, n:6, hit:false, note:'Rodney fires torpedoes from her bow tubes — possibly the only battleship ever to torpedo another' },
+  { from:'cossack', to:'bismarck', t:'27 01:40', run:4, n:3, hit:false, note:'Claimed hits in the dark; German survivors recorded none' },
+  { from:'maori', to:'bismarck', t:'27 01:50', run:4, n:2, hit:false, note:'Starshell and torpedoes through the night' },
+  { from:'dorsetshire', to:'bismarck', t:'27 10:20', run:3, n:2, hit:true, note:'Two hits on the starboard side' },
+  { from:'dorsetshire', to:'bismarck', t:'27 10:36', run:2, n:1, hit:true, note:'One hit to port; Bismarck rolls over at 10:39' },
+];
+
+// gun targets for the engagements (tracer animation picks an afloat target from the list)
+(function(){
+  const L = SCENARIOS.leyte.engagements, B = SCENARIOS.bismarck.engagements;
+  const set = (arr, idx, targets) => { if (arr[idx]) arr[idx].targets = targets; };
+  set(L, 1, ['yamashiro']); set(L, 2, ['louisville','wv','california']); set(L, 3, ['mogami','asagumo']);
+  set(L, 4, ['gambier','johnston','hoel','sbr','heermann','fanshaw','kalinin']); set(L, 5, ['johnston']);
+  set(L, 6, ['kumano','kongo','yahagi','chikuma']); set(L, 7, ['kongo','haguro']); set(L, 8, ['chikuma','haguro','tone']); set(L, 9, ['chokai','chikuma']); set(L, 10, ['chokai','chikuma','tone']); set(L, 11, ['heermann','fanshaw']);
+  L[3].targets = ['louisville']; // Louisville/Mogami/Asagumo pursuit: cross-fire
+  set(B, 0, null); B[0].pairs = { bismarck:['hood','pow'], eugen:['hood','pow'], hood:['bismarck','eugen'], pow:['bismarck'] };
+  set(B, 1, null); B[1].pairs = { bismarck:['pow','suffolk'], pow:['bismarck'], suffolk:['bismarck'] };
+  set(B, 2, ['sheffield']); set(B, 3, null); B[3].pairs = { bismarck:['cossack','maori','zulu','sikh','piorun'], cossack:['bismarck'], maori:['bismarck'], zulu:['bismarck'], sikh:['bismarck'], piorun:['bismarck'] };
+  set(B, 4, ['bismarck']); set(B, 5, ['bismarck']); set(B, 6, ['bismarck']); set(B, 7, ['rodney','kgv']);
+  L[4].pairs = null;
+})();
+const $ = id => document.getElementById(id);
+// ====================== SCENARIO & ENGINE ======================
+const NATIONS = {
+  USN: { name:'United States Navy', short:'US Navy',  side:'allied', color:'#2563eb' },
+  RN:  { name:'Royal Navy',         short:'Royal Navy', side:'allied', color:'#2563eb' },
+  IJN: { name:'Imperial Japanese Navy', short:'IJN',  side:'axis',   color:'#c0262b' },
+  KM:  { name:'Kriegsmarine',       short:'Kriegsmarine', side:'axis', color:'#4b5563' },
+};
+const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
+const SC = SCENARIOS[hashParams.s] || SCENARIOS.leyte;
+const { forces: FORCES, routes: ROUTES, ships: SHIPS, strikes: STRIKES, groups: GROUPS, events: EVENTS, ports: PORTS } = SC;
+const [BASE_Y, BASE_M] = SC.base;
+// 'DD HH:MM' within the scenario's base month, or 'YYYY-MM-DD HH:MM'
+const T = s => { const m = s.match(/^(?:(\d{4})-(\d{2})-)?(\d{1,2}) (\d{1,2}):(\d{2})$/); return Date.UTC(m[1] ? +m[1] : BASE_Y, m[2] ? +m[2]-1 : BASE_M, +m[3], +m[4], +m[5]); };
+const T0 = T(SC.start), T1 = T(SC.end);
+const HOUR = 3600e3, DAY = 24 * HOUR;
+const KEY_SHIPS = new Set(SC.keyShips || []);
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function fmtDate(t){ const d = new Date(t); return `${DOW[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`; }
+function fmtTime(t){ const d = new Date(t); return `${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}`; }
+function fmtShort(t){ const d = new Date(t); return `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${fmtTime(t)}`; }
+function fmtLL(lat, lon){ const f = (v, p, n) => { const a = Math.abs(v); let d = Math.floor(a), m = Math.round((a - d) * 60); if (m === 60){ d++; m = 0; } return `${d}°${String(m).padStart(2,'0')}′${v>=0?p:n}`; }; return `${f(lat,'N','S')} ${f(lon,'E','W')}`; }
+function bearing(a, b){ const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, Δλ=(b.lon-a.lon)*Math.PI/180; const y=Math.sin(Δλ)*Math.cos(φ2); const x=Math.cos(φ1)*Math.sin(φ2)-Math.sin(φ1)*Math.cos(φ2)*Math.cos(Δλ); return (Math.atan2(y,x)*180/Math.PI+360)%360; }
+function distNm(a, b){ const R=3440.065; const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, dφ=φ2-φ1, dλ=(b.lon-a.lon)*Math.PI/180; const h=Math.sin(dφ/2)**2+Math.cos(φ1)*Math.cos(φ2)*Math.sin(dλ/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+
+// header
+document.querySelector('#side .sub').textContent = SC.subtitle;
+document.querySelector('#clock small').textContent = SC.tz;
+$('foot').textContent = SC.footnote;
+(function(){ const sel = $('scenario'); Object.values(SCENARIOS).forEach(sc => { const o = document.createElement('option'); o.value = sc.id; o.textContent = sc.title; if (sc === SC) o.selected = true; sel.appendChild(o); }); sel.onchange = e => { location.hash = '#s=' + e.target.value; location.reload(); }; })();
+
+// Interpolate along a raw route ([time,lat,lon,note]) at absolute time t
+function interpRaw(route, t){
+  for (let i = 0; i < route.length - 1; i++){
+    const a = T(route[i][0]), b = T(route[i+1][0]);
+    if (t >= a && t <= b){ const f = b === a ? 0 : (t - a) / (b - a); return [route[i][1] + (route[i+1][1]-route[i][1])*f, route[i][2] + (route[i+1][2]-route[i][2])*f]; }
+  }
+  const l = route[route.length-1]; return [l[1], l[2]];
+}
+
+// Build per-ship waypoint arrays and formation offsets
+const groupIdx = {};
+SHIPS.forEach(s => {
+  const base = ROUTES[s.route];
+  let raw;
+  if (s.until){
+    const u = T(s.until);
+    raw = base.filter(p => T(p[0]) <= u);
+    if (!raw.length || T(raw[raw.length-1][0]) !== u) raw.push([s.until, ...interpRaw(base, u)]);
+    raw = raw.concat(s.extra || []);
+  } else raw = base.slice();
+  s.wp = raw.map(p => ({ t: T(p[0]), lat: p[1], lon: p[2], note: p[3] || null, src: p[4] === 'S' ? true : p[4] === 'R' ? false : !!p[3] }));
+  if (s.sunk) s.wp[s.wp.length-1].src = true;
+  s.untilT = s.until ? T(s.until) : Infinity;
+  s.sunkT = s.sunk ? T(s.sunk) : Infinity;
+  s.color = FORCES[s.force].color;
+  // deterministic spread within the formation (golden-angle ring)
+  const k = (groupIdx[s.route] = (groupIdx[s.route] || 0) + 1) - 1;
+  const r = k === 0 ? 0 : 0.045 * (1 + Math.floor((k-1)/6) * 0.9), ang = k * 2.39996;
+  s.off = [r * Math.cos(ang), r * Math.sin(ang) * 1.15];
+});
+
+// Position of a ship at time t → {lat,lon,heading,speed,note,state} or null if not yet on stage
+function posAt(s, t){
+  const wp = s.wp; if (t < wp[0].t) return null;
+  const last = wp[wp.length-1];
+  let note = null; for (const p of wp){ if (p.t <= t && p.note) note = p.note; else if (p.t > t) break; }
+  if (t >= s.sunkT) return { lat: last.lat, lon: last.lon, heading: 0, speed: 0, note, state: 'sunk' };
+  const offScale = t <= s.untilT ? 1 : 0.5;
+  const o = [s.off[0]*offScale, s.off[1]*offScale];
+  if (t >= last.t) return { lat: last.lat + o[0], lon: last.lon + o[1], heading: 0, speed: 0, note, state: 'anchor' };
+  let i = 0; while (i < wp.length - 2 && wp[i+1].t <= t) i++;
+  const a = wp[i], b = wp[i+1];
+  const f = b.t === a.t ? 0 : (t - a.t) / (b.t - a.t);
+  const moving = a.lat !== b.lat || a.lon !== b.lon;
+  let heading = 0;
+  if (moving) heading = bearing(a, b);
+  else { // stationary: face along next moving leg
+    let j = i + 1; while (j < wp.length - 1 && wp[j].lat === wp[j+1].lat && wp[j].lon === wp[j+1].lon) j++;
+    if (j < wp.length - 1) heading = bearing(wp[j], wp[j+1]);
+  }
+  const speed = moving ? distNm(a, b) / ((b.t - a.t) / HOUR) : 0;
+  return { lat: a.lat + (b.lat-a.lat)*f + o[0], lon: a.lon + (b.lon-a.lon)*f + o[1], heading, speed, note, state: moving ? 'underway' : 'anchor' };
+}
+
+// Trail: positions over the last `hours` hours
+function trailAt(s, t, hours){
+  const t0 = Math.max(t - hours*HOUR, s.wp[0].t);
+  if (t <= s.wp[0].t) return [];
+  const tEnd = Math.min(t, s.sunkT);
+  if (tEnd <= t0) return [];
+  const pts = []; const p0 = posAt(s, t0); if (p0) pts.push([p0.lat, p0.lon]);
+  for (const p of s.wp){ if (p.t > t0 && p.t < tEnd){ const q = posAt(s, p.t); if (q) pts.push([q.lat, q.lon]); } }
+  const pe = posAt(s, tEnd); if (pe) pts.push([pe.lat, pe.lon]);
+  return pts;
+}
+
+// ====================== MAP ======================
+const map = L.map('map', { zoomControl: true, worldCopyJump: true, minZoom: SC.view.min, maxZoom: SC.view.max, zoomSnap: 0.5 }).setView(SC.view.center, SC.view.zoom);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Basemap © Esri, GEBCO, NOAA, National Geographic, DeLorme, NAVTEQ · Data: Wikipedia, DANFS, combinedfleet.com, naval-history.net', maxNativeZoom: 10 }).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 10, opacity: .85 }).addTo(map);
+const routeLayer = L.layerGroup().addTo(map), trailLayer = L.layerGroup().addTo(map), shipLayer = L.layerGroup().addTo(map);
+
+function buildRouteLines(s){ const solid = [], dash = []; for (let i = 1; i < s.wp.length; i++){ const a = s.wp[i-1], b = s.wp[i]; const seg = [[a.lat, a.lon], [b.lat, b.lon]]; (a.src && b.src && (b.t - a.t) <= 6*HOUR && !a.via && !b.via ? solid : dash).push(seg); } s.routeSolid.setLatLngs(solid); s.routeDash.setLatLngs(dash); }
+const ARROW = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L12 13 L7 10 L2 13 Z"/></svg>';
+const CARRIER = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L11 5.5 L11 13 L3 13 L3 5.5 Z"/></svg>';
+const SUB = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L10 5 L10 10 L7 13 L4 10 L4 5 Z"/></svg>';
+function shipGlyph(type){ const t = type.toLowerCase(); if (/carrier/.test(t)) return CARRIER; if (/u-boat|submarine/.test(t)) return SUB; return ARROW; }
+// icon size (px) by ship class, largest to smallest
+function shipSize(type){ const t = type.toLowerCase(); if (/battleship|battlecruiser/.test(t)) return 20; if (/fleet carrier/.test(t)) return 19; if (/hybrid/.test(t)) return 17; if (/light carrier|escort carrier/.test(t)) return 15; if (/heavy cruiser/.test(t)) return 13; if (/light cruiser/.test(t)) return 11; if (/destroyer|escort/.test(t)) return 10; if (/u-boat|submarine/.test(t)) return 11; return 11; }
+SHIPS.forEach(s => {
+  s.visible = true;
+  const icon = L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="shp" style="--c:${s.color};--sz:${shipSize(s.type)}px"><div class="hit"></div>${shipGlyph(s.type)}<div class="x">✕</div><div class="gun"></div><span class="lbl">${s.name}</span></div>` });
+  s.marker = L.marker([0,0], { icon, riseOnHover: true, keyboard: false }).addTo(shipLayer);
+  s.marker.on('click', () => openPopup(s));
+  s.marker.on('add', () => { s.el = s.marker.getElement().firstChild; s.arrowEl = s.el.querySelector('.arrow'); });
+  s.el = s.marker.getElement().firstChild; s.arrowEl = s.el.querySelector('.arrow');
+  s.trail = L.polyline([], { color: s.color, weight: 2, opacity: .7, interactive: false }).addTo(trailLayer);
+  // full route: solid where both ends are documented fixes ≤ 6 h apart, dotted where reconstructed
+  s.routeSolid = L.polyline([], { color: s.color, weight: 1.6, opacity: .55, interactive: false });
+  s.routeDash = L.polyline([], { color: s.color, weight: 1, opacity: .35, dashArray: '2 6', interactive: false });
+  s.routeLine = L.layerGroup([s.routeSolid, s.routeDash]);
+  buildRouteLines(s);
+});
+
+// ====================== STATE & RENDER ======================
+const state = { t: T(SC.defaultTime), playing: false, speed: HOUR, trails: true, trailHours: 24, autoSlow: true, slowed: false, follow: null, night: true, routes: false, labels: true, lastEvIdx: -1 };
+const slider = $('slider'); slider.min = T0; slider.max = T1; slider.step = 60e3;
+
+function render(){
+  const t = state.t, z = map.getZoom();
+  slider.value = t; slider.style.setProperty('--p', ((t - T0) / (T1 - T0) * 100) + '%');
+  $('clock').querySelector('.d').textContent = fmtDate(t);
+  $('clock').querySelector('.h').textContent = fmtTime(t);
+  for (const s of SHIPS){
+    const p = s.visible ? posAt(s, t) : null;
+    if (!p){ if (s.onMap){ shipLayer.removeLayer(s.marker); s.onMap = false; } s.trail.setLatLngs([]); continue; }
+    if (!s.onMap){ shipLayer.addLayer(s.marker); s.onMap = true; s.el = s.marker.getElement().firstChild; s.arrowEl = s.el.querySelector('.arrow'); }
+    s.marker.setLatLng([p.lat, p.lon]);
+    s.el.classList.toggle('wreck', p.state === 'sunk');
+    const showLbl = state.labels && (z >= 7.5 || KEY_SHIPS.has(s.id) || p.state === 'sunk' && z >= 6.5);
+    s.el.classList.toggle('dim', !showLbl);
+    if (p.state !== 'sunk') s.arrowEl.style.transform = `rotate(${p.heading}deg)`;
+    s.trail.setLatLngs(state.trails ? trailAt(s, t, state.trailHours) : []);
+    s.marker.setZIndexOffset(p.state === 'sunk' ? -1000 : (KEY_SHIPS.has(s.id) ? 500 : 0));
+  }
+  renderEvents(); renderShipList();
+  if (popupShip) fillPopup(popupShip);
+  clearTimeout(render._h); render._h = setTimeout(() => history.replaceState(null, '', '#s=' + SC.id + '&t=' + new Date(t).toISOString().slice(0,16)), 300);
+}
+function setTime(t, quiet){ state.t = Math.min(T1, Math.max(T0, t)); render(); if (!quiet) toastCheck(); }
+
+// ---- playback
+let raf = null, lastTs = 0;
+function tick(ts){
+  if (!state.playing) return;
+  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed > 600e3 ? EV.filter(e => Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? 600e3 : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
+  lastTs = ts; raf = requestAnimationFrame(tick);
+}
+function togglePlay(on){ state.playing = on === undefined ? !state.playing : on; if (!state.playing){ state.slowed = false; state.slowEvent = null; } $('play').textContent = state.playing ? '❚❚ Pause' : '▶ Play'; lastTs = 0; if (state.playing) raf = requestAnimationFrame(tick); else cancelAnimationFrame(raf); }
+
+const SPEEDS = [['10 min / s', 600e3], ['1 h / s', HOUR], ['3 h / s', 3*HOUR], ['12 h / s', 12*HOUR], ['1 day / s', DAY]];
+SPEEDS.forEach(([l, v], i) => { const o = document.createElement('option'); o.value = v; o.textContent = l; if (v === state.speed) o.selected = true; $('speed').appendChild(o); });
+$('speed').onchange = e => state.speed = +e.target.value;
+$('play').onclick = () => togglePlay();
+$('bDay').onclick = () => setTime(state.t - DAY); $('fDay').onclick = () => setTime(state.t + DAY);
+$('bHour').onclick = () => setTime(state.t - HOUR); $('fHour').onclick = () => setTime(state.t + HOUR);
+slider.oninput = e => setTime(+e.target.value, true);
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA'){ if (e.key === 'Escape') e.target.blur(); return; }
+  if (e.code === 'Space'){ e.preventDefault(); togglePlay(); }
+  else if (e.key === 'ArrowLeft') setTime(state.t - (e.shiftKey ? DAY : HOUR));
+  else if (e.key === 'ArrowRight') setTime(state.t + (e.shiftKey ? DAY : HOUR));
+  else if (e.key === '[' || e.key === ']'){ const ev = e.key === ']' ? EV.find(x => x.t > state.t + 60e3) : [...EV].reverse().find(x => x.t < state.t - 60e3); if (ev){ togglePlay(false); setTime(ev.t, true); toast(ev); if (!state.follow) map.flyTo([ev.lat, ev.lon], Math.max(map.getZoom(), 7), { duration: .6 }); } }
+  else if (e.key === 'f' || e.key === 'F'){ if (typeof toggleFollow === 'function') toggleFollow(); }
+  else if (e.key === 'l' || e.key === 'L'){ $('optLabels').checked = !$('optLabels').checked; $('optLabels').onchange({ target: $('optLabels') }); }
+  else if (e.key === 't' || e.key === 'T'){ const o = $('optTrail'); o.selectedIndex = (o.selectedIndex + 1) % o.options.length; o.onchange({ target: o }); }
+  else if (e.key === 'n' || e.key === 'N'){ const o = $('optNight'); if (o){ o.checked = !o.checked; o.onchange({ target: o }); } }
+  else if (e.key === '/'){ e.preventDefault(); const q = $('search'); if (q) q.focus(); }
+  else if (e.key === 'Escape'){ if (typeof stopFollow === 'function') stopFollow(); map.closePopup(); }
+});
+$('optTrail').onchange = e => { state.trailHours = +e.target.value; state.trails = state.trailHours > 0; render(); };
+$('optLabels').onchange = e => { state.labels = e.target.checked; render(); };
+$('optRoutes').onchange = e => { state.routes = e.target.checked; SHIPS.forEach(s => { if (state.routes && s.visible) routeLayer.addLayer(s.routeLine); else routeLayer.removeLayer(s.routeLine); }); };
+$('optAutoSlow').onchange = e => { state.autoSlow = e.target.checked; };
+map.on('zoomend', () => render());
+
+// ---- ticks & day labels on the slider
+const track = $('track');
+for (let t = Date.UTC(new Date(T0).getUTCFullYear(), new Date(T0).getUTCMonth(), new Date(T0).getUTCDate(), 12); t < T1; t += DAY){ const dd = new Date(t); const el = document.createElement('div'); el.className = 'day' + ((SC.majorDays || []).includes(dd.getUTCDate()) ? ' major' : ''); el.style.left = ((t - T0) / (T1 - T0) * 100) + '%'; el.textContent = dd.getUTCDate() + ' ' + MON[dd.getUTCMonth()]; track.appendChild(el); }
+SHIPS.filter(s => s.sunk).forEach(s => { const el = document.createElement('div'); el.className = 'tick' + (NATIONS[FORCES[s.force].nation].side === 'allied' ? ' us' : ''); el.style.left = ((s.sunkT - T0) / (T1 - T0) * 100) + '%'; el.title = `${s.name} lost ${fmtShort(s.sunkT)}`; track.appendChild(el); });
+
+// ---- events
+const EV = EVENTS.map(e => ({ t: T(e[0]), title: e[1], lat: e[2], lon: e[3] })).sort((a,b) => a.t - b.t);
+const evlist = $('evlist'); $('evcount').textContent = EV.length + ' events';
+EV.forEach((e, i) => { const el = document.createElement('div'); el.className = 'ev'; el.innerHTML = `<div class="t">${fmtShort(e.t)}</div><div class="n">${e.title}</div>`; el.onclick = () => { setTime(e.t, true); map.flyTo([e.lat, e.lon], Math.max(map.getZoom(), 7), { duration: .8 }); toast(e); }; e.el = el; evlist.appendChild(el); });
+function renderEvents(){
+  let cur = -1; EV.forEach((e, i) => { if (e.t <= state.t) cur = i; });
+  EV.forEach((e, i) => { e.el.className = 'ev ' + (i < cur ? 'past' : i === cur ? 'cur' : 'future') + (e.loss ? ' loss' : ''); });
+  if (cur !== state.lastEvIdx && cur >= 0){ state.lastEvIdx = cur; EV[cur].el.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+}
+function toast(e){ const el = $('toast'); el.innerHTML = `<b>${fmtShort(e.t)}</b>${e.loss ? '✕ ' : ''}${e.title}`; el.classList.toggle('loss', !!e.loss); el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 3500); }
+function toastCheck(){ const e = [...EV].reverse().find(e => Math.abs(e.t - state.t) <= 30*60e3); if (e) toast(e); }
+function crossEvents(a, b){ const e = EV.filter(e => e.t > a && e.t <= b).pop(); if (e) toast(e); }
+
+// ---- scenes (preset time + view)
+const SCENES = SC.scenes;
+SCENES.forEach(([n, t, c, z]) => { const b = document.createElement('button'); b.className = 'chip'; b.textContent = n; b.onclick = () => { togglePlay(false); setTime(T(t), true); map.flyTo(c, z, { duration: .9 }); }; $('scenes').appendChild(b); });
+
+// ---- ship list / filters
+const forcesEl = $('forces');
+Object.entries(FORCES).forEach(([fid, f]) => {
+  const ships = SHIPS.filter(s => s.force === fid);
+  const wrap = document.createElement('div'); wrap.className = 'force' + (fid === 'center' || fid === 'taffy3' ? ' open' : '');
+  wrap.innerHTML = `<div class="fh"><input type="checkbox" checked data-force="${fid}"><span class="sw" style="background:${f.color}"></span><span class="nm">${f.name}</span><span class="cnt"></span><span class="car">▶</span></div><div class="ships"></div>`;
+  const list = wrap.querySelector('.ships');
+  ships.forEach(s => {
+    const row = document.createElement('div'); row.className = 'ship';
+    const gsz = Math.round(shipSize(s.type) * 0.8); row.innerHTML = `<input type="checkbox" checked><span class="gl" style="--c:${s.color}">${shipGlyph(s.type).replace('class="arrow"', `style="width:${gsz}px;height:${gsz}px;transform:rotate(90deg)"`)}</span><span class="n">${s.name}</span><span class="st"></span>`;
+    row.querySelector('input').onchange = e => { s.visible = e.target.checked; e.stopPropagation(); syncForceBox(fid); render(); if (state.routes) $('optRoutes').onchange({ target: { checked: true } }); };
+    row.onclick = e => { if (e.target.tagName === 'INPUT') return; const p = posAt(s, state.t); if (p){ map.flyTo([p.lat, p.lon], Math.max(map.getZoom(), 8), { duration: .7 }); openPopup(s); } else toastMsg(`${s.name} is not yet on the map at this time`); };
+    s.row = row; list.appendChild(row);
+  });
+  wrap.querySelector('.fh').onclick = e => { if (e.target.tagName === 'INPUT') return; wrap.classList.toggle('open'); };
+  wrap.querySelector('.fh input').onchange = e => { ships.forEach(s => { s.visible = e.target.checked; s.row.querySelector('input').checked = e.target.checked; }); render(); if (state.routes) $('optRoutes').onchange({ target: { checked: true } }); };
+  f.el = wrap; forcesEl.appendChild(wrap);
+});
+function syncForceBox(fid){ const ships = SHIPS.filter(s => s.force === fid); const box = FORCES[fid].el.querySelector('.fh input'); const n = ships.filter(s => s.visible).length; box.checked = n > 0; box.indeterminate = n > 0 && n < ships.length; }
+function renderShipList(){
+  Object.entries(FORCES).forEach(([fid, f]) => {
+    const ships = SHIPS.filter(s => s.force === fid); let afloat = 0;
+    ships.forEach(s => { const sunk = state.t >= s.sunkT; const onstage = state.t >= s.wp[0].t; s.row.classList.toggle('sunk', sunk); s.row.querySelector('.st').textContent = sunk ? '✕ ' + fmtTime(s.sunkT) : (onstage ? '' : '—'); if (!sunk) afloat++;
+      if (sunk && !s.wasSunk && state.t - s.sunkT < 90*60e3){ // just went down: flash the row (and the force header if collapsed)
+        s.row.classList.remove('flash'); void s.row.offsetWidth; s.row.classList.add('flash');
+        if (!f.el.classList.contains('open')){ f.el.classList.remove('flash'); void f.el.offsetWidth; f.el.classList.add('flash'); }
+        else s.row.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      s.wasSunk = sunk; });
+    f.el.querySelector('.cnt').textContent = `${afloat}/${ships.length}`;
+  });
+}
+function toastMsg(m){ const el = $('toast'); el.innerHTML = m; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 2500); }
+
+// ---- popup
+let popupShip = null;
+const popup = L.popup({ closeButton: true, autoPan: false, offset: [0, -6] });
+popup.on('remove', () => popupShip = null);
+function openPopup(s){ popupShip = s; fillPopup(s); }
+function fillPopup(s){
+  const p = posAt(s, state.t); if (!p){ map.closePopup(popup); return; }
+  const f = FORCES[s.force];
+  let status = '', cls = '';
+  if (p.state === 'sunk'){ status = `Sunk ${fmtShort(s.sunkT)}` + (s.sunkBy ? ` — ${s.sunkBy}` : ''); cls = 'sunk'; }
+  else if (p.state === 'anchor'){ status = 'Stationary / at anchor'; cls = 'anchor'; }
+  else status = `Underway · ${p.speed.toFixed(0)} kn · course ${String(Math.round(p.heading)).padStart(3,'0')}°`;
+  // confidence: nearest documented fix
+  let conf = ''; { let best = null; for (const w of s.wp){ if (w.src && !w.via && Math.abs(w.t - state.t) < (best ? Math.abs(best.t - state.t) : Infinity)) best = w; }
+    if (best && Math.abs(best.t - state.t) <= 30*60e3) conf = '<span class="cf ok">● documented fix</span>'; else if (best){ const h = Math.abs(best.t - state.t) / HOUR; conf = `<span class="cf">○ reconstructed · nearest fix ${h < 1 ? Math.round(h*60) + ' min' : h.toFixed(h < 10 ? 1 : 0) + ' h'} ${best.t < state.t ? 'earlier' : 'later'}</span>`; } }
+  const following = state.follow === s;
+  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div><div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost !== undefined && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
+  if (!popup.isOpen()) popup.openOn(map);
+}
+
+// ====================== FLAGS ======================
+function starPath(cx, cy, r){ let d=''; for (let i=0;i<10;i++){ const a=-Math.PI/2 + i*Math.PI/5, rr = i%2?r*0.42:r; d += (i?'L':'M') + (cx+rr*Math.cos(a)).toFixed(2)+' '+(cy+rr*Math.sin(a)).toFixed(2); } return d+'Z'; }
+function usFlag48(){ // 48-star flag, 1912–1959
+  let s = '<svg viewBox="0 0 57 30" xmlns="http://www.w3.org/2000/svg">';
+  for (let i=0;i<13;i++) s += `<rect x="0" y="${(i*30/13).toFixed(3)}" width="57" height="${(30/13).toFixed(3)}" fill="${i%2?'#fff':'#b22234'}"/>`;
+  s += '<rect width="22.8" height="16.15" fill="#3c3b6e"/>';
+  let stars=''; for (let r=0;r<6;r++) for (let c=0;c<8;c++) stars += starPath(1.6+c*2.8, 1.5+r*2.62, 1.05);
+  s += `<path d="${stars}" fill="#fff"/></svg>`; return s;
+}
+function ijnEnsign(){ // Imperial Japanese Navy ensign — rising sun, 16 rays, disc offset to hoist
+  const cx=20, cy=15, R=60; let s = '<svg viewBox="0 0 45 30" xmlns="http://www.w3.org/2000/svg"><rect width="45" height="30" fill="#fff"/>';
+  let rays=''; for (let k=0;k<16;k++){ const a0=(k*22.5-5.625)*Math.PI/180, a1=a0+11.25*Math.PI/180; rays += `M${cx} ${cy}L${(cx+R*Math.cos(a0)).toFixed(1)} ${(cy+R*Math.sin(a0)).toFixed(1)}L${(cx+R*Math.cos(a1)).toFixed(1)} ${(cy+R*Math.sin(a1)).toFixed(1)}Z`; }
+  s += `<path d="${rays}" fill="#bc002d"/><circle cx="${cx}" cy="${cy}" r="7.5" fill="#bc002d"/></svg>`; return s;
+}
+function rnWhiteEnsign(){ // Royal Navy White Ensign
+  return `<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="30" fill="#fff"/>
+  <g><rect width="30" height="15" fill="#012169"/>
+  <path d="M0 0L30 15M30 0L0 15" stroke="#fff" stroke-width="3.2"/><path d="M0 0L30 15M30 0L0 15" stroke="#c8102e" stroke-width="1.1"/>
+  <path d="M15 0V15M0 7.5H30" stroke="#fff" stroke-width="5"/><path d="M15 0V15M0 7.5H30" stroke="#c8102e" stroke-width="3"/></g>
+  <path d="M30 0V30M0 15H60" stroke="#c8102e" stroke-width="3.4"/></svg>`;
+}
+function kmEnsign(){ // Kriegsmarine war ensign 1938–45 — pattern only; the central party emblem is deliberately omitted
+  return `<svg viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="30" fill="#c8102e"/>
+  <path d="M19 0V30M0 15H50" stroke="#fff" stroke-width="7"/><path d="M19 0V30M0 15H50" stroke="#000" stroke-width="3.6"/>
+  <circle cx="19" cy="15" r="8" fill="#fff" stroke="#000" stroke-width=".8"/>
+  <g transform="translate(8.5 7)"><path d="M-3.6-1.4h2.2v-2.2h2.8v2.2h2.2v2.8h-2.2v2.2h-2.8v-2.2h-2.2z" fill="#000" stroke="#fff" stroke-width=".7"/></g></svg>`;
+}
+const FLAG_SVG = { USN: usFlag48(), IJN: ijnEnsign(), RN: rnWhiteEnsign(), KM: kmEnsign() };
+const FLAG_LABEL = { USN: 'US Navy (48-star)', IJN: 'IJN ensign', RN: 'White Ensign', KM: 'Kriegsmarine ensign' };
+const NATIONS_USED = [...new Set(Object.values(FORCES).map(f => f.nation))].sort((a,b) => (NATIONS[a].side === 'axis' ? 0 : 1) - (NATIONS[b].side === 'axis' ? 0 : 1));
+$('legend').innerHTML = NATIONS_USED.map(n => `<span>${FLAG_SVG[n]} ${FLAG_LABEL[n]}</span>`).join('');
+(function(){ const g = (d, sz) => `<svg viewBox="0 0 14 14" style="width:${sz}px;height:${sz}px"><path d="${d}" fill="var(--fg2)"/></svg>`; const tri = sz => g('M7 1 L12 13 L7 10 L2 13 Z', sz), cv = sz => g('M7 1 L11 5.5 L11 13 L3 13 L3 5.5 Z', sz), sub = sz => g('M7 1 L10 5 L10 10 L7 13 L4 10 L4 5 Z', sz); const lg = document.createElement('div'); lg.className = 'legend sizes'; lg.innerHTML = `<b>Class</b>${tri(20)} BB ${cv(19)} CV ${cv(15)} CVL/CVE ${tri(13)} CA ${tri(11)} CL ${tri(10)} DD ${sub(11)} SS`; $('legend').parentNode.insertBefore(lg, $('legend').nextSibling); })();
+// nation dividers in the side panel (axis first, then allied)
+(function(){
+  const hdr = (nation, title, sub) => { const h = document.createElement('div'); h.className = 'nation'; h.innerHTML = `${FLAG_SVG[nation]}<span>${title}</span><span class="sub">${sub}</span>`; return h; };
+  NATIONS_USED.forEach(n => { const first = Object.values(FORCES).find(f => f.nation === n); if (first) forcesEl.insertBefore(hdr(n, `${n} Fleets`, NATIONS[n].name), first.el); });
+})();
+
+const flagLayer = L.layerGroup().addTo(map);
+const FLAGS = Object.keys(GROUPS).map(route => {
+  const members = SHIPS.filter(s => s.route === route); if (!members.length) return null;
+  const nation = FORCES[members[0].force].nation;
+  const icon = L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="flag"><div class="pole"></div><div class="cloth">${FLAG_SVG[nation]}</div><div class="gn">${GROUPS[route]}<small>${NATIONS[nation].name}</small></div></div>` });
+  const fl = { route, nation, members, marker: L.marker([0,0], { icon, interactive: true, keyboard: false, zIndexOffset: 900 }), onMap: false };
+  fl.marker.on('click', () => { if (typeof showCommander === 'function') showCommander(fl); }); return fl;
+}).filter(Boolean);
+
+function renderFlags(){
+  const t = state.t;
+  for (const f of FLAGS){
+    let pts = [];
+    if (state.flags){
+      const afloat = f.members.filter(s => s.visible && t >= s.wp[0].t && t < s.sunkT);
+      let core = afloat.filter(s => t <= s.untilT); if (!core.length) core = afloat;
+      pts = core.map(s => posAt(s, t)).filter(Boolean);
+    }
+    if (!pts.length){ if (f.onMap){ flagLayer.removeLayer(f.marker); f.onMap = false; } continue; }
+    const lat = pts.reduce((a,p) => a+p.lat, 0)/pts.length, lon = pts.reduce((a,p) => a+p.lon, 0)/pts.length;
+    // float the flag just NE of the formation, scaled to zoom so it clears the ship markers
+    const off = 0.9 * Math.pow(2, 6 - map.getZoom());
+    f.marker.setLatLng([lat + off*0.12, lon + off*0.10]);
+    if (!f.onMap){ flagLayer.addLayer(f.marker); f.onMap = true; }
+  }
+}
+
+// ====================== AIRCRAFT ======================
+// Aircraft glyphs (nose up, 24×24) by type
+const PLANES = {
+  bomber:     'M12 1.5 L13.6 8.5 L22.5 12.5 L22.5 14.8 L13.6 12.8 L13.1 18.6 L16.2 20.8 L16.2 22.4 L12 21.2 L7.8 22.4 L7.8 20.8 L10.9 18.6 L10.4 12.8 L1.5 14.8 L1.5 12.5 L10.4 8.5 Z',
+  fighter:    'M12 2 L13.1 9.2 L19.5 12.6 L19.5 14.4 L13.1 13.4 L12.8 18.8 L15.2 20.4 L15.2 21.8 L12 21 L8.8 21.8 L8.8 20.4 L11.2 18.8 L10.9 13.4 L4.5 14.4 L4.5 12.6 L10.9 9.2 Z',
+  heavy:      'M12 1.5 L13.3 8 L13.3 16.5 L12.6 19.2 L16.8 20.6 L16.8 22.2 L12 21.3 L7.2 22.2 L7.2 20.6 L11.4 19.2 L10.7 16.5 L10.7 8 Z M1 10.6 H23 V13.4 H1 Z M3.6 9.2 H5.6 V14.6 H3.6 Z M7.2 9.2 H9.2 V14.6 H7.2 Z M14.8 9.2 H16.8 V14.6 H14.8 Z M18.4 9.2 H20.4 V14.6 H18.4 Z',
+  twin:       'M12 1.5 L13.4 8 L13.4 16.5 L12.7 19.2 L16.5 20.6 L16.5 22.2 L12 21.3 L7.5 22.2 L7.5 20.6 L11.3 19.2 L10.6 16.5 L10.6 8 Z M2 10.6 H22 V13.4 H2 Z M5.2 9 H7.6 V15 H5.2 Z M16.4 9 H18.8 V15 H16.4 Z',
+  flyingboat: 'M12 2 L14 8 L14.2 17 L12 20 L9.8 17 L10 8 Z M0.5 9 H23.5 V11.8 H0.5 Z M8.5 20.5 H15.5 V22.2 H8.5 Z M3 12 H5 V14 H3 Z M19 12 H21 V14 H19 Z',
+  biplane:    'M12 3 L13.1 9 L13.1 16 L12 19 L10.9 16 L10.9 9 Z M3 8.3 H21 V10.3 H3 Z M3 11.6 H21 V13.4 H3 Z M8.5 18 H15.5 V19.6 H8.5 Z',
+};
+function planeKind(k){ if (k.ac) return k.ac; const n = (k.name + ' ' + (k.note || '')).toLowerCase();
+  if (/b-24|liberator|condor|fw 200/.test(n)) return 'heavy'; if (/he 111|maryland|luftwaffe/.test(n)) return 'twin'; if (/catalina|sunderland/.test(n)) return 'flyingboat';
+  if (/swordfish/.test(n)) return 'biplane'; if (/spitfire|kamikaze|zero|recce/.test(n)) return 'fighter'; return 'bomber'; }
+const FORMATION = [[0,0],[-8,7],[8,7],[-16,14],[16,14]];
+function planeHTML(k){ const kind = planeKind(k); const n = k.count <= 1 ? 1 : k.count < 10 ? 2 : k.count < 40 ? 3 : k.count < 100 ? 4 : 5; const sz = kind === 'heavy' || kind === 'flyingboat' ? 16 : kind === 'fighter' || kind === 'biplane' ? 12 : 14;
+  return `<div class="pl" style="--as:${sz}px">` + FORMATION.slice(0, n).map(([x, y]) => `<svg viewBox="0 0 24 24" style="transform:translate(${x}px,${y}px)"><path class="o" d="${PLANES[kind]}"/><path d="${PLANES[kind]}"/></svg>`).join('') + '</div>'; }
+const airLayer = L.layerGroup().addTo(map);
+const shipById = Object.fromEntries(SHIPS.map(s => [s.id, s]));
+STRIKES.forEach(k => {
+  k.tLaunch = T(k.launch); k.tArrive = T(k.arrive); k.tLeave = T(k.leave); k.tRecover = T(k.recover);
+  k.color = NATIONS[k.nation].side === 'allied' ? '#7dd3fc' : '#fb7185';
+  const icon = L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="ac" style="--c:${k.color}">${planeHTML(k)}<div class="gun"></div><span class="lbl"><b>${k.name}</b> · ${k.count} a/c${k.land ? ' · land-based' : ''}</span></div>` });
+  k.marker = L.marker([0,0], { icon, keyboard: false, zIndexOffset: 700 });
+  k.marker.on('click', () => { const el = $('toast'); el.innerHTML = `<b>${fmtShort(k.tLaunch)}–${fmtTime(k.tRecover)}</b>${k.name}: ${k.note}`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 6000); });
+  k.line = L.polyline([], { color: k.color, weight: 1.2, opacity: .55, dashArray: '2 6', interactive: false });
+  k.onMap = false;
+});
+function groupPos(route, t){ const ships = SHIPS.filter(s => s.route === route && t >= s.wp[0].t && t < s.sunkT && t <= s.untilT); const pts = ships.map(s => posAt(s, t)).filter(Boolean); if (!pts.length){ const [lat, lon] = interpRaw(ROUTES[route], t); return { lat, lon }; } return { lat: pts.reduce((a,p)=>a+p.lat,0)/pts.length, lon: pts.reduce((a,p)=>a+p.lon,0)/pts.length }; }
+function pointOf(ref, t){ if (ref.ship){ const p = posAt(shipById[ref.ship], t); return p ? { lat: p.lat, lon: p.lon } : null; } if (ref.route) return groupPos(ref.route, t); return { lat: ref.lat, lon: ref.lon }; }
+function strikeAt(k, t){
+  if (t < k.tLaunch || t > k.tRecover) return null;
+  const lerp = (a, b, f) => ({ lat: a.lat + (b.lat-a.lat)*f, lon: a.lon + (b.lon-a.lon)*f });
+  if (t < k.tArrive){ const a = pointOf(k.from, k.tLaunch), b = pointOf(k.target, k.tArrive); const f = (t-k.tLaunch)/(k.tArrive-k.tLaunch); return { ...lerp(a,b,f), heading: bearing(a,b), phase: 'outbound', from: a }; }
+  if (t <= k.tLeave){ const c = pointOf(k.target, t); const ang = ((t - k.tArrive) / (60*60e3)) * 2*Math.PI; const r = 0.015; return { lat: c.lat + r*Math.sin(ang), lon: c.lon + r*Math.cos(ang), heading: 0, phase: 'attack', from: null }; }
+  const a = pointOf(k.target, k.tLeave), b = k.recoverAt ? { lat: k.recoverAt.lat, lon: k.recoverAt.lon } : pointOf(k.from, k.tRecover);
+  const f = (t-k.tLeave)/(k.tRecover-k.tLeave); return { ...lerp(a,b,f), heading: bearing(a,b), phase: 'return', from: a };
+}
+function renderAir(){
+  const t = state.t, z = map.getZoom();
+  for (const k of STRIKES){
+    const p = state.air ? strikeAt(k, t) : null;
+    if (!p){ if (k.onMap){ airLayer.removeLayer(k.marker); airLayer.removeLayer(k.line); k.onMap = false; } continue; }
+    if (!k.onMap){ airLayer.addLayer(k.marker); airLayer.addLayer(k.line); k.onMap = true; k.el = k.marker.getElement().firstChild; k.plEl = k.el.querySelector('.pl'); }
+    k.marker.setLatLng([p.lat, p.lon]);
+    k.plEl.style.transform = `rotate(${p.heading}deg)`;
+    const atk = p.phase === 'attack'; if (k.el.classList.contains('attack') && !atk) regroup(k); k.el.classList.toggle('attack', atk); k.inAttack = atk;
+    k.el.classList.toggle('dim', !(state.labels && z >= 6.5));
+    k.line.setLatLngs(p.from ? [[p.from.lat, p.from.lon], [p.lat, p.lon]] : []);
+  }
+}
+
+// ---- attack runs: during the attack phase each aircraft flies its own figure-of-eight over the target,
+//      crossing the centre from a different bearing; on leaving, CSS transitions glide them back into formation
+function regroup(k){ if (!k.el) return; k.el.querySelectorAll('.pl svg').forEach((el, i) => { const [x, y] = FORMATION[i] || [0,0]; el.style.transform = `translate(${x}px,${y}px)`; }); }
+function lemniscate(u){ const s = Math.sin(u), c = Math.cos(u), d = 1 + s*s; return [c / d, s * c / d]; }
+STRIKES.forEach((k, i) => { k.seed = (i * 47) % 360; });
+setInterval(() => {
+  const now = performance.now() / 1000;
+  for (const k of STRIKES){ if (!k.onMap || !k.inAttack || !k.el) continue;
+    const planes = k.el.querySelectorAll('.pl svg'); const R = 26;
+    planes.forEach((el, i) => {
+      const bearing = (k.seed + i * 73) * Math.PI / 180, period = 4.2 + i * 0.5, u = ((now / period) + i * 0.37) * 2 * Math.PI;
+      const [ax, ay] = lemniscate(u), [bx, by] = lemniscate(u + 0.05);
+      const rot = (px, py) => [px * Math.cos(bearing) - py * Math.sin(bearing), px * Math.sin(bearing) + py * Math.cos(bearing)];
+      const [x, y] = rot(ax * R, ay * R), [x2, y2] = rot(bx * R, by * R);
+      const h = Math.atan2(y2 - y, x2 - x) * 180 / Math.PI + 90;
+      el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${h.toFixed(0)}deg)`;
+    });
+  }
+}, 300);
+
+// ---- air-ops list in the side panel
+(function(){
+  const wrap = document.createElement('div'); wrap.className = 'force';
+  wrap.innerHTML = `<div class="fh"><input type="checkbox" checked id="airBox"><span class="sw" style="background:linear-gradient(90deg,#7dd3fc 50%,#fb7185 50%)"></span><span class="nm">Air strikes</span><span class="cnt">${STRIKES.length}</span><span class="car">▶</span></div><div class="ships"></div>`;
+  const list = wrap.querySelector('.ships');
+  STRIKES.slice().sort((a,b) => a.tLaunch - b.tLaunch).forEach(k => {
+    const row = document.createElement('div'); row.className = 'ship';
+    row.innerHTML = `<span class="sw" style="background:${k.color};width:6px;height:6px;border-radius:50%"></span><span class="n">${k.name}</span><span class="st">${fmtShort(k.tArrive)}</span>`;
+    row.onclick = () => { togglePlay(false); setTime(k.tArrive + 60e3, true); const p = strikeAt(k, state.t); if (p) map.flyTo([p.lat, p.lon], Math.max(map.getZoom(), 8), { duration: .7 }); k.marker.fire('click'); };
+    list.appendChild(row);
+  });
+  wrap.querySelector('.fh').onclick = e => { if (e.target.tagName === 'INPUT') return; wrap.classList.toggle('open'); };
+  wrap.querySelector('#airBox').onchange = e => { state.air = e.target.checked; $('optAir').checked = e.target.checked; render(); };
+  const h = document.createElement('div'); h.className = 'nation'; h.innerHTML = `<span style="font-size:14px;line-height:15px;width:22px;text-align:center">✈</span><span>Air operations</span><span class="sub">carrier & land-based</span>`;
+  forcesEl.appendChild(h); forcesEl.appendChild(wrap);
+})();
+state.air = true; state.flags = true;
+$('optAir').onchange = e => { state.air = e.target.checked; $('airBox').checked = e.target.checked; render(); };
+$('optFlags').onchange = e => { state.flags = e.target.checked; render(); };
+// hook into the main render loop
+const _render = render; render = function(){ _render(); renderFlags(); renderAir(); };
+// ====================== SINKING FLASH, LOSS EVENTS, PORTS ======================
+const BOOM_WINDOW = 60 * 60e3; // sim-time the flash stays visible after a loss
+const boomLayer = L.layerGroup().addTo(map);
+SHIPS.filter(s => s.sunk).forEach(s => {
+  s.boom = L.marker([0,0], { icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: '<div class="boom"><div class="ring"></div><div class="ring2"></div><div class="dot"></div></div>' }), interactive: false, keyboard: false, zIndexOffset: 1200 });
+  s.boomOn = false;
+});
+function renderBooms(){
+  const t = state.t;
+  for (const s of SHIPS){ if (!s.boom) continue;
+    const on = s.visible && t >= s.sunkT && t < s.sunkT + BOOM_WINDOW;
+    if (on){ const w = s.wp[s.wp.length-1]; s.boom.setLatLng([w.lat, w.lon]); if (!s.boomOn){ boomLayer.addLayer(s.boom); s.boomOn = true; } }
+    else if (s.boomOn){ boomLayer.removeLayer(s.boom); s.boomOn = false; }
+  }
+  // pulse the slider tick for a loss that just happened
+  document.querySelectorAll('.tick').forEach(el => el.classList.toggle('hot', Math.abs(+el.dataset.t - t) < BOOM_WINDOW && t >= +el.dataset.t));
+}
+// tag timeline events that correspond to a loss (within 2 min of a ship's sinking time)
+EV.forEach(e => { const s = SHIPS.find(s => s.sunk && Math.abs(s.sunkT - e.t) <= 2*60e3); if (s){ e.loss = s; e.el.style.setProperty('--lc', s.color); } });
+document.querySelectorAll('.tick').forEach(el => { const s = SHIPS.find(s => s.sunk && el.title.startsWith(s.name + ' ')); if (s) el.dataset.t = s.sunkT; });
+
+// ---- ports, airfields and headquarters: flag / roundel by controlling nation
+const ROUNDEL = {
+  RN:  '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#1d3f9c"/><circle cx="7" cy="7" r="4.6" fill="#fff"/><circle cx="7" cy="7" r="2.2" fill="#c8102e"/></svg>',
+  USN: `<svg viewBox="0 0 24 14"><rect x="0.5" y="4.6" width="23" height="4.8" fill="#fff" stroke="#1d3f9c" stroke-width=".8"/><circle cx="12" cy="7" r="6.6" fill="#1d3f9c"/><path d="${starPath(12, 7.2, 5)}" fill="#fff"/></svg>`,
+  IJN: '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#fff"/><circle cx="7" cy="7" r="4.8" fill="#bc002d"/></svg>',
+  KM:  '<svg viewBox="0 0 14 14"><path d="M5 0h4v5h5v4h-5v5h-4v-5h-5v-4h5z" fill="#fff"/><path d="M5.9 1.1h2.2v4.8h4.8v2.2h-4.8v4.8h-2.2v-4.8h-4.8v-2.2h4.8z" fill="#111"/></svg>',
+};
+const AIR_ARM = { RN: 'RAF', USN: 'USAAF / USN', IJN: 'IJN / IJA air', KM: 'Luftwaffe' };
+const portLayer = L.layerGroup().addTo(map);
+function portIcon(p, ctl){ if (p.kind === 'air') return ROUNDEL[ctl] || ROUNDEL.RN; return FLAG_SVG[ctl] || ''; }
+PORTS.forEach(p => {
+  p.tCap = p.captured ? T(p.captured) : Infinity; p.curCtl = null;
+  p.marker = L.marker([p.lat, p.lon], { icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="port ${p.kind}">${p.kind === 'hq' ? '<div class="pole"></div>' : ''}<div class="ic"></div>${p.kind === 'hq' ? '<span class="hqb">HQ</span>' : `<div class="kd">${p.kind === 'air' ? '✈' : '⚓'}</div>`}<span class="lbl">${p.name}<small></small></span></div>` }), keyboard: false, zIndexOffset: p.kind === 'hq' ? -1500 : -2000 });
+  p.marker.on('click', () => { const el = $('toast'); el.classList.remove('loss'); el.innerHTML = `<b>${p.name}</b>${p.note}${p.captured ? ` — captured by Allied forces ${fmtShort(p.tCap)}` : ''}`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 5000); });
+  p.marker.addTo(portLayer); p.el = p.marker.getElement().firstChild; p.small = p.el.querySelector('small'); p.icEl = p.el.querySelector('.ic');
+});
+function renderPorts(){
+  const t = state.t, z = map.getZoom();
+  for (const p of PORTS){
+    const ctl = t >= p.tCap ? (p.capturedBy || (NATIONS[p.control].side === 'axis' ? (SC.alliedNavy || 'USN') : 'IJN')) : p.control;
+    if (!state.ports){ if (p.onMap !== false){ portLayer.removeLayer(p.marker); p.onMap = false; } continue; }
+    if (p.onMap === false){ portLayer.addLayer(p.marker); p.onMap = true; p.el = p.marker.getElement().firstChild; p.small = p.el.querySelector('small'); p.icEl = p.el.querySelector('.ic'); p.curCtl = null; }
+    if (p.curCtl !== ctl){ p.curCtl = ctl; p.icEl.innerHTML = portIcon(p, ctl); p.icEl.classList.toggle('wide', p.kind === 'air' && ctl === 'USN'); p.el.style.setProperty('--kc', NATIONS[ctl].color); }
+    p.small.textContent = p.kind === 'hq' ? (p.hq || NATIONS[ctl].name) : (p.kind === 'air' ? AIR_ARM[ctl] + ' airfield' : NATIONS[ctl].short + ' base') + (p.captured && t < p.tCap ? ' · Allied landing ' + fmtShort(p.tCap).slice(0,6) : '');
+    p.el.classList.toggle('dim', z < 7); p.el.classList.toggle('dim2', z < 5 && p.kind !== 'hq');
+  }
+}
+state.ports = true;
+$('optPorts').onchange = e => { state.ports = e.target.checked; render(); };
+const _render2 = render; render = function(){ _render2(); renderBooms(); renderPorts(); };
+// ====================== SEA ROUTING ======================
+// Loads Natural Earth 1:10m land (world-atlas TopoJSON), rasterises it to a grid over the scenario area,
+// and re-routes any waypoint leg that crosses land using A*. Purely cosmetic: waypoint times are kept,
+// intermediate points are spread along the detour at constant speed.
+const ROUTING = { res: (SC.routing && SC.routing.res) || 0.03, bbox: SC.routing && SC.routing.bbox, margin: 3, url: 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-10m.json', alt: 'https://unpkg.com/world-atlas@2.0.2/land-10m.json' };
+
+function topoToRings(topo){
+  const tr = topo.transform, sc = tr ? tr.scale : [1,1], tl = tr ? tr.translate : [0,0];
+  const arcs = topo.arcs.map(arc => { let x = 0, y = 0; return arc.map(p => { if (tr){ x += p[0]; y += p[1]; return [x*sc[0]+tl[0], y*sc[1]+tl[1]]; } return [p[0], p[1]]; }); });
+  const ring = idxs => { let out = []; for (const i of idxs){ const a = i < 0 ? arcs[~i].slice().reverse() : arcs[i]; out = out.concat(out.length ? a.slice(1) : a); } return out; };
+  const rings = []; const walk = g => { if (!g) return; if (g.type === 'GeometryCollection') g.geometries.forEach(walk); else if (g.type === 'Polygon') g.arcs.forEach(r => rings.push(ring(r))); else if (g.type === 'MultiPolygon') g.arcs.forEach(p => p.forEach(r => rings.push(ring(r)))); };
+  Object.values(topo.objects).forEach(walk); return rings;
+}
+
+// Grid: mask[i] = 1 land, 0 sea; near[i] = 1 if sea cell touches land (soft penalty)
+function buildGrid(rings, bbox, res){
+  const [lat0, lon0, lat1, lon1] = bbox; const W = Math.ceil((lon1 - lon0) / res), H = Math.ceil((lat1 - lat0) / res);
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const ctx = cv.getContext('2d');
+  ctx.fillStyle = '#000'; ctx.beginPath();
+  for (const r of rings){ let inside = false; for (const [x, y] of r){ if (x >= lon0 - 1 && x <= lon1 + 1 && y >= lat0 - 1 && y <= lat1 + 1){ inside = true; break; } } if (!inside) continue;
+    r.forEach(([x, y], i) => { const px = (x - lon0) / res, py = (lat1 - y) / res; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.closePath(); }
+  ctx.fill('evenodd');
+  const img = ctx.getImageData(0, 0, W, H).data; const mask = new Uint8Array(W*H), near = new Uint8Array(W*H);
+  for (let i = 0; i < W*H; i++) mask[i] = img[i*4+3] > 127 ? 1 : 0;
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++){ const i = y*W+x; if (mask[i]) continue; for (let dy = -1; dy <= 1 && !near[i]; dy++) for (let dx = -1; dx <= 1; dx++){ const nx = x+dx, ny = y+dy; if (nx >= 0 && ny >= 0 && nx < W && ny < H && mask[ny*W+nx]){ near[i] = 1; break; } } }
+  return { W, H, mask, near, lat0, lon0, lat1, lon1, res,
+    toCell(lat, lon){ return [Math.min(W-1, Math.max(0, Math.floor((lon - lon0) / res))), Math.min(H-1, Math.max(0, Math.floor((lat1 - lat) / res)))]; },
+    toLL(x, y){ return [lat1 - (y + .5) * res, lon0 + (x + .5) * res]; },
+    isLand(lat, lon){ const [x, y] = this.toCell(lat, lon); return mask[y*W+x] === 1; } };
+}
+
+// Binary heap on f-scores
+function Heap(f){ const a = []; return { push(i){ a.push(i); let k = a.length-1; while (k){ const p = (k-1)>>1; if (f[a[p]] <= f[a[k]]) break; [a[p], a[k]] = [a[k], a[p]]; k = p; } },
+  pop(){ const top = a[0], last = a.pop(); if (a.length){ a[0] = last; let k = 0; for(;;){ let l = 2*k+1, r = l+1, m = k; if (l < a.length && f[a[l]] < f[a[m]]) m = l; if (r < a.length && f[a[r]] < f[a[m]]) m = r; if (m === k) break; [a[m], a[k]] = [a[k], a[m]]; k = m; } } return top; }, get size(){ return a.length; } }; }
+
+function nearestSea(G, x, y, maxR){ if (!G.mask[y*G.W+x]) return [x, y]; for (let r = 1; r <= maxR; r++) for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++){ if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue; const nx = x+dx, ny = y+dy; if (nx >= 0 && ny >= 0 && nx < G.W && ny < G.H && !G.mask[ny*G.W+nx]) return [nx, ny]; } return null; }
+
+function astar(G, a, b, box){
+  const { W, H, mask, near } = G; const N = W*H;
+  if (!astar.g){ astar.g = new Float32Array(N); astar.f = new Float32Array(N); astar.from = new Int32Array(N); astar.gen = new Uint32Array(N); astar.cur = 0; }
+  const g = astar.g, f = astar.f, from = astar.from, gen = astar.gen, cur = ++astar.cur;
+  const [ax, ay] = a, [bx, by] = b; const heap = Heap(f);
+  const h = (x, y) => { const dx = Math.abs(x-bx), dy = Math.abs(y-by); return Math.max(dx, dy) + 0.4142 * Math.min(dx, dy); };
+  const si = ay*W+ax; g[si] = 0; f[si] = h(ax, ay); from[si] = -1; gen[si] = cur; heap.push(si);
+  const closed = new Uint8Array(0); let expanded = 0;
+  while (heap.size){
+    const i = heap.pop(); if (i === by*W+bx){ const path = []; let k = i; while (k !== -1){ path.push([k % W, (k / W) | 0]); k = from[k]; } return path.reverse(); }
+    if (++expanded > 4e6) return null;
+    const x = i % W, y = (i / W) | 0;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++){ if (!dx && !dy) continue; const nx = x+dx, ny = y+dy;
+      if (nx < box[0] || nx > box[2] || ny < box[1] || ny > box[3]) continue; const ni = ny*W+nx; if (mask[ni]) continue;
+      if (dx && dy && (mask[y*W+nx] || mask[ny*W+x])) continue; // no corner cutting
+      const step = (dx && dy ? 1.4142 : 1) * (near[ni] ? 2.5 : 1); const ng = g[i] + step;
+      if (gen[ni] !== cur || ng < g[ni]){ gen[ni] = cur; g[ni] = ng; f[ni] = ng + h(nx, ny); from[ni] = i; heap.push(ni); } }
+  }
+  return null;
+}
+
+function lineClear(G, x0, y0, x1, y1){ const n = Math.ceil(Math.max(Math.abs(x1-x0), Math.abs(y1-y0))) * 2 + 1; for (let k = 0; k <= n; k++){ const x = Math.round(x0 + (x1-x0)*k/n), y = Math.round(y0 + (y1-y0)*k/n); if (G.mask[y*G.W+x]) return false; } return true; }
+function pullString(G, path){ const out = [path[0]]; let i = 0; while (i < path.length-1){ let j = path.length-1; while (j > i+1 && !lineClear(G, path[i][0], path[i][1], path[j][0], path[j][1])) j--; out.push(path[j]); i = j; } return out; }
+
+// does the straight leg a→b cross land (ignoring the first/last 0.12° near ports)?
+function inGrid(G, p){ return p.lat > G.lat0 && p.lat < G.lat1 && p.lon > G.lon0 && p.lon < G.lon1; }
+function legCrossesLand(G, a, b){ if (!inGrid(G, a) || !inGrid(G, b)) return false; const d = Math.hypot(b.lat-a.lat, b.lon-a.lon); if (d < 1e-6) return false; const n = Math.max(2, Math.ceil(d / (G.res/2))); for (let k = 0; k <= n; k++){ const f = k/n; if (G.isLand(a.lat + (b.lat-a.lat)*f, a.lon + (b.lon-a.lon)*f)) return true; } return false; }
+// move a waypoint that sits on land to the centre of the nearest sea cell
+function snapToSea(G, p){ if (!inGrid(G, p) || !G.isLand(p.lat, p.lon)) return p; const c = G.toCell(p.lat, p.lon); const s = nearestSea(G, c[0], c[1], 25); if (!s) return p; const [lat, lon] = G.toLL(s[0], s[1]); return Object.assign({}, p, { lat, lon, snapped: true }); }
+
+function routeLeg(G, a, b){
+  let [ax, ay] = G.toCell(a.lat, a.lon), [bx, by] = G.toCell(b.lat, b.lon);
+  const sa = nearestSea(G, ax, ay, 12), sb = nearestSea(G, bx, by, 12); if (!sa || !sb) return null;
+  const m = Math.round(ROUTING.margin / G.res);
+  const box = [Math.max(0, Math.min(sa[0], sb[0]) - m), Math.max(0, Math.min(sa[1], sb[1]) - m), Math.min(G.W-1, Math.max(sa[0], sb[0]) + m), Math.min(G.H-1, Math.max(sa[1], sb[1]) + m)];
+  const path = astar(G, sa, sb, box); if (!path || path.length < 3) return null;
+  const pts = pullString(G, path).slice(1, -1).map(([x, y]) => G.toLL(x, y));
+  return pts;
+}
+
+function applyRouting(G){
+  let legs = 0, snapped = 0;
+  for (const s of SHIPS){
+    if (!s.wp0) s.wp0 = s.wp;
+    const base = s.wp0.map(p => { const q = snapToSea(G, p); if (q !== p) snapped++; return q; });
+    const out = [base[0]];
+    for (let i = 1; i < base.length; i++){
+      const a = base[i-1], b = base[i];
+      if (legCrossesLand(G, a, b)){
+        const via = routeLeg(G, a, b);
+        if (via && via.length){
+          legs++;
+          const chain = [[a.lat, a.lon], ...via, [b.lat, b.lon]]; const cum = [0];
+          for (let k = 1; k < chain.length; k++) cum.push(cum[k-1] + distNm({lat:chain[k-1][0], lon:chain[k-1][1]}, {lat:chain[k][0], lon:chain[k][1]}));
+          const total = cum[cum.length-1] || 1;
+          via.forEach((p, k) => out.push({ t: a.t + (b.t - a.t) * cum[k+1] / total, lat: p[0], lon: p[1], note: null, via: true }));
+        }
+      }
+      out.push(b);
+    }
+    s.wp = out; buildRouteLines(s);
+  }
+  return { legs, snapped };
+}
+function clearRouting(){ for (const s of SHIPS){ if (s.wp0){ s.wp = s.wp0; buildRouteLines(s); } } }
+
+const seaStatus = document.createElement('div'); seaStatus.id = 'seastatus'; seaStatus.textContent = 'Sea routing: loading coastline…'; $('foot').parentNode.insertBefore(seaStatus, $('foot'));
+state.searoute = true; let seaGrid = null;
+(function(){ const l = document.createElement('label'); l.innerHTML = '<input type="checkbox" id="optSea" checked> Sea routing'; $('opts').appendChild(l);
+  l.querySelector('input').onchange = e => { state.searoute = e.target.checked; if (seaGrid){ if (state.searoute) applyRouting(seaGrid); else clearRouting(); render(); } }; })();
+
+(async function initRouting(){
+  if (typeof fetch !== 'function') return;
+  try {
+    let topo; try { topo = await (await fetch(ROUTING.url)).json(); } catch(e){ topo = await (await fetch(ROUTING.alt)).json(); }
+    const rings = topoToRings(topo);
+    let lat0 = 90, lat1 = -90, lon0 = 180, lon1 = -180;
+    for (const s of SHIPS) for (const p of s.wp){ lat0 = Math.min(lat0, p.lat); lat1 = Math.max(lat1, p.lat); lon0 = Math.min(lon0, p.lon); lon1 = Math.max(lon1, p.lon); }
+    const bbox = ROUTING.bbox || [lat0 - 1, lon0 - 1, lat1 + 1, lon1 + 1];
+    const t0 = performance.now(); seaGrid = buildGrid(rings, bbox, ROUTING.res);
+    const r = state.searoute ? applyRouting(seaGrid) : { legs: 0, snapped: 0 }; render();
+    seaStatus.textContent = `Sea routing: on · ${r.legs} legs re-routed, ${r.snapped} waypoints nudged off shore (${Math.round(performance.now() - t0)} ms, ${seaGrid.W}×${seaGrid.H} @ ${ROUTING.res}°)`;
+  } catch (e){ console.warn('Sea routing unavailable', e); seaStatus.textContent = 'Sea routing: unavailable offline — using straight legs'; }
+})();
+// ====================== GUNFIRE & BOMB FLASHES ======================
+const ENG = (SC.engagements || []).map(e => ({ ships: e.ships.map(id => shipById[id]).filter(Boolean), t0: T(e.from), t1: T(e.to), rate: e.rate || .35 }));
+function spark(el, cls){ if (!el) return; el.className = 'gun'; el.style.left = (Math.random()*16 - 8) + 'px'; el.style.top = (Math.random()*16 - 8) + 'px'; void el.offsetWidth; el.className = 'gun on ' + cls; }
+function flicker(){
+  const t = state.t, firing = new Map(), hit = new Set();
+  for (const e of ENG) if (t >= e.t0 && t < e.t1) e.ships.forEach(s => firing.set(s, Math.max(firing.get(s) || 0, e.rate)));
+  for (const k of STRIKES){ k.attacking = false; if (!state.air) continue; const p = strikeAt(k, t); if (!p || p.phase !== 'attack') continue; k.attacking = true;
+    if (k.target.ship){ const tg = shipById[k.target.ship]; if (t < tg.sunkT){ hit.add(tg); firing.set(tg, Math.max(firing.get(tg) || 0, .45)); SHIPS.filter(s => s.route === tg.route && s !== tg && t <= s.untilT).forEach(s => firing.set(s, Math.max(firing.get(s) || 0, .1))); } } }
+  for (const s of SHIPS){ if (!s.onMap || !s.el) continue; const r = firing.get(s); if (!r || t >= s.sunkT || Math.random() > r) continue;
+    if (!s.gunEl || !s.el.contains(s.gunEl)) s.gunEl = s.el.querySelector('.gun');
+    spark(s.gunEl, hit.has(s) && Math.random() < .5 ? 'hit' : ''); }
+  for (const k of STRIKES){ if (!k.onMap || !k.el || !k.attacking || Math.random() > .35) continue; if (!k.aaEl || !k.el.contains(k.aaEl)) k.aaEl = k.el.querySelector('.gun'); spark(k.aaEl, 'aa'); }
+}
+setInterval(flicker, 120);
+// ====================== UI THEME ======================
+(function(){
+  const html = document.documentElement; let prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem('fleetview-theme') || '{}'); } catch(e){}
+  const apply = () => { html.dataset.style = prefs.style || 'modern'; html.dataset.mode = prefs.mode || 'dark'; $('uiStyle').value = html.dataset.style; $('uiMode').textContent = html.dataset.mode === 'dark' ? '☾ Dark' : '☀ Light'; try { localStorage.setItem('fleetview-theme', JSON.stringify(prefs)); } catch(e){} };
+  $('uiStyle').onchange = e => { prefs.style = e.target.value; apply(); };
+  $('uiMode').onclick = () => { prefs.mode = (prefs.mode || 'dark') === 'dark' ? 'light' : 'dark'; apply(); };
+  apply();
+})();
+// ====================== FOLLOW, DAY/NIGHT, SEARCH, COMMANDERS, LOSSES, TORPEDOES & TRACERS ======================
+
+// ---- follow a ship
+function toggleFollow(id){ const s = id ? shipById[id] : (state.follow || popupShip); if (!s) return; if (state.follow === s) stopFollow(); else { state.follow = s; $('followchip').style.display = ''; $('followchip').querySelector('b').textContent = s.name; render(); if (popupShip) fillPopup(popupShip); } }
+function stopFollow(){ if (!state.follow) return; state.follow = null; $('followchip').style.display = 'none'; if (popupShip) fillPopup(popupShip); }
+$('followchip').onclick = () => stopFollow();
+map.on('dragstart', () => stopFollow());
+function renderFollow(){ const s = state.follow; if (!s) return; const p = posAt(s, state.t); if (p) map.setView([p.lat, p.lon], map.getZoom(), { animate: false }); }
+
+// ---- day / night terminator
+map.createPane('night').style.zIndex = 380;
+const nightPoly = L.polygon([], { pane: 'night', stroke: false, fillColor: '#06102a', fillOpacity: .30, interactive: false });
+const duskPoly = L.polygon([], { pane: 'night', stroke: false, fillColor: '#06102a', fillOpacity: .14, interactive: false });
+function sunPosition(tLocal){
+  const utc = tLocal - (SC.utcOffset || 0) * HOUR, d = new Date(utc);
+  const doy = (utc - Date.UTC(d.getUTCFullYear(), 0, 0)) / DAY;
+  const decl = 23.44 * Math.sin(2 * Math.PI * (284 + doy) / 365);
+  const B = 2 * Math.PI * (doy - 81) / 364, eot = 9.87 * Math.sin(2*B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B); // minutes
+  const hUTC = (utc % DAY) / HOUR; let lon = 180 - 15 * (hUTC + eot / 60); lon = ((lon + 540) % 360) - 180;
+  return { decl, lon };
+}
+function terminator(sun, altDeg){ // latitude of the sun-altitude=altDeg circle for each longitude; night side polygon
+  const pts = []; const dr = sun.decl * Math.PI / 180, alt = altDeg * Math.PI / 180;
+  for (let lon = -180; lon <= 180; lon += 2){
+    const H = (lon - sun.lon) * Math.PI / 180;
+    // solve sin(alt) = sin(lat)sin(d) + cos(lat)cos(d)cos(H) for lat
+    const a = Math.sin(dr), b = Math.cos(dr) * Math.cos(H), r = Math.hypot(a, b);
+    let lat; if (r < 1e-9) lat = 0; else { const phi = Math.atan2(b, a); const v = Math.max(-1, Math.min(1, Math.sin(alt) / r)); const wrap = x => ((x + Math.PI) % (2*Math.PI) + 2*Math.PI) % (2*Math.PI) - Math.PI; const l1 = wrap(Math.asin(v) - phi), l2 = wrap(Math.PI - Math.asin(v) - phi); const ok = x => Math.abs(x) <= Math.PI/2 + 1e-9; lat = (ok(l1) ? l1 : ok(l2) ? l2 : (Math.abs(l1) < Math.abs(l2) ? l1 : l2)) * 180 / Math.PI; lat = Math.max(-90, Math.min(90, lat)); }
+    pts.push([lat, lon]);
+  }
+  const pole = sun.decl > 0 ? -90 : 90; return pts.concat([[pole, 180], [pole, -180]]);
+}
+function renderNight(){
+  if (!state.night){ if (nightPoly._map){ map.removeLayer(nightPoly); map.removeLayer(duskPoly); } return; }
+  if (!nightPoly._map){ nightPoly.addTo(map); duskPoly.addTo(map); }
+  const sun = sunPosition(state.t); nightPoly.setLatLngs(terminator(sun, -6)); duskPoly.setLatLngs(terminator(sun, 0));
+}
+$('optNight').onchange = e => { state.night = e.target.checked; renderNight(); };
+
+// ---- search
+(function(){
+  const q = $('search'); if (!q) return;
+  q.oninput = () => { const v = q.value.trim().toLowerCase(); document.querySelectorAll('#forces .force').forEach(f => { let any = false; f.querySelectorAll('.ship').forEach(r => { const m = !v || r.textContent.toLowerCase().includes(v); r.classList.toggle('hidden', !m); if (m) any = true; }); f.classList.toggle('hidden', !!v && !any); if (v && any) f.classList.add('open'); }); document.querySelectorAll('#forces .nation').forEach(n => n.classList.toggle('hidden', !!v)); };
+  q.onkeydown = e => { if (e.key === 'Enter'){ const v = q.value.trim().toLowerCase(); const s = SHIPS.find(s => s.name.toLowerCase().includes(v)); if (s){ const p = posAt(s, state.t); if (p){ map.flyTo([p.lat, p.lon], Math.max(map.getZoom(), 8), { duration: .7 }); openPopup(s); } else toastMsg(`${s.name} is not on the map at this time`); } q.blur(); } else if (e.key === 'Escape'){ q.value = ''; q.oninput(); q.blur(); } };
+})();
+
+// ---- commander cards
+const cmdPopup = L.popup({ closeButton: true, autoPan: true, maxWidth: 340, className: 'cmdpop' });
+function showCommander(fl){ const c = (SC.commanders || {})[fl.route]; const ll = fl.marker.getLatLng(); if (!c){ cmdPopup.setLatLng(ll).setContent(`<div class="cc"><h3>${GROUPS[fl.route]}</h3><div class="k">${NATIONS[fl.nation].name}</div></div>`).openOn(map); return; }
+  cmdPopup.setLatLng(ll).setContent(`<div class="cc"><h3>${c.name}</h3><div class="k">${c.role}</div><div class="k">Flagship: ${c.flagship}</div><p>${c.bio}</p><div class="fate">${c.fate}</div>${c.wiki ? `<div class="wk"><a href="https://en.wikipedia.org/wiki/${c.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a></div>` : ''}</div>`).openOn(map); }
+
+// ---- casualty counter
+function renderLosses(){
+  const t = state.t, el = $('losses'); if (!el) return;
+  el.innerHTML = NATIONS_USED.map(n => { const sunk = SHIPS.filter(s => FORCES[s.force].nation === n && t >= s.sunkT); const men = sunk.reduce((a, s) => a + (s.lost || 0), 0); const approx = sunk.some(s => s.lost === undefined || [800, 900, 1620, 450].includes(s.lost));
+    return `<div class="ls" title="${sunk.map(s => s.name).join(', ') || 'no losses yet'}"><i style="background:${NATIONS[n].color}"></i>${n} <b>${sunk.length}</b> <small>ship${sunk.length === 1 ? '' : 's'}</small> <b>${approx ? '~' : ''}${men.toLocaleString()}</b> <small>men</small></div>`; }).join('');
+  const sm = $('clock').querySelector('small'); const slow = state.slowed && state.playing; sm.textContent = SC.tz + (slow ? ' · slowed' : ''); sm.classList.toggle('slow', slow);
+  renderSlow();
+}
+// ---- slow-motion banner + map highlight
+map.createPane('slowring').style.zIndex = 590;
+const slowRing = L.marker([0,0], { pane: 'slowring', interactive: false, keyboard: false, icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: '<div class="slowring"><div class="r1"></div><div class="r2"></div></div>' }) });
+function renderSlow(){
+  const el = $('slowbanner'); const on = state.slowed && state.playing && state.slowEvent; const ev = state.slowEvent;
+  el.classList.toggle('show', !!on);
+  if (on){ el.innerHTML = `<span class="ic">⏱</span><div><b>Slowed to 10 min/s</b><small>${fmtShort(ev.t)} · ${ev.title}</small></div>`; slowRing.setLatLng([ev.lat, ev.lon]); if (!slowRing._map) slowRing.addTo(map); }
+  else if (slowRing._map) map.removeLayer(slowRing);
+}
+// keep floating elements clear of the time bar whatever its height
+(function(){ const tb = $('timebar'); const fit = () => { const h = tb.offsetHeight; $('stack').style.bottom = (h + 14 + 10) + 'px'; ['side','events'].forEach(id => { $(id).style.maxHeight = `calc(100% - ${h + 14*3}px)`; }); }; fit(); if (window.ResizeObserver) new ResizeObserver(fit).observe(tb); window.addEventListener('resize', fit); })();
+
+// ---- torpedoes (sim-time driven)
+const torpLayer = L.layerGroup().addTo(map);
+const TORPS = (SC.torpedoes || []).map(k => { const o = Object.assign({}, k); o.t0 = T(k.t); o.t1 = o.t0 + (k.run || 4) * 60e3; o.tEnd = o.t1 + 4 * 60e3;
+  o.line = L.polyline([], { color: '#e0f2fe', weight: 1.6, opacity: .9, dashArray: '3 5', className: 'tp' }); o.line.on('click', () => { const el = $('toast'); el.classList.remove('loss'); el.innerHTML = `<b>${fmtShort(o.t0)}</b>Torpedoes: ${typeof o.from === 'string' ? shipById[o.from].name : o.from.label} → ${shipById[o.to].name} (${o.n} fired, ${o.hit ? 'hit' : 'missed'}). ${o.note || ''}`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 6000); });
+  o.dots = [0, 1, 2].slice(0, Math.min(3, o.n)).map(() => L.circleMarker([0,0], { radius: 2.2, color: '#fff', fillColor: '#e0f2fe', fillOpacity: 1, weight: 1, interactive: false })); o.onMap = false; return o; });
+function renderTorps(){
+  const t = state.t;
+  for (const o of TORPS){
+    const show = t >= o.t0 && t <= o.tEnd;
+    if (!show){ if (o.onMap){ torpLayer.removeLayer(o.line); o.dots.forEach(d => torpLayer.removeLayer(d)); o.onMap = false; } continue; }
+    const a = typeof o.from === 'string' ? posAt(shipById[o.from], o.t0) : o.from; const tg = shipById[o.to]; const b = posAt(tg, Math.min(t, o.t1)); if (!a || !b) continue;
+    const f = Math.min(1, (t - o.t0) / (o.t1 - o.t0)); const cur = [a.lat + (b.lat - a.lat) * f, a.lon + (b.lon - a.lon) * f];
+    o.line.setLatLngs([[a.lat, a.lon], cur]); o.line.setStyle({ opacity: t > o.t1 ? Math.max(0, .9 * (1 - (t - o.t1) / (o.tEnd - o.t1))) : .9 });
+    o.dots.forEach((d, i) => { const g = Math.max(0, f - i * 0.06); d.setLatLng([a.lat + (b.lat - a.lat) * g, a.lon + (b.lon - a.lon) * g]); d.setStyle({ opacity: t > o.t1 ? 0 : 1, fillOpacity: t > o.t1 ? 0 : 1 }); });
+    if (!o.onMap){ torpLayer.addLayer(o.line); o.dots.forEach(d => torpLayer.addLayer(d)); o.onMap = true; }
+    if (t >= o.t1 && t < o.t1 + 90e3 && o.hit && tg.el && tg.onMap){ if (!tg.gunEl || !tg.el.contains(tg.gunEl)) tg.gunEl = tg.el.querySelector('.gun'); if (Math.random() < .5) spark(tg.gunEl, 'hit'); }
+  }
+}
+
+// ---- gun tracers (real-time)
+const tracerLayer = L.layerGroup().addTo(map); const TRACERS = [];
+function targetsFor(e, s, t){ const list = e.pairs ? (e.pairs[s.id] || []) : (e.targets || []); return list.map(id => shipById[id]).filter(x => x && x.onMap && t >= x.wp[0].t && t < x.sunkT); }
+function spawnTracer(s, tg){ const a = posAt(s, state.t), b = posAt(tg, state.t); if (!a || !b) return; if (TRACERS.length > 40) return;
+  const dist = distNm(a, b); if (dist > 30) return; const line = L.polyline([[a.lat, a.lon], [a.lat, a.lon]], { color: '#ffd54a', weight: 1.6, opacity: .95, interactive: false }).addTo(tracerLayer);
+  TRACERS.push({ a, b, tg, line, start: performance.now(), dur: 700 + dist * 40, jitter: [(Math.random() - .5) * .012, (Math.random() - .5) * .012] }); }
+setInterval(() => {
+  const now = performance.now();
+  for (let i = TRACERS.length - 1; i >= 0; i--){ const tr = TRACERS[i]; const f = (now - tr.start) / tr.dur;
+    if (f >= 1){ tracerLayer.removeLayer(tr.line); TRACERS.splice(i, 1); if (tr.tg.el && tr.tg.onMap){ if (!tr.tg.gunEl || !tr.tg.el.contains(tr.tg.gunEl)) tr.tg.gunEl = tr.tg.el.querySelector('.gun'); if (Math.random() < .6) spark(tr.tg.gunEl, Math.random() < .3 ? 'hit' : ''); } continue; }
+    const head = Math.min(1, f + .02), tail = Math.max(0, f - .12); const P = g => [tr.a.lat + (tr.b.lat + tr.jitter[0] - tr.a.lat) * g, tr.a.lon + (tr.b.lon + tr.jitter[1] - tr.a.lon) * g];
+    tr.line.setLatLngs([P(tail), P(head)]); }
+}, 50);
+// hook tracer spawning into the flicker ticker: re-derive firing ships cheaply
+setInterval(() => { const t = state.t; for (const e of ENG){ if (t < e.t0 || t >= e.t1 || !(e.targets || e.pairs)) continue; for (const s of e.ships){ if (!s.onMap || t >= s.sunkT || Math.random() > e.rate * .35) continue; const tg = targetsFor(e, s, t); if (tg.length) spawnTracer(s, tg[Math.floor(Math.random() * tg.length)]); } } }, 240);
+
+const _render4 = render; render = function(){ _render4(); renderNight(); renderLosses(); renderTorps(); renderFollow(); };
+// ---- init
+(function init(){
+  const m = (hashParams.t || '').match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/); if (m){ const v = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5]); if (v >= T0 && v <= T1) state.t = v; }
+  render();
+})();
+</script>
+</body>
+</html>
