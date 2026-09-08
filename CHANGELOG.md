@@ -1,8 +1,14 @@
 # Changelog
 
+## v2.4 — 2026-09-08
+
+**Flag consolidation** — formation flags of the same nation whose anchors fall within ~46 px of each other on screen are drawn as a single flag: the largest group's name on top, the others listed beneath it (up to three, then "+n more"). Zooming in separates them again. Clicking a merged flag offers a pick-list of the formations (with their commanders) instead of one commander card. Cures the label pile-up in the Bismarck chase when Home Fleet, Wake-Walker, Vian and Rodney converge.
+
+**Kriegsmarine ensign** — redrawn with an Iron Cross on the central disc (in the manner of the 1933–35 war ensign) plus the Iron Cross canton; the party emblem is deliberately not shown.
+
 ## v2.3 — 2026-09-08
 
-**War-bar milestones** — 26 non-naval reference dates (Poland, Barbarossa, Stalingrad, D-Day, VE Day, Hiroshima, Nagasaki, VJ Day, Tokyo Bay …) drawn as small dots under the war bar; hover for the date and text. Edited in `data/milestones.json`, embedded into `index.json` by the build. Naval events are deliberately excluded — they belong to campaign packs. Hidden on mobile.
+**War-bar milestones** — 26 non-naval reference dates (Poland, Barbarossa, Stalingrad, D-Day, VE Day, Hiroshima, Nagasaki, VJ Day, Tokyo Bay …) drawn as small dots under the war bar; click one for the date and text (hover shows a tooltip too). Edited in `data/milestones.json`, embedded into `index.json` by the build. Naval events are deliberately excluded — they belong to campaign packs. Hidden on mobile.
 
 ## v2.2 — 2026-09-08
 

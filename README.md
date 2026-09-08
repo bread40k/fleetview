@@ -18,7 +18,7 @@ Currently included:
 ## Features
 
 - Minute-resolution timeline with playback from 10 min/s to 1 day/s; auto-slows around key events
-- Ships drawn by class (battleship / carrier / cruiser / destroyer / submarine glyphs), coloured by task force, with formation flags (48-star, IJN ensign, White Ensign, Kriegsmarine)
+- Ships drawn by class (battleship / carrier / cruiser / destroyer / submarine glyphs), coloured by task force, with formation flags (48-star, IJN ensign, White Ensign, Kriegsmarine ensign drawn with an Iron Cross in place of the party emblem); flags of nearby formations merge into one at low zoom
 - Sea routing around coastlines (Natural Earth 1:10m, A* on a 2–3 km grid), pre-computed at build time — nothing to download at runtime
 - Carrier and land-based air strikes flying out, attacking and returning in formation; torpedo runs; gun tracers; sinking flashes
 - Day/night terminator computed from the actual date and time
@@ -53,7 +53,7 @@ Runtime dependencies (loaded from CDNs, none installed):
 data/
   index.json             campaign list (id, title, span, theatre, counts) + the war window — loaded first
   ships.json             cross-campaign ship registry: name, nation, class, wiki, fate, appearances
-  milestones.json        non-naval reference dates shown as dots under the war bar (embedded into index.json)
+  milestones.json        non-naval reference dates shown as clickable dots under the war bar (embedded into index.json)
   scenarios/<id>.json    one self-contained campaign, loaded when selected
 ```
 
