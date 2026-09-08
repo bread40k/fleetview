@@ -286,6 +286,8 @@
   #warcamps .camp.cur{background:var(--accent);opacity:1;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
   #warcamps .camp .cl{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:9.5px;white-space:nowrap;color:var(--muted);pointer-events:none}
   #warcamps .camp.cur .cl{color:var(--fg2);font-weight:600}
+  #warbar .ms{position:absolute;bottom:-4px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--muted);opacity:.75;cursor:help;transition:transform .12s,opacity .12s;z-index:2}
+  #warbar .ms:hover{transform:scale(1.7);opacity:1;background:var(--fg2)}
   #warpos{position:absolute;top:-3px;width:2px;height:22px;margin-left:-1px;background:#fff;box-shadow:0 0 4px rgba(0,0,0,.8);pointer-events:none}
   html[data-mode="light"] #warpos{background:#111;box-shadow:0 0 3px rgba(255,255,255,.8)}
   #boot{background:var(--panel2);border:1px solid var(--line);color:var(--fg2);padding:8px 14px;border-radius:10px;font-size:12.5px;line-height:1.5;max-width:420px;text-align:center;box-shadow:var(--shadow)}
@@ -323,7 +325,7 @@
     #clock{margin-left:auto}
     #clock .d{font-size:11px} #clock .h{font-size:17px} #clock small{font-size:9px}
     #track{margin:10px 4px 16px}
-    #warbar{height:12px;margin:8px 4px 0} #warbar .yr{display:none} #warcamps .camp{top:1px;height:10px} #warcamps .camp .cl{display:none!important} #warpos{top:-2px;height:16px}
+    #warbar{height:12px;margin:8px 4px 0} #warbar .yr{display:none} #warcamps .camp{top:1px;height:10px} #warcamps .camp .cl{display:none!important} #warbar .ms{display:none} #warpos{top:-2px;height:16px}
     .day{font-size:9px}
     .day:not(.major){display:none}
     #stack{max-width:94%}
@@ -397,7 +399,7 @@
     <div id="losses"></div>
     <div id="clock"><div class="d"></div><div class="h"></div><small>Tokyo time · UTC+9</small></div>
   </div>
-  <div id="warbar" title="The war at sea, 1939–45"><div id="warcamps"></div><div id="warpos"></div></div>
+  <div id="warbar" title="The war at sea, 1939–45 · dots: reference dates, hover to read"><div id="warcamps"></div><div id="warpos"></div></div>
   <div id="track"><input type="range" id="slider" min="0" max="100" step="1" value="0"></div>
 </div>
 <div id="stack">
@@ -473,7 +475,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.2';
+const APP_VERSION = '2.3';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -1197,6 +1199,9 @@ const WAR0 = Date.parse(INDEX.war.start + 'Z'), WAR1 = Date.parse(INDEX.war.end 
 const warbar = $('warbar'), warcamps = $('warcamps'), warpos = $('warpos');
 const warPct = t => (t - WAR0) / (WAR1 - WAR0) * 100;
 for (let y = new Date(WAR0).getUTCFullYear() + 1; y <= new Date(WAR1).getUTCFullYear(); y++){ const el = document.createElement('div'); el.className = 'yr'; el.style.left = warPct(Date.UTC(y, 0, 1)) + '%'; el.textContent = y; warbar.appendChild(el); }
+// Non-naval reference points (data/milestones.json → index.json war.milestones): dots under the bar, hover for the text
+const MON_S = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+for (const [d, txt] of INDEX.war.milestones || []){ const t = Date.parse(d + 'T12:00Z'); if (t < WAR0 || t > WAR1) continue; const el = document.createElement('div'); el.className = 'ms'; el.style.left = warPct(t) + '%'; const dd = new Date(t); el.title = `${dd.getUTCDate()} ${MON_S[dd.getUTCMonth()]} ${dd.getUTCFullYear()} — ${txt}`; warbar.appendChild(el); }
 const WARC = CAMPAIGNS.map(c => {
   const t0 = Date.parse(c.start + 'Z'), t1 = Date.parse(c.end + 'Z'), cur = c.id === SC.id;
   const el = document.createElement('div'); el.className = 'camp' + (cur ? ' cur' : '');

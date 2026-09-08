@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3 — 2026-09-08
+
+**War-bar milestones** — 26 non-naval reference dates (Poland, Barbarossa, Stalingrad, D-Day, VE Day, Hiroshima, Nagasaki, VJ Day, Tokyo Bay …) drawn as small dots under the war bar; hover for the date and text. Edited in `data/milestones.json`, embedded into `index.json` by the build. Naval events are deliberately excluded — they belong to campaign packs. Hidden on mobile.
+
 ## v2.2 — 2026-09-08
 
 **New campaign: Battle of Midway (25 May – 7 June 1942)** — 70 ships in eleven forces, from the Kido Butai's sortie from Hashirajima and Kakuta's from Ōminato to the Aleutian landings: Nagumo's approach (his one pre-battle fix, 37°01′N 171°07′E), the four carriers' hits and sinking positions from the TROMs and Nagumo's report, the US carriers' positions from the Enterprise / Yorktown action reports, Point Luck, the transport convoy, Cruiser Division 7's collision and Mikuma's end, I-168's shelling of Midway and attack on Yorktown, Nautilus and Tambor, Theobald's TF 8 and the Dutch Harbor raids. 31 air operations (Tomonaga's strike, Midway's six piecemeal attacks, VT-8, McClusky and Leslie, the Hiryū strikes, the cruiser strikes of 6 June, both Dutch Harbor raids), 11 torpedo attacks, 8 gunnery periods, 51 events, 19 bases and HQs (Kiska and Attu change hands), 7 rescues, 13 commander cards. Midway local time (UTC−12).

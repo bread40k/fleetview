@@ -53,6 +53,7 @@ Runtime dependencies (loaded from CDNs, none installed):
 data/
   index.json             campaign list (id, title, span, theatre, counts) + the war window — loaded first
   ships.json             cross-campaign ship registry: name, nation, class, wiki, fate, appearances
+  milestones.json        non-naval reference dates shown as dots under the war bar (embedded into index.json)
   scenarios/<id>.json    one self-contained campaign, loaded when selected
 ```
 
