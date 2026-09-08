@@ -1,0 +1,1139 @@
+{
+ "id": "midway",
+ "title": "Battle of Midway",
+ "subtitle": "Central Pacific · 25 May – 7 June 1942",
+ "base": [1942, 5],
+ "start": "1942-05-25 00:00",
+ "end": "08 00:00",
+ "tz": "Midway time · UTC−12",
+ "utcOffset": -12,
+ "majorDays": [4],
+ "view": {
+  "center": [34, 168],
+  "zoom": 4,
+  "min": 3,
+  "max": 11,
+  "dateline": true
+ },
+ "keyShips": ["akagi", "kaga", "soryu", "hiryu", "yamato", "mikuma", "enterprise", "hornet", "yorktown", "hammann", "nautilus", "i168"],
+ "scenes": [
+  ["Overview", "04 10:22", [34, 168], 4],
+  ["Sorties", "1942-05-29 12:00", [36, 150], 4],
+  ["Point Luck", "02 15:30", [31, 185], 6],
+  ["Convoy attacked", "03 16:23", [27, 173], 6],
+  ["Midway raided", "04 06:30", [29.3, 181.6], 7],
+  ["Five fatal minutes", "04 10:25", [30.3, 181], 8],
+  ["Yorktown hit", "04 12:08", [31, 183.9], 8],
+  ["Hiryū's turn", "04 17:03", [31.6, 180.9], 8],
+  ["Cruisers collide", "05 02:38", [28.2, 180.9], 8],
+  ["Mikuma's end", "06 13:00", [29.5, 173.3], 8],
+  ["Yorktown sinks", "07 05:01", [30.6, 183.4], 8],
+  ["Dutch Harbor", "03 03:50", [53.5, 193], 6],
+  ["Aleutian landings", "07 01:00", [52.4, 175.5], 6]
+ ],
+ "defaultTime": "04 10:22",
+ "footnote": "Midway local time (UTC−12); Japanese records run 21 hours ahead. Sinking positions from Nagumo's report, combinedfleet.com TROMs and the CINCPAC report; carrier positions at the moments of attack from the Enterprise and Yorktown action reports. Japanese approach tracks, the transport convoy and the Aleutian forces are reconstructed from bearings and distances. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "kdb": { "name": "IJN First Carrier Striking Force (Nagumo)", "color": "#e5484d", "nation": "IJN" },
+  "main": { "name": "IJN Main Body (Yamamoto)", "color": "#f97316", "nation": "IJN" },
+  "kondo": { "name": "IJN Second Fleet / Invasion Force (Kondō)", "color": "#eab308", "nation": "IJN" },
+  "crudiv7": { "name": "IJN Cruiser Division 7 (Kurita)", "color": "#f472b6", "nation": "IJN" },
+  "transports": { "name": "IJN Transport Group (Tanaka)", "color": "#a855f7", "nation": "IJN" },
+  "northern": { "name": "IJN Northern Area Force (Hosogaya / Kakuta)", "color": "#c026d3", "nation": "IJN" },
+  "ijnsubs": { "name": "IJN Submarines", "color": "#9ca3af", "nation": "IJN" },
+  "tf16": { "name": "USN Task Force 16 (Spruance)", "color": "#3b82f6", "nation": "USN" },
+  "tf17": { "name": "USN Task Force 17 (Fletcher)", "color": "#06b6d4", "nation": "USN" },
+  "ussubs": { "name": "USN Submarines", "color": "#94a3b8", "nation": "USN" },
+  "tf8": { "name": "USN Task Force 8 — North Pacific (Theobald)", "color": "#22c55e", "nation": "USN" }
+ },
+ "routes": {
+  "kdb": [["1942-05-26 09:00", 33.72, 132.42, "Kido Butai weighs anchor at Hashirajima (06:00 JST 27 May): four carriers, two battleships, three cruisers, eleven destroyers", "S"], ["1942-05-26 15:00", 32.75, 132.2, "Clears Bungo Suido", "R"], ["1942-05-27 12:00", 32.4, 136.5], ["1942-05-28 12:00", 33.3, 142, "Joins the Supply Group; 14 knots", "R"], ["1942-05-30 12:00", 35.5, 154], ["1942-05-31 12:00", 36.6, 160.5, "Fog — Nagumo breaks radio silence to order a course change", "R"], ["02 16:30", 37.025, 171.117, "Only position fixed in Nagumo's report before the battle: 37°01.5′N 171°07′E, course 130°", "S"], ["03 06:00", 36, 173.6, "Supply Group detached; speed 24 knots", "R"], ["03 18:00", 33.6, 177.5], ["04 04:30", 31, 179.9, "Tomonaga's strike — 36 Kates, 36 Vals, 36 Zeros — launched about 240 nm north-west of Midway", "R"], ["04 05:52", 30.55, 180.4, "PBY reports 'two carriers and battleships, bearing 320°, distance 180' — course 135°, 25 knots", "R"], ["04 07:10", 30.3, 180.75, "Under attack by Midway's B-26s and Avengers; Tone's floatplane reports 'ten ships' to the north-east", "R"], ["04 09:17", 30.05, 181, "Midway strike recovered; Nagumo turns to 070° to close the American carriers", "R"], ["04 10:22", 30.083, 181.167, "Enterprise SBDs hit Kaga and Akagi, Yorktown's hit Sōryū — position from the Enterprise action report", "S"], ["04 12:00", 30.7, 180.9, "Hiryū steams north launching her strikes; Nagumo's flag now in Nagara", "R"], ["04 14:30", 31.25, 180.917, "Lt Samuel Adams (VS-5) sights Hiryū and her screen: 31°15′N 179°05′W", "S"], ["04 17:03", 31.667, 180.833, "Hiryū hit by four 1,000-lb bombs — Enterprise action report position", "S"], ["04 21:30", 32.2, 180.4, "Nagumo retires north-west at 18 knots; Yamamoto's order to pursue the enemy is ignored", "R"], ["05 02:55", 33, 180.05, "Yamamoto cancels Operation MI", "R"], ["05 12:00", 34, 178.2], ["06 12:00", 35.5, 172.5, "Rendezvous with the Main Body", "R"], ["08 00:00", 37.5, 165.5, "Homeward bound; Nagara reaches Kure 13 June", "R"]],
+  "hiryu": [["1942-05-26 09:00", 33.72, 132.42, "Kido Butai weighs anchor at Hashirajima (06:00 JST 27 May): four carriers, two battleships, three cruisers, eleven destroyers", "S"], ["1942-05-26 15:00", 32.75, 132.2, "Clears Bungo Suido", "R"], ["1942-05-27 12:00", 32.4, 136.5], ["1942-05-28 12:00", 33.3, 142, "Joins the Supply Group; 14 knots", "R"], ["1942-05-30 12:00", 35.5, 154], ["1942-05-31 12:00", 36.6, 160.5, "Fog — Nagumo breaks radio silence to order a course change", "R"], ["02 16:30", 37.025, 171.117, "Only position fixed in Nagumo's report before the battle: 37°01.5′N 171°07′E, course 130°", "S"], ["03 06:00", 36, 173.6, "Supply Group detached; speed 24 knots", "R"], ["03 18:00", 33.6, 177.5], ["04 04:30", 31, 179.9, "Tomonaga's strike — 36 Kates, 36 Vals, 36 Zeros — launched about 240 nm north-west of Midway", "R"], ["04 05:52", 30.55, 180.4, "PBY reports 'two carriers and battleships, bearing 320°, distance 180' — course 135°, 25 knots", "R"], ["04 07:10", 30.3, 180.75, "Under attack by Midway's B-26s and Avengers; Tone's floatplane reports 'ten ships' to the north-east", "R"], ["04 09:17", 30.05, 181, "Midway strike recovered; Nagumo turns to 070° to close the American carriers", "R"], ["04 10:22", 30.083, 181.167, "Enterprise SBDs hit Kaga and Akagi, Yorktown's hit Sōryū — position from the Enterprise action report", "S"], ["04 12:00", 30.7, 180.9, "Hiryū steams north launching her strikes; Nagumo's flag now in Nagara", "R"], ["04 14:30", 31.25, 180.917, "Lt Samuel Adams (VS-5) sights Hiryū and her screen: 31°15′N 179°05′W", "S"], ["04 17:03", 31.667, 180.833, "Four 1,000-lb hits from Enterprise SBDs; fires out of control", "S"]],
+  "main": [["1942-05-28 09:00", 33.72, 132.42, "Main Body sorties (06:00 JST 29 May): Yamato, Nagato, Mutsu, Hōshō, nine destroyers", "S"], ["1942-05-28 15:00", 32.75, 132.2], ["1942-05-30 12:00", 33.5, 143], ["02 12:00", 34.5, 165.5], ["04 10:22", 32.6, 176.1, "About 300 nm behind Nagumo when the carriers are hit; Yamamoto learns of the disaster by radio", "R"], ["04 15:30", 32.5, 177.5, "Yamamoto orders all forces to close and destroy the enemy in a night action", "R"], ["05 02:55", 32.3, 179.6, "02:55 — 'Occupation of Midway is cancelled'; the fleet turns for home", "R"], ["06 12:00", 34.5, 173, "Rendezvous with Nagumo's remnants; Kusaka and Genda are transferred to Yamato", "R"], ["08 00:00", 36.5, 165]],
+  "kondo": [["1942-05-28 09:00", 33.72, 132.42, "Second Fleet sorties with the Main Body: Atago, Chōkai, Myōkō, Haguro, Kongō, Hiei, Zuihō, Yura", "S"], ["1942-05-28 15:00", 32.75, 132.2], ["1942-05-31 12:00", 27, 148, "Swings south to shepherd the Midway invasion force", "R"], ["03 12:00", 26.5, 166], ["04 12:00", 27.5, 176.5, "Ordered north-east at 28 knots to join Nagumo (grid YU MI KU 00 in Nagumo's report)", "R"], ["05 03:00", 29.8, 179.3, "Racing to bring on a night surface action when Yamamoto cancels the operation", "R"], ["06 12:00", 30.5, 172, "Retiring west; Kumano and Suzuya rejoin", "R"], ["08 00:00", 29, 163]],
+  "crudiv7": [["1942-05-28 03:00", 13.45, 144.65, "Close Support Group sails from Guam (28 May JST): Kumano, Suzuya, Mikuma, Mogami, Arashio, Asashio", "S"], ["1942-05-31 12:00", 19, 156.5], ["03 12:00", 24.5, 168.5, "Covering the transport convoy from the north", "R"], ["04 13:50", 26.4, 175.2, "Ordered to bombard Midway from 410 nm — Kurita works up to 35 knots", "R"], ["05 00:20", 27.7, 179.6, "Bombardment cancelled; the division turns back", "R"], ["05 02:38", 28.2, 180.93, "Surfaced USS Tambor sighted; in the emergency turn Mogami rams Mikuma — 90 nm west of Midway", "R"], ["05 08:05", 28.1, 179.4, "Mogami (12 knots) and Mikuma trail oil; attacked by VMSB-241 and B-17s", "R"], ["05 20:00", 28.9, 176.6], ["06 06:45", 29.55, 174.5, "Found by Enterprise's dawn search: 29°33′N 174°30′E", "S"], ["06 12:45", 29.5, 173.42, "Enterprise SBDs: five hits on Mikuma, two on Mogami", "S"], ["06 15:25", 29.5, 172.9, "Mogami and Arashio leave the dying Mikuma with 240 survivors", "R"], ["08 00:00", 27.5, 166, "Mogami limps toward Truk at 20 knots", "R"]],
+  "transports": [["1942-05-27 03:00", 15.2, 145.75, "Twelve transports with 5,000 troops sail from Saipan (28 May JST), Jintsū and DesRon 2 escorting", "S"], ["1942-05-30 12:00", 19.5, 155.5], ["03 09:25", 26.4, 169.7, "Ens Jack Reid (VP-44): 'Main body' — eleven ships, 700 nm west of Midway", "R"], ["03 16:23", 26.7, 172.05, "Nine B-17s attack from 8,000–12,000 ft; no hits", "R"], ["04 01:15", 26.9, 173.3, "Four PBYs attack by moonlight; Akebono Maru torpedoed", "R"], ["04 12:00", 27.3, 176], ["04 23:00", 27.5, 177.2, "Convoy reverses course on Yamamoto's orders", "R"], ["06 12:00", 26, 170.5], ["08 00:00", 24, 162, "Retiring toward Guam", "R"]],
+  "kakuta": [["1942-05-25 03:00", 41.24, 141.15, "Second Carrier Striking Force sails from Ōminato (26 May JST): Ryūjō, Jun'yō, Takao, Maya, three destroyers", "S"], ["1942-05-25 10:00", 41.55, 141.75, "Tsugaru Strait", "R"], ["1942-05-29 00:00", 45.5, 162], ["02 12:00", 50, 186, "Approaching Dutch Harbor in fog", "R"], ["03 02:55", 51.3, 191.9, "Launches the Dutch Harbor strike from about 165 nm south-south-west", "R"], ["03 12:00", 51.6, 192.5, "Second strike against destroyers in Makushin Bay aborted in icing cloud", "R"], ["04 16:00", 52.4, 193.3, "Second-day strike launched from less than 100 nm south of Dutch Harbor", "R"], ["05 12:00", 51, 189, "Ordered south to join Nagumo, then recalled", "R"], ["07 00:00", 51.8, 181, "Covering the Kiska and Attu landings", "R"], ["08 00:00", 51.5, 178]],
+  "hosogaya": [["1942-05-28 03:00", 41.24, 141.15, "Fifth Fleet main body sails: Nachi, two destroyers, oilers", "S"], ["1942-05-28 10:00", 41.55, 141.75], ["1942-05-31 12:00", 50.7, 156.1, "Paramushiro", "S"], ["01 12:00", 50.7, 156.1], ["04 12:00", 49.5, 172, "Covers the invasion convoys from the south", "R"], ["08 00:00", 50.5, 176]],
+  "kiska": [["1942-05-28 03:00", 41.24, 141.15, "Kiska Invasion Force sails (29 May JST): Kiso, Tama, Hibiki, Akatsuki, Hokaze, transports", "S"], ["1942-05-28 10:00", 41.55, 141.75], ["1942-05-31 12:00", 50.7, 156.1, "Paramushiro", "S"], ["01 12:00", 50.7, 156.1], ["06 01:00", 51.973, 177.495, "Maizuru 3rd Special Naval Landing Force (about 500 men) lands on Kiska; the ten-man weather station is overrun", "S"], ["08 00:00", 51.973, 177.495]],
+  "attu": [["1942-05-28 03:00", 41.24, 141.15, "Adak–Attu Invasion Force sails (29 May JST): Abukuma, four destroyers, transport Kinugasa Maru", "S"], ["1942-05-28 10:00", 41.55, 141.75], ["1942-05-31 12:00", 50.7, 156.1, "Paramushiro", "S"], ["01 12:00", 50.7, 156.1], ["04 12:00", 52, 168, "Adak landing cancelled; diverted to Attu", "R"], ["07 01:00", 52.924, 173.157, "Army North Sea Detachment (1,140 men) lands at Attu; 42 Aleuts and the two Americans at Chichagof Harbor taken", "S"], ["08 00:00", 52.924, 173.157]],
+  "i168": [["1942-05-31 12:00", 28.42, 181.7, "I-168 reconnoitres Kure Atoll", "S"], ["02 12:00", 28, 182.5, "Circles Midway submerged, reporting the defences", "R"], ["04 21:54", 28.15, 182.62, "Surfaces 4,500 yd off Eastern Island", "S"], ["05 01:24", 28.17, 182.6, "Shells Midway: six 100-mm rounds, driven down by searchlights and the coast guns", "S"], ["05 06:00", 28.5, 182.8], ["06 04:10", 30.45, 183.35, "Sights the crippled Yorktown at 12 nm", "R"], ["06 13:31", 30.6, 183.433, "Four torpedoes from 1,200 yd: two hit Yorktown, one Hammann", "S"], ["06 16:40", 30.4, 183.6, "Surfaces after three hours and some 60 depth charges — and escapes", "R"], ["08 00:00", 31.5, 180.5, "Homeward; Yokosuka 19 June", "R"]],
+  "tf16": [["1942-05-28 09:00", 21.35, 202.05, "TF 16 sails: Enterprise, Hornet, six cruisers, nine destroyers — Spruance in Halsey's place", "S"], ["1942-05-28 10:00", 21.27, 202.04], ["1942-05-28 12:00", 21.2, 201.6], ["01 12:00", 32, 187, "Point Luck — 32°N 173°W, 325 nm north-east of Midway, beyond Japanese search range", "S"], ["02 15:30", 32.05, 187.3, "TF 17 joins; Fletcher takes tactical command", "S"], ["03 18:00", 33.267, 184.233, "Enterprise 20:00 (ship's time) fix: 33°16′N 175°46′W", "S"], ["04 04:30", 31.5, 183.5, "Dawn rendezvous point ordered by Fletcher: 31°30′N 176°30′W", "S"], ["04 07:00", 31.3, 183.4, "Launch begins: 116 aircraft; the enemy estimated 155 nm away, bearing 239°", "R"], ["04 09:00", 31.1, 183.1], ["04 12:00", 30.9, 182.9, "Recovering McClusky's survivors — and Yorktown's orphaned VB-3", "R"], ["04 15:30", 30.7, 182.6, "Enterprise launches 24 SBDs against Hiryū", "R"], ["04 18:30", 30.9, 182.4], ["05 00:00", 30.7, 183.7, "Spruance retires east overnight rather than risk a night action against battleships", "R"], ["05 06:00", 29.833, 184.256, "06:00 fix: 29°50′N 175°44′W, about 130 nm north-east of Midway", "S"], ["05 15:00", 30.6, 182, "Launches 58 SBDs on a 300-mile search to the north-west", "R"], ["06 05:00", 31, 176.4, "Dawn search launched", "R"], ["06 08:00", 30.85, 175.65, "Hornet launches the first strike on the cruisers, 142 nm to the south-west", "R"], ["06 13:30", 29.7, 174.8, "Hornet's second strike leaves; Mogami 110 nm to the west", "R"], ["06 17:30", 29.9, 175.3, "Last aircraft recovered; TF 16 turns north-east to refuel", "R"], ["08 00:00", 32, 181]],
+  "tf17": [["1942-05-30 09:00", 21.35, 202.05, "TF 17 sails: Yorktown, patched up in 48 hours, with Astoria, Portland and five destroyers", "S"], ["1942-05-30 10:00", 21.27, 202.04], ["1942-05-30 12:00", 21.2, 201.6], ["02 15:30", 32.067, 187.25, "Joins TF 16 350 nm north-east of Midway", "S"], ["03 18:00", 33.4, 184.3, "Ten miles north of TF 16", "R"], ["04 04:30", 31.65, 183.55, "Launches ten SBDs to search the northern semicircle", "R"], ["04 08:38", 31.5, 183.4, "Yorktown launches 17 SBDs, 12 TBDs and 6 F4Fs", "R"], ["04 12:08", 31, 183.9, "Three bombs from Hiryū's Vals; Yorktown dead in the water by 12:40", "R"], ["04 14:45", 30.9, 183.8, "Two torpedoes from Hiryū's Kates; Fletcher has already shifted to Astoria", "R"], ["04 18:00", 30.7, 183.4, "Yorktown abandoned; Hughes stands by the hulk", "R"], ["05 00:00", 30.5, 183.7, "Astoria and Portland join Spruance overnight", "R"], ["05 12:00", 30.3, 185], ["08 00:00", 26, 196, "Returning to Pearl Harbor", "R"]],
+  "vireo": [["04 12:00", 27.85, 184.15, "Fleet tug Vireo at Pearl and Hermes Reef", "S"], ["04 15:00", 27.85, 184.15, "Ordered to Yorktown", "R"], ["05 14:36", 30.55, 183.55, "Takes Yorktown in tow at barely 2 knots", "R"], ["06 13:36", 30.6, 183.433, "Cuts the tow as I-168's torpedoes strike; picks up survivors", "S"], ["07 05:01", 30.6, 183.433, "Yorktown sinks", "S"], ["08 00:00", 30.2, 184.5]],
+  "nautilus": [["1942-05-31 00:00", 29.9, 180.6, "Patrolling on the 150-nm arc north-west of Midway", "R"], ["04 07:10", 30.2, 180.7, "Sights smoke bearing 331°; under Zero strafing and Arashi's depth charges", "R"], ["04 08:25", 30.25, 180.75, "Fires at Kirishima — one misfire, one miss", "R"], ["04 14:00", 30.333, 180.717, "Four torpedoes at the burning Kaga from under 3,000 yd; one dud hit", "S"], ["04 19:41", 30.3, 181, "Surfaces after 42 depth charges", "R"], ["08 00:00", 29.5, 181.5]],
+  "tambor": [["1942-05-31 00:00", 27.6, 180.5, "Patrol station on the 150-nm circle west of Midway", "R"], ["05 02:15", 28.2, 180.93, "'Many unidentified ships' at 3 nm — Cruiser Division 7 at 28 knots", "R"], ["05 06:00", 28.15, 181.1, "Identifies two Mogami-class cruisers heading west, trailing oil", "R"], ["08 00:00", 28, 181]],
+  "tf8": [["01 00:00", 54, 209, "Theobald's TF 8 — Nashville, Indianapolis, Louisville, Honolulu, St Louis, four destroyers", "R"], ["03 03:50", 51.1, 207.6, "Waits 400 nm south of Kodiak for an attack on the mainland that never comes", "R"], ["05 12:00", 51.5, 206], ["08 00:00", 53.5, 202]]
+ },
+ "ships": [
+  {
+   "id": "akagi",
+   "name": "Akagi",
+   "force": "kdb",
+   "type": "Fleet carrier (Nagumo flagship)",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Akagi",
+   "until": "04 10:26",
+   "extra": [["04 10:26", 30.083, 181.167, "One 1,000-lb bomb from Lt Richard Best detonates among fuelled and armed aircraft", "S"], ["04 18:00", 30.45, 181.25, "Dead in the water, burning end to end; Capt Aoki orders abandon ship", "R"], ["05 05:20", 30.5, 181.333, "Scuttled by four destroyer torpedoes on Yamamoto's order — 30°30′N 178°40′W", "S"]],
+   "sunk": "05 05:20",
+   "sunkBy": "Bomb hit by USS Enterprise SBD, scuttled by destroyers",
+   "lost": 267
+  },
+  {
+   "id": "kaga",
+   "name": "Kaga",
+   "force": "kdb",
+   "type": "Fleet carrier",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Kaga",
+   "until": "04 10:22",
+   "extra": [["04 10:22", 30.15, 181.05, "At least four 500- and 1,000-lb bombs; Capt Okada killed on the bridge", "R"], ["04 14:00", 30.333, 180.717, "A dud torpedo from Nautilus breaks in half against her side", "S"], ["04 19:25", 30.388, 180.713, "Two internal explosions and she sinks — 30°20′N 179°17′W", "S"]],
+   "sunk": "04 19:25",
+   "sunkBy": "USS Enterprise SBDs (McClusky)",
+   "lost": 811
+  },
+  {
+   "id": "soryu",
+   "name": "Sōryū",
+   "force": "kdb",
+   "type": "Fleet carrier",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_S%C5%8Dry%C5%AB",
+   "until": "04 10:25",
+   "extra": [["04 10:25", 30.25, 181.1, "Three 1,000-lb bombs from Leslie's VB-3 in three minutes; abandoned by 10:45", "R"], ["04 19:13", 30.633, 180.783, "Sinks after Isokaze's torpedoes; Capt Yanagimoto refuses to leave", "S"]],
+   "sunk": "04 19:13",
+   "sunkBy": "USS Yorktown SBDs (Leslie), scuttled by Isokaze",
+   "lost": 711
+  },
+  {
+   "id": "hiryu",
+   "name": "Hiryū",
+   "force": "kdb",
+   "type": "Fleet carrier (Yamaguchi, CarDiv 2)",
+   "route": "hiryu",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Hiry%C5%AB",
+   "until": "04 17:03",
+   "extra": [["04 21:23", 31.65, 180.95, "Engines stop", "R"], ["05 03:15", 31.64, 181.05, "Abandon ship; Yamaguchi and Capt Kaku stay aboard", "R"], ["05 05:10", 31.635, 181.1, "Torpedoed by Makigumo", "R"], ["05 09:12", 31.633, 181.15, "Sinks; 39 engineers still aboard escape in a boat and are found by USS Ballard 14 days later", "S"]],
+   "sunk": "05 09:12",
+   "sunkBy": "USS Enterprise SBDs, scuttled by Makigumo",
+   "lost": 389
+  },
+  { "id": "haruna", "name": "Haruna", "force": "kdb", "type": "Battleship", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Haruna" },
+  { "id": "kirishima", "name": "Kirishima", "force": "kdb", "type": "Battleship", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kirishima" },
+  { "id": "tone", "name": "Tone", "force": "kdb", "type": "Heavy cruiser", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tone_(1937)" },
+  { "id": "chikuma", "name": "Chikuma", "force": "kdb", "type": "Heavy cruiser", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chikuma_(1938)" },
+  { "id": "nagara", "name": "Nagara", "force": "kdb", "type": "Light cruiser (Nagumo's flagship from 11:30, 4 June)", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nagara" },
+  { "id": "arashi", "name": "Arashi", "force": "kdb", "type": "Destroyer — her wake led McClusky to the carriers", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashi" },
+  { "id": "nowaki", "name": "Nowaki", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Nowaki_(1940)" },
+  { "id": "hagikaze", "name": "Hagikaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hagikaze" },
+  { "id": "maikaze", "name": "Maikaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Maikaze" },
+  { "id": "isokaze", "name": "Isokaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Isokaze_(1939)" },
+  { "id": "hamakaze", "name": "Hamakaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hamakaze_(1940)" },
+  { "id": "makigumo", "name": "Makigumo", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Makigumo_(1941)" },
+  {
+   "id": "tanikaze",
+   "name": "Tanikaze",
+   "force": "kdb",
+   "type": "Destroyer",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Tanikaze_(1940)",
+   "until": "05 12:00",
+   "extra": [["05 18:30", 33, 177, "Sent back to find Hiryū; 58 SBDs and B-17s attack — every bomb misses", "R"], ["06 12:00", 34.5, 174], ["08 00:00", 37, 166, "Rejoins", "R"]]
+  },
+  { "id": "yamato", "name": "Yamato", "force": "main", "type": "Battleship (Yamamoto flagship)", "route": "main", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamato" },
+  { "id": "nagato", "name": "Nagato", "force": "main", "type": "Battleship", "route": "main", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Nagato" },
+  { "id": "mutsu", "name": "Mutsu", "force": "main", "type": "Battleship", "route": "main", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Mutsu" },
+  { "id": "hosho", "name": "Hōshō", "force": "main", "type": "Light carrier", "route": "main", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_H%C5%8Dsh%C5%8D" },
+  { "id": "atago", "name": "Atago", "force": "kondo", "type": "Heavy cruiser (Kondō flagship)", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Atago" },
+  { "id": "chokai", "name": "Chōkai", "force": "kondo", "type": "Heavy cruiser", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Ch%C5%8Dkai" },
+  { "id": "myoko", "name": "Myōkō", "force": "kondo", "type": "Heavy cruiser", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_My%C5%8Dk%C5%8D" },
+  { "id": "haguro", "name": "Haguro", "force": "kondo", "type": "Heavy cruiser", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Haguro" },
+  { "id": "kongo", "name": "Kongō", "force": "kondo", "type": "Battleship", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kong%C5%8D" },
+  { "id": "hiei", "name": "Hiei", "force": "kondo", "type": "Battleship", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Hiei" },
+  { "id": "zuiho", "name": "Zuihō", "force": "kondo", "type": "Light carrier", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuih%C5%8D" },
+  { "id": "yura", "name": "Yura", "force": "kondo", "type": "Light cruiser", "route": "kondo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Yura" },
+  {
+   "id": "kumano",
+   "name": "Kumano",
+   "force": "crudiv7",
+   "type": "Heavy cruiser (Kurita flagship)",
+   "route": "crudiv7",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kumano",
+   "until": "05 02:38",
+   "extra": [["05 12:00", 29, 177.5, "Kumano and Suzuya run on at full speed to join Kondō", "R"], ["06 12:00", 30.5, 172], ["08 00:00", 29, 163]]
+  },
+  {
+   "id": "suzuya",
+   "name": "Suzuya",
+   "force": "crudiv7",
+   "type": "Heavy cruiser",
+   "route": "crudiv7",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Suzuya_(1934)",
+   "until": "05 02:38",
+   "extra": [["05 12:00", 29, 177.5], ["06 12:00", 30.5, 172], ["08 00:00", 29, 163]]
+  },
+  { "id": "mogami", "name": "Mogami", "force": "crudiv7", "type": "Heavy cruiser — bow crushed in the collision", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)" },
+  {
+   "id": "mikuma",
+   "name": "Mikuma",
+   "force": "crudiv7",
+   "type": "Heavy cruiser",
+   "route": "crudiv7",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mikuma",
+   "until": "06 12:45",
+   "extra": [["06 13:58", 29.48, 173.3, "Her own torpedoes explode; the ship is gutted", "R"], ["06 19:30", 29.467, 173.183, "Capsizes to port — 29°28′N 173°11′E, photographed by Enterprise SBDs at 17:15", "S"]],
+   "sunk": "06 19:30",
+   "sunkBy": "USS Enterprise and Hornet SBDs",
+   "lost": 700
+  },
+  { "id": "arashio", "name": "Arashio", "force": "crudiv7", "type": "Destroyer", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashio" },
+  { "id": "asashio", "name": "Asashio", "force": "crudiv7", "type": "Destroyer", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asashio_(1936)" },
+  { "id": "jintsu", "name": "Jintsū", "force": "transports", "type": "Light cruiser (Tanaka flagship)", "route": "transports", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Jints%C5%AB" },
+  { "id": "akebonomaru", "name": "Akebono Maru", "force": "transports", "type": "Fleet oiler", "route": "transports" },
+  { "id": "argentinamaru", "name": "Argentina Maru", "force": "transports", "type": "Transport — Ichiki Detachment", "route": "transports", "wiki": "https://en.wikipedia.org/wiki/Argentina_Maru" },
+  { "id": "ryujo", "name": "Ryūjō", "force": "northern", "type": "Light carrier (Kakuta flagship)", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Ry%C5%ABj%C5%8D" },
+  { "id": "junyo", "name": "Jun'yō", "force": "northern", "type": "Fleet carrier", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Jun%27y%C5%8D" },
+  { "id": "takao", "name": "Takao", "force": "northern", "type": "Heavy cruiser", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Takao_(1930)" },
+  { "id": "maya", "name": "Maya", "force": "northern", "type": "Heavy cruiser", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Maya" },
+  { "id": "nachi", "name": "Nachi", "force": "northern", "type": "Heavy cruiser (Hosogaya flagship)", "route": "hosogaya", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nachi" },
+  { "id": "kiso", "name": "Kiso", "force": "northern", "type": "Light cruiser", "route": "kiska", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kiso" },
+  { "id": "tama", "name": "Tama", "force": "northern", "type": "Light cruiser", "route": "kiska", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tama" },
+  { "id": "abukuma", "name": "Abukuma", "force": "northern", "type": "Light cruiser (Ōmori flagship)", "route": "attu", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Abukuma" },
+  { "id": "i168", "name": "I-168", "force": "ijnsubs", "type": "Submarine (Lt Cdr Yahachi Tanabe)", "route": "i168", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-168" },
+  { "id": "enterprise", "name": "USS Enterprise", "force": "tf16", "type": "Fleet carrier (Spruance flagship)", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)" },
+  { "id": "hornet", "name": "USS Hornet", "force": "tf16", "type": "Fleet carrier (Capt Mitscher)", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-8)", "ref": "hornet_cv8" },
+  { "id": "minneapolis", "name": "USS Minneapolis", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Minneapolis_(CA-36)" },
+  { "id": "neworleans", "name": "USS New Orleans", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_New_Orleans_(CA-32)" },
+  { "id": "vincennes", "name": "USS Vincennes", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Vincennes_(CA-44)" },
+  { "id": "northampton", "name": "USS Northampton", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Northampton_(CA-26)" },
+  { "id": "pensacola", "name": "USS Pensacola", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Pensacola_(CA-24)" },
+  { "id": "atlanta", "name": "USS Atlanta", "force": "tf16", "type": "Light cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Atlanta_(CL-51)" },
+  { "id": "phelps", "name": "USS Phelps", "force": "tf16", "type": "Destroyer", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Phelps_(DD-360)" },
+  { "id": "balch", "name": "USS Balch", "force": "tf16", "type": "Destroyer", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Balch_(DD-363)" },
+  { "id": "benham", "name": "USS Benham", "force": "tf16", "type": "Destroyer", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Benham_(DD-397)" },
+  { "id": "monaghan", "name": "USS Monaghan", "force": "tf16", "type": "Destroyer", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Monaghan_(DD-354)" },
+  {
+   "id": "yorktown",
+   "name": "USS Yorktown",
+   "force": "tf17",
+   "type": "Fleet carrier (Fletcher flagship)",
+   "route": "tf17",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5)",
+   "until": "04 18:00",
+   "extra": [["05 14:36", 30.55, 183.55, "Vireo takes the listing hulk in tow", "R"], ["06 13:36", 30.6, 183.433, "Two torpedoes from I-168 open the starboard side", "S"], ["07 05:01", 30.6, 183.433, "Rolls over and sinks — 30°36′N 176°34′W", "S"]],
+   "sunk": "07 05:01",
+   "sunkBy": "Hiryū's aircraft and submarine I-168",
+   "lost": 141
+  },
+  { "id": "astoria", "name": "USS Astoria", "force": "tf17", "type": "Heavy cruiser (Fletcher's flagship from 13:00, 4 June)", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Astoria_(CA-34)" },
+  { "id": "portland", "name": "USS Portland", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Portland_(CA-33)" },
+  {
+   "id": "hammann",
+   "name": "USS Hammann",
+   "force": "tf17",
+   "type": "Destroyer",
+   "route": "tf17",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hammann_(DD-412)",
+   "until": "04 18:00",
+   "extra": [["05 00:00", 30.5, 183.7], ["06 08:00", 30.6, 183.433, "Alongside Yorktown's starboard quarter with the salvage party's pumps and power", "R"], ["06 13:39", 30.6, 183.433, "Broken in two by I-168's torpedo; her depth charges explode among the men in the water", "S"]],
+   "sunk": "06 13:39",
+   "sunkBy": "Submarine I-168",
+   "lost": 80
+  },
+  {
+   "id": "hughes",
+   "name": "USS Hughes",
+   "force": "tf17",
+   "type": "Destroyer",
+   "route": "tf17",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hughes_(DD-410)",
+   "until": "04 18:00",
+   "extra": [["05 14:36", 30.55, 183.55, "Guards the abandoned Yorktown overnight; picks up two men left aboard", "R"], ["07 05:01", 30.6, 183.433], ["08 00:00", 30.2, 184.5]]
+  },
+  { "id": "anderson", "name": "USS Anderson", "force": "tf17", "type": "Destroyer", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Anderson_(DD-411)" },
+  { "id": "vireo", "name": "USS Vireo", "force": "tf17", "type": "Fleet tug (ex-minesweeper)", "route": "vireo", "wiki": "https://en.wikipedia.org/wiki/USS_Vireo_(AM-52)" },
+  { "id": "nautilus", "name": "USS Nautilus", "force": "ussubs", "type": "Submarine (Lt Cdr William Brockman)", "route": "nautilus", "wiki": "https://en.wikipedia.org/wiki/USS_Nautilus_(SS-168)" },
+  { "id": "tambor", "name": "USS Tambor", "force": "ussubs", "type": "Submarine (Lt Cdr John Murphy)", "route": "tambor", "wiki": "https://en.wikipedia.org/wiki/USS_Tambor" },
+  { "id": "nashville", "name": "USS Nashville", "force": "tf8", "type": "Light cruiser (Theobald flagship)", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Nashville_(CL-43)" },
+  { "id": "indianapolis", "name": "USS Indianapolis", "force": "tf8", "type": "Heavy cruiser", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Indianapolis_(CA-35)" }
+ ],
+ "strikes": [
+  {
+   "id": "j1",
+   "name": "Tomonaga strike on Midway",
+   "nation": "IJN",
+   "from": { "route": "kdb" },
+   "target": { "lat": 28.2, "lon": 182.63 },
+   "launch": "04 04:30",
+   "arrive": "04 06:30",
+   "leave": "04 06:50",
+   "recover": "04 08:50",
+   "count": 108,
+   "note": "36 Kates, 36 Vals and 36 Zeros wreck Sand and Eastern Islands' installations but leave the runways usable; VMF-221's Buffaloes are massacred. Tomonaga: 'There is need for a second attack'"
+  },
+  {
+   "id": "j2",
+   "name": "Tone No. 4 search plane",
+   "nation": "IJN",
+   "from": { "route": "kdb" },
+   "target": { "ship": "enterprise" },
+   "launch": "04 05:00",
+   "arrive": "04 07:28",
+   "leave": "04 08:30",
+   "recover": "04 09:45",
+   "count": 1,
+   "note": "Launched half an hour late by a catapult fault, PO Amari's Jake sights 'ten ships' at 07:28 — and at 08:20 adds 'accompanied by what appears to be a carrier'"
+  },
+  {
+   "id": "j3",
+   "name": "Kobayashi dive-bomber strike (Hiryū)",
+   "nation": "IJN",
+   "from": { "route": "hiryu" },
+   "target": { "ship": "yorktown" },
+   "launch": "04 10:54",
+   "arrive": "04 12:00",
+   "leave": "04 12:15",
+   "recover": "04 13:15",
+   "count": 24,
+   "note": "18 Vals and 6 Zeros; seven bombers break through Thach's Wildcats — three hits stop Yorktown. Five aircraft return"
+  },
+  {
+   "id": "j4",
+   "name": "Tomonaga torpedo strike (Hiryū)",
+   "nation": "IJN",
+   "from": { "route": "hiryu" },
+   "target": { "ship": "yorktown" },
+   "launch": "04 13:31",
+   "arrive": "04 14:38",
+   "leave": "04 14:50",
+   "recover": "04 15:45",
+   "count": 16,
+   "note": "10 Kates and 6 Zeros; Tomonaga presses in on one tank of fuel — two torpedo hits port side. Tomonaga does not return"
+  },
+  {
+   "id": "j5",
+   "name": "Hōshō's search plane finds Hiryū",
+   "nation": "IJN",
+   "from": { "route": "main" },
+   "target": { "ship": "hiryu" },
+   "launch": "05 05:30",
+   "arrive": "05 07:00",
+   "leave": "05 07:15",
+   "recover": "05 09:00",
+   "count": 1,
+   "note": "A Hōshō biplane photographs the abandoned Hiryū still afloat with men waving from her deck; Tanikaze is sent back to find her"
+  },
+  {
+   "id": "j6",
+   "name": "Dutch Harbor strike (Ryūjō, Jun'yō)",
+   "nation": "IJN",
+   "from": { "route": "kakuta" },
+   "target": { "lat": 53.888, "lon": 193.458 },
+   "launch": "03 02:55",
+   "arrive": "03 03:50",
+   "leave": "03 04:15",
+   "recover": "03 05:30",
+   "count": 34,
+   "note": "Kates and Zeros from Ryūjō hit Fort Mears barracks (25 soldiers killed); most of Jun'yō's Vals turn back in the murk. A PBY is shot down"
+  },
+  {
+   "id": "j7",
+   "name": "Dutch Harbor second-day strike",
+   "nation": "IJN",
+   "from": { "route": "kakuta" },
+   "target": { "lat": 53.888, "lon": 193.458 },
+   "launch": "04 16:00",
+   "arrive": "04 17:00",
+   "leave": "04 17:30",
+   "recover": "04 18:45",
+   "count": 31,
+   "note": "Fuel tanks, the hospital wing and SS Northwestern set ablaze. PO Koga's damaged Zero crash-lands on Akutan — the 'Akutan Zero'"
+  },
+  {
+   "id": "m1",
+   "name": "PBY dawn search — Reid finds the convoy",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "jintsu" },
+   "launch": "03 04:30",
+   "arrive": "03 09:25",
+   "leave": "03 10:00",
+   "recover": "03 14:00",
+   "count": 1,
+   "note": "Ens Jack Reid (VP-44): 'Main body, bearing 262, distance 700' — in fact Tanaka's transports. Nimitz corrects him: the carriers will come from the north-west",
+   "land": true
+  },
+  {
+   "id": "m2",
+   "name": "B-17s attack the convoy",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "jintsu" },
+   "launch": "03 12:30",
+   "arrive": "03 16:23",
+   "leave": "03 16:40",
+   "recover": "03 21:00",
+   "count": 9,
+   "note": "Lt Col Walter Sweeney's Fortresses bomb from 8,000–12,000 ft, 570 nm out; no hits, but 'two battleships' claimed",
+   "land": true
+  },
+  {
+   "id": "m3",
+   "name": "PBY night torpedo attack",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "akebonomaru" },
+   "launch": "03 21:15",
+   "arrive": "04 01:15",
+   "leave": "04 01:30",
+   "recover": "04 06:00",
+   "count": 4,
+   "note": "Lt William Richards' radar-equipped Catalinas find the convoy by moonlight; one torpedo hits the oiler Akebono Maru — the only American aerial torpedo hit of the battle",
+   "land": true
+  },
+  {
+   "id": "m4",
+   "name": "PBY search — Ady sights the carriers",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "akagi" },
+   "launch": "04 04:15",
+   "arrive": "04 05:30",
+   "leave": "04 06:00",
+   "recover": "04 10:00",
+   "count": 1,
+   "note": "Lt Howard Ady (VP-23) at 05:34: 'Two carriers and battleships bearing 320, distance 180, course 135, speed 25'",
+   "land": true
+  },
+  {
+   "id": "m5",
+   "name": "B-26s and VT-8 Avengers",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "akagi" },
+   "launch": "04 06:00",
+   "arrive": "04 07:05",
+   "leave": "04 07:15",
+   "recover": "04 08:30",
+   "count": 10,
+   "note": "Four Army Marauders and six Avengers of VT-8's Midway detachment attack with torpedoes: no hits, seven lost. One B-26 nearly crashes into Akagi's bridge",
+   "land": true
+  },
+  {
+   "id": "m6",
+   "name": "VMSB-241 — Henderson's Dauntlesses",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "hiryu" },
+   "launch": "04 06:10",
+   "arrive": "04 07:55",
+   "leave": "04 08:05",
+   "recover": "04 09:00",
+   "count": 16,
+   "note": "Maj Lofton Henderson glide-bombs Hiryū with pilots who have barely flown the SBD; Henderson and seven others shot down, no hits",
+   "land": true
+  },
+  {
+   "id": "m7",
+   "name": "B-17s over the Kido Butai",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "soryu" },
+   "launch": "04 04:15",
+   "arrive": "04 08:10",
+   "leave": "04 08:20",
+   "recover": "04 10:00",
+   "count": 15,
+   "note": "Diverted from the convoy, Sweeney's Fortresses bomb from 20,000 ft — no hits",
+   "land": true
+  },
+  {
+   "id": "m8",
+   "name": "VMSB-241 — Norris's Vindicators",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "haruna" },
+   "launch": "04 06:15",
+   "arrive": "04 08:20",
+   "leave": "04 08:30",
+   "recover": "04 09:30",
+   "count": 11,
+   "note": "Maj Benjamin Norris's obsolete SB2Us glide-bomb Haruna; near-misses only, two lost",
+   "land": true
+  },
+  {
+   "id": "m9",
+   "name": "B-17 evening attacks",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "hiryu" },
+   "launch": "04 15:00",
+   "arrive": "04 18:10",
+   "leave": "04 18:35",
+   "recover": "04 21:00",
+   "count": 12,
+   "note": "Twelve Fortresses in three groups bomb the burning Hiryū and her escorts and strafe the destroyer Tanikaze — no hits",
+   "land": true
+  },
+  {
+   "id": "m10",
+   "name": "VMSB-241 attacks the cruisers",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "mikuma" },
+   "launch": "05 07:00",
+   "arrive": "05 08:05",
+   "leave": "05 08:15",
+   "recover": "05 09:15",
+   "count": 12,
+   "note": "Six SBDs and six SB2Us follow the oil slick to Mogami and Mikuma: near-misses. Capt Richard Fleming's burning Vindicator crashes into the sea beside Mikuma — Medal of Honor",
+   "land": true
+  },
+  {
+   "id": "m11",
+   "name": "B-17s attack the cruisers",
+   "nation": "USN",
+   "from": { "lat": 28.2, "lon": 182.63 },
+   "target": { "ship": "mogami" },
+   "launch": "05 07:00",
+   "arrive": "05 08:30",
+   "leave": "05 08:40",
+   "recover": "05 10:30",
+   "count": 8,
+   "note": "Eight Fortresses; no hits",
+   "land": true
+  },
+  {
+   "id": "m12",
+   "name": "VT-8 — Waldron's Devastators",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "soryu" },
+   "launch": "04 07:00",
+   "arrive": "04 09:20",
+   "leave": "04 09:36",
+   "recover": "04 09:36",
+   "count": 15,
+   "note": "Lt Cdr John Waldron breaks from the Hornet group and finds the enemy alone. All fifteen TBDs are shot down; Ens George Gay, the only survivor, watches the battle from the water",
+   "oneway": true
+  },
+  {
+   "id": "m13",
+   "name": "VT-6 — Lindsey's Devastators",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "kaga" },
+   "launch": "04 07:00",
+   "arrive": "04 09:40",
+   "leave": "04 10:00",
+   "recover": "04 11:30",
+   "count": 14,
+   "note": "Lt Cdr Eugene Lindsey attacks Kaga without fighter cover: ten of fourteen lost, Lindsey among them, no hits"
+  },
+  {
+   "id": "m14",
+   "name": "Hornet air group — the 'flight to nowhere'",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "lat": 29.3, "lon": 181.5 },
+   "launch": "04 07:00",
+   "arrive": "04 09:30",
+   "leave": "04 09:40",
+   "recover": "04 11:30",
+   "count": 45,
+   "note": "Cdr Stanhope Ring leads 35 SBDs and 10 F4Fs west along a course that misses the Japanese. All ten Wildcats run out of fuel and ditch; VS-8 lands at Midway"
+  },
+  {
+   "id": "m15",
+   "name": "McClusky — Enterprise dive bombers",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "kaga" },
+   "launch": "04 07:45",
+   "arrive": "04 10:22",
+   "leave": "04 10:28",
+   "recover": "04 11:50",
+   "count": 32,
+   "note": "Finding empty sea, Lt Cdr Wade McClusky follows the destroyer Arashi's wake north. VS-6 and VB-6 put four bombs into Kaga; Lt Richard Best's section peels off and hits Akagi once — enough"
+  },
+  {
+   "id": "m16",
+   "name": "Leslie's VB-3 with VT-3 and Thach's VF-3",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "soryu" },
+   "launch": "04 08:38",
+   "arrive": "04 10:10",
+   "leave": "04 10:28",
+   "recover": "04 11:50",
+   "count": 35,
+   "note": "Lt Cdr Lance Massey's VT-3 draws the Zeros down to sea level (ten of twelve lost); above them Lt Cdr Max Leslie's 17 SBDs hit Sōryū three times in three minutes. Thach's four F4Fs invent the 'Thach weave' on the way in"
+  },
+  {
+   "id": "m17",
+   "name": "Yorktown's afternoon search finds Hiryū",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "hiryu" },
+   "launch": "04 13:30",
+   "arrive": "04 14:30",
+   "leave": "04 14:45",
+   "recover": "04 16:00",
+   "count": 10,
+   "note": "Ten VS-5 Dauntlesses; Lt Samuel Adams reports one carrier, two battleships, three cruisers and four destroyers at 31°15′N 179°05′W"
+  },
+  {
+   "id": "m18",
+   "name": "Enterprise strike on Hiryū",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "hiryu" },
+   "launch": "04 15:30",
+   "arrive": "04 17:03",
+   "leave": "04 17:15",
+   "recover": "04 18:30",
+   "count": 24,
+   "note": "24 SBDs (fourteen of them Yorktown orphans) — four 1,000-lb hits blow Hiryū's forward flight deck onto the bridge. The last Japanese carrier is finished"
+  },
+  {
+   "id": "m19",
+   "name": "Hornet strike on the screen",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "haruna" },
+   "launch": "04 16:03",
+   "arrive": "04 17:30",
+   "leave": "04 17:45",
+   "recover": "04 19:00",
+   "count": 16,
+   "note": "Arriving after Hiryū is ablaze, Hornet's 16 SBDs go for Haruna and Tone — near-misses only"
+  },
+  {
+   "id": "m20",
+   "name": "TF 16 search-strike — Tanikaze",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "tanikaze" },
+   "launch": "05 15:00",
+   "arrive": "05 18:30",
+   "leave": "05 18:40",
+   "recover": "05 20:30",
+   "count": 58,
+   "note": "58 Dauntlesses fly 300 miles north-west hunting a 'burning carrier' and find only the destroyer Tanikaze, which dodges every bomb; one SBD lost. The first night carrier landings for most pilots"
+  },
+  {
+   "id": "m21",
+   "name": "Enterprise dawn search",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "mikuma" },
+   "launch": "06 05:02",
+   "arrive": "06 06:45",
+   "leave": "06 07:30",
+   "recover": "06 09:00",
+   "count": 18,
+   "note": "Eighteen SBDs; the crippled Mikuma and Mogami reported as a 'battleship and carrier' at 29°33′N 174°30′E"
+  },
+  {
+   "id": "m22",
+   "name": "Hornet strike 1 on the cruisers",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "mogami" },
+   "launch": "06 07:57",
+   "arrive": "06 09:50",
+   "leave": "06 10:05",
+   "recover": "06 11:30",
+   "count": 34,
+   "note": "26 SBDs and 8 F4Fs; Mogami's No. 5 turret hit (18 killed), Mikuma and the destroyers strafed. One SBD lost"
+  },
+  {
+   "id": "m23",
+   "name": "Enterprise strike on the cruisers",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "mikuma" },
+   "launch": "06 10:45",
+   "arrive": "06 12:45",
+   "leave": "06 13:05",
+   "recover": "06 14:30",
+   "count": 46,
+   "note": "31 SBDs, 3 TBDs and 12 F4Fs: five 1,000-lb hits on Mikuma, two on Mogami; at 13:58 Mikuma's torpedoes explode"
+  },
+  {
+   "id": "m24",
+   "name": "Hornet strike 2 on the cruisers",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "mogami" },
+   "launch": "06 13:30",
+   "arrive": "06 14:45",
+   "leave": "06 15:00",
+   "recover": "06 16:30",
+   "count": 24,
+   "note": "Another hit on Mikuma and a 1,000-lb bomb through Mogami's catapult deck into her sick bay; Arashio hit — 37 Mikuma survivors on her deck killed. Enterprise SBDs return at 17:15 to photograph the wreck"
+  }
+ ],
+ "torpedoes": [
+  {
+   "from": { "lat": 26.85, "lon": 173.2, "label": "VP-24 Catalinas" },
+   "to": "akebonomaru",
+   "t": "04 01:15",
+   "n": 3,
+   "run": 1,
+   "hit": true,
+   "note": "One hit in the bow; 11 killed, the oiler keeps station"
+  },
+  { "from": "nautilus", "to": "kirishima", "t": "04 08:25", "n": 2, "run": 3, "hit": false, "note": "One tube misfires, the other torpedo misses; Arashi is left behind to hold Nautilus down" },
+  { "from": "nautilus", "to": "kaga", "t": "04 14:00", "n": 4, "run": 2, "hit": true, "note": "One hits and breaks in two without exploding — Kaga's swimmers cling to the floating air flask" },
+  {
+   "from": { "lat": 31.05, "lon": 184, "label": "Hiryū Kates" },
+   "to": "yorktown",
+   "t": "04 14:43",
+   "n": 5,
+   "run": 1,
+   "hit": true,
+   "note": "Two hits port side; rudder jammed, list 26° within minutes"
+  },
+  { "from": "isokaze", "to": "soryu", "t": "04 19:12", "n": 3, "run": 1, "hit": true, "note": "Scuttling — Sōryū goes down at 19:13" },
+  { "from": "hagikaze", "to": "kaga", "t": "04 19:25", "n": 2, "run": 1, "hit": true, "note": "Scuttling; Kaga sinks after two internal explosions" },
+  { "from": "nowaki", "to": "akagi", "t": "05 04:50", "n": 1, "run": 1, "hit": true, "note": "Yamamoto's 'Dispose of Akagi' — Nowaki, Arashi, Hagikaze and Maikaze fire one torpedo each" },
+  { "from": "arashi", "to": "akagi", "t": "05 04:52", "n": 1, "run": 1, "hit": true, "note": "Akagi sinks bow first at 05:20" },
+  { "from": "makigumo", "to": "hiryu", "t": "05 05:10", "n": 2, "run": 1, "hit": true, "note": "One hit; Hiryū stays afloat another four hours" },
+  { "from": "i168", "to": "yorktown", "t": "06 13:31", "n": 4, "run": 1, "hit": true, "note": "Fired in two pairs from 1,200 yd under the escorts' sonar screen: two hit Yorktown, one Hammann, one runs astern" },
+  { "from": "i168", "to": "hammann", "t": "06 13:31", "n": 1, "run": 1, "hit": true, "note": "Hammann's back is broken; she sinks in four minutes" }
+ ],
+ "engagements": [
+  {
+   "ships": ["akagi", "kaga", "soryu", "hiryu", "haruna", "kirishima", "tone", "chikuma", "nagara", "arashi", "nowaki", "isokaze"],
+   "from": "04 07:05",
+   "to": "04 10:30",
+   "rate": 0.35,
+   "note": "Anti-aircraft fire against six successive attacks from Midway and the carriers"
+  },
+  {
+   "ships": ["hiryu", "haruna", "kirishima", "tone", "chikuma", "nagara"],
+   "from": "04 17:00",
+   "to": "04 18:40",
+   "rate": 0.4,
+   "note": "Hiryū's screen against the Enterprise and Hornet strikes and the B-17s"
+  },
+  {
+   "ships": ["yorktown", "astoria", "portland", "hammann", "hughes", "anderson"],
+   "from": "04 11:58",
+   "to": "04 12:16",
+   "rate": 0.5,
+   "note": "Yorktown's screen against Kobayashi's Vals"
+  },
+  {
+   "ships": ["yorktown", "astoria", "portland", "hammann", "hughes", "anderson", "balch", "benham"],
+   "from": "04 14:36",
+   "to": "04 14:52",
+   "rate": 0.55,
+   "note": "Against Tomonaga's Kates; Balch and Benham detached from TF 16"
+  },
+  {
+   "ships": ["i168"],
+   "from": "05 01:24",
+   "to": "05 01:35",
+   "rate": 0.5,
+   "note": "Six 100-mm rounds toward Sand Island; the Marines' 7-inch battery replies"
+  },
+  {
+   "ships": ["mogami", "mikuma", "arashio", "asashio"],
+   "from": "05 08:05",
+   "to": "05 08:40",
+   "rate": 0.3,
+   "note": "Against VMSB-241 and the B-17s"
+  },
+  {
+   "ships": ["mogami", "mikuma", "arashio", "asashio"],
+   "from": "06 09:50",
+   "to": "06 15:00",
+   "rate": 0.35,
+   "note": "Three carrier strikes in five hours"
+  },
+  {
+   "ships": ["tanikaze"],
+   "from": "05 18:25",
+   "to": "05 18:45",
+   "rate": 0.5,
+   "note": "Tanikaze alone against 58 Dauntlesses"
+  }
+ ],
+ "events": [["1942-05-25 03:00", "Kakuta's Second Carrier Striking Force sails from Ōminato for the Aleutians", 41.24, 141.15], ["1942-05-26 09:00", "Kido Butai sails from Hashirajima", 33.72, 132.42], ["1942-05-27 12:00", "Station HYPO's decrypts convince Nimitz that 'AF' is Midway and the attack will come 4 June", 21.35, 202.05], ["1942-05-28 09:00", "TF 16 sails from Pearl Harbor under Spruance", 21.35, 202.05], ["1942-05-28 09:00", "Yamamoto's Main Body and Kondō's Second Fleet sortie from Hashirajima", 33.72, 132.42], ["1942-05-30 09:00", "Yorktown, repaired in 48 hours, sails with TF 17", 21.35, 202.05], ["1942-05-30 12:00", "Operation K: the Japanese flying-boat reconnaissance of Pearl Harbor is abandoned — US ships are sitting on the French Frigate Shoals refuelling point", 23.87, 193.72], ["02 15:30", "TF 16 and TF 17 meet at Point Luck, 325 nm north-east of Midway", 32.05, 187.3], ["02 16:30", "Nagumo, in fog, fixes his position at 37°01′N 171°07′E and turns onto 130° for Midway", 37.025, 171.117], ["03 03:50", "Dutch Harbor bombed: Fort Mears barracks hit, 25 soldiers killed", 53.888, 193.458], ["03 09:25", "PBY sights the invasion convoy 700 nm west of Midway — 'Main body'", 26.4, 169.7], ["03 16:23", "Nine B-17s bomb the convoy — no hits", 26.7, 172.05], ["04 01:15", "PBYs torpedo the oiler Akebono Maru by moonlight", 26.9, 173.3], ["04 04:30", "Nagumo launches 108 aircraft against Midway", 31, 179.9], ["04 05:34", "'Two carriers and battleships' — PBY sights the Kido Butai", 30.55, 180.4], ["04 06:16", "VMF-221's 25 fighters meet the Japanese strike 30 nm out; 15 are shot down", 28.6, 182.3], ["04 06:30", "Midway bombed: power plant, hangars, fuel tanks — but the runways survive", 28.2, 182.63], ["04 07:05", "Midway-based B-26s and TBFs open the attack on the carriers", 30.3, 180.75], ["04 07:15", "Nagumo orders his reserve Kates rearmed with land bombs", 30.3, 180.75], ["04 08:20", "Tone's No. 4 plane: 'accompanied by what appears to be a carrier' — Nagumo dithers", 30.2, 180.9], ["04 09:20", "VT-8 annihilated: fifteen Devastators, one survivor", 30.15, 181.05], ["04 10:22", "Kaga hit", 30.15, 181.05], ["04 10:25", "Sōryū hit", 30.25, 181.1], ["04 10:26", "Akagi hit — three carriers ablaze in six minutes", 30.083, 181.167], ["04 11:30", "Nagumo hoists his flag in Nagara", 30.6, 180.9], ["04 12:08", "Yorktown takes three bombs from Hiryū's dive bombers", 31, 183.9], ["04 13:00", "Fletcher shifts his flag to Astoria", 31, 183.9], ["04 14:00", "Nautilus torpedoes the burning Kaga — a dud", 30.333, 180.717], ["04 14:30", "Yorktown scout sights Hiryū", 31.25, 180.917], ["04 14:45", "Yorktown torpedoed twice; abandoned at 15:00", 30.9, 183.8], ["04 17:03", "Hiryū hit by four bombs", 31.667, 180.833], ["04 19:13", "Sōryū sinks", 30.633, 180.783], ["04 19:25", "Kaga sinks", 30.388, 180.713], ["04 21:30", "Nagumo retires north-west", 32.2, 180.4], ["05 01:24", "I-168 shells Midway", 28.17, 182.6], ["05 02:38", "Mogami rams Mikuma while evading USS Tambor", 28.2, 180.93], ["05 02:55", "Yamamoto cancels the Midway operation", 32.3, 179.6], ["05 05:20", "Akagi scuttled", 30.5, 181.333], ["05 08:05", "Marine bombers attack the damaged cruisers; Capt Fleming killed", 28.1, 179.4], ["05 09:12", "Hiryū sinks with Yamaguchi and Kaku aboard", 31.633, 181.15], ["05 14:36", "Vireo takes Yorktown in tow", 30.55, 183.55], ["05 18:30", "58 Dauntlesses bomb the destroyer Tanikaze — and miss", 33, 177], ["06 01:00", "Japanese troops land on Kiska", 51.973, 177.495], ["06 06:45", "Enterprise scouts find Mikuma and Mogami", 29.55, 174.5], ["06 13:36", "I-168 torpedoes Yorktown and Hammann", 30.6, 183.433], ["06 13:39", "Hammann sinks — 80 killed", 30.6, 183.433], ["06 13:58", "Mikuma's torpedoes explode", 29.48, 173.3], ["06 19:30", "Mikuma sinks", 29.467, 173.183], ["07 01:00", "Japanese troops land on Attu", 52.924, 173.157], ["07 05:01", "Yorktown sinks", 30.6, 183.433], ["07 12:00", "Maj Gen Clarence Tinker, commanding 7th Air Force, lost leading a B-24 raid on Wake", 22, 171], ["04 18:15", "Fletcher to Spruance: 'Will conform to your movements' — tactical command passes to TF 16", 30.7, 183.4]],
+ "ports": [
+  { "name": "Hashirajima", "lat": 33.72, "lon": 132.42, "control": "IJN", "kind": "port", "note": "Combined Fleet anchorage in the Inland Sea; Kido Butai and Main Body sortie from here" },
+  { "name": "Kure", "lat": 34.23, "lon": 132.55, "control": "IJN", "kind": "port", "note": "Naval arsenal; Nagara lands Kido Butai's 618 wounded and survivors here on 14 June" },
+  { "name": "Ōminato", "lat": 41.24, "lon": 141.15, "control": "IJN", "kind": "port", "note": "Northern Force base at the head of Mutsu Bay" },
+  { "name": "Paramushiro", "lat": 50.7, "lon": 156.1, "control": "IJN", "kind": "port", "note": "Kuriles staging anchorage for the Kiska and Attu invasion forces" },
+  { "name": "Saipan", "lat": 15.2, "lon": 145.75, "control": "IJN", "kind": "port", "note": "Transport Group with 5,000 troops of the Ichiki Detachment and Kure 5th SNLF sails 28 May" },
+  { "name": "Guam", "lat": 13.45, "lon": 144.65, "control": "IJN", "kind": "port", "note": "Kurita's Close Support Group (CruDiv 7) sails 28 May" },
+  { "name": "Wake", "lat": 19.3, "lon": 166.63, "control": "IJN", "kind": "air", "note": "Japanese since 23 Dec 1941; land-based air support for the invasion" },
+  { "name": "Truk", "lat": 7.45, "lon": 151.85, "control": "IJN", "kind": "port", "note": "Mogami limps here for repair after the battle" },
+  { "name": "Midway — NAS Midway / MAG-22", "lat": 28.2, "lon": 182.63, "control": "USN", "kind": "air", "note": "Sand and Eastern Islands: 32 PBYs, 17 B-17s, 4 B-26s, 6 TBFs, VMF-221 (28 fighters), VMSB-241 (34 bombers); 6th Defense Battalion, 3,652 men" },
+  { "name": "Kure Atoll", "lat": 28.42, "lon": 181.7, "control": "USN", "kind": "port", "note": "Uninhabited atoll 55 nm west of Midway; reconnoitred by I-168 on 31 May" },
+  { "name": "Pearl and Hermes Reef", "lat": 27.85, "lon": 184.15, "control": "USN", "kind": "port", "note": "Vireo's station; the tug sails from here to tow Yorktown" },
+  { "name": "French Frigate Shoals", "lat": 23.87, "lon": 193.72, "control": "USN", "kind": "port", "note": "Seaplane tenders Thornton and Ballard occupy the lagoon — denying the Japanese flying boats their refuelling point for Operation K" },
+  { "name": "Pearl Harbor", "lat": 21.35, "lon": 202.05, "control": "USN", "kind": "port", "note": "Pacific Fleet base; Yorktown repaired here in 48 hours" },
+  { "name": "Dutch Harbor", "lat": 53.888, "lon": 193.458, "control": "USN", "kind": "port", "note": "Naval Operating Base and Fort Mears, Unalaska; bombed 3 and 4 June — 43 killed, 14 aircraft, SS Northwestern burnt out" },
+  { "name": "Kodiak", "lat": 57.79, "lon": 207.6, "control": "USN", "kind": "port", "note": "Theobald's North Pacific Force base; PatWing 4 Catalinas" },
+  { "name": "Kiska", "lat": 51.973, "lon": 177.495, "control": "USN", "kind": "port", "note": "Ten-man Navy weather station; occupied by the Japanese 6 June (2 killed, 7 captured)", "captured": "06 01:00", "capturedBy": "IJN" },
+  { "name": "Attu", "lat": 52.924, "lon": 173.157, "control": "USN", "kind": "port", "note": "Aleut village at Chichagof Harbor; occupied by the Japanese 7 June", "captured": "07 01:00", "capturedBy": "IJN" },
+  { "name": "Tokyo — Navy General Staff", "lat": 35.68, "lon": 139.69, "control": "IJN", "kind": "hq", "note": "Naval General Staff · Imperial GHQ", "hq": "Naval General Staff (Nagano)" },
+  { "name": "Pearl Harbor — CINCPAC / Station HYPO", "lat": 21.36, "lon": 202.06, "control": "USN", "kind": "hq", "note": "Nimitz's headquarters and Cdr Joseph Rochefort's Combat Intelligence Unit, whose JN-25 decrypts gave the date, place and order of battle of the attack", "hq": "Nimitz · Rochefort's codebreakers" }
+ ],
+ "rescues": [
+  { "by": "hagikaze", "of": "kaga", "from": "04 14:00", "to": "04 19:25", "saved": 900, "note": "Hagikaze and Maikaze lift some 900 of Kaga's 1,700-man crew from the water" },
+  { "by": "isokaze", "of": "soryu", "from": "04 11:00", "to": "04 19:13", "saved": 392, "note": "Isokaze and Hamakaze take off Sōryū's survivors; 711 are lost" },
+  { "by": "nowaki", "of": "akagi", "from": "04 18:00", "to": "05 04:50", "saved": 1360, "note": "Arashi, Nowaki, Hagikaze and Maikaze embark Akagi's crew through the night before scuttling her" },
+  { "by": "makigumo", "of": "hiryu", "from": "05 03:15", "to": "05 05:10", "saved": 800, "note": "Makigumo and Kazagumo take off about 800 men; 39 engineers trapped below escape after she has been left" },
+  { "by": "hammann", "of": "yorktown", "from": "04 15:00", "to": "04 17:30", "saved": 2270, "note": "Hammann, Balch, Benham, Russell and Anderson take 2,270 men off the listing carrier" },
+  { "by": "mogami", "of": "mikuma", "from": "06 15:00", "to": "06 15:25", "saved": 240, "note": "Mogami and Arashio embark 240 survivors and leave; Trout picks up two more on 9 June" },
+  { "by": "benham", "of": "hammann", "from": "06 13:39", "to": "06 15:30", "saved": 171, "note": "Benham takes 171 of Hammann's 251; Vireo and Hughes recover the salvage party" }
+ ],
+ "groups": {
+  "kdb": "Kido Butai",
+  "hiryu": "Hiryū (CarDiv 2)",
+  "main": "Main Body",
+  "kondo": "Second Fleet",
+  "crudiv7": "CruDiv 7",
+  "transports": "Transport Group",
+  "kakuta": "2nd Carrier Striking Force",
+  "hosogaya": "Fifth Fleet",
+  "kiska": "Kiska Invasion Force",
+  "attu": "Attu Invasion Force",
+  "i168": "I-168",
+  "tf16": "Task Force 16",
+  "tf17": "Task Force 17",
+  "vireo": "Vireo",
+  "nautilus": "Nautilus",
+  "tambor": "Tambor",
+  "tf8": "Task Force 8"
+ },
+ "commanders": {
+  "kdb": { "name": "Vice Admiral Chūichi Nagumo", "role": "Commander, First Air Fleet (Kido Butai)", "flagship": "Akagi, then Nowaki, then Nagara", "bio": "The victor of Pearl Harbor and the Indian Ocean raid, a torpedo and destroyer specialist commanding carriers he did not fully understand. Caught between rearming for a second strike on Midway and the sudden report of an American carrier, he chose to recover his aircraft and launch a co-ordinated blow — and was hit with his decks full of fuelled and armed planes.", "fate": "Killed himself on Saipan, 6 July 1944.", "wiki": "Chūichi_Nagumo" },
+  "hiryu": { "name": "Rear Admiral Tamon Yamaguchi", "role": "Commander, Carrier Division 2", "flagship": "Hiryū", "bio": "Aggressive and widely tipped as a future Combined Fleet commander, he urged Nagumo at 08:30 to 'launch attack force immediately' with what was on deck. Left with the only surviving carrier, he struck Yorktown twice and was preparing a dusk attack when Hiryū was hit.", "fate": "Chose to go down with Hiryū with her captain, Tomeo Kaku, 5 June 1942.", "wiki": "Tamon_Yamaguchi" },
+  "main": { "name": "Admiral Isoroku Yamamoto", "role": "Commander-in-Chief, Combined Fleet", "flagship": "Yamato", "bio": "Architect of Pearl Harbor and of Operation MI, which he meant to force the decisive battle before American production told. He kept his battleships 300 miles behind the carriers and radio silence kept him ignorant of the intelligence Nagumo lacked. Ordered a night pursuit, then at 02:55 cancelled the operation.", "fate": "Shot down over Bougainville by P-38s, 18 April 1943.", "wiki": "Isoroku_Yamamoto" },
+  "kondo": { "name": "Vice Admiral Nobutake Kondō", "role": "Commander, Second Fleet (Midway Invasion Force)", "flagship": "Atago", "bio": "Commanded the invasion force's covering group of two battleships and four heavy cruisers. Raced north-east at 28 knots to bring on a night action that Spruance's withdrawal east denied him.", "fate": "Survived the war; died 1953.", "wiki": "Nobutake_Kondō" },
+  "crudiv7": { "name": "Vice Admiral Takeo Kurita", "role": "Commander, Cruiser Division 7 (Close Support Group)", "flagship": "Kumano", "bio": "Ordered at 13:50 on 4 June to bombard Midway with four heavy cruisers, then recalled 90 miles short; a surfaced American submarine caused the turn in which Mogami rammed Mikuma. Two and a half years later he would command Center Force at Leyte Gulf.", "fate": "Survived the war; died 1977.", "wiki": "Takeo_Kurita" },
+  "transports": { "name": "Rear Admiral Raizō Tanaka", "role": "Commander, Destroyer Squadron 2 — Transport Group escort", "flagship": "Jintsū", "bio": "Escorted the twelve transports carrying 5,000 troops from Saipan. His convoy was the first Japanese force sighted, on 3 June, and the only one attacked that night. Later the master of the Guadalcanal 'Tokyo Express'.", "fate": "Survived the war; died 1969.", "wiki": "Raizō_Tanaka" },
+  "kakuta": { "name": "Rear Admiral Kakuji Kakuta", "role": "Commander, Second Carrier Striking Force (CarDiv 4)", "flagship": "Ryūjō (Jun’yō in some accounts)", "bio": "Struck Dutch Harbor on two days with the light carrier Ryūjō and the converted liner Jun'yō. His force was briefly ordered south to reinforce Nagumo and then recalled to cover the Kiska and Attu landings.", "fate": "Presumed to have killed himself on Tinian, August 1944.", "wiki": "Kakuji_Kakuta" },
+  "hosogaya": { "name": "Vice Admiral Boshirō Hosogaya", "role": "Commander, Fifth Fleet (Northern Area Force)", "flagship": "Nachi", "bio": "In overall command of Operation AL — the Aleutians diversion and the occupation of Kiska and Attu, the only objectives of the whole plan that were achieved.", "fate": "Relieved after the Komandorski Islands, March 1943; died 1964.", "wiki": "Boshirō_Hosogaya" },
+  "i168": { "name": "Lt Cdr Yahachi Tanabe", "role": "Commanding Officer, I-168", "flagship": "I-168", "bio": "Reconnoitred Kure Atoll and Midway, shelled the atoll on the night of 4/5 June, then found the abandoned Yorktown by a Chikuma floatplane's report and crept under her destroyer screen to fire four torpedoes from 1,200 yards — the Japanese Navy's only consolation of the battle.", "fate": "Survived the war; died 1990.", "wiki": "Yahachi_Tanabe" },
+  "tf16": { "name": "Rear Admiral Raymond A. Spruance", "role": "Commander, Task Force 16", "flagship": "USS Enterprise", "bio": "A cruiser admiral with no aviation background, given Halsey's carriers when Halsey went into hospital with shingles. Accepted his chief of staff Miles Browning's advice to launch at extreme range at 07:00, and — as decisively — turned east on the night of 4 June rather than blunder into Yamamoto's battleships.", "fate": "Survived the war; died 1969.", "wiki": "Raymond_A._Spruance" },
+  "tf17": { "name": "Rear Admiral Frank Jack Fletcher", "role": "Commander, Task Force 17 — officer in tactical command", "flagship": "USS Yorktown, then USS Astoria", "bio": "Commanded at Coral Sea a month earlier and brought the damaged Yorktown back into the fight after 48 hours in dry dock. Held Yorktown's strike back until the enemy was fixed, launched Leslie's decisive group, and with his flagship crippled handed tactical command to Spruance that evening: 'Will conform to your movements.'", "fate": "Survived the war; died 1973.", "wiki": "Frank_Jack_Fletcher" },
+  "nautilus": { "name": "Lt Cdr William H. Brockman", "role": "Commanding Officer, USS Nautilus", "flagship": "USS Nautilus", "bio": "Pushed his big old submarine into the middle of the Kido Butai on the morning of 4 June. The destroyer Arashi, left behind to depth-charge him, was the ship whose wake McClusky followed to the carriers.", "fate": "Navy Cross; survived the war.", "wiki": "USS_Nautilus_(SS-168)" },
+  "tf8": { "name": "Rear Admiral Robert A. Theobald", "role": "Commander, Task Force 8 (North Pacific Force)", "flagship": "USS Nashville", "bio": "Given the Aleutians and told by Nimitz's intelligence that Dutch Harbor and Kiska were the targets, he disbelieved it and kept his cruisers 400 miles south of Kodiak to guard against a landing on the mainland. His force never saw the Japanese.", "fate": "Relieved January 1943; died 1957.", "wiki": "Robert_A._Theobald" }
+ },
+ "schema": 1,
+ "routing": {
+  "res": 0.02,
+  "bbox": [30, 129, 43, 146],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-08",
+  "ships": {
+   "akagi": {
+    "hash": "2325ccfa",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "kaga": {
+    "hash": "8c428e57",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "soryu": {
+    "hash": "4801a381",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "hiryu": {
+    "hash": "7fc23551",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "haruna": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "kirishima": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "tone": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "chikuma": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "nagara": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "arashi": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "nowaki": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "hagikaze": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "maikaze": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "isokaze": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "hamakaze": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "makigumo": {
+    "hash": "d53970d8",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "tanikaze": {
+    "hash": "718d094d",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.61, 133.17]]
+    }
+   },
+   "yamato": {
+    "hash": "974b3eb3",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.67, 132.75]]
+    }
+   },
+   "nagato": {
+    "hash": "974b3eb3",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.67, 132.75]]
+    }
+   },
+   "mutsu": {
+    "hash": "974b3eb3",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.67, 132.75]]
+    }
+   },
+   "hosho": {
+    "hash": "974b3eb3",
+    "via": {
+     "1": [[33.33, 131.99]],
+     "2": [[32.67, 132.75]]
+    }
+   },
+   "atago": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "chokai": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "myoko": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "haguro": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "kongo": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "hiei": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "zuiho": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "yura": {
+    "hash": "b787328e",
+    "via": {
+     "1": [[33.33, 131.99]]
+    }
+   },
+   "kumano": { "hash": "5e8fcb1a" },
+   "suzuya": { "hash": "5e8fcb1a" },
+   "mogami": { "hash": "7bfc090b" },
+   "mikuma": { "hash": "7cd6cb32" },
+   "arashio": { "hash": "7bfc090b" },
+   "asashio": { "hash": "7bfc090b" },
+   "jintsu": { "hash": "a8dfcd62" },
+   "akebonomaru": { "hash": "a8dfcd62" },
+   "argentinamaru": { "hash": "a8dfcd62" },
+   "ryujo": {
+    "hash": "89370042",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "junyo": {
+    "hash": "89370042",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "takao": {
+    "hash": "89370042",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "maya": {
+    "hash": "89370042",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "nachi": {
+    "hash": "4e57e684",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "kiso": {
+    "hash": "49c7126a",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "tama": {
+    "hash": "49c7126a",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "abukuma": {
+    "hash": "923facd7",
+    "snap": {
+     "0": [41.27, 141.17]
+    },
+    "via": {
+     "1": [[41.19, 141.15], [41.09, 140.79], [41.19, 140.73], [41.57, 140.89]]
+    }
+   },
+   "i168": { "hash": "824963c8" },
+   "enterprise": { "hash": "13ec18cc" },
+   "hornet": { "hash": "13ec18cc" },
+   "minneapolis": { "hash": "13ec18cc" },
+   "neworleans": { "hash": "13ec18cc" },
+   "vincennes": { "hash": "13ec18cc" },
+   "northampton": { "hash": "13ec18cc" },
+   "pensacola": { "hash": "13ec18cc" },
+   "atlanta": { "hash": "13ec18cc" },
+   "phelps": { "hash": "13ec18cc" },
+   "balch": { "hash": "13ec18cc" },
+   "benham": { "hash": "13ec18cc" },
+   "monaghan": { "hash": "13ec18cc" },
+   "yorktown": { "hash": "68067af1" },
+   "astoria": { "hash": "7e33caa6" },
+   "portland": { "hash": "7e33caa6" },
+   "hammann": { "hash": "c86347b6" },
+   "hughes": { "hash": "d9225a28" },
+   "anderson": { "hash": "7e33caa6" },
+   "vireo": { "hash": "dfbf87a0" },
+   "nautilus": { "hash": "3c44127d" },
+   "tambor": { "hash": "a41436b9" },
+   "nashville": { "hash": "1234bde5" },
+   "indianapolis": { "hash": "1234bde5" }
+  }
+ }
+}
