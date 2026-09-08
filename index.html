@@ -237,8 +237,14 @@
   .port.dim .lbl small{display:none}
   .port.dim2 .lbl{display:none}  #search{width:100%;margin-top:8px;height:28px;border-radius:var(--r);border:1px solid var(--line);background:var(--btn);color:var(--fg);padding:0 10px;font-size:12px;font-family:var(--font)}
   #search:focus{outline:none;border-color:var(--accent)}
-  #losses{display:flex;flex-direction:column;gap:3px;margin-left:auto;font-size:11px;font-family:var(--mono);color:var(--fg2)}
+  #losses{display:grid;grid-template-columns:max-content max-content max-content;column-gap:16px;row-gap:3px;align-items:center;margin-left:auto;flex:none;font-size:11px;font-family:var(--mono);color:var(--fg2)}
+  #losses .ls.resc{padding-left:6px;border-left:1px solid var(--line)}
+  #clock{flex:none}
+  #losses .hd{font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-family:var(--font);font-weight:700}
   #losses .ls{display:flex;align-items:center;gap:6px;white-space:nowrap}
+  #losses .ls.resc b{color:#7ee2a0}
+  #losses .num{display:inline-block;text-align:right;font-variant-numeric:tabular-nums}
+  #losses .num.ticking{color:var(--accent)}
   #losses .ls i{width:8px;height:8px;border-radius:2px;display:inline-block}
   #losses .ls b{color:var(--fg)}
   #losses .ls small{color:var(--muted)}
@@ -309,6 +315,15 @@
     .shp .lbl{font-size:10.5px}
     .leaflet-popup-content{margin:10px 12px;font-size:12px}
   }
+  /* ---- rescue operations ---- */
+  .resc{position:relative;width:0;height:0;cursor:pointer}
+  .resc svg{position:absolute;left:-9px;top:-26px;width:18px;height:18px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));animation:bob 2.4s ease-in-out infinite}
+  .resc .lbl{position:absolute;left:12px;top:-25px;white-space:nowrap;font-size:10.5px;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;pointer-events:none}
+  .resc.dim .lbl{display:none}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+  .ev.rescue .t::before{content:"🛟 ";font-size:10px}
+  .ev.key .n{font-weight:600}
+  .ev.key:not(.loss) .t::before{content:"★ ";color:var(--accent);font-size:12px;line-height:1}
 
   #toast{display:none;background:var(--panel2);border:1px solid var(--accent);color:var(--fg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:all .25s;z-index:1000;max-width:100%;text-align:center}
   #toast.show{display:block;opacity:1;animation:bannerin .25s ease-out}
@@ -326,7 +341,7 @@
 <aside id="side" class="panel">
   <header>
     <button class="sheetclose" data-close="side">✕</button>
-    <h1>FleetView <span>PROTOTYPE</span></h1>
+    <h1>FleetView <span id="version"></span></h1>
     <select id="scenario" class="btn" title="Campaign"></select>
     <p class="sub"></p>
     <input id="search" type="search" placeholder="Search ships & air ops…  ( / )" autocomplete="off">
@@ -342,7 +357,7 @@
     <label><input type="checkbox" id="optFlags" checked> Flags</label>
     <label><input type="checkbox" id="optPorts" checked> Bases</label>
     <label><input type="checkbox" id="optNight" checked> Day/night</label>
-    <label><input type="checkbox" id="optAutoSlow" checked> Auto-slow at events</label>
+    <label><input type="checkbox" id="optAutoSlow" checked> Slow down for key events</label>
   </div>
   <div class="legend" id="legend"></div>
   <div id="foot">Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don't overlap.</div>
@@ -698,7 +713,7 @@ const L_SHIPS = [
     extra:[['25 11:25', 11.22, 126.08, 'Sinks after kamikaze hit']], sunk:'25 11:25', sunkBy:'Kamikaze — first major warship lost to one' },
   { id:'kalinin',  name:'USS Kalinin Bay',  force:'taffy3', type:'Escort carrier', route:'taffy3' },
   { id:'johnston', name:'USS Johnston',     force:'taffy3', type:'Destroyer (Cdr. Ernest Evans)', route:'taffy3', until:'25 06:58',
-    extra:[['25 07:10', 11.76, 126.42, 'Charges Kumano alone through the smoke'], ['25 07:27', 11.87, 126.28, 'Torpedoes Kumano; hit by Kongō 14-inch shells'], ['25 08:00', 11.75, 126.25, 'Rejoins the fight on one engine'], ['25 09:00', 11.70, 126.20, 'Engages entire destroyer squadron'], ['25 09:45', 11.77, 126.16, 'Abandon ship'], ['25 10:10', 11.77, 126.15, 'Rolls over and sinks']], sunk:'25 10:10', sunkBy:'IJN gunfire; a Japanese destroyer captain salutes the survivors' },
+    extra:[['25 07:10', 11.76, 126.42, 'Charges Kumano alone through the smoke'], ['25 07:27', 11.85, 126.30, 'Torpedoes Kumano; hit by Kongō 14-inch shells'], ['25 08:00', 11.75, 126.25, 'Rejoins the fight on one engine'], ['25 09:00', 11.70, 126.20, 'Engages entire destroyer squadron'], ['25 09:45', 11.77, 126.16, 'Abandon ship'], ['25 10:10', 11.77, 126.15, 'Rolls over and sinks']], sunk:'25 10:10', sunkBy:'IJN gunfire; a Japanese destroyer captain salutes the survivors' },
   { id:'hoel',     name:'USS Hoel',         force:'taffy3', type:'Destroyer', route:'taffy3', until:'25 06:58',
     extra:[['25 07:25', 11.90, 126.50, 'Torpedo attack on Kongō'], ['25 08:30', 11.80, 126.55, 'Dead in water, 40+ hits'], ['25 08:55', 11.77, 126.55, 'Sinks']], sunk:'25 08:55', sunkBy:'IJN battleship & cruiser gunfire' },
   { id:'heermann', name:'USS Heermann',     force:'taffy3', type:'Destroyer', route:'taffy3' },
@@ -1316,7 +1331,61 @@ SCENARIOS.bismarck.torpedoes = [
   set(B, 4, ['bismarck']); set(B, 5, ['bismarck']); set(B, 6, ['bismarck']); set(B, 7, ['rodney','kgv']);
   L[4].pairs = null;
 })();
+
+// ============================================================================
+// Rescue & pickup operations — plus the destroyers that carried them out
+// ============================================================================
+(function(){
+  const L = SCENARIOS.leyte, B = SCENARIOS.bismarck; const W = 'https://en.wikipedia.org/wiki/';
+  // --- Leyte: Center Force destroyers with rescue stories
+  L.ships.push(
+    { id:'shimakaze', name:'Shimakaze', force:'center', type:'Destroyer — fastest in the IJN (40 kn)', route:'center', until:'24 15:30',
+      extra:[['24 19:35', 13.10, 122.50, 'Standing by the capsizing Musashi with Kiyoshimo'], ['25 02:30', 13.10, 122.55, '1,376 survivors embarked between the two destroyers'], ['25 12:00', 12.30, 121.00], ['25 20:00', 12.00, 120.20, 'Coron Bay'], ['26 12:00', 14.38, 120.58, 'Lands survivors at Corregidor'], ['29 00:00', 14.55, 120.90]], wiki: W + 'Japanese_destroyer_Shimakaze_(1942)' },
+    { id:'kiyoshimo', name:'Kiyoshimo', force:'center', type:'Destroyer', route:'center', until:'24 15:30',
+      extra:[['24 19:35', 13.10, 122.50, 'Rescuing Musashi survivors'], ['25 02:30', 13.10, 122.55], ['25 12:00', 12.30, 121.00], ['25 20:00', 12.00, 120.20, 'Coron Bay'], ['26 12:00', 14.38, 120.58, 'Corregidor'], ['29 00:00', 14.55, 120.90]], wiki: W + 'Japanese_destroyer_Kiyoshimo' },
+    { id:'nowaki', name:'Nowaki', force:'center', type:'Destroyer', route:'center', until:'25 06:45',
+      extra:[['25 09:00', 11.55, 126.55, 'Detached to stand by the crippled Chikuma'], ['25 11:30', 11.37, 126.27, 'Scuttles Chikuma and embarks her survivors'], ['25 14:00', 11.60, 126.00, 'Racing to rejoin Kurita'], ['25 21:00', 12.40, 125.20], ['26 01:35', 13.00, 124.90, 'Caught off San Bernardino by TF 34\'s vanguard cruisers and destroyers']],
+      sunk:'26 01:35', sunkBy:'Cruisers Vincennes, Biloxi, Miami and destroyers of TF 34 — lost with all hands, including Chikuma\'s survivors (one man survived)', lost: 1000, wiki: W + 'Japanese_destroyer_Nowaki_(1940)' },
+    { id:'fujinami', name:'Fujinami', force:'center', type:'Destroyer', route:'center', until:'25 06:45',
+      extra:[['25 09:05', 11.45, 126.40, 'Detached to the disabled Chōkai'], ['25 11:00', 11.37, 126.37, 'Scuttles Chōkai and embarks her survivors'], ['25 14:00', 11.80, 126.00], ['25 21:30', 12.55, 124.40, 'Through San Bernardino with Kurita'], ['26 06:00', 12.60, 123.20, 'Sent to aid the grounded Hayashimo'], ['27 10:00', 12.30, 122.40], ['27 12:00', 12.00, 122.50, 'Sunk by TG 38.2 aircraft off Mindoro — no survivors from either crew']],
+      sunk:'27 12:00', sunkBy:'TG 38.2 aircraft — lost with all hands and every Chōkai survivor aboard', lost: 900, wiki: W + 'Japanese_destroyer_Fujinami' },
+  );
+  // casualty accounting now follows the men: light at the cruiser sinkings, heavy when the rescue destroyers were lost
+  L.ships.find(s => s.id === 'chokai').lost = 150; L.ships.find(s => s.id === 'chikuma').lost = 100;
+  // --- Bismarck: Electra (Hood's survivors) and Tartar (Mashona's)
+  B.ships.push(
+    { id:'electra', name:'HMS Electra', force:'holland', type:'E-class destroyer', route:'holland', until:'24 02:00',
+      extra:[['24 06:00', 63.00, -29.50, 'Ordered back to the battle area'], ['24 08:00', 63.33, -31.80, 'Finds three survivors of Hood among the wreckage'], ['24 09:00', 63.30, -31.70], ['25 12:00', 64.40, -21.80, 'Hvalfjörður'], ['28 18:00', 64.40, -21.80]], wiki: W + 'HMS_Electra_(H27)' },
+    { id:'tartar', name:'HMS Tartar', force:'rodney', type:'Tribal-class destroyer (Rodney\'s escort)', route:'rodney', until:'26 22:00',
+      extra:[['27 12:00', 51.50, -15.50, 'Homeward with Mashona and Somali, low on fuel'], ['28 09:00', 52.90, -11.80, 'Under Luftwaffe attack alongside Mashona'], ['28 14:30', 52.97, -11.60, 'Rescues 184 of Mashona\'s crew during a lull'], ['28 18:00', 53.20, -9.50, 'Toward the Clyde']], wiki: W + 'HMS_Tartar_(F43)' },
+  );
+  // --- rescue operations: by = ship id or {lat,lon,label}; of = sunk ship id or {lat,lon,label}; saved = men picked up
+  L.rescues = [
+    { by:'shimakaze', of:'musashi', from:'24 19:35', to:'25 02:30', saved:1376, note:'Shimakaze and Kiyoshimo circle the wreck site through the night; 1,023 of Musashi\'s crew are lost' },
+    { by:'kiyoshimo', of:'musashi', from:'24 19:35', to:'25 02:30', saved:null, note:'Shares the Musashi rescue with Shimakaze' },
+    { by:'dace', of:'darter', from:'24 00:05', to:'24 06:00', saved:81, note:'Darter\'s entire crew crosses to Dace by rubber boat; Dace then tries and fails to destroy the wreck' },
+    { by:'fujinami', of:'chokai', from:'25 11:00', to:'25 12:30', saved:null, note:'Every Chōkai survivor embarked — all lost two days later when Fujinami is sunk' },
+    { by:'nowaki', of:'chikuma', from:'25 11:30', to:'25 14:00', saved:null, note:'Chikuma\'s survivors embarked — lost with Nowaki off San Bernardino on the 26th; one man survived' },
+    { by:'heermann', of:'stlo', from:'25 11:25', to:'25 13:30', saved:784, note:'Heermann, Dennis, John C. Butler and Raymond pick up St. Lo\'s crew within hours' },
+    { by:{lat:11.60, lon:126.20, label:'Leyte rescue group (PC-623, PC-1119, LCIs)'}, of:'johnston', from:'26 22:00', to:'27 14:00', saved:1150, note:'Survivors of Johnston, Hoel, Samuel B. Roberts and Gambier Bay drift for two days before a search group from Leyte Gulf finds them' },
+    { by:{lat:19.33, lon:125.85, label:'Wakatsuki & Kuwa'}, of:'zuikaku', from:'25 14:14', to:'25 16:30', saved:862, note:'Destroyers Wakatsuki and Kuwa rescue 862 of Zuikaku\'s crew; Ozawa has already shifted to Ōyodo' },
+    { by:{lat:19.33, lon:125.25, label:'Kuwa & Wakatsuki'}, of:'zuiho', from:'25 15:26', to:'25 17:30', saved:759, note:'Zuihō\'s survivors picked up under continuing air attack' },
+    { by:{lat:15.35, lon:123.52, label:'Birmingham, Reno, Irwin'}, of:'princeton', from:'24 10:30', to:'24 17:50', saved:1361, note:'Birmingham comes alongside to fight the fires — and loses 233 men when Princeton\'s magazine explodes at 15:23' },
+  ];
+  B.rescues = [
+    { by:'electra', of:'hood', from:'24 08:00', to:'24 09:00', saved:3, note:'Of 1,418 men, Electra finds Ted Briggs, Bob Tilburn and Bill Dundas' },
+    { by:'dorsetshire', of:'bismarck', from:'27 10:45', to:'27 11:40', saved:85, note:'Rescue abandoned after a U-boat alarm, leaving hundreds in the water' },
+    { by:'maori', of:'bismarck', from:'27 10:45', to:'27 11:40', saved:25, note:'Maori picks up 25 more before the destroyers withdraw' },
+    { by:'u74', of:'bismarck', from:'27 19:00', to:'27 19:30', saved:3, note:'Three men on a raft; the weather ship Sachsenwald finds two more the next night' },
+    { by:'tartar', of:'mashona', from:'28 13:00', to:'28 14:30', saved:184, note:'Ten of the rescued die of hypothermia; 46 lost with the ship' },
+  ];
+  // timeline events for the notable ones
+  L.events.push(['24 19:40', 'Shimakaze and Kiyoshimo begin rescuing Musashi survivors (1,376 saved)', 13.10, 122.50], ['26 22:00', 'Search group from Leyte finds Taffy 3 survivors after two days adrift', 11.60, 126.20], ['27 12:00', 'Fujinami sunk with all of Chōkai\'s survivors aboard', 12.00, 122.50]);
+  B.events.push(['24 08:00', 'Electra finds Hood\'s three survivors', 63.33, -31.80], ['27 10:45', 'Dorsetshire and Maori rescue 110 Bismarck survivors', 48.18, -16.20], ['28 14:30', 'Tartar rescues 184 of Mashona\'s crew', 52.97, -11.60]);
+})();
 const $ = id => document.getElementById(id);
+const APP_VERSION = '1.3';
+$('version').textContent = 'v' + APP_VERSION; $('version').title = 'FleetView v' + APP_VERSION + ' — see CHANGELOG.md';
 // ====================== SCENARIO & ENGINE ======================
 const NATIONS = {
   USN: { name:'United States Navy', short:'US Navy',  side:'allied', color:'#2563eb' },
@@ -1474,7 +1543,7 @@ function setTime(t, quiet){ state.t = Math.min(T1, Math.max(T0, t)); render(); i
 let raf = null, lastTs = 0;
 function tick(ts){
   if (!state.playing) return;
-  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed > 600e3 ? EV.filter(e => Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? 600e3 : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
+  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed > 600e3 ? EV.filter(e => e.key && Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? 600e3 : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
   lastTs = ts; raf = requestAnimationFrame(tick);
 }
 function togglePlay(on){ state.playing = on === undefined ? !state.playing : on; if (!state.playing){ state.slowed = false; state.slowEvent = null; } $('play').textContent = state.playing ? '❚❚ Pause' : '▶ Play'; lastTs = 0; if (state.playing) raf = requestAnimationFrame(tick); else cancelAnimationFrame(raf); }
@@ -1516,7 +1585,7 @@ const evlist = $('evlist'); $('evcount').textContent = EV.length + ' events';
 EV.forEach((e, i) => { const el = document.createElement('div'); el.className = 'ev'; el.innerHTML = `<div class="t">${fmtShort(e.t)}</div><div class="n">${e.title}</div>`; el.onclick = () => { setTime(e.t, true); map.flyTo([e.lat, e.lon], Math.max(map.getZoom(), 7), { duration: .8 }); toast(e); }; e.el = el; evlist.appendChild(el); });
 function renderEvents(){
   let cur = -1; EV.forEach((e, i) => { if (e.t <= state.t) cur = i; });
-  EV.forEach((e, i) => { e.el.className = 'ev ' + (i < cur ? 'past' : i === cur ? 'cur' : 'future') + (e.loss ? ' loss' : ''); });
+  EV.forEach((e, i) => { e.el.className = 'ev ' + (i < cur ? 'past' : i === cur ? 'cur' : 'future') + (e.loss ? ' loss' : '') + (e.key ? ' key' : ''); });
   if (cur !== state.lastEvIdx && cur >= 0){ state.lastEvIdx = cur; EV[cur].el.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
 }
 function toast(e){ const el = $('toast'); el.innerHTML = `<b>${fmtShort(e.t)}</b>${e.loss ? '✕ ' : ''}${e.title}`; el.classList.toggle('loss', !!e.loss); el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 3500); }
@@ -1756,6 +1825,9 @@ function renderBooms(){
 }
 // tag timeline events that correspond to a loss (within 2 min of a ship's sinking time)
 EV.forEach(e => { const s = SHIPS.find(s => s.sunk && Math.abs(s.sunkT - e.t) <= 2*60e3); if (s){ e.loss = s; e.el.style.setProperty('--lc', s.color); } });
+// key events = every loss, plus the opening of each action (these drive "slow down for key events")
+const KEY_RE = /\b(Battle of|Battle off|opens? fire|begins|first strike|Denmark Strait —|jams? .*rudders?|transits San Bernardino|torpedo hits|Swordfish torpedo|Hood opens|Rodney and King George V)/i;
+EV.forEach(e => { e.key = !!e.loss || KEY_RE.test(e.title); });
 document.querySelectorAll('.tick').forEach(el => { const s = SHIPS.find(s => s.sunk && el.title.startsWith(s.name + ' ')); if (s) el.dataset.t = s.sunkT; });
 
 // ---- ports, airfields and headquarters: flag / roundel by controlling nation
@@ -1983,13 +2055,29 @@ const cmdPopup = L.popup({ closeButton: true, autoPan: true, maxWidth: 340, clas
 function showCommander(fl){ const c = (SC.commanders || {})[fl.route]; const ll = fl.marker.getLatLng(); if (!c){ cmdPopup.setLatLng(ll).setContent(`<div class="cc"><h3>${GROUPS[fl.route]}</h3><div class="k">${NATIONS[fl.nation].name}</div></div>`).openOn(map); return; }
   cmdPopup.setLatLng(ll).setContent(`<div class="cc"><h3>${c.name}</h3><div class="k">${c.role}</div><div class="k">Flagship: ${c.flagship}</div><p>${c.bio}</p><div class="fate">${c.fate}</div>${c.wiki ? `<div class="wk"><a href="https://en.wikipedia.org/wiki/${c.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a></div>` : ''}</div>`).openOn(map); }
 
-// ---- casualty counter
+// ---- casualty & rescue counter (numbers tick toward their targets rather than jumping)
+const COUNTER = { built: false, vals: {}, targets: {}, raf: null };
+function counterFmt(v, approx){ return (approx ? '~' : '') + Math.round(v).toLocaleString(); }
 function renderLosses(){
   const t = state.t, el = $('losses'); if (!el) return;
-  el.innerHTML = NATIONS_USED.map(n => { const sunk = SHIPS.filter(s => FORCES[s.force].nation === n && t >= s.sunkT); const men = sunk.reduce((a, s) => a + (s.lost || 0), 0); const approx = sunk.some(s => s.lost === undefined || [800, 900, 1620, 450].includes(s.lost));
-    return `<div class="ls" title="${sunk.map(s => s.name).join(', ') || 'no losses yet'}"><i style="background:${NATIONS[n].color}"></i>${n} <b>${sunk.length}</b> <small>ship${sunk.length === 1 ? '' : 's'}</small> <b>${approx ? '~' : ''}${men.toLocaleString()}</b> <small>men</small></div>`; }).join('');
+  if (!COUNTER.built){ el.innerHTML = `<span class="hd"></span><span class="hd">Losses</span><span class="hd">Rescued</span>` + NATIONS_USED.map(n => `<span class="ls"><i style="background:${NATIONS[n].color}"></i>${n}</span><span class="ls" id="ls-${n}"><b class="num" data-k="${n}-ships">0</b> <small>ships</small> <b class="num" data-k="${n}-men">0</b> <small>men</small></span><span class="ls resc" id="rs-${n}"><b class="num" data-k="${n}-resc">0</b> <small>men</small></span>`).join(''); COUNTER.built = true; }
+  for (const n of NATIONS_USED){
+    const sunk = SHIPS.filter(s => FORCES[s.force].nation === n && t >= s.sunkT); const men = sunk.reduce((a, s) => a + (s.lost || 0), 0);
+    const approx = sunk.some(s => s.lost === undefined || [800, 900, 1000, 1620, 450, 150, 100].includes(s.lost));
+    let resc = 0, rescApprox = false; if (typeof RESCUES !== 'undefined') for (const r of RESCUES){ if (!r.saved || t < r.t0) continue; const who = r.ofShip ? FORCES[r.ofShip.force].nation : null; if (who !== n) continue; const f = Math.min(1, (t - r.t0) / Math.max(60e3, r.t1 - r.t0)); resc += r.saved * f; if (r.saved >= 1000) rescApprox = true; }
+    COUNTER.targets[n + '-ships'] = { v: sunk.length, approx: false }; COUNTER.targets[n + '-men'] = { v: men, approx }; COUNTER.targets[n + '-resc'] = { v: resc, approx: rescApprox };
+    $('ls-' + n).title = sunk.map(s => s.name).join(', ') || 'no losses yet'; $('rs-' + n).title = 'men rescued from ' + n + ' ships (cumulative)';
+  }
+  if (!COUNTER.raf) COUNTER.raf = requestAnimationFrame(tickCounter);
   const sm = $('clock').querySelector('small'); const slow = state.slowed && state.playing; sm.textContent = SC.tz + (slow ? ' · slowed' : ''); sm.classList.toggle('slow', slow);
   renderSlow();
+}
+function tickCounter(){
+  let busy = false;
+  document.querySelectorAll('#losses .num').forEach(el => { const k = el.dataset.k, tg = COUNTER.targets[k]; if (!tg) return; let cur = COUNTER.vals[k]; if (cur === undefined) cur = tg.v;
+    const diff = tg.v - cur; if (Math.abs(diff) < 0.5){ cur = tg.v; el.classList.remove('ticking'); } else { cur += diff * 0.12 + Math.sign(diff) * 0.6; busy = true; el.classList.add('ticking'); }
+    COUNTER.vals[k] = cur; el.textContent = counterFmt(cur, tg.approx); });
+  COUNTER.raf = busy ? requestAnimationFrame(tickCounter) : null;
 }
 // ---- slow-motion banner + map highlight
 map.createPane('slowring').style.zIndex = 590;
@@ -2051,6 +2139,32 @@ map.on('click dragstart', () => { if (isMobile()) closeSheets(); });
 // tapping a ship, event, scene or air op on a phone should reveal the map
 document.addEventListener('click', e => { if (!isMobile()) return; if (e.target.closest('#evlist .ev, #forces .ship .n, #scenes .chip')) setTimeout(closeSheets, 150); });
 // the hash-time toast should not fire under a closed sheet; nothing else needed — sheets start closed
+// ====================== RESCUE OPERATIONS ======================
+const LIFEBUOY = '<svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.3" fill="none" stroke="rgba(0,0,0,.55)" stroke-width="1.4"/><circle cx="9" cy="9" r="6" fill="none" stroke="#fff" stroke-width="4.2"/><circle cx="9" cy="9" r="6" fill="none" stroke="#e5484d" stroke-width="4.2" stroke-dasharray="4.71 4.71" transform="rotate(22.5 9 9)"/><circle cx="9" cy="9" r="3.6" fill="none" stroke="rgba(0,0,0,.35)" stroke-width=".8"/></svg>';
+const rescueLayer = L.layerGroup().addTo(map);
+const RESCUES = (SC.rescues || []).map(r => { const o = Object.assign({}, r); o.t0 = T(r.from); o.t1 = T(r.to);
+  o.byShip = typeof r.by === 'string' ? shipById[r.by] : null; o.ofShip = typeof r.of === 'string' ? shipById[r.of] : null;
+  o.byName = o.byShip ? o.byShip.name : r.by.label; o.ofName = o.ofShip ? o.ofShip.name : r.of.label;
+  o.marker = L.marker([0,0], { icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="resc">${LIFEBUOY}<span class="lbl">Rescuing ${o.ofName} survivors${o.saved ? ` · ${o.saved.toLocaleString()} saved` : ''}</span></div>` }), keyboard: false, zIndexOffset: 800 });
+  o.marker.on('click', () => { const el = $('toast'); el.classList.remove('loss'); el.innerHTML = `<b>${fmtShort(o.t0)}–${fmtTime(o.t1)}</b>🛟 ${o.byName} → ${o.ofName}${o.saved ? ` · ${o.saved.toLocaleString()} men rescued` : ''}. ${o.note || ''}`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 7000); });
+  o.line = L.polyline([], { color: '#fff', weight: 1.2, opacity: .7, dashArray: '1 5', interactive: false }); o.onMap = false; return o; });
+function wreckPos(o){ if (o.ofShip){ const w = o.ofShip.wp[o.ofShip.wp.length-1]; return [w.lat, w.lon]; } return [o.of.lat, o.of.lon]; }
+function renderRescues(){
+  const t = state.t, z = map.getZoom();
+  for (const o of RESCUES){
+    const show = t >= o.t0 && t <= o.t1 && (!o.byShip || o.byShip.visible);
+    if (!show){ if (o.onMap){ rescueLayer.removeLayer(o.marker); rescueLayer.removeLayer(o.line); o.onMap = false; } continue; }
+    const w = wreckPos(o); let at = w;
+    if (o.byShip){ const p = posAt(o.byShip, t); if (p) at = [p.lat, p.lon]; }
+    o.marker.setLatLng(at); o.line.setLatLngs(o.byShip && (Math.abs(at[0]-w[0]) > 1e-4 || Math.abs(at[1]-w[1]) > 1e-4) ? [at, w] : []);
+    if (!o.onMap){ rescueLayer.addLayer(o.line); rescueLayer.addLayer(o.marker); o.onMap = true; o.el = o.marker.getElement().firstChild; }
+    if (o.el) o.el.classList.toggle('dim', !(state.labels && z >= 7));
+  }
+}
+// tag the auto-added rescue events so the timeline can style them
+EV.forEach(e => { if (/rescu|survivor/i.test(e.title)) e.rescue = true; });
+const _renderEvents = renderEvents; renderEvents = function(){ _renderEvents(); EV.forEach(e => { if (e.rescue) e.el.classList.add('rescue'); }); };
+const _render5 = render; render = function(){ _render5(); renderRescues(); };
 // ---- init
 (function init(){
   const m = (hashParams.t || '').match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/); if (m){ const v = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5]); if (v >= T0 && v <= T1) state.t = v; }
