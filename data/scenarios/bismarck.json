@@ -1,0 +1,730 @@
+{
+ "id": "bismarck",
+ "title": "Operation Rheinübung — the Bismarck Chase",
+ "subtitle": "North Atlantic · 18–28 May 1941",
+ "base": [1941, 4],
+ "start": "18 00:00",
+ "end": "28 18:00",
+ "tz": "Zone time · ~UTC+2",
+ "majorDays": [24, 27],
+ "view": {
+  "center": [56, -18],
+  "zoom": 4.5,
+  "min": 3,
+  "max": 11
+ },
+ "keyShips": ["bismarck", "eugen", "hood", "pow", "suffolk", "kgv", "rodney", "arkroyal", "victorious", "dorsetshire", "u556"],
+ "scenes": [
+  ["Overview", "25 12:00", [56, -18], 4.5],
+  ["Bergen", "21 13:00", [60.3, 5.2], 8],
+  ["Denmark Strait", "24 05:50", [64, -30], 6],
+  ["Contact lost", "25 03:00", [57.5, -37.5], 6],
+  ["Catalina sighting", "26 10:30", [49.5, -21.8], 6],
+  ["Swordfish strike", "26 20:45", [48.6, -17], 8],
+  ["Final battle", "27 09:30", [48.25, -16.3], 9]
+ ],
+ "defaultTime": "24 05:50",
+ "footnote": "Times as cited in standard accounts (~UTC+2). Sinking positions from records; transit positions are reconstructed from hourly narratives and are approximate. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "lutjens": { "name": "KM Battle Group (Lütjens)", "color": "#e5484d", "nation": "KM" },
+  "uboats": { "name": "KM U-boats", "color": "#9ca3af", "nation": "KM" },
+  "holland": { "name": "RN Battlecruiser Force (Holland)", "color": "#3b82f6", "nation": "RN" },
+  "wakewalker": { "name": "RN 1st Cruiser Sqn (Wake-Walker)", "color": "#22c55e", "nation": "RN" },
+  "tovey": { "name": "RN Home Fleet (Tovey)", "color": "#06b6d4", "nation": "RN" },
+  "rodney": { "name": "RN Rodney group", "color": "#eab308", "nation": "RN" },
+  "forceh": { "name": "RN Force H (Somerville)", "color": "#a855f7", "nation": "RN" },
+  "vian": { "name": "RN 4th Destroyer Flotilla (Vian)", "color": "#f97316", "nation": "RN" },
+  "others": { "name": "RN Detached cruisers", "color": "#94a3b8", "nation": "RN" }
+ },
+ "routes": {
+  "bismarck": [["18 00:00", 54.52, 18.55, "Gotenhafen (Gdynia)"], ["19 02:00", 54.52, 18.55, "Bismarck sails; Prinz Eugen sailed the evening before"], ["19 12:00", 54.7, 13.4, "Rendezvous off Cape Arkona"], ["20 13:00", 57, 11.5, "Kattegat — sighted and reported by Swedish cruiser Gotland"], ["20 22:00", 58, 9.5, "Passes Skagen; seen from the Norwegian coast"], ["21 09:00", 60.35, 5.25, "Anchors in Grimstadfjord near Bergen; Prinz Eugen refuels"], ["21 19:30", 60.35, 5.25, "Sails from Bergen after dark"], ["22 12:00", 64.5, 3, "Heads north; Lütjens chooses the Denmark Strait"], ["22 20:00", 66, 0], ["23 10:00", 67.5, -15, "Rounds Iceland to the north in fog and snow"], ["23 19:22", 66.7, -27.5, "Sighted by Suffolk at the edge of the ice"], ["24 02:00", 65, -30, "Shadowed by radar all night"], ["24 05:52", 63.3, -31.7, "Battle of the Denmark Strait — opens fire on Hood"], ["24 06:00", 63.28, -31.75, "Hood blows up; Prince of Wales hit and retires"], ["24 12:00", 61.8, -34, "Bow flooding, oil leak; speed reduced to 28 kn"], ["24 18:14", 60.4, -36.8, "Turns on shadowers; Prinz Eugen detached to the south"], ["25 00:00", 58.6, -37.6, "Victorious's Swordfish attack — one torpedo hit amidships"], ["25 03:06", 57.3, -37.9, "Suffolk loses radar contact; Bismarck turns for France"], ["25 12:00", 55.5, -32, "Long signal to Germany betrays position — but Tovey misplots it"], ["26 00:00", 52.5, -26.5], ["26 10:30", 49.55, -21.8, "Sighted by Catalina Z/209 after 31 hours lost"], ["26 18:00", 48.9, -18, "Sheffield shadowing"], ["26 20:47", 48.5, -16.8, "Ark Royal's Swordfish jam the rudders — Bismarck can only circle"], ["27 00:00", 48.35, -16.5, "Night torpedo attacks by Vian's destroyers"], ["27 08:47", 48.2, -16.25, "Rodney and King George V open fire"], ["27 10:39", 48.17, -16.2, "Bismarck sinks"]],
+  "eugen": [["25 12:00", 56, -38.5, "Detached — heads south for the convoy routes"], ["26 12:00", 49, -40, "Refuels from tanker Spichern"], ["27 12:00", 46, -35, "Engine trouble; abandons commerce raiding"], ["28 18:00", 45.5, -28, "Bound for Brest (arrives 1 June)"]],
+  "holland": [["18 00:00", 58.9, -3.1, "Scapa Flow"], ["21 00:52", 58.9, -3.1, "Hood and Prince of Wales sail for Iceland"], ["22 12:00", 61.5, -10], ["23 12:00", 62.5, -20, "South of Iceland, covering the Denmark Strait"], ["23 20:00", 62.7, -24, "Suffolk's report received; Holland turns to intercept at 27 kn"], ["24 02:00", 63, -28.5, "Contact lost overnight; destroyers detached"], ["24 05:35", 63.3, -31.55, "Enemy in sight"], ["24 05:52", 63.33, -31.75, "Hood opens fire on Prinz Eugen by mistake"], ["24 06:00", 63.33, -31.83, "Hood blows up — 3 survivors of 1,418"]],
+  "pow": [["24 06:13", 63.25, -31.72, "Prince of Wales retires under smoke — 7 hits, Y turret jammed"], ["24 12:00", 62, -33.5, "Joins Wake-Walker shadowing"], ["24 18:40", 60.5, -36.5, "Brief second exchange of fire"], ["25 06:00", 58.5, -34, "Detached to Iceland, short of fuel"], ["26 12:00", 62.5, -26], ["27 12:00", 64.4, -21.8, "Hvalfjörður, Iceland"], ["28 18:00", 64.4, -21.8]],
+  "wakewalker": [["18 00:00", 64.4, -21.8, "Hvalfjörður"], ["22 12:00", 65.5, -24.5, "Patrolling the Denmark Strait"], ["23 12:00", 66.8, -26.5], ["23 19:22", 66.75, -27.3, "Suffolk sights Bismarck 7 miles off; ducks into the fog"], ["24 02:00", 65, -29.5, "Shadowing by radar through the night"], ["24 05:52", 63.6, -31, "Watches the Denmark Strait battle from astern"], ["24 12:00", 62, -33.8], ["24 18:14", 60.6, -36.5, "Bismarck turns on the shadowers; Suffolk falls back"], ["25 00:00", 58.8, -37.3], ["25 03:06", 57.5, -37.7, "Contact lost during a zig-zag"], ["25 12:00", 56.5, -39, "Searches south-west — the wrong way"], ["26 12:00", 52.5, -30, "Norfolk turns for Brest on her own judgement"], ["27 08:47", 48.3, -16.3, "Norfolk arrives in time for the final battle"], ["27 12:00", 48.4, -16], ["28 18:00", 53, -10, "Home"]],
+  "suffolk": [["26 12:00", 54, -35], ["27 12:00", 52, -28], ["28 18:00", 55, -18, "Returning to Iceland / Clyde"]],
+  "tovey": [["18 00:00", 58.9, -3.1, "Scapa Flow"], ["22 22:45", 58.9, -3.1, "Tovey sails with King George V, Victorious, Repulse and cruisers"], ["23 12:00", 59.5, -6], ["24 06:00", 60.1, -17.5, "Hears of Hood's loss"], ["24 12:00", 60.3, -23.5], ["24 15:00", 60.4, -25, "Victorious detached to strike"], ["25 03:06", 59.2, -29.5, "Contact lost — Tovey 100 miles away"], ["25 12:00", 59.8, -27, "Misplots Bismarck's signals; steams north-east for 7 hours"], ["25 19:00", 59.5, -25, "Turns south-east for Brest"], ["26 12:00", 53.5, -22, "Catalina report — 130 miles behind Bismarck, fuel critical"], ["26 22:00", 50, -18.5, "Joined by Rodney; waits for dawn"], ["27 08:47", 48.35, -16.45, "Rodney opens fire at 08:47, KGV a minute later"], ["27 10:20", 48.2, -16.3, "Bismarck silenced; Tovey breaks off to save fuel"], ["27 11:00", 48.5, -16.5, "Departs for Loch Ewe at 19 kn"], ["28 18:00", 53, -10]],
+  "victorious": [["24 22:10", 60.1, -32.5, "Launches 9 Swordfish (825 Sqn) at 120 miles"], ["25 03:00", 59.5, -33, "Recovers aircraft in darkness; Fulmars lost"], ["25 12:00", 59, -36, "Searches north-west"], ["26 12:00", 61, -25], ["28 18:00", 58.9, -3.1, "Scapa Flow"]],
+  "rodney": [["18 00:00", 55.95, -4.75, "Clyde — escorting troopship Britannic to Halifax"], ["22 12:00", 55.9, -8], ["24 12:00", 54.5, -18, "Detached from Britannic to hunt Bismarck"], ["25 12:00", 52.5, -22], ["26 12:00", 50.8, -20.8, "Gambles on Brest — right"], ["26 22:00", 50, -18.5, "Joins King George V"], ["27 08:47", 48.35, -16.4, "Opens fire; her 16-inch shells wreck Bismarck's forward turrets"], ["27 10:20", 48.22, -16.28], ["27 11:00", 48.5, -16.5], ["28 18:00", 53, -10]],
+  "forceh": [["18 00:00", 36.13, -5.35, "Gibraltar"], ["24 02:00", 36.13, -5.35, "Force H sails north to cut Bismarck off from France"], ["25 12:00", 42, -12, "Heavy weather; Ark Royal's deck pitching 50 ft"], ["26 10:00", 48.5, -18.3, "Swordfish confirm Catalina sighting"], ["26 14:50", 48.7, -17.6, "First strike launched — attacks Sheffield by mistake"], ["26 19:10", 48.8, -17.2, "Second strike: 15 Swordfish"], ["27 00:00", 48.3, -17, "Stands off to the south overnight"], ["27 09:26", 47.9, -16.6, "Third strike launched but cannot attack through the gunfire"], ["27 12:00", 47.8, -16.5], ["28 18:00", 43, -13, "Returning to Gibraltar"]],
+  "sheffield": [["26 13:15", 48.6, -17.9, "Detached to shadow Bismarck"], ["26 14:50", 48.65, -17.4, "Attacked by her own side's Swordfish — 11 torpedoes dodged"], ["26 17:40", 48.7, -17.2, "In visual contact with Bismarck; homes the second strike"], ["26 21:40", 48.5, -16.8, "Straddled by Bismarck; 3 killed"], ["27 08:47", 48.1, -16], ["27 12:00", 47.9, -16.3], ["28 18:00", 43, -13]],
+  "vian": [["18 00:00", 55.95, -4.75, "Clyde"], ["22 12:00", 54.5, -8.5, "Escorting troop convoy WS 8B"], ["25 12:00", 51, -13], ["26 02:00", 50.5, -14, "Vian detached on his own initiative to find Bismarck"], ["26 22:38", 48.6, -16.6, "Piorun makes contact; Vian's destroyers close in"], ["27 01:00", 48.45, -16.5, "Night torpedo attacks in heavy seas; Cossack and Maori claim hits"], ["27 07:00", 48.35, -16.4, "Maori fires starshell to mark Bismarck for the battleships"], ["27 12:00", 48.3, -16.3], ["28 18:00", 51, -6, "Plymouth"]],
+  "dorsetshire": [["18 00:00", 44, -22, "Escorting convoy SL 74 north from Freetown"], ["26 12:00", 45, -21, "Leaves the convoy on her own initiative"], ["27 09:00", 48.15, -16.5, "Arrives during the battle"], ["27 10:36", 48.17, -16.22, "Fires the final torpedoes; Bismarck sinks at 10:39"], ["27 11:40", 48.18, -16.2, "Rescues 110 survivors; leaves after a U-boat alarm"], ["28 18:00", 51.5, -12, "Newcastle-bound"]],
+  "mashona": [["26 22:00", 50, -18.5, "Turns for home with Tartar and Somali, low on fuel"], ["27 12:00", 51.5, -15.5], ["28 09:00", 52.9, -11.8, "Attacked by He 111s of KG 28"], ["28 13:00", 52.97, -11.6, "Capsizes and sinks off Galway"]],
+  "u556": [["18 00:00", 47, -22, "Returning from patrol, no torpedoes left"], ["26 19:48", 48.3, -16.2, "Renown and Ark Royal cross her bows — nothing to fire"], ["27 00:00", 48.3, -16.4, "Homes other U-boats; watches the destroyer attacks"], ["27 12:00", 48.1, -16], ["28 18:00", 47.5, -10, "To Lorient"]],
+  "u74": [["18 00:00", 46.5, -18, "On patrol"], ["26 22:00", 47.9, -16.3, "Ordered to Bismarck's position"], ["27 19:00", 47.8, -16.05, "Picks up 3 survivors from a raft"], ["28 18:00", 47, -10]]
+ },
+ "ships": [
+  {
+   "id": "bismarck",
+   "name": "Bismarck",
+   "force": "lutjens",
+   "type": "Battleship (Lütjens flagship)",
+   "route": "bismarck",
+   "sunk": "27 10:39",
+   "sunkBy": "Gunfire of Rodney & King George V, torpedoes from Dorsetshire, and scuttling charges — 114 survivors of 2,200",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Bismarck",
+   "lost": 2086
+  },
+  {
+   "id": "eugen",
+   "name": "Prinz Eugen",
+   "force": "lutjens",
+   "type": "Heavy cruiser",
+   "route": "bismarck",
+   "until": "24 18:14",
+   "extra": [["25 12:00", 56, -38.5, "Detached — heads south for the convoy routes"], ["26 12:00", 49, -40, "Refuels from tanker Spichern"], ["27 12:00", 46, -35, "Engine trouble; abandons commerce raiding"], ["28 18:00", 45.5, -28, "Bound for Brest (arrives 1 June)"]],
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Prinz_Eugen"
+  },
+  { "id": "u556", "name": "U-556", "force": "uboats", "type": "Type VIIC U-boat (Wohlfarth)", "route": "u556", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-556_(1940)" },
+  { "id": "u74", "name": "U-74", "force": "uboats", "type": "Type VIIB U-boat (Kentrat)", "route": "u74", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-74_(1940)" },
+  {
+   "id": "hood",
+   "name": "HMS Hood",
+   "force": "holland",
+   "type": "Battlecruiser (Holland flagship)",
+   "route": "holland",
+   "sunk": "24 06:00",
+   "sunkBy": "Bismarck's fifth salvo — magazine explosion; 3 survivors of 1,418",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hood",
+   "lost": 1415
+  },
+  {
+   "id": "pow",
+   "name": "HMS Prince of Wales",
+   "force": "holland",
+   "type": "Battleship (dockyard workers still aboard)",
+   "route": "holland",
+   "until": "24 06:00",
+   "extra": [["24 06:13", 63.25, -31.72, "Prince of Wales retires under smoke — 7 hits, Y turret jammed"], ["24 12:00", 62, -33.5, "Joins Wake-Walker shadowing"], ["24 18:40", 60.5, -36.5, "Brief second exchange of fire"], ["25 06:00", 58.5, -34, "Detached to Iceland, short of fuel"], ["26 12:00", 62.5, -26], ["27 12:00", 64.4, -21.8, "Hvalfjörður, Iceland"], ["28 18:00", 64.4, -21.8]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53)"
+  },
+  { "id": "norfolk", "name": "HMS Norfolk", "force": "wakewalker", "type": "Heavy cruiser (Wake-Walker flagship)", "route": "wakewalker", "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)" },
+  {
+   "id": "suffolk",
+   "name": "HMS Suffolk",
+   "force": "wakewalker",
+   "type": "Heavy cruiser — Type 284 radar",
+   "route": "wakewalker",
+   "until": "25 12:00",
+   "extra": [["26 12:00", 54, -35], ["27 12:00", 52, -28], ["28 18:00", 55, -18, "Returning to Iceland / Clyde"]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Suffolk_(55)"
+  },
+  { "id": "kgv", "name": "HMS King George V", "force": "tovey", "type": "Battleship (Tovey flagship)", "route": "tovey", "wiki": "https://en.wikipedia.org/wiki/HMS_King_George_V_(41)" },
+  {
+   "id": "repulse",
+   "name": "HMS Repulse",
+   "force": "tovey",
+   "type": "Battlecruiser",
+   "route": "tovey",
+   "until": "25 09:00",
+   "extra": [["25 09:00", 59.6, -28, "Detached to Newfoundland, short of fuel"], ["26 12:00", 55, -40], ["28 18:00", 48, -52, "Conception Bay"]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Repulse_(1916)"
+  },
+  {
+   "id": "victorious",
+   "name": "HMS Victorious",
+   "force": "tovey",
+   "type": "Fleet carrier — 9 Swordfish, 6 Fulmars, first operation",
+   "route": "tovey",
+   "until": "24 15:00",
+   "extra": [["24 22:10", 60.1, -32.5, "Launches 9 Swordfish (825 Sqn) at 120 miles"], ["25 03:00", 59.5, -33, "Recovers aircraft in darkness; Fulmars lost"], ["25 12:00", 59, -36, "Searches north-west"], ["26 12:00", 61, -25], ["28 18:00", 58.9, -3.1, "Scapa Flow"]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Victorious_(R38)"
+  },
+  {
+   "id": "galatea",
+   "name": "HMS Galatea",
+   "force": "tovey",
+   "type": "Light cruiser",
+   "route": "tovey",
+   "until": "24 15:00",
+   "extra": [["24 22:10", 60.1, -32.5, "Launches 9 Swordfish (825 Sqn) at 120 miles"], ["25 03:00", 59.5, -33, "Recovers aircraft in darkness; Fulmars lost"], ["25 12:00", 59, -36, "Searches north-west"], ["26 12:00", 61, -25], ["28 18:00", 58.9, -3.1, "Scapa Flow"]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Galatea_(71)"
+  },
+  {
+   "id": "mashona",
+   "name": "HMS Mashona",
+   "force": "rodney",
+   "type": "Tribal-class destroyer (Rodney's escort)",
+   "route": "rodney",
+   "until": "26 22:00",
+   "extra": [["26 22:00", 50, -18.5, "Turns for home with Tartar and Somali, low on fuel"], ["27 12:00", 51.5, -15.5], ["28 09:00", 52.9, -11.8, "Attacked by He 111s of KG 28"], ["28 13:00", 52.97, -11.6, "Capsizes and sinks off Galway"]],
+   "sunk": "28 13:00",
+   "sunkBy": "He 111 bomb in the forward boiler room while returning short of fuel — 46 killed, 184 rescued by Tartar",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Mashona_(F59)",
+   "lost": 46
+  },
+  { "id": "rodney", "name": "HMS Rodney", "force": "rodney", "type": "Battleship — nine 16-inch guns", "route": "rodney", "wiki": "https://en.wikipedia.org/wiki/HMS_Rodney_(29)" },
+  { "id": "renown", "name": "HMS Renown", "force": "forceh", "type": "Battlecruiser (Somerville flagship)", "route": "forceh", "wiki": "https://en.wikipedia.org/wiki/HMS_Renown_(1916)" },
+  { "id": "arkroyal", "name": "HMS Ark Royal", "force": "forceh", "type": "Fleet carrier — 810, 818, 820 Sqns Swordfish", "route": "forceh", "wiki": "https://en.wikipedia.org/wiki/HMS_Ark_Royal_(91)" },
+  {
+   "id": "sheffield",
+   "name": "HMS Sheffield",
+   "force": "forceh",
+   "type": "Light cruiser",
+   "route": "forceh",
+   "until": "26 13:15",
+   "extra": [["26 13:15", 48.6, -17.9, "Detached to shadow Bismarck"], ["26 14:50", 48.65, -17.4, "Attacked by her own side's Swordfish — 11 torpedoes dodged"], ["26 17:40", 48.7, -17.2, "In visual contact with Bismarck; homes the second strike"], ["26 21:40", 48.5, -16.8, "Straddled by Bismarck; 3 killed"], ["27 08:47", 48.1, -16], ["27 12:00", 47.9, -16.3], ["28 18:00", 43, -13]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Sheffield_(C24)"
+  },
+  { "id": "cossack", "name": "HMS Cossack", "force": "vian", "type": "Tribal-class destroyer (Vian)", "route": "vian", "wiki": "https://en.wikipedia.org/wiki/HMS_Cossack_(F03)" },
+  { "id": "maori", "name": "HMS Maori", "force": "vian", "type": "Tribal-class destroyer", "route": "vian", "wiki": "https://en.wikipedia.org/wiki/HMS_Maori_(F24)" },
+  { "id": "zulu", "name": "HMS Zulu", "force": "vian", "type": "Tribal-class destroyer", "route": "vian", "wiki": "https://en.wikipedia.org/wiki/HMS_Zulu_(F18)" },
+  { "id": "sikh", "name": "HMS Sikh", "force": "vian", "type": "Tribal-class destroyer", "route": "vian", "wiki": "https://en.wikipedia.org/wiki/HMS_Sikh_(F82)" },
+  { "id": "piorun", "name": "ORP Piorun", "force": "vian", "type": "Polish destroyer — first to sight Bismarck on the 26th", "route": "vian", "wiki": "https://en.wikipedia.org/wiki/ORP_Piorun_(G65)" },
+  { "id": "dorsetshire", "name": "HMS Dorsetshire", "force": "others", "type": "Heavy cruiser", "route": "dorsetshire", "wiki": "https://en.wikipedia.org/wiki/HMS_Dorsetshire_(40)" },
+  {
+   "id": "electra",
+   "name": "HMS Electra",
+   "force": "holland",
+   "type": "E-class destroyer",
+   "route": "holland",
+   "until": "24 02:00",
+   "extra": [["24 06:00", 63, -29.5, "Ordered back to the battle area"], ["24 08:00", 63.33, -31.8, "Finds three survivors of Hood among the wreckage"], ["24 09:00", 63.3, -31.7], ["25 12:00", 64.4, -21.8, "Hvalfjörður"], ["28 18:00", 64.4, -21.8]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Electra_(H27)"
+  },
+  {
+   "id": "tartar",
+   "name": "HMS Tartar",
+   "force": "rodney",
+   "type": "Tribal-class destroyer (Rodney's escort)",
+   "route": "rodney",
+   "until": "26 22:00",
+   "extra": [["27 12:00", 51.5, -15.5, "Homeward with Mashona and Somali, low on fuel"], ["28 09:00", 52.9, -11.8, "Under Luftwaffe attack alongside Mashona"], ["28 14:30", 52.97, -11.6, "Rescues 184 of Mashona's crew during a lull"], ["28 18:00", 53.2, -9.5, "Toward the Clyde"]],
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Tartar_(F43)"
+  }
+ ],
+ "strikes": [
+  {
+   "id": "b1",
+   "name": "Spitfire recce (Wick)",
+   "nation": "RN",
+   "land": true,
+   "from": { "lat": 58.45, "lon": -3.1 },
+   "target": { "ship": "bismarck" },
+   "launch": "21 11:00",
+   "arrive": "21 13:15",
+   "leave": "21 13:25",
+   "recover": "21 15:30",
+   "count": 1,
+   "note": "P/O Suckling photographs Bismarck in Grimstadfjord from 25,000 ft — the Admiralty knows she is out"
+  },
+  {
+   "id": "b2",
+   "name": "Maryland recce (Hatston)",
+   "nation": "RN",
+   "land": true,
+   "from": { "lat": 59, "lon": -3 },
+   "target": { "lat": 60.35, "lon": 5.25 },
+   "launch": "22 16:30",
+   "arrive": "22 19:30",
+   "leave": "22 19:45",
+   "recover": "22 22:30",
+   "count": 1,
+   "note": "Flies below the cloud to find the fjord empty — Tovey sails that night"
+  },
+  {
+   "id": "b3",
+   "name": "Sunderland Z/201 (Reykjavik)",
+   "nation": "RN",
+   "land": true,
+   "from": { "lat": 64.13, "lon": -21.9 },
+   "target": { "ship": "bismarck" },
+   "launch": "24 03:30",
+   "arrive": "24 06:10",
+   "leave": "24 08:00",
+   "recover": "24 10:30",
+   "count": 1,
+   "note": "Arrives over the battle in time to see Hood's wreckage and report Bismarck's oil slick"
+  },
+  {
+   "id": "b4",
+   "name": "Victorious Swordfish (825 Sqn)",
+   "nation": "RN",
+   "from": { "route": "victorious" },
+   "target": { "ship": "bismarck" },
+   "launch": "24 22:10",
+   "arrive": "25 00:00",
+   "leave": "25 00:15",
+   "recover": "25 02:30",
+   "count": 9,
+   "note": "Esmonde's crews, most on their first strike, hit Bismarck once amidships in the dark; all return"
+  },
+  {
+   "id": "b5",
+   "name": "Catalina Z/209 (Lough Erne)",
+   "nation": "RN",
+   "land": true,
+   "from": { "lat": 54.45, "lon": -7.75 },
+   "target": { "ship": "bismarck" },
+   "launch": "26 03:45",
+   "arrive": "26 10:30",
+   "leave": "26 12:00",
+   "recover": "26 18:00",
+   "count": 1,
+   "note": "US Navy Ensign Leonard Smith, officially a \"special observer\", finds Bismarck 690 miles from Brest"
+  },
+  {
+   "id": "b6",
+   "name": "Ark Royal strike 1",
+   "nation": "RN",
+   "from": { "route": "forceh" },
+   "target": { "ship": "sheffield" },
+   "launch": "26 14:50",
+   "arrive": "26 15:50",
+   "leave": "26 16:00",
+   "recover": "26 17:20",
+   "count": 15,
+   "note": "Attacks Sheffield by mistake; the magnetic-pistol torpedoes fail — contact pistols used for the next strike"
+  },
+  {
+   "id": "b7",
+   "name": "Ark Royal strike 2",
+   "nation": "RN",
+   "from": { "route": "forceh" },
+   "target": { "ship": "bismarck" },
+   "launch": "26 19:10",
+   "arrive": "26 20:47",
+   "leave": "26 21:25",
+   "recover": "26 22:20",
+   "count": 15,
+   "note": "Two hits; the second jams both rudders at 12° port — the chase is decided"
+  },
+  {
+   "id": "b8",
+   "name": "Ark Royal strike 3",
+   "nation": "RN",
+   "from": { "route": "forceh" },
+   "target": { "ship": "bismarck" },
+   "launch": "27 09:26",
+   "arrive": "27 10:15",
+   "leave": "27 10:40",
+   "recover": "27 11:30",
+   "count": 12,
+   "note": "Cannot attack through the battleships' gunfire; watches Bismarck sink"
+  },
+  {
+   "id": "b9",
+   "name": "Luftwaffe (Fw 200 / He 111) from Bordeaux",
+   "nation": "KM",
+   "land": true,
+   "from": { "lat": 44.83, "lon": -0.7 },
+   "target": { "ship": "kgv" },
+   "launch": "27 08:00",
+   "arrive": "27 12:30",
+   "leave": "27 13:30",
+   "recover": "27 17:30",
+   "count": 20,
+   "note": "Arrives after Bismarck has gone; bombs the withdrawing British fleet without success"
+  },
+  {
+   "id": "b10",
+   "name": "Luftwaffe strike (28 May)",
+   "nation": "KM",
+   "land": true,
+   "from": { "lat": 44.83, "lon": -0.7 },
+   "target": { "ship": "mashona" },
+   "launch": "28 05:30",
+   "arrive": "28 09:00",
+   "leave": "28 10:00",
+   "recover": "28 14:00",
+   "count": 12,
+   "note": "Catches the fuel-starved destroyers Mashona and Tartar; Mashona sunk"
+  },
+  {
+   "id": "b11",
+   "name": "Luftwaffe recce of Scapa Flow (Stavanger)",
+   "nation": "KM",
+   "land": true,
+   "from": { "lat": 58.88, "lon": 5.63 },
+   "target": { "lat": 58.9, "lon": -3.1 },
+   "launch": "22 11:00",
+   "arrive": "22 13:00",
+   "leave": "22 13:20",
+   "recover": "22 15:00",
+   "count": 1,
+   "note": "Reports the Home Fleet still in harbour through cloud — wrongly reassuring Lütjens"
+  },
+  {
+   "id": "b12",
+   "name": "Catalina M/240 (Lough Erne)",
+   "nation": "RN",
+   "land": true,
+   "from": { "lat": 54.45, "lon": -7.75 },
+   "target": { "ship": "bismarck" },
+   "launch": "26 04:00",
+   "arrive": "26 11:30",
+   "leave": "26 15:00",
+   "recover": "26 21:00",
+   "count": 1,
+   "note": "Second Catalina to find Bismarck; shadows until fuel runs low"
+  },
+  {
+   "id": "b13",
+   "name": "Fw 200 Condor recce (Bordeaux)",
+   "nation": "KM",
+   "land": true,
+   "from": { "lat": 44.83, "lon": -0.7 },
+   "target": { "ship": "renown" },
+   "launch": "26 09:00",
+   "arrive": "26 13:30",
+   "leave": "26 14:30",
+   "recover": "26 19:00",
+   "count": 2,
+   "note": "KG 40 Condors report Force H closing from the south"
+  }
+ ],
+ "groups": {
+  "bismarck": "Lütjens",
+  "holland": "Holland",
+  "wakewalker": "Wake-Walker",
+  "tovey": "Home Fleet",
+  "rodney": "Rodney",
+  "forceh": "Force H",
+  "vian": "Vian",
+  "dorsetshire": "Dorsetshire",
+  "u556": "U-556",
+  "u74": "U-74"
+ },
+ "events": [["19 02:00", "Bismarck sails from Gotenhafen — Operation Rheinübung begins", 54.52, 18.55], ["20 13:00", "Swedish cruiser Gotland reports the German squadron", 57, 11.5], ["21 00:52", "Hood and Prince of Wales sail from Scapa Flow", 58.9, -3.1], ["21 09:00", "Bismarck anchors near Bergen", 60.35, 5.25], ["21 13:15", "Spitfire photographs Bismarck in Grimstadfjord", 60.35, 5.25], ["21 19:30", "Lütjens sails from Bergen without topping up Bismarck's fuel", 60.35, 5.25], ["22 19:30", "Reconnaissance finds Bergen empty", 60.35, 5.25], ["22 22:45", "Tovey sails with the Home Fleet", 58.9, -3.1], ["23 19:22", "Suffolk sights Bismarck in the Denmark Strait", 66.7, -27.5], ["24 02:00", "Force H ordered north from Gibraltar", 36.13, -5.35], ["24 05:52", "Battle of the Denmark Strait — Hood opens fire", 63.32, -31.6], ["24 06:00", "Hood blows up and sinks in three minutes", 63.33, -31.83], ["24 06:13", "Prince of Wales breaks off, damaged", 63.1, -31.6], ["24 18:14", "Prinz Eugen detached; Bismarck turns on her shadowers", 60.4, -36.8], ["24 22:10", "Victorious launches nine Swordfish", 60.1, -32.5], ["25 00:00", "Swordfish torpedo hits Bismarck amidships", 58.6, -37.6], ["25 03:06", "Suffolk loses contact — Bismarck vanishes", 57.3, -37.9], ["25 12:00", "Bismarck's long signal misplotted; Tovey heads north-east", 55.5, -32], ["25 19:00", "Admiralty and Tovey settle on Brest; Home Fleet turns south-east", 59.5, -25], ["26 10:30", "Catalina Z/209 finds Bismarck after 31 hours", 49.55, -21.8], ["26 14:50", "Ark Royal's first strike attacks Sheffield by mistake", 48.65, -17.4], ["26 20:47", "Swordfish torpedo jams Bismarck's rudders", 48.5, -16.8], ["26 22:38", "Piorun sights Bismarck; Vian's destroyers attack through the night", 48.6, -16.6], ["27 08:47", "Rodney and King George V open fire", 48.35, -16.4], ["27 09:31", "Bismarck's forward turrets knocked out", 48.3, -16.35], ["27 10:15", "Bismarck silent; Dorsetshire closes to torpedo", 48.2, -16.3], ["27 10:39", "Bismarck sinks", 48.17, -16.2], ["27 11:40", "Dorsetshire abandons rescue after U-boat alarm — 110 saved", 48.18, -16.2], ["27 19:00", "U-74 picks up three more survivors", 47.8, -16.05], ["28 13:00", "Mashona sunk by Luftwaffe bombers off Ireland", 52.97, -11.6], ["24 08:00", "Electra finds Hood's three survivors", 63.33, -31.8], ["27 10:45", "Dorsetshire and Maori rescue 110 Bismarck survivors", 48.18, -16.2], ["28 14:30", "Tartar rescues 184 of Mashona's crew", 52.97, -11.6]],
+ "ports": [
+  { "name": "Gotenhafen", "lat": 54.52, "lon": 18.55, "control": "KM", "kind": "port", "note": "Bismarck's departure port (Gdynia)" },
+  { "name": "Kiel", "lat": 54.32, "lon": 10.14, "control": "KM", "kind": "port", "note": "Kriegsmarine Baltic base" },
+  { "name": "Bergen (Grimstadfjord)", "lat": 60.35, "lon": 5.25, "control": "KM", "kind": "port", "note": "Anchorage 21 May; Prinz Eugen refuels, Bismarck does not" },
+  { "name": "Trondheim", "lat": 63.43, "lon": 10.4, "control": "KM", "kind": "port", "note": "Norwegian base" },
+  { "name": "Brest", "lat": 48.39, "lon": -4.49, "control": "KM", "kind": "port", "note": "Lütjens' destination; Scharnhorst & Gneisenau already here" },
+  { "name": "St-Nazaire", "lat": 47.27, "lon": -2.2, "control": "KM", "kind": "port", "note": "Only Atlantic-coast dry dock big enough for Bismarck" },
+  { "name": "Bordeaux-Mérignac", "lat": 44.83, "lon": -0.7, "control": "KM", "kind": "air", "note": "KG 40 Fw 200 Condors" },
+  { "name": "Stavanger-Sola", "lat": 58.88, "lon": 5.63, "control": "KM", "kind": "air", "note": "Luftwaffe reconnaissance over Scapa Flow" },
+  { "name": "Lorient", "lat": 47.75, "lon": -3.37, "control": "KM", "kind": "port", "note": "U-boat base" },
+  { "name": "Scapa Flow", "lat": 58.9, "lon": -3.1, "control": "RN", "kind": "port", "note": "Home Fleet anchorage" },
+  { "name": "Hvalfjörður", "lat": 64.4, "lon": -21.8, "control": "RN", "kind": "port", "note": "Fuelling anchorage, Iceland" },
+  { "name": "Reykjavik", "lat": 64.13, "lon": -21.9, "control": "RN", "kind": "air", "note": "Coastal Command Sunderlands" },
+  { "name": "Hatston / Wick", "lat": 58.75, "lon": -3.05, "control": "RN", "kind": "air", "note": "Reconnaissance over Norway" },
+  { "name": "Lough Erne", "lat": 54.45, "lon": -7.75, "control": "RN", "kind": "air", "note": "209 Sqn Catalinas" },
+  { "name": "Clyde", "lat": 55.95, "lon": -4.75, "control": "RN", "kind": "port", "note": "Convoy assembly; Rodney and Vian sail from here" },
+  { "name": "Loch Ewe", "lat": 57.85, "lon": -5.6, "control": "RN", "kind": "port", "note": "Tovey's fuel stop after the battle" },
+  { "name": "Plymouth", "lat": 50.37, "lon": -4.14, "control": "RN", "kind": "port", "note": "Western Approaches" },
+  { "name": "Gibraltar", "lat": 36.13, "lon": -5.35, "control": "RN", "kind": "port", "note": "Force H base" },
+  { "name": "London — Admiralty", "lat": 51.505, "lon": -0.125, "control": "RN", "kind": "hq", "hq": "Admiralty Operational Intelligence Centre", "note": "Pound and the OIC direct the hunt; Tovey commands at sea" },
+  { "name": "Liverpool — Western Approaches", "lat": 53.4, "lon": -3, "control": "RN", "kind": "hq", "hq": "Western Approaches Command (Derby House)", "note": "Controls convoy escorts — Vian's destroyers and Dorsetshire are detached from convoys" },
+  { "name": "Berlin — OKM / Seekriegsleitung", "lat": 52.52, "lon": 13.4, "control": "KM", "kind": "hq", "hq": "Naval High Command (Raeder)", "note": "Raeder approves Rheinübung over Hitler's misgivings" },
+  { "name": "Wilhelmshaven — Group North", "lat": 53.52, "lon": 8.11, "control": "KM", "kind": "hq", "hq": "Marinegruppenkommando Nord (Carls)", "note": "Controls Bismarck until she passes south of the Denmark Strait" },
+  { "name": "Paris — Group West", "lat": 48.86, "lon": 2.35, "control": "KM", "kind": "hq", "hq": "Marinegruppenkommando West (Saalwächter)", "note": "Takes over Bismarck on 25 May and coordinates U-boats and Luftwaffe" }
+ ],
+ "engagements": [
+  {
+   "ships": ["bismarck", "eugen", "hood", "pow"],
+   "from": "24 05:52",
+   "to": "24 06:13",
+   "rate": 0.6,
+   "note": "Battle of the Denmark Strait",
+   "targets": null,
+   "pairs": {
+    "bismarck": ["hood", "pow"],
+    "eugen": ["hood", "pow"],
+    "hood": ["bismarck", "eugen"],
+    "pow": ["bismarck"]
+   }
+  },
+  {
+   "ships": ["bismarck", "pow", "suffolk"],
+   "from": "24 18:30",
+   "to": "24 18:50",
+   "rate": 0.3,
+   "note": "Second exchange",
+   "targets": null,
+   "pairs": {
+    "bismarck": ["pow", "suffolk"],
+    "pow": ["bismarck"],
+    "suffolk": ["bismarck"]
+   }
+  },
+  {
+   "ships": ["bismarck"],
+   "from": "26 21:40",
+   "to": "26 21:52",
+   "rate": 0.4,
+   "note": "Fires on Sheffield",
+   "targets": ["sheffield"]
+  },
+  {
+   "ships": ["bismarck", "cossack", "maori", "zulu", "sikh", "piorun"],
+   "from": "26 22:38",
+   "to": "27 07:00",
+   "rate": 0.12,
+   "note": "Night destroyer actions",
+   "targets": null,
+   "pairs": {
+    "bismarck": ["cossack", "maori", "zulu", "sikh", "piorun"],
+    "cossack": ["bismarck"],
+    "maori": ["bismarck"],
+    "zulu": ["bismarck"],
+    "sikh": ["bismarck"],
+    "piorun": ["bismarck"]
+   }
+  },
+  {
+   "ships": ["rodney", "kgv"],
+   "from": "27 08:47",
+   "to": "27 10:15",
+   "rate": 0.6,
+   "note": "Final battle",
+   "targets": ["bismarck"]
+  },
+  {
+   "ships": ["norfolk"],
+   "from": "27 08:54",
+   "to": "27 10:15",
+   "rate": 0.45,
+   "targets": ["bismarck"]
+  },
+  {
+   "ships": ["dorsetshire"],
+   "from": "27 09:04",
+   "to": "27 10:36",
+   "rate": 0.45,
+   "targets": ["bismarck"]
+  },
+  {
+   "ships": ["bismarck"],
+   "from": "27 08:49",
+   "to": "27 09:50",
+   "rate": 0.5,
+   "targets": ["rodney", "kgv"]
+  }
+ ],
+ "utcOffset": 2,
+ "commanders": {
+  "bismarck": { "name": "Admiral Günther Lütjens", "role": "Fleet Commander (Flottenchef)", "flagship": "Bismarck", "bio": "A reserved, pessimistic professional who had already taken Scharnhorst and Gneisenau into the Atlantic. Chose the Denmark Strait, declined to finish Prince of Wales after sinking Hood, and made for France. His long radio signal on 25 May — sent believing he was still being shadowed — helped the British relocate him. Captain Ernst Lindemann commanded the ship itself.", "fate": "Killed in the final battle, 27 May 1941, two days after his 52nd birthday.", "wiki": "Günther_Lütjens" },
+  "holland": { "name": "Vice Admiral Lancelot Holland", "role": "Commander, Battlecruiser Squadron", "flagship": "Hood", "bio": "Intercepted Bismarck at dawn on 24 May with Hood and the brand-new Prince of Wales. Closed rapidly to shorten the time Hood's thin deck armour was exposed to plunging fire — and initially engaged the wrong ship.", "fate": "Lost with Hood at 06:00, 24 May; 1,415 died, 3 survived.", "wiki": "Lancelot_Holland" },
+  "wakewalker": { "name": "Rear Admiral Frederic Wake-Walker", "role": "Commander, 1st Cruiser Squadron", "flagship": "Norfolk", "bio": "Shadowed Bismarck for 30 hours through the Denmark Strait and beyond using Suffolk's radar, then lost her on the 25th during a zig-zag. Criticised by Pound for not re-engaging with Prince of Wales; defended by Tovey.", "fate": "Third Sea Lord 1942–45; died 1945.", "wiki": "Frederic_Wake-Walker" },
+  "tovey": { "name": "Admiral Sir John Tovey", "role": "Commander-in-Chief, Home Fleet", "flagship": "King George V", "bio": "Directed the hunt from sea. Misplotted Bismarck's signals on 25 May and steamed north-east for seven hours before turning for Brest. Fought the final action with fuel so low he had to break off within the hour of Bismarck falling silent.", "fate": "Admiral of the Fleet 1943; died 1971.", "wiki": "John_Tovey,_1st_Baron_Tovey" },
+  "rodney": { "name": "Captain Frederick Dalrymple-Hamilton", "role": "Commanding Officer, HMS Rodney", "flagship": "Rodney", "bio": "Left the troopship Britannic on his own judgement and gambled correctly that Bismarck was making for Brest. Rodney's nine 16-inch guns wrecked Bismarck's forward turrets in the first quarter-hour of the final battle.", "fate": "Retired as Admiral; died 1974.", "wiki": "Frederick_Dalrymple-Hamilton" },
+  "forceh": { "name": "Vice Admiral Sir James Somerville", "role": "Commander, Force H", "flagship": "Renown", "bio": "Brought Force H north from Gibraltar through a full gale to cut Bismarck off from France. Ark Royal's second Swordfish strike, launched on his order in appalling conditions, jammed Bismarck's rudders and decided the chase.", "fate": "Admiral of the Fleet 1945; died 1949.", "wiki": "James_Somerville" },
+  "vian": { "name": "Captain Philip Vian", "role": "Captain (D), 4th Destroyer Flotilla", "flagship": "Cossack", "bio": "Left convoy WS 8B on his own initiative to find Bismarck, then harried her all night with five destroyers in heavy seas, keeping her fixed for the battleships at dawn.", "fate": "Admiral of the Fleet 1952; died 1968.", "wiki": "Philip_Vian" },
+  "dorsetshire": { "name": "Captain Benjamin Martin", "role": "Commanding Officer, HMS Dorsetshire", "flagship": "Dorsetshire", "bio": "Left convoy SL 74 unasked, arrived during the battle and fired the torpedoes that preceded Bismarck's sinking. Rescued 85 survivors before a U-boat alarm forced him to leave hundreds in the water.", "fate": "Retired as Rear Admiral.", "wiki": "HMS_Dorsetshire_(40)" },
+  "u556": { "name": "Kapitänleutnant Herbert Wohlfarth", "role": "Commanding Officer, U-556", "flagship": "U-556", "bio": "\"Parzival\" Wohlfarth had jokingly signed a certificate promising to protect his \"godmother\" Bismarck. On 26 May Renown and Ark Royal passed directly across his bows — and he had no torpedoes left.", "fate": "Captured June 1941; died 1982.", "wiki": "Herbert_Wohlfarth" },
+  "u74": { "name": "Kapitänleutnant Eitel-Friedrich Kentrat", "role": "Commanding Officer, U-74", "flagship": "U-74", "bio": "Ordered to Bismarck's position to collect her war diary; arrived after the sinking and picked up three survivors from a raft.", "fate": "Survived the war; died 1974.", "wiki": "Eitel-Friedrich_Kentrat" }
+ },
+ "torpedoes": [
+  { "from": "rodney", "to": "bismarck", "t": "27 09:30", "run": 5, "n": 6, "hit": false, "note": "Rodney fires torpedoes from her bow tubes — possibly the only battleship ever to torpedo another" },
+  { "from": "cossack", "to": "bismarck", "t": "27 01:40", "run": 4, "n": 3, "hit": false, "note": "Claimed hits in the dark; German survivors recorded none" },
+  { "from": "maori", "to": "bismarck", "t": "27 01:50", "run": 4, "n": 2, "hit": false, "note": "Starshell and torpedoes through the night" },
+  { "from": "dorsetshire", "to": "bismarck", "t": "27 10:20", "run": 3, "n": 2, "hit": true, "note": "Two hits on the starboard side" },
+  { "from": "dorsetshire", "to": "bismarck", "t": "27 10:36", "run": 2, "n": 1, "hit": true, "note": "One hit to port; Bismarck rolls over at 10:39" }
+ ],
+ "rescues": [
+  { "by": "electra", "of": "hood", "from": "24 08:00", "to": "24 09:00", "saved": 3, "note": "Of 1,418 men, Electra finds Ted Briggs, Bob Tilburn and Bill Dundas" },
+  { "by": "dorsetshire", "of": "bismarck", "from": "27 10:45", "to": "27 11:40", "saved": 85, "note": "Rescue abandoned after a U-boat alarm, leaving hundreds in the water" },
+  { "by": "maori", "of": "bismarck", "from": "27 10:45", "to": "27 11:40", "saved": 25, "note": "Maori picks up 25 more before the destroyers withdraw" },
+  { "by": "u74", "of": "bismarck", "from": "27 19:00", "to": "27 19:30", "saved": 3, "note": "Three men on a raft; the weather ship Sachsenwald finds two more the next night" },
+  { "by": "tartar", "of": "mashona", "from": "28 13:00", "to": "28 14:30", "saved": 184, "note": "Ten of the rescued die of hypothermia; 46 lost with the ship" }
+ ],
+ "schema": 1,
+ "routing": {
+  "res": 0.03,
+  "bbox": [35.13, -53, 68.5, 19.55],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-08",
+  "ships": {
+   "bismarck": {
+    "hash": "5cad8401",
+    "snap": {
+     "0": [54.565, 18.565],
+     "1": [54.565, 18.565],
+     "5": [60.325, 5.215],
+     "6": [60.325, 5.215]
+    },
+    "via": {
+     "2": [[54.835, 18.535], [54.895, 17.725]],
+     "3": [[55.435, 12.775], [56.095, 12.595]],
+     "4": [[57.505, 11.065], [57.955, 10.315]],
+     "5": [[57.985, 6.955], [58.075, 6.505], [58.615, 5.515], [59.215, 5.125], [60.055, 5.035], [60.325, 5.185]],
+     "7": [[60.325, 5.125], [61.585, 4.105]]
+    }
+   },
+   "eugen": {
+    "hash": "2cf83388",
+    "snap": {
+     "0": [54.565, 18.565],
+     "1": [54.565, 18.565],
+     "5": [60.325, 5.215],
+     "6": [60.325, 5.215]
+    },
+    "via": {
+     "2": [[54.835, 18.535], [54.895, 17.725]],
+     "3": [[55.435, 12.775], [56.095, 12.595]],
+     "4": [[57.505, 11.065], [57.955, 10.315]],
+     "5": [[57.985, 6.955], [58.075, 6.505], [58.615, 5.515], [59.215, 5.125], [60.055, 5.035], [60.325, 5.185]],
+     "7": [[60.325, 5.125], [61.585, 4.105]]
+    }
+   },
+   "u556": { "hash": "85d2f5aa" },
+   "u74": { "hash": "2fd0ffb4" },
+   "hood": {
+    "hash": "c58e284b",
+    "via": {
+     "2": [[59.515, -5.255]]
+    }
+   },
+   "pow": {
+    "hash": "fdfb4c6c",
+    "snap": {
+     "14": [64.375, -21.755],
+     "15": [64.375, -21.755]
+    },
+    "via": {
+     "2": [[59.515, -5.255]]
+    }
+   },
+   "norfolk": {
+    "hash": "01333820",
+    "snap": {
+     "0": [64.375, -21.755],
+     "1": [65.515, -24.485]
+    }
+   },
+   "suffolk": {
+    "hash": "11af7cd7",
+    "snap": {
+     "0": [64.375, -21.755],
+     "1": [65.515, -24.485]
+    }
+   },
+   "kgv": { "hash": "01e925aa" },
+   "repulse": { "hash": "1c4dbfe5" },
+   "victorious": {
+    "hash": "16016779",
+    "via": {
+     "10": [[58.735, -3.125]]
+    }
+   },
+   "galatea": {
+    "hash": "16016779",
+    "via": {
+     "10": [[58.735, -3.125]]
+    }
+   },
+   "mashona": {
+    "hash": "45ba71f5",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795]]
+    }
+   },
+   "rodney": {
+    "hash": "c21362bf",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795]]
+    }
+   },
+   "renown": {
+    "hash": "c9130f3e",
+    "snap": {
+     "0": [36.145, -5.375],
+     "1": [36.145, -5.375]
+    },
+    "via": {
+     "2": [[35.995, -5.465], [36.025, -5.915], [37.015, -9.035]]
+    }
+   },
+   "arkroyal": {
+    "hash": "c9130f3e",
+    "snap": {
+     "0": [36.145, -5.375],
+     "1": [36.145, -5.375]
+    },
+    "via": {
+     "2": [[35.995, -5.465], [36.025, -5.915], [37.015, -9.035]]
+    }
+   },
+   "sheffield": {
+    "hash": "513f210f",
+    "snap": {
+     "0": [36.145, -5.375],
+     "1": [36.145, -5.375]
+    },
+    "via": {
+     "2": [[35.995, -5.465], [36.025, -5.915], [37.015, -9.035]]
+    }
+   },
+   "cossack": {
+    "hash": "3901778f",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795], [55.435, -7.325], [55.135, -8.375], [54.985, -8.615], [54.655, -8.825]],
+     "2": [[54.325, -10.085]]
+    }
+   },
+   "maori": {
+    "hash": "3901778f",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795], [55.435, -7.325], [55.135, -8.375], [54.985, -8.615], [54.655, -8.825]],
+     "2": [[54.325, -10.085]]
+    }
+   },
+   "zulu": {
+    "hash": "3901778f",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795], [55.435, -7.325], [55.135, -8.375], [54.985, -8.615], [54.655, -8.825]],
+     "2": [[54.325, -10.085]]
+    }
+   },
+   "sikh": {
+    "hash": "3901778f",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795], [55.435, -7.325], [55.135, -8.375], [54.985, -8.615], [54.655, -8.825]],
+     "2": [[54.325, -10.085]]
+    }
+   },
+   "piorun": {
+    "hash": "3901778f",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795], [55.435, -7.325], [55.135, -8.375], [54.985, -8.615], [54.655, -8.825]],
+     "2": [[54.325, -10.085]]
+    }
+   },
+   "dorsetshire": { "hash": "1c846604" },
+   "electra": {
+    "hash": "02b89aec",
+    "snap": {
+     "9": [64.375, -21.755],
+     "10": [64.375, -21.755]
+    },
+    "via": {
+     "2": [[59.515, -5.255]]
+    }
+   },
+   "tartar": {
+    "hash": "717ebf98",
+    "snap": {
+     "0": [55.975, -4.775]
+    },
+    "via": {
+     "1": [[55.975, -4.865], [55.405, -5.105], [55.255, -5.795]]
+    }
+   }
+  }
+ }
+}

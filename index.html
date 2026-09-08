@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FleetView — Battle of Leyte Gulf, October 1944</title>
+<title>FleetView — WW2 naval battles, time-scrubbable</title>
+<meta name="fv-data" content="data/">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root{
@@ -276,6 +277,21 @@
 
   #stack{position:absolute;z-index:1200;left:50%;bottom:128px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;max-width:min(70%, 720px)}
   #stack > *{pointer-events:auto}
+  /* ---- war-level timeline ---- */
+  #warbar{position:relative;height:16px;margin:20px 6px 0;background:var(--track);border-radius:3px}
+  #warbar .yr{position:absolute;top:0;height:100%;border-left:1px solid rgba(255,255,255,.16);font:9.5px var(--mono);color:var(--muted);padding-left:3px;line-height:16px;pointer-events:none;white-space:nowrap}
+  html[data-mode="light"] #warbar .yr{border-left-color:rgba(0,0,0,.18)}
+  #warcamps .camp{position:absolute;top:2px;height:12px;border-radius:2px;background:var(--fg2);opacity:.6;cursor:pointer;transition:opacity .15s}
+  #warcamps .camp:hover{opacity:1}
+  #warcamps .camp.cur{background:var(--accent);opacity:1;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  #warcamps .camp .cl{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:9.5px;white-space:nowrap;color:var(--muted);pointer-events:none}
+  #warcamps .camp.cur .cl{color:var(--fg2);font-weight:600}
+  #warpos{position:absolute;top:-3px;width:2px;height:22px;margin-left:-1px;background:#fff;box-shadow:0 0 4px rgba(0,0,0,.8);pointer-events:none}
+  html[data-mode="light"] #warpos{background:#111;box-shadow:0 0 3px rgba(255,255,255,.8)}
+  #boot{background:var(--panel2);border:1px solid var(--line);color:var(--fg2);padding:8px 14px;border-radius:10px;font-size:12.5px;line-height:1.5;max-width:420px;text-align:center;box-shadow:var(--shadow)}
+  #boot.err{border-color:#e5484d;color:var(--fg);text-align:left}
+  #boot code{font-family:var(--mono);font-size:11px;background:var(--btn);padding:1px 4px;border-radius:3px}
+  .pp .also a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
   /* ---- mobile ---- */
   #mobilebar{display:none;position:absolute;z-index:1250;top:0;left:0;right:0;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;align-items:center;gap:8px;background:var(--panel);border-bottom:1px solid var(--panelBorder);backdrop-filter:var(--blur)}
   #mobilebar .t{font-weight:700;font-size:15px;margin-right:auto;letter-spacing:.2px}
@@ -307,6 +323,7 @@
     #clock{margin-left:auto}
     #clock .d{font-size:11px} #clock .h{font-size:17px} #clock small{font-size:9px}
     #track{margin:10px 4px 16px}
+    #warbar{height:12px;margin:8px 4px 0} #warbar .yr{display:none} #warcamps .camp{top:1px;height:10px} #warcamps .camp .cl{display:none!important} #warpos{top:-2px;height:16px}
     .day{font-size:9px}
     .day:not(.major){display:none}
     #stack{max-width:94%}
@@ -380,9 +397,11 @@
     <div id="losses"></div>
     <div id="clock"><div class="d"></div><div class="h"></div><small>Tokyo time · UTC+9</small></div>
   </div>
+  <div id="warbar" title="The war at sea, 1939–45"><div id="warcamps"></div><div id="warpos"></div></div>
   <div id="track"><input type="range" id="slider" min="0" max="100" step="1" value="0"></div>
 </div>
 <div id="stack">
+<div id="boot" style="display:none"></div>
 <div id="slowbanner"></div>
 <div id="toast"></div>
 <div id="help">space play · ←/→ ±1h · shift ±1d · [ ] events · F follow · L labels · T trails · N night · / search</div>
@@ -391,1016 +410,116 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 // ====================== DATA ======================
-// ============================================================================
-// FLEETVIEW — Leyte Gulf dataset, 17–28 October 1944
-// ----------------------------------------------------------------------------
-// All times are Tokyo Standard Time (UTC+9) — used by both the IJN and the USN
-// (zone "Item") in the Philippines. Encoded as 'DD HH:MM' within October 1944.
-//
-// Waypoint: [time, lat, lon, note?]
-//  - Battle and sinking positions come from published records (Wikipedia,
-//    DANFS, combinedfleet.com TROMs).
-//  - Transit positions between ports are reconstructed along plausible sea
-//    routes and should be treated as schematic.
-//  - Ships in the same formation share a base route; a small deterministic
-//    offset is applied at render time so they don't stack on one pixel.
-//
-// Schema:
-//   ROUTES : named base tracks
-//   SHIPS  : { id, name, force, type, route, until?, extra?, sunk?, sunkBy? }
-//            until = time the ship leaves the base route; extra = own track after
-//   EVENTS : [time, title, lat, lon]
-// ============================================================================
-
-const L_FORCES = {
-  center:   { name: "IJN Center Force (Kurita)",           color: "#e5484d", nation: "IJN" },
-  southern: { name: "IJN Southern Force (Nishimura)",      color: "#f97316", nation: "IJN" },
-  shima:    { name: "IJN 2nd Striking Force (Shima)",      color: "#eab308", nation: "IJN" },
-  northern: { name: "IJN Northern Force (Ozawa)",          color: "#d946ef", nation: "IJN" },
-  taffy3:   { name: "USN Taffy 3 (C. Sprague)",            color: "#3b82f6", nation: "USN" },
-  tf38:     { name: "USN Task Force 38 (Halsey/Mitscher)", color: "#06b6d4", nation: "USN" },
-  tg772:    { name: "USN TG 77.2 (Oldendorf)",             color: "#22c55e", nation: "USN" },
-  subs:     { name: "USN Submarines",                      color: "#94a3b8", nation: "USN" },
-};
-
-const L_ROUTES = {
-  center: [
-    ['17 00:00', 0.20, 104.58, 'At anchor, Lingga Roads'],
-    ['18 01:00', 0.20, 104.58, 'Center Force sorties from Lingga Roads'],
-    ['18 12:00', 1.60, 106.50],
-    ['19 12:00', 3.40, 110.80],
-    ['20 12:00', 5.05, 115.05, 'Arrives Brunei Bay; refuels'],
-    ['22 08:00', 5.05, 115.05, 'Departs Brunei for Palawan Passage'],
-    ['22 18:00', 6.90, 115.90],
-    ['23 00:00', 8.30, 116.60, 'Enters Palawan Passage; shadowed by Darter & Dace'],
-    ['23 05:30', 9.45, 117.25, 'Atago & Maya torpedoed; Kurita shifts flag to Yamato'],
-    ['23 12:00', 10.70, 118.10],
-    ['23 20:00', 11.70, 119.40],
-    ['24 00:00', 12.25, 120.30, 'Mindoro Strait'],
-    ['24 06:00', 12.35, 121.20, 'Tablas Strait'],
-    ['24 08:10', 12.50, 121.60, 'Sighted by Intrepid scout plane'],
-    ['24 10:26', 12.70, 122.00, 'First TF 38 air strike'],
-    ['24 14:00', 12.90, 122.50, 'Repeated strikes; Musashi falls behind'],
-    ['24 15:30', 12.95, 122.75, 'Kurita reverses course west'],
-    ['24 17:15', 12.85, 122.35, 'Turns back east for San Bernardino'],
-    ['24 22:00', 12.70, 123.40],
-    ['25 00:35', 12.55, 124.20, 'Transits San Bernardino Strait unopposed'],
-    ['25 03:00', 12.65, 124.65, 'Exits strait into Philippine Sea'],
-    ['25 05:30', 12.30, 125.70],
-    ['25 06:45', 12.05, 126.15, 'Sights Taffy 3 — Battle off Samar begins'],
-    ['25 08:00', 11.90, 126.30, 'General pursuit'],
-    ['25 09:20', 11.65, 126.20, 'Kurita orders break-off and regroup'],
-    ['25 11:00', 11.95, 126.40],
-    ['25 12:36', 11.80, 126.05, 'Feints toward Leyte Gulf, then turns north'],
-    ['25 13:30', 12.15, 125.90],
-    ['25 17:00', 12.50, 125.20],
-    ['25 21:30', 12.55, 124.40, 'Re-enters San Bernardino Strait'],
-    ['26 00:00', 12.55, 124.00],
-    ['26 08:30', 12.70, 122.60, 'Air attacks in Sibuyan Sea / Tablas Strait'],
-    ['26 12:00', 12.00, 121.50],
-    ['26 20:00', 11.00, 119.80],
-    ['27 12:00', 8.50, 117.50],
-    ['28 21:00', 5.05, 115.05, 'Center Force anchors at Brunei'],
-    ['29 00:00', 5.05, 115.05],
-  ],
-  southern: [
-    ['17 00:00', 0.20, 104.58, 'At anchor, Lingga Roads'],
-    ['18 01:00', 0.20, 104.58, 'Sorties with Center Force'],
-    ['18 12:00', 1.60, 106.50],
-    ['19 12:00', 3.40, 110.80],
-    ['20 12:00', 5.05, 115.05, 'Arrives Brunei'],
-    ['22 15:00', 5.05, 115.05, 'Southern Force departs Brunei'],
-    ['23 04:00', 7.60, 117.00, 'Balabac Strait'],
-    ['23 16:00', 8.30, 119.60, 'Sulu Sea'],
-    ['24 09:18', 9.00, 121.50, 'Attacked by Enterprise aircraft'],
-    ['24 18:00', 9.15, 123.60, 'Mindanao Sea'],
-    ['24 22:00', 9.45, 124.90, 'PT-boat attacks begin'],
-    ['25 01:00', 9.85, 125.20, 'Enters Surigao Strait'],
-    ['25 03:00', 10.15, 125.35, 'US destroyer torpedo attacks'],
-    ['25 03:51', 10.35, 125.35, 'Oldendorf battle line opens fire'],
-    ['25 04:19', 10.37, 125.355, 'Yamashiro capsizes and sinks'],
-  ],
-  shima: [
-    ['17 00:00', 23.55, 119.55, 'Mako, Pescadores'],
-    ['21 16:00', 23.55, 119.55, 'Second Striking Force departs Mako'],
-    ['22 12:00', 19.50, 118.60],
-    ['23 12:00', 14.60, 119.20],
-    ['23 20:00', 12.00, 120.20, 'Coron Bay; refuels'],
-    ['24 02:00', 12.00, 120.20, 'Departs Coron'],
-    ['24 12:00', 10.10, 121.60, 'Sulu Sea'],
-    ['24 22:00', 9.20, 123.90],
-    ['25 03:25', 9.90, 125.20, 'Enters Surigao Strait astern of Nishimura'],
-    ['25 04:30', 10.28, 125.35, 'Nachi collides with Mogami; Shima reverses course'],
-    ['25 06:00', 9.80, 125.20],
-    ['25 14:00', 9.30, 124.00],
-    ['26 06:00', 9.40, 122.70],
-    ['26 20:00', 11.00, 121.00],
-    ['27 12:00', 12.00, 120.20, 'Coron Bay'],
-    ['28 12:00', 14.55, 120.90, 'Manila Bay'],
-    ['29 00:00', 14.55, 120.90],
-  ],
-  northern: [
-    ['17 00:00', 34.20, 132.50, 'Kure / Inland Sea'],
-    ['20 17:00', 32.70, 132.10, 'Northern Force sorties via Bungo Suido'],
-    ['21 12:00', 30.00, 131.20],
-    ['22 12:00', 26.50, 129.20],
-    ['23 12:00', 22.50, 127.30],
-    ['24 06:00', 19.20, 126.00],
-    ['24 11:45', 18.60, 125.70, 'Launches strike against TG 38.3'],
-    ['24 16:00', 18.20, 125.50, "Sighted by Sherman's scouts"],
-    ['24 22:00', 18.60, 125.80, 'Turns north — Halsey takes the bait'],
-    ['25 08:00', 19.00, 126.00, 'First US strike arrives 08:48'],
-    ['25 14:14', 19.33, 125.85, 'Zuikaku sinks'],
-  ],
-  taffy3: [
-    ['17 00:00', 8.50, 130.00, 'En route from Manus'],
-    ['18 12:00', 10.50, 128.00],
-    ['19 06:00', 11.20, 126.70, 'Begins air support for Leyte landings'],
-    ['19 18:00', 11.00, 127.30],
-    ['20 06:00', 11.30, 126.60, 'A-Day: 6th Army lands on Leyte'],
-    ['20 18:00', 11.00, 127.30],
-    ['21 06:00', 11.30, 126.60], ['21 18:00', 11.00, 127.30],
-    ['22 06:00', 11.30, 126.60], ['22 18:00', 11.00, 127.30],
-    ['23 06:00', 11.30, 126.60], ['23 18:00', 11.00, 127.30],
-    ['24 06:00', 11.30, 126.60], ['24 18:00', 11.20, 127.00],
-    ['25 06:00', 11.75, 126.55, 'Dawn CAP launched'],
-    ['25 06:58', 11.70, 126.50, 'Yamato opens fire — Battle off Samar'],
-    ['25 08:00', 11.50, 126.35, 'Fleeing south under smoke'],
-    ['25 09:30', 11.30, 126.20],
-    ['25 10:50', 11.22, 126.10, 'Kamikaze attacks'],
-    ['25 12:00', 11.00, 126.20],
-    ['25 18:00', 10.50, 126.60],
-    ['26 12:00', 10.00, 127.80, 'Retires toward Manus'],
-    ['28 12:00', 8.00, 130.50],
-    ['29 00:00', 7.50, 131.00],
-  ],
-  tg383: [
-    ['17 00:00', 15.50, 131.00, 'Refuelling east of Luzon'],
-    ['18 06:00', 16.00, 124.80, 'Strikes on Luzon airfields'],
-    ['19 06:00', 16.00, 124.80],
-    ['20 06:00', 15.50, 125.20],
-    ['21 06:00', 15.00, 126.50],
-    ['22 12:00', 15.50, 128.00, 'Refuelling'],
-    ['23 12:00', 15.50, 125.50],
-    ['24 06:00', 15.35, 123.80, 'Off Polillo; strikes Sibuyan Sea, then Ozawa'],
-    ['24 16:00', 15.30, 124.00],
-    ['24 20:22', 15.50, 124.80, 'Halsey orders TF 38 north after Ozawa'],
-    ['25 00:00', 16.50, 125.30],
-    ['25 06:00', 17.40, 125.90, 'Launches strikes vs Northern Force'],
-    ['25 12:00', 18.30, 126.00],
-    ['25 18:00', 18.90, 126.10],
-    ['26 06:00', 18.50, 126.60],
-    ['26 18:00', 17.00, 127.20],
-    ['27 12:00', 15.00, 128.50],
-    ['28 12:00', 12.00, 132.00],
-    ['29 00:00', 11.00, 133.50],
-  ],
-  tg382: [
-    ['17 00:00', 15.00, 131.00],
-    ['18 06:00', 14.50, 125.50, 'Strikes on Luzon'],
-    ['19 06:00', 14.50, 125.50],
-    ['20 06:00', 13.50, 126.00],
-    ['21 06:00', 13.00, 126.50],
-    ['22 12:00', 13.50, 128.50, 'Refuelling'],
-    ['23 12:00', 13.20, 126.00],
-    ['24 06:00', 13.20, 125.50, 'East of San Bernardino; strikes Center Force'],
-    ['24 20:22', 14.00, 125.50, 'Ordered north'],
-    ['25 00:00', 15.80, 125.70],
-    ['25 06:00', 17.00, 125.90],
-    ['25 11:15', 17.50, 126.00, 'TF 34 and TG 38.2 detached; turn south'],
-    ['25 18:00', 15.00, 125.60],
-    ['26 01:00', 12.90, 124.90, 'Off San Bernardino — Kurita already gone; Nowaki sunk'],
-    ['26 06:00', 13.30, 125.50, 'Launches strikes on retreating Center Force'],
-    ['26 12:00', 13.50, 125.80],
-    ['27 12:00', 14.00, 127.50],
-    ['28 12:00', 12.00, 132.00],
-    ['29 00:00', 11.00, 133.50],
-  ],
-  tg384: [
-    ['17 00:00', 10.50, 131.50],
-    ['18 06:00', 11.00, 127.50, 'Strikes Leyte / Mindanao'],
-    ['19 06:00', 11.00, 127.50],
-    ['20 06:00', 11.00, 127.50],
-    ['21 06:00', 11.00, 127.50],
-    ['22 12:00', 11.50, 130.00, 'Toward Ulithi; recalled'],
-    ['23 12:00', 11.50, 128.00],
-    ['24 06:00', 11.20, 127.20, 'Strikes Nishimura in Sulu Sea'],
-    ['24 20:22', 12.50, 126.50, 'Ordered north'],
-    ['25 00:00', 14.30, 126.20],
-    ['25 06:00', 16.60, 126.00],
-    ['25 12:00', 17.80, 126.10],
-    ['25 18:00', 18.50, 126.20],
-    ['26 06:00', 18.20, 126.70],
-    ['26 18:00', 16.80, 127.30],
-    ['27 12:00', 14.80, 128.60],
-    ['28 12:00', 12.00, 132.00],
-    ['29 00:00', 11.00, 133.50],
-  ],
-  tg381: [
-    ['17 00:00', 13.00, 131.00],
-    ['18 06:00', 13.00, 127.00, 'Strikes Visayas'],
-    ['19 06:00', 13.00, 127.00],
-    ['20 06:00', 12.50, 127.50],
-    ['21 06:00', 12.50, 127.50],
-    ['22 12:00', 13.00, 129.50, 'Detached to Ulithi'],
-    ['23 12:00', 13.50, 132.00],
-    ['24 12:00', 13.50, 133.50, 'Recalled by Halsey'],
-    ['25 06:00', 13.20, 130.50],
-    ['25 12:00', 13.00, 129.30, 'Long-range strikes on Kurita'],
-    ['26 06:00', 12.60, 127.80, 'Strikes retreating Center Force'],
-    ['27 12:00', 13.00, 129.50],
-    ['28 12:00', 12.00, 132.00],
-    ['29 00:00', 11.00, 133.50],
-  ],
-  tg772: [
-    ['17 00:00', 9.50, 128.50, 'Approaching Leyte from Manus'],
-    ['18 08:00', 10.80, 125.60, 'Bombardment of Leyte landing beaches'],
-    ['19 12:00', 10.90, 125.30],
-    ['20 10:00', 10.90, 125.20, 'A-Day fire support'],
-    ['21 12:00', 10.90, 125.30],
-    ['22 12:00', 10.90, 125.30],
-    ['23 12:00', 10.90, 125.30],
-    ['24 20:00', 10.60, 125.40, 'Battle line forms across Surigao Strait'],
-    ['25 03:51', 10.55, 125.38, 'Opens fire on Yamashiro'],
-    ['25 04:30', 10.50, 125.36],
-    ['25 06:00', 10.30, 125.30, 'Pursuit south'],
-    ['25 10:00', 10.80, 125.30, 'Returns to Leyte Gulf'],
-    ['29 00:00', 10.85, 125.30],
-  ],
-  darter: [
-    ['17 00:00', 9.00, 116.80, 'Patrolling Palawan Passage'],
-    ['21 12:00', 8.50, 116.70],
-    ['23 00:16', 9.30, 117.10, 'Radar contact on Center Force at 30,000 yd'],
-    ['23 05:24', 9.47, 117.27, 'Torpedoes Atago and Takao'],
-    ['23 12:00', 9.50, 117.10, 'Trails damaged Takao'],
-    ['24 00:05', 9.45, 116.93, 'Runs aground on Bombay Shoal'],
-  ],
-};
-
-const L_SHIPS = [
-  // Center Force
-  { id:'yamato',  name:'Yamato',  force:'center', type:'Battleship', route:'center' },
-  { id:'musashi', name:'Musashi', force:'center', type:'Battleship', route:'center', until:'24 14:00',
-    extra:[['24 19:35', 13.12, 122.53, 'Capsizes after ~19 torpedo and 17 bomb hits']], sunk:'24 19:35', sunkBy:'TF 38 carrier aircraft, Sibuyan Sea' },
-  { id:'nagato',  name:'Nagato',  force:'center', type:'Battleship', route:'center' },
-  { id:'kongo',   name:'Kongō',   force:'center', type:'Battleship', route:'center' },
-  { id:'haruna',  name:'Haruna',  force:'center', type:'Battleship', route:'center' },
-  { id:'atago',   name:'Atago',   force:'center', type:'Heavy cruiser (Kurita flagship)', route:'center', until:'23 05:30',
-    extra:[['23 05:53', 9.47, 117.28, 'Sinks 30 min after four torpedo hits']], sunk:'23 05:53', sunkBy:'USS Darter' },
-  { id:'maya',    name:'Maya',    force:'center', type:'Heavy cruiser', route:'center', until:'23 05:30',
-    extra:[['23 06:05', 9.45, 117.38, 'Explodes and sinks']], sunk:'23 06:05', sunkBy:'USS Dace' },
-  { id:'takao',   name:'Takao',   force:'center', type:'Heavy cruiser', route:'center', until:'23 05:30',
-    extra:[['23 05:34', 9.46, 117.27, 'Two torpedo hits; detached to Brunei'], ['23 18:00', 8.0, 116.6], ['24 12:00', 6.0, 115.6], ['24 20:00', 5.05, 115.05, 'Brunei (later Singapore for repairs)'], ['29 00:00', 5.05, 115.05]] },
-  { id:'myoko',   name:'Myōkō',   force:'center', type:'Heavy cruiser', route:'center', until:'24 10:26',
-    extra:[['24 10:29', 12.70, 122.00, 'Aerial torpedo hit; detached'], ['24 20:00', 12.3, 120.8], ['25 12:00', 10.0, 118.5], ['26 06:00', 7.5, 116.5], ['26 16:00', 5.05, 115.05, 'Brunei'], ['29 00:00', 5.05, 115.05]] },
-  { id:'haguro',  name:'Haguro',  force:'center', type:'Heavy cruiser', route:'center' },
-  { id:'chokai',  name:'Chōkai',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
-    extra:[['25 08:00', 11.70, 126.45], ['25 09:05', 11.45, 126.40, 'Disabled by gunfire and bombs'], ['25 11:00', 11.37, 126.37, 'Scuttled by Fujinami']], sunk:'25 11:00', sunkBy:'Taffy 3 aircraft & gunfire; scuttled' },
-  { id:'chikuma', name:'Chikuma', force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
-    extra:[['25 08:00', 11.70, 126.55], ['25 09:00', 11.55, 126.55, 'Aerial torpedo hit; steering lost'], ['25 11:30', 11.37, 126.27, 'Scuttled by Nowaki']], sunk:'25 11:30', sunkBy:'Taffy 3 aircraft; scuttled' },
-  { id:'tone',    name:'Tone',    force:'center', type:'Heavy cruiser', route:'center' },
-  { id:'suzuya',  name:'Suzuya',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
-    extra:[['25 08:00', 11.80, 126.40], ['25 10:50', 11.75, 126.20, 'Near-miss detonates own torpedoes'], ['25 13:22', 11.75, 126.18, 'Sinks']], sunk:'25 13:22', sunkBy:'Taffy 3 aircraft' },
-  { id:'kumano',  name:'Kumano',  force:'center', type:'Heavy cruiser', route:'center', until:'25 06:45',
-    extra:[['25 07:27', 11.85, 126.25, 'Bow blown off by Johnston torpedo'], ['25 09:00', 12.1, 126.0], ['25 14:00', 12.5, 125.2], ['25 20:00', 12.55, 124.3], ['26 06:00', 12.6, 123.2], ['26 14:00', 12.2, 121.8], ['27 12:00', 12.0, 120.2, 'Coron Bay'], ['28 12:00', 14.55, 120.9, 'Manila Bay'], ['29 00:00', 14.55, 120.9]] },
-  { id:'yahagi',  name:'Yahagi',  force:'center', type:'Light cruiser', route:'center' },
-  { id:'noshiro', name:'Noshiro', force:'center', type:'Light cruiser', route:'center', until:'26 08:30',
-    extra:[['26 11:39', 11.70, 121.68, 'Sinks south of Mindoro']], sunk:'26 11:39', sunkBy:'TF 38 aircraft' },
-
-  // Southern Force
-  { id:'yamashiro', name:'Yamashiro', force:'southern', type:'Battleship (Nishimura flagship)', route:'southern', sunk:'25 04:19', sunkBy:'Torpedoes and battleship gunfire, Surigao Strait' },
-  { id:'fuso',      name:'Fusō',      force:'southern', type:'Battleship', route:'southern', until:'25 03:00',
-    extra:[['25 03:09', 10.15, 125.38, 'Torpedoed by USS Melvin'], ['25 03:38', 10.15, 125.40, 'Sinks (long thought to have broken in two)']], sunk:'25 03:38', sunkBy:'USS Melvin torpedoes' },
-  { id:'mogami',    name:'Mogami',    force:'southern', type:'Heavy cruiser', route:'southern', until:'25 03:51',
-    extra:[['25 04:30', 10.30, 125.35, 'Collides with Nachi'], ['25 06:00', 9.9, 125.2], ['25 09:00', 9.7, 124.9, 'Air attack; dead in water'], ['25 13:07', 9.67, 124.83, 'Scuttled by Akebono']], sunk:'25 13:07', sunkBy:'Gunfire, collision, aircraft; scuttled' },
-  { id:'shigure',   name:'Shigure',   force:'southern', type:'Destroyer', route:'southern', until:'25 03:51',
-    extra:[['25 05:00', 10.0, 125.3, "Sole survivor of Nishimura's force retires"], ['25 12:00', 9.3, 124.3], ['26 12:00', 8.5, 121.5], ['27 12:00', 7.5, 118.0], ['27 20:00', 5.05, 115.05, 'Brunei'], ['29 00:00', 5.05, 115.05]] },
-  { id:'yamagumo',  name:'Yamagumo',  force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
-    extra:[['25 03:19', 10.25, 125.38, 'Torpedoed; blows up']], sunk:'25 03:19', sunkBy:'US destroyer torpedoes' },
-  { id:'michishio', name:'Michishio', force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
-    extra:[['25 03:20', 10.24, 125.40, 'Torpedoed, dead in water'], ['25 03:58', 10.24, 125.40, 'Sinks']], sunk:'25 03:58', sunkBy:'US destroyer torpedoes' },
-  { id:'asagumo',   name:'Asagumo',   force:'southern', type:'Destroyer', route:'southern', until:'25 03:00',
-    extra:[['25 03:20', 10.20, 125.35, 'Bow blown off'], ['25 07:21', 10.07, 125.35, 'Sunk by cruiser/destroyer gunfire']], sunk:'25 07:21', sunkBy:'US cruiser & destroyer gunfire' },
-
-  // Shima
-  { id:'nachi',    name:'Nachi',    force:'shima', type:'Heavy cruiser (Shima flagship)', route:'shima' },
-  { id:'ashigara', name:'Ashigara', force:'shima', type:'Heavy cruiser', route:'shima' },
-  { id:'abukuma',  name:'Abukuma',  force:'shima', type:'Light cruiser', route:'shima', until:'25 03:25',
-    extra:[['25 03:25', 9.90, 125.22, 'Torpedoed by PT-137'], ['25 06:00', 9.6, 124.9], ['25 14:00', 9.4, 124.0], ['26 06:00', 9.35, 122.6, 'Air attack off Negros'], ['26 12:42', 9.33, 122.53, 'Sinks']], sunk:'26 12:42', sunkBy:'USAAF B-24s' },
-
-  // Northern Force
-  { id:'zuikaku', name:'Zuikaku', force:'northern', type:'Fleet carrier (Ozawa flagship)', route:'northern', sunk:'25 14:14', sunkBy:'TF 38 aircraft, off Cape Engaño' },
-  { id:'zuiho',   name:'Zuihō',   force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
-    extra:[['25 15:26', 19.33, 125.25, 'Sinks']], sunk:'25 15:26', sunkBy:'TF 38 aircraft' },
-  { id:'chitose', name:'Chitose', force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
-    extra:[['25 09:37', 19.33, 126.33, 'Sinks in first strike']], sunk:'25 09:37', sunkBy:'TF 38 aircraft' },
-  { id:'chiyoda', name:'Chiyoda', force:'northern', type:'Light carrier', route:'northern', until:'25 08:00',
-    extra:[['25 10:00', 19.10, 126.30, 'Crippled, dead in water'], ['25 16:55', 18.62, 126.75, 'Sunk by cruiser gunfire — no survivors']], sunk:'25 16:55', sunkBy:'TF 38 aircraft, then US cruiser gunfire' },
-  { id:'ise',     name:'Ise',     force:'northern', type:'Hybrid battleship-carrier', route:'northern', until:'25 08:00',
-    extra:[['25 14:00', 19.4, 125.9, 'Dodges dozens of bombs'], ['25 20:00', 20.5, 125.6, 'Retires north'], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
-  { id:'hyuga',   name:'Hyūga',   force:'northern', type:'Hybrid battleship-carrier', route:'northern', until:'25 08:00',
-    extra:[['25 14:00', 19.4, 125.9], ['25 20:00', 20.5, 125.6, 'Retires north'], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
-  { id:'oyodo',   name:'Ōyodo',   force:'northern', type:'Light cruiser', route:'northern', until:'25 08:00',
-    extra:[['25 11:00', 19.3, 126.0, 'Ozawa shifts flag from Zuikaku'], ['25 20:00', 20.5, 125.6], ['26 12:00', 24.0, 127.0], ['27 12:00', 28.3, 129.4, 'Amami Ōshima'], ['29 00:00', 28.3, 129.4]] },
-  { id:'tama',    name:'Tama',    force:'northern', type:'Light cruiser', route:'northern', until:'25 08:00',
-    extra:[['25 10:00', 19.3, 126.1, 'Aerial torpedo hit; detached toward Okinawa'], ['25 23:10', 21.38, 127.32, 'Torpedoed — lost with all hands']], sunk:'25 23:10', sunkBy:'USS Jallao' },
-
-  // Taffy 3
-  { id:'fanshaw',  name:'USS Fanshaw Bay', force:'taffy3', type:'Escort carrier (Sprague flagship)', route:'taffy3' },
-  { id:'gambier',  name:'USS Gambier Bay', force:'taffy3', type:'Escort carrier', route:'taffy3', until:'25 08:00',
-    extra:[['25 08:40', 11.55, 126.25, 'Dead in water under cruiser fire'], ['25 09:07', 11.52, 126.20, 'Capsizes']], sunk:'25 09:07', sunkBy:'IJN cruiser gunfire — only US carrier sunk by surface ships' },
-  { id:'stlo',     name:'USS St. Lo',      force:'taffy3', type:'Escort carrier', route:'taffy3', until:'25 10:50',
-    extra:[['25 11:25', 11.22, 126.08, 'Sinks after kamikaze hit']], sunk:'25 11:25', sunkBy:'Kamikaze — first major warship lost to one' },
-  { id:'kalinin',  name:'USS Kalinin Bay',  force:'taffy3', type:'Escort carrier', route:'taffy3' },
-  { id:'johnston', name:'USS Johnston',     force:'taffy3', type:'Destroyer (Cdr. Ernest Evans)', route:'taffy3', until:'25 06:58',
-    extra:[['25 07:10', 11.76, 126.42, 'Charges Kumano alone through the smoke'], ['25 07:27', 11.85, 126.30, 'Torpedoes Kumano; hit by Kongō 14-inch shells'], ['25 08:00', 11.75, 126.25, 'Rejoins the fight on one engine'], ['25 09:00', 11.70, 126.20, 'Engages entire destroyer squadron'], ['25 09:45', 11.77, 126.16, 'Abandon ship'], ['25 10:10', 11.77, 126.15, 'Rolls over and sinks']], sunk:'25 10:10', sunkBy:'IJN gunfire; a Japanese destroyer captain salutes the survivors' },
-  { id:'hoel',     name:'USS Hoel',         force:'taffy3', type:'Destroyer', route:'taffy3', until:'25 06:58',
-    extra:[['25 07:25', 11.90, 126.50, 'Torpedo attack on Kongō'], ['25 08:30', 11.80, 126.55, 'Dead in water, 40+ hits'], ['25 08:55', 11.77, 126.55, 'Sinks']], sunk:'25 08:55', sunkBy:'IJN battleship & cruiser gunfire' },
-  { id:'heermann', name:'USS Heermann',     force:'taffy3', type:'Destroyer', route:'taffy3' },
-  { id:'sbr',      name:'USS Samuel B. Roberts', force:'taffy3', type:'Destroyer escort', route:'taffy3', until:'25 06:58',
-    extra:[['25 08:00', 11.70, 126.30, 'Torpedoes Chōkai'], ['25 09:00', 11.75, 126.20, 'Hit by Kongō'], ['25 10:05', 11.75, 126.17, 'Sinks']], sunk:'25 10:05', sunkBy:'IJN gunfire — "the destroyer escort that fought like a battleship"' },
-
-  // TF 38
-  { id:'essex',      name:'USS Essex',      force:'tf38', type:'Fleet carrier — TG 38.3', route:'tg383' },
-  { id:'lexington',  name:'USS Lexington',  force:'tf38', type:'Fleet carrier — TG 38.3 (Mitscher flagship)', route:'tg383' },
-  { id:'princeton',  name:'USS Princeton',  force:'tf38', type:'Light carrier — TG 38.3', route:'tg383', until:'24 06:00',
-    extra:[['24 09:38', 15.35, 123.50, 'Single bomb; fires reach torpedo stowage'], ['24 17:50', 15.35, 123.52, 'Scuttled by Reno']], sunk:'24 17:50', sunkBy:'Land-based Judy dive bomber; scuttled' },
-  { id:'intrepid',   name:'USS Intrepid',   force:'tf38', type:'Fleet carrier — TG 38.2', route:'tg382' },
-  { id:'newjersey',  name:'USS New Jersey', force:'tf38', type:'Battleship — Halsey flagship (TF 34)', route:'tg382' },
-  { id:'iowa',       name:'USS Iowa',       force:'tf38', type:'Battleship — TF 34', route:'tg382' },
-  { id:'enterprise', name:'USS Enterprise', force:'tf38', type:'Fleet carrier — TG 38.4', route:'tg384' },
-  { id:'hornet',     name:'USS Hornet',     force:'tf38', type:'Fleet carrier — TG 38.1', route:'tg381' },
-
-  // Oldendorf
-  { id:'wv',          name:'USS West Virginia', force:'tg772', type:'Battleship (Pearl Harbor survivor)', route:'tg772' },
-  { id:'california',  name:'USS California',    force:'tg772', type:'Battleship', route:'tg772' },
-  { id:'mississippi', name:'USS Mississippi',   force:'tg772', type:'Battleship — fired the last battleship salvo in history', route:'tg772' },
-  { id:'louisville',  name:'USS Louisville',    force:'tg772', type:'Heavy cruiser (Oldendorf flagship)', route:'tg772' },
-
-  // Submarines
-  { id:'darter', name:'USS Darter', force:'subs', type:'Submarine', route:'darter', sunk:'24 00:05', sunkBy:'Grounded on Bombay Shoal; crew rescued by Dace' },
-  { id:'dace',   name:'USS Dace',   force:'subs', type:'Submarine', route:'darter', until:'23 05:24',
-    extra:[['23 05:56', 9.45, 117.38, 'Torpedoes Maya'], ['23 12:00', 9.5, 117.1], ['24 00:05', 9.45, 116.93, "Rescues Darter's crew"], ['24 06:00', 9.3, 116.7], ['25 12:00', 7.5, 115.8], ['27 12:00', 3.0, 114.0, 'Toward Fremantle'], ['29 00:00', 0.5, 113.0]] },
-];
-
-const L_EVENTS = [
-  ['18 01:00', 'Center Force sorties from Lingga Roads', 0.2, 104.58],
-  ['20 10:00', 'A-Day: US 6th Army lands on Leyte', 11.05, 125.05],
-  ['20 17:00', "Ozawa's decoy Northern Force sorties from Bungo Suido", 32.7, 132.1],
-  ['22 08:00', 'Kurita departs Brunei', 5.05, 115.05],
-  ['22 15:00', 'Nishimura departs Brunei', 5.05, 115.05],
-  ['23 05:24', 'Darter torpedoes Atago (Kurita swims for it) and Takao', 9.47, 117.27],
-  ['23 06:05', 'Dace sinks Maya', 9.45, 117.38],
-  ['24 00:05', 'Darter runs aground on Bombay Shoal', 9.45, 116.93],
-  ['24 08:10', 'Center Force sighted entering Tablas Strait', 12.5, 121.6],
-  ['24 09:18', 'Southern Force attacked in Sulu Sea', 9.0, 121.5],
-  ['24 09:38', 'Princeton hit by a single bomb', 15.35, 123.5],
-  ['24 10:26', 'Battle of the Sibuyan Sea: first strike on Kurita', 12.7, 122.0],
-  ['24 15:30', 'Kurita reverses course — Halsey believes he is beaten', 12.95, 122.75],
-  ['24 16:40', 'Ozawa finally sighted; Halsey decides to go north', 18.2, 125.5],
-  ['24 17:15', 'Kurita turns back toward San Bernardino', 12.85, 122.35],
-  ['24 17:50', 'Princeton scuttled', 15.35, 123.52],
-  ['24 19:35', 'Musashi sinks', 13.12, 122.53],
-  ['24 20:22', 'Halsey takes all of TF 38 north; strait left unguarded', 15.5, 124.8],
-  ['25 00:35', 'Center Force transits San Bernardino Strait', 12.55, 124.2],
-  ['25 03:09', 'Battle of Surigao Strait: Fusō torpedoed', 10.15, 125.38],
-  ['25 03:51', "Oldendorf's battle line opens fire", 10.55, 125.38],
-  ['25 04:19', 'Yamashiro sinks with Nishimura aboard', 10.37, 125.355],
-  ['25 04:30', 'Nachi collides with Mogami; Shima retreats', 10.28, 125.35],
-  ['25 06:45', 'Battle off Samar begins — Kurita sights Taffy 3', 12.05, 126.15],
-  ['25 07:27', 'Johnston torpedoes Kumano', 11.87, 126.28],
-  ['25 08:48', 'Battle off Cape Engaño: first strike hits Ozawa', 19.0, 126.0],
-  ['25 08:55', 'Hoel sinks', 11.77, 126.55],
-  ['25 09:07', 'Gambier Bay sinks', 11.52, 126.2],
-  ['25 09:20', 'Kurita breaks off the pursuit', 11.65, 126.2],
-  ['25 09:37', 'Chitose sinks', 19.33, 126.33],
-  ['25 10:00', 'Nimitz to Halsey: "Where is TF 34? The world wonders"', 17.4, 125.9],
-  ['25 10:05', 'Samuel B. Roberts sinks', 11.75, 126.17],
-  ['25 10:10', 'Johnston sinks', 11.77, 126.15],
-  ['25 11:15', 'TF 34 (Lee) turns south — too late', 17.5, 126.0],
-  ['25 11:25', 'St. Lo sunk by kamikaze', 11.22, 126.08],
-  ['25 12:36', 'Kurita abandons attack on Leyte Gulf', 11.8, 126.05],
-  ['25 13:07', 'Mogami scuttled', 9.67, 124.83],
-  ['25 13:22', 'Suzuya sinks', 11.75, 126.18],
-  ['25 14:14', 'Zuikaku — last Pearl Harbor carrier — sinks', 19.33, 125.85],
-  ['25 15:26', 'Zuihō sinks', 19.33, 125.25],
-  ['25 16:55', 'Chiyoda sunk by cruiser gunfire', 18.62, 126.75],
-  ['25 21:30', 'Kurita re-enters San Bernardino Strait', 12.55, 124.4],
-  ['25 23:10', 'Tama torpedoed by USS Jallao', 21.38, 127.32],
-  ['26 11:39', 'Noshiro sinks', 11.7, 121.68],
-  ['26 12:42', 'Abukuma sinks', 9.33, 122.53],
-  ['28 21:00', 'Remnants of Center Force reach Brunei', 5.05, 115.05],
-];
-
-// ---- Carrier (and a few land-based) air strikes. Times Tokyo (UTC+9).
-//   from   : {route:'tg382'} = launched from that group's position, or {lat,lon} for airfields
-//   target : {ship:'yamato'} = follows that ship, or {lat,lon}
-//   launch → arrive (outbound), arrive → leave (attacking / orbiting), leave → recover (return)
-//   recoverAt : optional {lat,lon} landing point if not the launching group; oneway: no return leg
-//   land: true = land-based aircraft (shown for context)
-const L_STRIKES = [
-  { id:'st1',  name:'TG 38.2 strike 1',      nation:'USN', from:{route:'tg382'}, target:{ship:'yamato'},   launch:'24 09:10', arrive:'24 10:26', leave:'24 10:50', recover:'24 12:00', count:45,  note:'Intrepid & Cabot open the Battle of the Sibuyan Sea; first torpedo hit on Musashi' },
-  { id:'st2',  name:'TG 38.2 strike 2',      nation:'USN', from:{route:'tg382'}, target:{ship:'musashi'},  launch:'24 11:45', arrive:'24 12:45', leave:'24 13:05', recover:'24 14:15', count:42,  note:'Musashi takes 3 more torpedoes and 2 bombs; speed drops to 22 kn' },
-  { id:'st3',  name:'TG 38.3 strike',        nation:'USN', from:{route:'tg383'}, target:{ship:'musashi'},  launch:'24 12:15', arrive:'24 13:30', leave:'24 13:50', recover:'24 15:00', count:68,  note:'Essex & Lexington Helldivers and Avengers concentrate on the lagging Musashi' },
-  { id:'st4',  name:'TG 38.4 strike',        nation:'USN', from:{route:'tg384'}, target:{ship:'musashi'},  launch:'24 13:00', arrive:'24 14:15', leave:'24 14:40', recover:'24 16:00', count:65,  note:'Enterprise & Franklin: Musashi down by the bow, Myōkō already detached' },
-  { id:'st5',  name:'TG 38.2/38.4 strike 3', nation:'USN', from:{route:'tg382'}, target:{ship:'musashi'},  launch:'24 14:00', arrive:'24 15:10', leave:'24 15:35', recover:'24 16:50', count:75,  note:'Final strike of the day: 10+ torpedo hits; Kurita reverses course at 15:30' },
-  { id:'st6',  name:'Enterprise strike (Sulu Sea)', nation:'USN', from:{route:'tg384'}, target:{ship:'yamashiro'}, launch:'24 06:30', arrive:'24 09:18', leave:'24 09:40', recover:'24 12:30', count:26, note:'Fusō catapult hit, Shigure damaged — the only air attack Nishimura faces' },
-  { id:'st7',  name:'Luzon land-based raid', nation:'IJN', land:true, from:{lat:15.19, lon:120.56}, target:{ship:'princeton'}, launch:'24 08:00', arrive:'24 09:38', leave:'24 10:00', recover:'24 11:30', count:60, note:'Clark Field aircraft; a lone Judy puts a 250 kg bomb through Princeton\'s deck' },
-  { id:'st8',  name:'Ozawa\'s carrier strike', nation:'IJN', from:{route:'northern'}, target:{ship:'essex'}, launch:'24 11:45', arrive:'24 13:15', leave:'24 13:40', recover:'24 15:30', oneway:true, recoverAt:{lat:15.19, lon:120.56}, count:76, note:'Mostly shot down by Sherman\'s CAP; survivors fly on to Luzon, leaving Ozawa ~29 aircraft' },
-  { id:'st9',  name:'Taffy 3 strike',        nation:'USN', from:{route:'taffy3'}, target:{ship:'yamato'},   launch:'25 07:00', arrive:'25 07:20', leave:'25 08:30', recover:'25 09:30', recoverAt:{lat:11.2, lon:125.0}, count:60, note:'Everything that can fly is launched; many aircraft recover at Tacloban airstrip' },
-  { id:'st10', name:'Taffy 2 strike 1',      nation:'USN', from:{lat:10.9, lon:126.8}, target:{ship:'chokai'}, launch:'25 07:45', arrive:'25 08:20', leave:'25 09:15', recover:'25 10:00', count:50, note:'Stump\'s Taffy 2 Avengers cripple Chōkai and Chikuma' },
-  { id:'st11', name:'Taffy 2/3 strike 2',    nation:'USN', from:{lat:10.9, lon:126.8}, target:{ship:'suzuya'}, launch:'25 10:15', arrive:'25 10:50', leave:'25 11:30', recover:'25 12:15', count:70, note:'Near-miss sets off Suzuya\'s torpedoes; Kurita\'s force is now circling' },
-  { id:'st12', name:'Taffy 1 strike',        nation:'USN', from:{lat:10.0, lon:127.0}, target:{ship:'mogami'}, launch:'25 07:45', arrive:'25 09:00', leave:'25 09:20', recover:'25 10:30', count:30, note:'Avengers finish the crippled Mogami retreating from Surigao' },
-  { id:'st13', name:'Cape Engaño strike 1',  nation:'USN', from:{route:'tg383'}, target:{ship:'chitose'},  launch:'25 06:00', arrive:'25 08:48', leave:'25 09:10', recover:'25 10:30', count:180, note:'Dawn launch, held orbiting until Ozawa located; Chitose sunk, Zuikaku torpedoed' },
-  { id:'st14', name:'Cape Engaño strike 2',  nation:'USN', from:{route:'tg383'}, target:{ship:'chiyoda'},  launch:'25 08:35', arrive:'25 09:45', leave:'25 10:05', recover:'25 11:20', count:36,  note:'Chiyoda crippled and left dead in the water' },
-  { id:'st15', name:'Cape Engaño strike 3',  nation:'USN', from:{route:'tg383'}, target:{ship:'zuikaku'},  launch:'25 11:45', arrive:'25 13:10', leave:'25 13:40', recover:'25 15:00', count:200, note:'Largest strike of the battle; Zuikaku and Zuihō both sunk' },
-  { id:'st16', name:'Cape Engaño strike 4',  nation:'USN', from:{route:'tg383'}, target:{ship:'ise'},      launch:'25 13:15', arrive:'25 14:45', leave:'25 15:10', recover:'25 16:30', count:40,  note:'Ise dodges 34 near-misses; Hyūga also escapes' },
-  { id:'st17', name:'Kamikaze — Shikishima unit', nation:'IJN', land:true, oneway:true, from:{lat:15.22, lon:120.55}, target:{ship:'stlo'}, launch:'25 07:25', arrive:'25 10:49', leave:'25 10:53', recover:'25 10:53', count:9, note:'Lt Yukio Seki\'s 5 Zeros with 4 escorts from Mabalacat: first organised kamikaze attack' },
-  { id:'st18', name:'TG 38.1 long-range strike', nation:'USN', from:{route:'tg381'}, target:{ship:'yamato'}, launch:'25 10:30', arrive:'25 13:15', leave:'25 13:40', recover:'25 16:15', count:100, note:'McCain launches at ~335 nm — the longest carrier strike of the war' },
-  { id:'st19', name:'TG 38.2 strike (26 Oct)', nation:'USN', from:{route:'tg382'}, target:{ship:'yamato'}, launch:'26 06:00', arrive:'26 08:30', leave:'26 09:00', recover:'26 10:30', count:80, note:'Kurita harried through the Sibuyan Sea; Yamato takes two bombs' },
-  { id:'st20', name:'TG 38.1 strike (26 Oct)', nation:'USN', from:{route:'tg381'}, target:{ship:'noshiro'}, launch:'26 09:30', arrive:'26 11:00', leave:'26 11:40', recover:'26 13:30', count:60, note:'Light cruiser Noshiro sunk south of Mindoro' },
-];
-
-// Display names for formation flags (keyed by route)
-const L_GROUPS = { center:'Center Force', southern:'Southern Force', shima:'2nd Striking Force', northern:'Northern Force', taffy3:'Taffy 3', tg383:'TG 38.3', tg382:'TG 38.2 / TF 34', tg384:'TG 38.4', tg381:'TG 38.1', tg772:'TG 77.2', darter:'Darter & Dace' };
-L_STRIKES.push(
-  { id:'st21', name:'Luzon land-based raids on TG 38.3', nation:'IJN', land:true, from:{lat:15.19, lon:120.56}, target:{ship:'essex'}, launch:'24 07:15', arrive:'24 08:30', leave:'24 09:35', recover:'24 10:45', count:150, note:'Three waves from Clark; Essex CAP breaks them up — McCampbell shoots down nine in one sortie' },
-  { id:'st22', name:'Kamikaze — Asahi/Kikusui units (Davao)', nation:'IJN', land:true, oneway:true, from:{lat:7.07, lon:125.60}, target:{lat:10.0, lon:127.0}, launch:'25 06:30', arrive:'25 07:40', leave:'25 07:45', recover:'25 07:45', count:6, note:'Hit escort carriers Santee and Suwannee of Taffy 1 — the first kamikaze hits of the war, three hours before St. Lo' },
-  { id:'st23', name:'USAAF B-24s from Morotai', nation:'USN', land:true, from:{lat:2.05, lon:128.30}, target:{ship:'abukuma'}, launch:'26 07:30', arrive:'26 10:06', leave:'26 10:45', recover:'26 13:45', count:44, note:'5th and 13th Air Force Liberators catch Shima\'s cripples off Negros; Abukuma sinks at 12:42' },
-  { id:'st24', name:'Kamikaze on Taffy 1 (Cebu)', nation:'IJN', land:true, oneway:true, from:{lat:10.30, lon:123.90}, target:{lat:10.0, lon:127.5}, launch:'26 11:30', arrive:'26 12:40', leave:'26 12:45', recover:'26 12:45', count:4, note:'Suwannee hit a second time while landing aircraft; 85 killed' },
-);
-
-// ---- Ports, anchorages and airfields. control: 'IJN' | 'USN'; captured: time control passes to USN
-const L_PORTS = [
-  { name:'Kure',              lat:34.23, lon:132.57, control:'IJN', kind:'port', note:'IJN home port; Ozawa sorties via Bungo Suido' },
-  { name:'Amami Ōshima',      lat:28.30, lon:129.40, control:'IJN', kind:'port', note:'Anchorage; Ise & Hyūga shelter here 27 Oct' },
-  { name:'Mako (Pescadores)', lat:23.55, lon:119.55, control:'IJN', kind:'port', note:"Shima's 2nd Striking Force base" },
-  { name:'Manila',            lat:14.58, lon:120.97, control:'IJN', kind:'port', note:'Main IJN base in the Philippines' },
-  { name:'Clark / Mabalacat', lat:15.19, lon:120.56, control:'IJN', kind:'air',  note:'1st Air Fleet; kamikaze units form here' },
-  { name:'Coron Bay',         lat:12.00, lon:120.20, control:'IJN', kind:'port', note:'Fuelling anchorage for Shima' },
-  { name:'Cebu',              lat:10.30, lon:123.90, control:'IJN', kind:'air',  note:'Land-based air; kamikaze staging' },
-  { name:'Davao',             lat:7.07,  lon:125.60, control:'IJN', kind:'air',  note:'Southern air base' },
-  { name:'Ormoc',             lat:11.00, lon:124.60, control:'IJN', kind:'port', note:'Japanese supply port on west Leyte' },
-  { name:'Brunei Bay',        lat:5.05,  lon:115.05, control:'IJN', kind:'port', note:'Fuelling base for Kurita & Nishimura' },
-  { name:'Lingga Roads',      lat:0.20,  lon:104.58, control:'IJN', kind:'port', note:'Fleet anchorage near Singapore' },
-  { name:'Tacloban',          lat:11.24, lon:125.00, control:'IJN', captured:'20 10:00', kind:'air', note:'Leyte landing beaches; airstrip used by Taffy aircraft 25 Oct' },
-  { name:'Dulag',             lat:10.95, lon:125.03, control:'IJN', captured:'20 10:00', kind:'port', note:'Southern landing beaches, Leyte Gulf' },
-  { name:'Ulithi',            lat:10.00, lon:139.70, control:'USN', kind:'port', note:'Third Fleet fleet anchorage' },
-  { name:'Kossol Roads',      lat:7.80,  lon:134.50, control:'USN', kind:'port', note:'Forward anchorage, Palau' },
-  { name:'Peleliu',           lat:7.00,  lon:134.25, control:'USN', kind:'air',  note:'Airfield taken Sept–Oct 1944' },
-  { name:'Morotai',           lat:2.05,  lon:128.30, control:'USN', kind:'air',  note:'Airfield taken Sept 1944' },
-  { name:'Manus (Seeadler)',  lat:-2.00, lon:147.40, control:'USN', kind:'port', note:'Seventh Fleet staging base' },
-];
-
-L_PORTS.push({ name:'Tacloban airstrip', lat:11.22, lon:125.03, control:'IJN', captured:'20 10:00', kind:'air', note:'Taffy aircraft land here on 25 Oct; Army fighters arrive 27 Oct' });
-L_PORTS.push(
-  { name:'Tokyo — Imperial GHQ', lat:35.68, lon:139.69, control:'IJN', kind:'hq', hq:'Navy General Staff · Combined Fleet HQ at Hiyoshi', note:'Toyoda\'s Combined Fleet staff directs Shō-Gō 1 from an underground bunker at Hiyoshi, near Tokyo' },
-  { name:'Manila — SW Area Fleet HQ', lat:14.60, lon:121.00, control:'IJN', kind:'hq', hq:'Southwest Area Fleet · 1st Air Fleet (Ōnishi)', note:'Ōnishi organises the first kamikaze units here on 19–20 Oct' },
-  { name:'Hollandia — GHQ SWPA', lat:-2.55, lon:140.70, control:'USN', kind:'hq', hq:'MacArthur\'s General Headquarters', note:'MacArthur embarks in cruiser Nashville for the Leyte landings; 7th Fleet answers to him, not Nimitz' },
-  { name:'Pearl Harbor — CINCPAC', lat:21.35, lon:-157.95, control:'USN', kind:'hq', hq:'Nimitz — Pacific Fleet HQ', note:'Origin of the "Where is Task Force 34? The world wonders" signal' },
-);
-
-// ---- register scenario
-const SCENARIOS = {};
-SCENARIOS.leyte = {
-  id:'leyte', title:'Battle of Leyte Gulf', subtitle:'Philippines · 17–28 October 1944',
-  base:[1944, 9], start:'17 00:00', end:'29 00:00', tz:'Tokyo time · UTC+9', majorDays:[24, 25],
-  view:{ center:[13.5, 124.0], zoom:6, min:4, max:11 },
-  routing:{ res:0.02, bbox:[-1, 103, 26, 136] },
-  keyShips:['yamato','musashi','yamashiro','zuikaku','nachi','fanshaw','johnston','essex','newjersey','wv','darter'],
-  scenes:[
-    ['Overview', '25 06:30', [13.5, 124.0], 6],
-    ['Palawan Passage', '23 05:20', [9.5, 117.2], 9],
-    ['Sibuyan Sea', '24 14:30', [12.9, 122.5], 8],
-    ['Surigao Strait', '25 03:45', [10.3, 125.35], 9],
-    ['Samar', '25 08:30', [11.75, 126.3], 9],
-    ['Cape Engaño', '25 13:00', [19.1, 126.0], 8],
-  ],
-  defaultTime:'25 06:30',
-  footnote:'Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don\'t overlap.',
-  forces:L_FORCES, routes:L_ROUTES, ships:L_SHIPS, strikes:L_STRIKES, groups:L_GROUPS, events:L_EVENTS, ports:L_PORTS,
-};
-
-// ============================================================================
-// OPERATION RHEINÜBUNG — the Bismarck chase, 18–28 May 1941
-// Times as commonly cited in British/German accounts (roughly UTC+2, double summer time).
-// Sinking positions: Hood 63°20′N 31°50′W; Bismarck 48°10′N 16°12′W; Mashona 52°58′N 11°36′W.
-// ============================================================================
-const B_FORCES = {
-  lutjens:  { name:"KM Battle Group (Lütjens)",            color:"#e5484d", nation:"KM" },
-  uboats:   { name:"KM U-boats",                            color:"#9ca3af", nation:"KM" },
-  holland:  { name:"RN Battlecruiser Force (Holland)",      color:"#3b82f6", nation:"RN" },
-  wakewalker:{ name:"RN 1st Cruiser Sqn (Wake-Walker)",     color:"#22c55e", nation:"RN" },
-  tovey:    { name:"RN Home Fleet (Tovey)",                 color:"#06b6d4", nation:"RN" },
-  rodney:   { name:"RN Rodney group",                       color:"#eab308", nation:"RN" },
-  forceh:   { name:"RN Force H (Somerville)",               color:"#a855f7", nation:"RN" },
-  vian:     { name:"RN 4th Destroyer Flotilla (Vian)",      color:"#f97316", nation:"RN" },
-  others:   { name:"RN Detached cruisers",                  color:"#94a3b8", nation:"RN" },
-};
-const B_ROUTES = {
-  bismarck: [
-    ['18 00:00', 54.52, 18.55, 'Gotenhafen (Gdynia)'],
-    ['19 02:00', 54.52, 18.55, 'Bismarck sails; Prinz Eugen sailed the evening before'],
-    ['19 12:00', 54.70, 13.40, 'Rendezvous off Cape Arkona'],
-    ['20 13:00', 57.00, 11.50, 'Kattegat — sighted and reported by Swedish cruiser Gotland'],
-    ['20 22:00', 58.00, 9.50, 'Passes Skagen; seen from the Norwegian coast'],
-    ['21 09:00', 60.35, 5.25, 'Anchors in Grimstadfjord near Bergen; Prinz Eugen refuels'],
-    ['21 19:30', 60.35, 5.25, 'Sails from Bergen after dark'],
-    ['22 12:00', 64.50, 3.00, 'Heads north; Lütjens chooses the Denmark Strait'],
-    ['22 20:00', 66.00, 0.00],
-    ['23 10:00', 67.50, -15.00, 'Rounds Iceland to the north in fog and snow'],
-    ['23 19:22', 66.70, -27.50, 'Sighted by Suffolk at the edge of the ice'],
-    ['24 02:00', 65.00, -30.00, 'Shadowed by radar all night'],
-    ['24 05:52', 63.30, -31.70, 'Battle of the Denmark Strait — opens fire on Hood'],
-    ['24 06:00', 63.28, -31.75, 'Hood blows up; Prince of Wales hit and retires'],
-    ['24 12:00', 61.80, -34.00, 'Bow flooding, oil leak; speed reduced to 28 kn'],
-    ['24 18:14', 60.40, -36.80, 'Turns on shadowers; Prinz Eugen detached to the south'],
-    ['25 00:00', 58.60, -37.60, "Victorious's Swordfish attack — one torpedo hit amidships"],
-    ['25 03:06', 57.30, -37.90, 'Suffolk loses radar contact; Bismarck turns for France'],
-    ['25 12:00', 55.50, -32.00, "Long signal to Germany betrays position — but Tovey misplots it"],
-    ['26 00:00', 52.50, -26.50],
-    ['26 10:30', 49.55, -21.80, 'Sighted by Catalina Z/209 after 31 hours lost'],
-    ['26 18:00', 48.90, -18.00, 'Sheffield shadowing'],
-    ['26 20:47', 48.50, -16.80, "Ark Royal's Swordfish jam the rudders — Bismarck can only circle"],
-    ['27 00:00', 48.35, -16.50, 'Night torpedo attacks by Vian\'s destroyers'],
-    ['27 08:47', 48.20, -16.25, 'Rodney and King George V open fire'],
-    ['27 10:39', 48.17, -16.20, 'Bismarck sinks'],
-  ],
-  eugen: [
-    ['25 12:00', 56.00, -38.50, 'Detached — heads south for the convoy routes'],
-    ['26 12:00', 49.00, -40.00, 'Refuels from tanker Spichern'],
-    ['27 12:00', 46.00, -35.00, 'Engine trouble; abandons commerce raiding'],
-    ['28 18:00', 45.50, -28.00, 'Bound for Brest (arrives 1 June)'],
-  ],
-  holland: [
-    ['18 00:00', 58.90, -3.10, 'Scapa Flow'],
-    ['21 00:52', 58.90, -3.10, 'Hood and Prince of Wales sail for Iceland'],
-    ['22 12:00', 61.50, -10.00],
-    ['23 12:00', 62.50, -20.00, 'South of Iceland, covering the Denmark Strait'],
-    ['23 20:00', 62.70, -24.00, "Suffolk's report received; Holland turns to intercept at 27 kn"],
-    ['24 02:00', 63.00, -28.50, 'Contact lost overnight; destroyers detached'],
-    ['24 05:35', 63.30, -31.55, 'Enemy in sight'],
-    ['24 05:52', 63.33, -31.75, 'Hood opens fire on Prinz Eugen by mistake'],
-    ['24 06:00', 63.33, -31.83, 'Hood blows up — 3 survivors of 1,418'],
-  ],
-  pow: [
-    ['24 06:13', 63.25, -31.72, 'Prince of Wales retires under smoke — 7 hits, Y turret jammed'],
-    ['24 12:00', 62.00, -33.50, 'Joins Wake-Walker shadowing'],
-    ['24 18:40', 60.50, -36.50, 'Brief second exchange of fire'],
-    ['25 06:00', 58.50, -34.00, 'Detached to Iceland, short of fuel'],
-    ['26 12:00', 62.50, -26.00],
-    ['27 12:00', 64.40, -21.80, 'Hvalfjörður, Iceland'],
-    ['28 18:00', 64.40, -21.80],
-  ],
-  wakewalker: [
-    ['18 00:00', 64.40, -21.80, 'Hvalfjörður'],
-    ['22 12:00', 65.50, -24.50, 'Patrolling the Denmark Strait'],
-    ['23 12:00', 66.80, -26.50],
-    ['23 19:22', 66.75, -27.30, 'Suffolk sights Bismarck 7 miles off; ducks into the fog'],
-    ['24 02:00', 65.00, -29.50, 'Shadowing by radar through the night'],
-    ['24 05:52', 63.60, -31.00, 'Watches the Denmark Strait battle from astern'],
-    ['24 12:00', 62.00, -33.80],
-    ['24 18:14', 60.60, -36.50, 'Bismarck turns on the shadowers; Suffolk falls back'],
-    ['25 00:00', 58.80, -37.30],
-    ['25 03:06', 57.50, -37.70, 'Contact lost during a zig-zag'],
-    ['25 12:00', 56.50, -39.00, 'Searches south-west — the wrong way'],
-    ['26 12:00', 52.50, -30.00, 'Norfolk turns for Brest on her own judgement'],
-    ['27 08:47', 48.30, -16.30, 'Norfolk arrives in time for the final battle'],
-    ['27 12:00', 48.40, -16.00],
-    ['28 18:00', 53.00, -10.00, 'Home'],
-  ],
-  suffolk: [
-    ['26 12:00', 54.00, -35.00],
-    ['27 12:00', 52.00, -28.00],
-    ['28 18:00', 55.00, -18.00, 'Returning to Iceland / Clyde'],
-  ],
-  tovey: [
-    ['18 00:00', 58.90, -3.10, 'Scapa Flow'],
-    ['22 22:45', 58.90, -3.10, 'Tovey sails with King George V, Victorious, Repulse and cruisers'],
-    ['23 12:00', 59.50, -6.00],
-    ['24 06:00', 60.10, -17.50, 'Hears of Hood\'s loss'],
-    ['24 12:00', 60.30, -23.50],
-    ['24 15:00', 60.40, -25.00, 'Victorious detached to strike'],
-    ['25 03:06', 59.20, -29.50, 'Contact lost — Tovey 100 miles away'],
-    ['25 12:00', 59.80, -27.00, 'Misplots Bismarck\'s signals; steams north-east for 7 hours'],
-    ['25 19:00', 59.50, -25.00, 'Turns south-east for Brest'],
-    ['26 12:00', 53.50, -22.00, 'Catalina report — 130 miles behind Bismarck, fuel critical'],
-    ['26 22:00', 50.00, -18.50, 'Joined by Rodney; waits for dawn'],
-    ['27 08:47', 48.35, -16.45, 'Rodney opens fire at 08:47, KGV a minute later'],
-    ['27 10:20', 48.20, -16.30, 'Bismarck silenced; Tovey breaks off to save fuel'],
-    ['27 11:00', 48.50, -16.50, 'Departs for Loch Ewe at 19 kn'],
-    ['28 18:00', 53.00, -10.00],
-  ],
-  victorious: [
-    ['24 22:10', 60.10, -32.50, 'Launches 9 Swordfish (825 Sqn) at 120 miles'],
-    ['25 03:00', 59.50, -33.00, 'Recovers aircraft in darkness; Fulmars lost'],
-    ['25 12:00', 59.00, -36.00, 'Searches north-west'],
-    ['26 12:00', 61.00, -25.00],
-    ['28 18:00', 58.90, -3.10, 'Scapa Flow'],
-  ],
-  rodney: [
-    ['18 00:00', 55.95, -4.75, 'Clyde — escorting troopship Britannic to Halifax'],
-    ['22 12:00', 55.90, -8.00],
-    ['24 12:00', 54.50, -18.00, 'Detached from Britannic to hunt Bismarck'],
-    ['25 12:00', 52.50, -22.00],
-    ['26 12:00', 50.80, -20.80, 'Gambles on Brest — right'],
-    ['26 22:00', 50.00, -18.50, 'Joins King George V'],
-    ['27 08:47', 48.35, -16.40, 'Opens fire; her 16-inch shells wreck Bismarck\'s forward turrets'],
-    ['27 10:20', 48.22, -16.28],
-    ['27 11:00', 48.50, -16.50],
-    ['28 18:00', 53.00, -10.00],
-  ],
-  forceh: [
-    ['18 00:00', 36.13, -5.35, 'Gibraltar'],
-    ['24 02:00', 36.13, -5.35, 'Force H sails north to cut Bismarck off from France'],
-    ['25 12:00', 42.00, -12.00, 'Heavy weather; Ark Royal\'s deck pitching 50 ft'],
-    ['26 10:00', 48.50, -18.30, 'Swordfish confirm Catalina sighting'],
-    ['26 14:50', 48.70, -17.60, 'First strike launched — attacks Sheffield by mistake'],
-    ['26 19:10', 48.80, -17.20, 'Second strike: 15 Swordfish'],
-    ['27 00:00', 48.30, -17.00, 'Stands off to the south overnight'],
-    ['27 09:26', 47.90, -16.60, 'Third strike launched but cannot attack through the gunfire'],
-    ['27 12:00', 47.80, -16.50],
-    ['28 18:00', 43.00, -13.00, 'Returning to Gibraltar'],
-  ],
-  sheffield: [
-    ['26 13:15', 48.60, -17.90, 'Detached to shadow Bismarck'],
-    ['26 14:50', 48.65, -17.40, 'Attacked by her own side\'s Swordfish — 11 torpedoes dodged'],
-    ['26 17:40', 48.70, -17.20, 'In visual contact with Bismarck; homes the second strike'],
-    ['26 21:40', 48.50, -16.80, 'Straddled by Bismarck; 3 killed'],
-    ['27 08:47', 48.10, -16.00],
-    ['27 12:00', 47.90, -16.30],
-    ['28 18:00', 43.00, -13.00],
-  ],
-  vian: [
-    ['18 00:00', 55.95, -4.75, 'Clyde'],
-    ['22 12:00', 54.50, -8.50, 'Escorting troop convoy WS 8B'],
-    ['25 12:00', 51.00, -13.00],
-    ['26 02:00', 50.50, -14.00, 'Vian detached on his own initiative to find Bismarck'],
-    ['26 22:38', 48.60, -16.60, 'Piorun makes contact; Vian\'s destroyers close in'],
-    ['27 01:00', 48.45, -16.50, 'Night torpedo attacks in heavy seas; Cossack and Maori claim hits'],
-    ['27 07:00', 48.35, -16.40, 'Maori fires starshell to mark Bismarck for the battleships'],
-    ['27 12:00', 48.30, -16.30],
-    ['28 18:00', 51.00, -6.00, 'Plymouth'],
-  ],
-  dorsetshire: [
-    ['18 00:00', 44.00, -22.00, 'Escorting convoy SL 74 north from Freetown'],
-    ['26 12:00', 45.00, -21.00, 'Leaves the convoy on her own initiative'],
-    ['27 09:00', 48.15, -16.50, 'Arrives during the battle'],
-    ['27 10:36', 48.17, -16.22, 'Fires the final torpedoes; Bismarck sinks at 10:39'],
-    ['27 11:40', 48.18, -16.20, 'Rescues 110 survivors; leaves after a U-boat alarm'],
-    ['28 18:00', 51.50, -12.00, 'Newcastle-bound'],
-  ],
-  mashona: [
-    ['26 22:00', 50.00, -18.50, 'Turns for home with Tartar and Somali, low on fuel'],
-    ['27 12:00', 51.50, -15.50],
-    ['28 09:00', 52.90, -11.80, 'Attacked by He 111s of KG 28'],
-    ['28 13:00', 52.97, -11.60, 'Capsizes and sinks off Galway'],
-  ],
-  u556: [
-    ['18 00:00', 47.00, -22.00, 'Returning from patrol, no torpedoes left'],
-    ['26 19:48', 48.30, -16.20, 'Renown and Ark Royal cross her bows — nothing to fire'],
-    ['27 00:00', 48.30, -16.40, 'Homes other U-boats; watches the destroyer attacks'],
-    ['27 12:00', 48.10, -16.00],
-    ['28 18:00', 47.50, -10.00, 'To Lorient'],
-  ],
-  u74: [
-    ['18 00:00', 46.50, -18.00, 'On patrol'],
-    ['26 22:00', 47.90, -16.30, 'Ordered to Bismarck\'s position'],
-    ['27 19:00', 47.80, -16.05, 'Picks up 3 survivors from a raft'],
-    ['28 18:00', 47.00, -10.00],
-  ],
-};
-
-const B_SHIPS = [
-  // Kriegsmarine
-  { id:'bismarck', name:'Bismarck', force:'lutjens', type:'Battleship (Lütjens flagship)', route:'bismarck', sunk:'27 10:39', sunkBy:'Gunfire of Rodney & King George V, torpedoes from Dorsetshire, and scuttling charges — 114 survivors of 2,200' },
-  { id:'eugen',    name:'Prinz Eugen', force:'lutjens', type:'Heavy cruiser', route:'bismarck', until:'24 18:14', extra:B_ROUTES.eugen },
-  { id:'u556', name:'U-556', force:'uboats', type:'Type VIIC U-boat (Wohlfarth)', route:'u556' },
-  { id:'u74',  name:'U-74',  force:'uboats', type:'Type VIIB U-boat (Kentrat)',  route:'u74' },
-  // Royal Navy — Holland
-  { id:'hood', name:'HMS Hood', force:'holland', type:'Battlecruiser (Holland flagship)', route:'holland', sunk:'24 06:00', sunkBy:"Bismarck's fifth salvo — magazine explosion; 3 survivors of 1,418" },
-  { id:'pow',  name:'HMS Prince of Wales', force:'holland', type:'Battleship (dockyard workers still aboard)', route:'holland', until:'24 06:00', extra:B_ROUTES.pow },
-  // Wake-Walker
-  { id:'norfolk', name:'HMS Norfolk', force:'wakewalker', type:'Heavy cruiser (Wake-Walker flagship)', route:'wakewalker' },
-  { id:'suffolk', name:'HMS Suffolk', force:'wakewalker', type:'Heavy cruiser — Type 284 radar', route:'wakewalker', until:'25 12:00', extra:B_ROUTES.suffolk },
-  // Tovey
-  { id:'kgv',        name:'HMS King George V', force:'tovey', type:'Battleship (Tovey flagship)', route:'tovey' },
-  { id:'repulse',    name:'HMS Repulse', force:'tovey', type:'Battlecruiser', route:'tovey', until:'25 09:00',
-    extra:[['25 09:00', 59.6, -28.0, 'Detached to Newfoundland, short of fuel'], ['26 12:00', 55.0, -40.0], ['28 18:00', 48.0, -52.0, 'Conception Bay']] },
-  { id:'victorious', name:'HMS Victorious', force:'tovey', type:'Fleet carrier — 9 Swordfish, 6 Fulmars, first operation', route:'tovey', until:'24 15:00', extra:B_ROUTES.victorious },
-  { id:'galatea',    name:'HMS Galatea', force:'tovey', type:'Light cruiser', route:'tovey', until:'24 15:00', extra:B_ROUTES.victorious },
-  { id:'mashona',    name:'HMS Mashona', force:'rodney', type:'Tribal-class destroyer (Rodney\'s escort)', route:'rodney', until:'26 22:00', extra:B_ROUTES.mashona, sunk:'28 13:00', sunkBy:'He 111 bomb in the forward boiler room while returning short of fuel — 46 killed, 184 rescued by Tartar' },
-  // Rodney
-  { id:'rodney', name:'HMS Rodney', force:'rodney', type:'Battleship — nine 16-inch guns', route:'rodney' },
-  // Force H
-  { id:'renown',   name:'HMS Renown',   force:'forceh', type:'Battlecruiser (Somerville flagship)', route:'forceh' },
-  { id:'arkroyal', name:'HMS Ark Royal', force:'forceh', type:'Fleet carrier — 810, 818, 820 Sqns Swordfish', route:'forceh' },
-  { id:'sheffield', name:'HMS Sheffield', force:'forceh', type:'Light cruiser', route:'forceh', until:'26 13:15', extra:B_ROUTES.sheffield },
-  // Vian
-  { id:'cossack', name:'HMS Cossack', force:'vian', type:'Tribal-class destroyer (Vian)', route:'vian' },
-  { id:'maori',   name:'HMS Maori',   force:'vian', type:'Tribal-class destroyer', route:'vian' },
-  { id:'zulu',    name:'HMS Zulu',    force:'vian', type:'Tribal-class destroyer', route:'vian' },
-  { id:'sikh',    name:'HMS Sikh',    force:'vian', type:'Tribal-class destroyer', route:'vian' },
-  { id:'piorun',  name:'ORP Piorun',  force:'vian', type:'Polish destroyer — first to sight Bismarck on the 26th', route:'vian' },
-  // Others
-  { id:'dorsetshire', name:'HMS Dorsetshire', force:'others', type:'Heavy cruiser', route:'dorsetshire' },
-];
-
-const B_STRIKES = [
-  { id:'b1', name:'Spitfire recce (Wick)', nation:'RN', land:true, from:{lat:58.45, lon:-3.10}, target:{ship:'bismarck'}, launch:'21 11:00', arrive:'21 13:15', leave:'21 13:25', recover:'21 15:30', count:1, note:'P/O Suckling photographs Bismarck in Grimstadfjord from 25,000 ft — the Admiralty knows she is out' },
-  { id:'b2', name:'Maryland recce (Hatston)', nation:'RN', land:true, from:{lat:59.00, lon:-3.00}, target:{lat:60.35, lon:5.25}, launch:'22 16:30', arrive:'22 19:30', leave:'22 19:45', recover:'22 22:30', count:1, note:'Flies below the cloud to find the fjord empty — Tovey sails that night' },
-  { id:'b3', name:'Sunderland Z/201 (Reykjavik)', nation:'RN', land:true, from:{lat:64.13, lon:-21.90}, target:{ship:'bismarck'}, launch:'24 03:30', arrive:'24 06:10', leave:'24 08:00', recover:'24 10:30', count:1, note:"Arrives over the battle in time to see Hood's wreckage and report Bismarck's oil slick" },
-  { id:'b4', name:'Victorious Swordfish (825 Sqn)', nation:'RN', from:{route:'victorious'}, target:{ship:'bismarck'}, launch:'24 22:10', arrive:'25 00:00', leave:'25 00:15', recover:'25 02:30', count:9, note:"Esmonde's crews, most on their first strike, hit Bismarck once amidships in the dark; all return" },
-  { id:'b5', name:'Catalina Z/209 (Lough Erne)', nation:'RN', land:true, from:{lat:54.45, lon:-7.75}, target:{ship:'bismarck'}, launch:'26 03:45', arrive:'26 10:30', leave:'26 12:00', recover:'26 18:00', count:1, note:'US Navy Ensign Leonard Smith, officially a "special observer", finds Bismarck 690 miles from Brest' },
-  { id:'b6', name:'Ark Royal strike 1', nation:'RN', from:{route:'forceh'}, target:{ship:'sheffield'}, launch:'26 14:50', arrive:'26 15:50', leave:'26 16:00', recover:'26 17:20', count:15, note:'Attacks Sheffield by mistake; the magnetic-pistol torpedoes fail — contact pistols used for the next strike' },
-  { id:'b7', name:'Ark Royal strike 2', nation:'RN', from:{route:'forceh'}, target:{ship:'bismarck'}, launch:'26 19:10', arrive:'26 20:47', leave:'26 21:25', recover:'26 22:20', count:15, note:'Two hits; the second jams both rudders at 12° port — the chase is decided' },
-  { id:'b8', name:'Ark Royal strike 3', nation:'RN', from:{route:'forceh'}, target:{ship:'bismarck'}, launch:'27 09:26', arrive:'27 10:15', leave:'27 10:40', recover:'27 11:30', count:12, note:"Cannot attack through the battleships' gunfire; watches Bismarck sink" },
-  { id:'b9', name:'Luftwaffe (Fw 200 / He 111) from Bordeaux', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'kgv'}, launch:'27 08:00', arrive:'27 12:30', leave:'27 13:30', recover:'27 17:30', count:20, note:'Arrives after Bismarck has gone; bombs the withdrawing British fleet without success' },
-  { id:'b10', name:'Luftwaffe strike (28 May)', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'mashona'}, launch:'28 05:30', arrive:'28 09:00', leave:'28 10:00', recover:'28 14:00', count:12, note:'Catches the fuel-starved destroyers Mashona and Tartar; Mashona sunk' },
-];
-
-const B_GROUPS = { bismarck:'Lütjens', holland:'Holland', wakewalker:'Wake-Walker', tovey:'Home Fleet', rodney:'Rodney', forceh:'Force H', vian:'Vian', dorsetshire:'Dorsetshire', u556:'U-556', u74:'U-74' };
-B_STRIKES.push(
-  { id:'b11', name:'Luftwaffe recce of Scapa Flow (Stavanger)', nation:'KM', land:true, from:{lat:58.88, lon:5.63}, target:{lat:58.9, lon:-3.1}, launch:'22 11:00', arrive:'22 13:00', leave:'22 13:20', recover:'22 15:00', count:1, note:'Reports the Home Fleet still in harbour through cloud — wrongly reassuring Lütjens' },
-  { id:'b12', name:'Catalina M/240 (Lough Erne)', nation:'RN', land:true, from:{lat:54.45, lon:-7.75}, target:{ship:'bismarck'}, launch:'26 04:00', arrive:'26 11:30', leave:'26 15:00', recover:'26 21:00', count:1, note:'Second Catalina to find Bismarck; shadows until fuel runs low' },
-  { id:'b13', name:'Fw 200 Condor recce (Bordeaux)', nation:'KM', land:true, from:{lat:44.83, lon:-0.70}, target:{ship:'renown'}, launch:'26 09:00', arrive:'26 13:30', leave:'26 14:30', recover:'26 19:00', count:2, note:'KG 40 Condors report Force H closing from the south' },
-);
-
-const B_EVENTS = [
-  ['19 02:00', 'Bismarck sails from Gotenhafen — Operation Rheinübung begins', 54.52, 18.55],
-  ['20 13:00', 'Swedish cruiser Gotland reports the German squadron', 57.0, 11.5],
-  ['21 00:52', 'Hood and Prince of Wales sail from Scapa Flow', 58.9, -3.1],
-  ['21 09:00', 'Bismarck anchors near Bergen', 60.35, 5.25],
-  ['21 13:15', 'Spitfire photographs Bismarck in Grimstadfjord', 60.35, 5.25],
-  ['21 19:30', "Lütjens sails from Bergen without topping up Bismarck's fuel", 60.35, 5.25],
-  ['22 19:30', 'Reconnaissance finds Bergen empty', 60.35, 5.25],
-  ['22 22:45', 'Tovey sails with the Home Fleet', 58.9, -3.1],
-  ['23 19:22', 'Suffolk sights Bismarck in the Denmark Strait', 66.7, -27.5],
-  ['24 02:00', 'Force H ordered north from Gibraltar', 36.13, -5.35],
-  ['24 05:52', 'Battle of the Denmark Strait — Hood opens fire', 63.32, -31.6],
-  ['24 06:00', 'Hood blows up and sinks in three minutes', 63.33, -31.83],
-  ['24 06:13', 'Prince of Wales breaks off, damaged', 63.1, -31.6],
-  ['24 18:14', 'Prinz Eugen detached; Bismarck turns on her shadowers', 60.4, -36.8],
-  ['24 22:10', 'Victorious launches nine Swordfish', 60.1, -32.5],
-  ['25 00:00', 'Swordfish torpedo hits Bismarck amidships', 58.6, -37.6],
-  ['25 03:06', 'Suffolk loses contact — Bismarck vanishes', 57.3, -37.9],
-  ['25 12:00', "Bismarck's long signal misplotted; Tovey heads north-east", 55.5, -32.0],
-  ['25 19:00', 'Admiralty and Tovey settle on Brest; Home Fleet turns south-east', 59.5, -25.0],
-  ['26 10:30', 'Catalina Z/209 finds Bismarck after 31 hours', 49.55, -21.8],
-  ['26 14:50', "Ark Royal's first strike attacks Sheffield by mistake", 48.65, -17.4],
-  ['26 20:47', "Swordfish torpedo jams Bismarck's rudders", 48.5, -16.8],
-  ['26 22:38', "Piorun sights Bismarck; Vian's destroyers attack through the night", 48.6, -16.6],
-  ['27 08:47', 'Rodney and King George V open fire', 48.35, -16.4],
-  ['27 09:31', "Bismarck's forward turrets knocked out", 48.3, -16.35],
-  ['27 10:15', 'Bismarck silent; Dorsetshire closes to torpedo', 48.2, -16.3],
-  ['27 10:39', 'Bismarck sinks', 48.17, -16.2],
-  ['27 11:40', 'Dorsetshire abandons rescue after U-boat alarm — 110 saved', 48.18, -16.2],
-  ['27 19:00', 'U-74 picks up three more survivors', 47.8, -16.05],
-  ['28 13:00', 'Mashona sunk by Luftwaffe bombers off Ireland', 52.97, -11.6],
-];
-
-const B_PORTS = [
-  { name:'Gotenhafen',       lat:54.52, lon:18.55, control:'KM', kind:'port', note:"Bismarck's departure port (Gdynia)" },
-  { name:'Kiel',             lat:54.32, lon:10.14, control:'KM', kind:'port', note:'Kriegsmarine Baltic base' },
-  { name:'Bergen (Grimstadfjord)', lat:60.35, lon:5.25, control:'KM', kind:'port', note:'Anchorage 21 May; Prinz Eugen refuels, Bismarck does not' },
-  { name:'Trondheim',        lat:63.43, lon:10.40, control:'KM', kind:'port', note:'Norwegian base' },
-  { name:'Brest',            lat:48.39, lon:-4.49, control:'KM', kind:'port', note:"Lütjens' destination; Scharnhorst & Gneisenau already here" },
-  { name:'St-Nazaire',       lat:47.27, lon:-2.20, control:'KM', kind:'port', note:'Only Atlantic-coast dry dock big enough for Bismarck' },
-  { name:'Bordeaux-Mérignac', lat:44.83, lon:-0.70, control:'KM', kind:'air', note:'KG 40 Fw 200 Condors' },
-  { name:'Stavanger-Sola',    lat:58.88, lon:5.63, control:'KM', kind:'air', note:'Luftwaffe reconnaissance over Scapa Flow' },
-  { name:'Lorient',          lat:47.75, lon:-3.37, control:'KM', kind:'port', note:'U-boat base' },
-  { name:'Scapa Flow',       lat:58.90, lon:-3.10, control:'RN', kind:'port', note:'Home Fleet anchorage' },
-  { name:'Hvalfjörður',      lat:64.40, lon:-21.80, control:'RN', kind:'port', note:'Fuelling anchorage, Iceland' },
-  { name:'Reykjavik',        lat:64.13, lon:-21.90, control:'RN', kind:'air', note:'Coastal Command Sunderlands' },
-  { name:'Hatston / Wick',   lat:58.75, lon:-3.05, control:'RN', kind:'air', note:'Reconnaissance over Norway' },
-  { name:'Lough Erne',       lat:54.45, lon:-7.75, control:'RN', kind:'air', note:'209 Sqn Catalinas' },
-  { name:'Clyde',            lat:55.95, lon:-4.75, control:'RN', kind:'port', note:'Convoy assembly; Rodney and Vian sail from here' },
-  { name:'Loch Ewe',         lat:57.85, lon:-5.60, control:'RN', kind:'port', note:"Tovey's fuel stop after the battle" },
-  { name:'Plymouth',         lat:50.37, lon:-4.14, control:'RN', kind:'port', note:'Western Approaches' },
-  { name:'Gibraltar',        lat:36.13, lon:-5.35, control:'RN', kind:'port', note:'Force H base' },
-];
-
-SCENARIOS.bismarck = {
-  id:'bismarck', title:'Operation Rheinübung — the Bismarck Chase', subtitle:'North Atlantic · 18–28 May 1941',
-  base:[1941, 4], start:'18 00:00', end:'28 18:00', tz:'Zone time · ~UTC+2', majorDays:[24, 27],
-  view:{ center:[56.0, -18.0], zoom:4.5, min:3, max:11 },
-  keyShips:['bismarck','eugen','hood','pow','suffolk','kgv','rodney','arkroyal','victorious','dorsetshire','u556'],
-  scenes:[
-    ['Overview', '25 12:00', [56.0, -18.0], 4.5],
-    ['Bergen', '21 13:00', [60.3, 5.2], 8],
-    ['Denmark Strait', '24 05:50', [64.0, -30.0], 6],
-    ['Contact lost', '25 03:00', [57.5, -37.5], 6],
-    ['Catalina sighting', '26 10:30', [49.5, -21.8], 6],
-    ['Swordfish strike', '26 20:45', [48.6, -17.0], 8],
-    ['Final battle', '27 09:30', [48.25, -16.3], 9],
-  ],
-  defaultTime:'24 05:50',
-  footnote:"Times as cited in standard accounts (~UTC+2). Sinking positions from records; transit positions are reconstructed from hourly narratives and are approximate. Formation members are spread slightly so they don't overlap.",
-  forces:B_FORCES, routes:B_ROUTES, ships:B_SHIPS, strikes:B_STRIKES, groups:B_GROUPS, events:B_EVENTS, ports:B_PORTS,
-};
-B_PORTS.push(
-  { name:'London — Admiralty', lat:51.505, lon:-0.125, control:'RN', kind:'hq', hq:'Admiralty Operational Intelligence Centre', note:'Pound and the OIC direct the hunt; Tovey commands at sea' },
-  { name:'Liverpool — Western Approaches', lat:53.40, lon:-3.00, control:'RN', kind:'hq', hq:'Western Approaches Command (Derby House)', note:'Controls convoy escorts — Vian\'s destroyers and Dorsetshire are detached from convoys' },
-  { name:'Berlin — OKM / Seekriegsleitung', lat:52.52, lon:13.40, control:'KM', kind:'hq', hq:'Naval High Command (Raeder)', note:'Raeder approves Rheinübung over Hitler\'s misgivings' },
-  { name:'Wilhelmshaven — Group North', lat:53.52, lon:8.11, control:'KM', kind:'hq', hq:'Marinegruppenkommando Nord (Carls)', note:'Controls Bismarck until she passes south of the Denmark Strait' },
-  { name:'Paris — Group West', lat:48.86, lon:2.35, control:'KM', kind:'hq', hq:'Marinegruppenkommando West (Saalwächter)', note:'Takes over Bismarck on 25 May and coordinates U-boats and Luftwaffe' },
-);
-
-// ---- Gun engagements: ships firing between from/to (rate = flash probability per tick, 0–1)
-SCENARIOS.leyte.engagements = [
-  // Surigao Strait
-  { ships:['yamashiro','fuso','mogami','shigure','yamagumo','michishio','asagumo'], from:'25 03:00', to:'25 03:50', rate:.25, note:'Destroyer torpedo attacks' },
-  { ships:['wv','california','mississippi','louisville'], from:'25 03:51', to:'25 04:09', rate:.55, note:'Battle line opens fire' },
-  { ships:['yamashiro','mogami','shigure'], from:'25 03:51', to:'25 04:19', rate:.45 },
-  { ships:['louisville','mogami','asagumo'], from:'25 04:20', to:'25 07:21', rate:.12, note:'Pursuit and mopping up' },
-  // Samar
-  { ships:['yamato','nagato','kongo','haruna','haguro','chokai','chikuma','tone','suzuya','yahagi','noshiro'], from:'25 06:58', to:'25 09:20', rate:.45 },
-  { ships:['kumano'], from:'25 06:58', to:'25 07:27', rate:.45 },
-  { ships:['johnston'], from:'25 07:00', to:'25 09:45', rate:.6 },
-  { ships:['hoel'], from:'25 07:05', to:'25 08:40', rate:.55 },
-  { ships:['heermann'], from:'25 07:15', to:'25 09:10', rate:.5 },
-  { ships:['sbr'], from:'25 07:30', to:'25 09:50', rate:.55 },
-  { ships:['gambier','fanshaw','kalinin'], from:'25 07:30', to:'25 09:15', rate:.2, note:'Single 5-inch guns' },
-  { ships:['yamato','nagato','haruna','tone','haguro'], from:'25 09:20', to:'25 09:35', rate:.15 },
-];
-SCENARIOS.bismarck.engagements = [
-  { ships:['bismarck','eugen','hood','pow'], from:'24 05:52', to:'24 06:13', rate:.6, note:'Battle of the Denmark Strait' },
-  { ships:['bismarck','pow','suffolk'], from:'24 18:30', to:'24 18:50', rate:.3, note:'Second exchange' },
-  { ships:['bismarck'], from:'26 21:40', to:'26 21:52', rate:.4, note:'Fires on Sheffield' },
-  { ships:['bismarck','cossack','maori','zulu','sikh','piorun'], from:'26 22:38', to:'27 07:00', rate:.12, note:'Night destroyer actions' },
-  { ships:['rodney','kgv'], from:'27 08:47', to:'27 10:15', rate:.6, note:'Final battle' },
-  { ships:['norfolk'], from:'27 08:54', to:'27 10:15', rate:.45 },
-  { ships:['dorsetshire'], from:'27 09:04', to:'27 10:36', rate:.45 },
-  { ships:['bismarck'], from:'27 08:49', to:'27 09:50', rate:.5 },
-];
-
-// ---- Wikipedia article titles per ship id
-const WIKI = {
-  leyte: {
-    yamato:'Japanese_battleship_Yamato', musashi:'Japanese_battleship_Musashi', nagato:'Japanese_battleship_Nagato', kongo:'Japanese_battleship_Kongō', haruna:'Japanese_battleship_Haruna',
-    atago:'Japanese_cruiser_Atago', maya:'Japanese_cruiser_Maya', takao:'Japanese_cruiser_Takao_(1930)', myoko:'Japanese_cruiser_Myōkō', haguro:'Japanese_cruiser_Haguro', chokai:'Japanese_cruiser_Chōkai',
-    chikuma:'Japanese_cruiser_Chikuma_(1938)', tone:'Japanese_cruiser_Tone_(1937)', suzuya:'Japanese_cruiser_Suzuya_(1934)', kumano:'Japanese_cruiser_Kumano', yahagi:'Japanese_cruiser_Yahagi_(1942)', noshiro:'Japanese_cruiser_Noshiro',
-    yamashiro:'Japanese_battleship_Yamashiro', fuso:'Japanese_battleship_Fusō', mogami:'Japanese_cruiser_Mogami_(1934)', shigure:'Japanese_destroyer_Shigure_(1935)', yamagumo:'Japanese_destroyer_Yamagumo_(1937)', michishio:'Japanese_destroyer_Michishio', asagumo:'Japanese_destroyer_Asagumo_(1937)',
-    nachi:'Japanese_cruiser_Nachi', ashigara:'Japanese_cruiser_Ashigara', abukuma:'Japanese_cruiser_Abukuma',
-    zuikaku:'Japanese_aircraft_carrier_Zuikaku', zuiho:'Japanese_aircraft_carrier_Zuihō', chitose:'Japanese_aircraft_carrier_Chitose', chiyoda:'Japanese_aircraft_carrier_Chiyoda', ise:'Japanese_battleship_Ise', hyuga:'Japanese_battleship_Hyūga', oyodo:'Japanese_cruiser_Ōyodo', tama:'Japanese_cruiser_Tama',
-    fanshaw:'USS_Fanshaw_Bay', gambier:'USS_Gambier_Bay', stlo:'USS_St._Lo', kalinin:'USS_Kalinin_Bay', johnston:'USS_Johnston_(DD-557)', hoel:'USS_Hoel_(DD-533)', heermann:'USS_Heermann', sbr:'USS_Samuel_B._Roberts_(DE-413)',
-    essex:'USS_Essex_(CV-9)', lexington:'USS_Lexington_(CV-16)', princeton:'USS_Princeton_(CVL-23)', intrepid:'USS_Intrepid_(CV-11)', newjersey:'USS_New_Jersey_(BB-62)', iowa:'USS_Iowa_(BB-61)', enterprise:'USS_Enterprise_(CV-6)', hornet:'USS_Hornet_(CV-12)',
-    wv:'USS_West_Virginia_(BB-48)', california:'USS_California_(BB-44)', mississippi:'USS_Mississippi_(BB-41)', louisville:'USS_Louisville_(CA-28)', darter:'USS_Darter_(SS-227)', dace:'USS_Dace_(SS-247)',
-  },
-  bismarck: {
-    bismarck:'German_battleship_Bismarck', eugen:'German_cruiser_Prinz_Eugen', u556:'German_submarine_U-556_(1940)', u74:'German_submarine_U-74_(1940)',
-    hood:'HMS_Hood', pow:'HMS_Prince_of_Wales_(53)', norfolk:'HMS_Norfolk_(78)', suffolk:'HMS_Suffolk_(55)', kgv:'HMS_King_George_V_(41)', repulse:'HMS_Repulse_(1916)', victorious:'HMS_Victorious_(R38)', galatea:'HMS_Galatea_(71)', mashona:'HMS_Mashona_(F59)',
-    rodney:'HMS_Rodney_(29)', renown:'HMS_Renown_(1916)', arkroyal:'HMS_Ark_Royal_(91)', sheffield:'HMS_Sheffield_(C24)', cossack:'HMS_Cossack_(F03)', maori:'HMS_Maori_(F24)', zulu:'HMS_Zulu_(F18)', sikh:'HMS_Sikh_(F82)', piorun:'ORP_Piorun_(G65)', dorsetshire:'HMS_Dorsetshire_(40)',
-  },
-};
-for (const [sid, m] of Object.entries(WIKI)) SCENARIOS[sid].ships.forEach(s => { if (m[s.id]) s.wiki = 'https://en.wikipedia.org/wiki/' + m[s.id]; });
-
-// ============================================================================
-// Commanders (by flag group / route), casualties, torpedo attacks, gun targets, UTC offsets
-// ============================================================================
-SCENARIOS.leyte.utcOffset = 9; SCENARIOS.bismarck.utcOffset = 2;
-
-SCENARIOS.leyte.commanders = {
-  center:  { name:'Vice Admiral Takeo Kurita', role:'Commander, First Diversion Attack Force (Center Force)', flagship:'Atago, then Yamato', bio:'A cautious, experienced surface officer who had commanded cruiser divisions since Java Sea. Swam for his life when Atago went down under him on 23 October, then led the surviving fleet through San Bernardino Strait. His decision to break off the pursuit off Samar at 09:20 — believing he faced Halsey\'s fleet carriers — remains one of the most debated calls of the war.', fate:'Survived the war; died 1977 aged 88.', wiki:'Takeo_Kurita' },
-  southern:{ name:'Vice Admiral Shōji Nishimura', role:'Commander, Force C (Southern Force)', flagship:'Yamashiro', bio:'Ordered to force Surigao Strait and reach Leyte Gulf at dawn in concert with Kurita, he pressed on through PT-boat and destroyer attacks into the guns of six battleships, despite knowing Kurita had been delayed. Made no attempt to coordinate with Shima\'s force following behind.', fate:'Went down with Yamashiro at 04:19 on 25 October.', wiki:'Shōji_Nishimura' },
-  shima:   { name:'Vice Admiral Kiyohide Shima', role:'Commander, Second Striking Force', flagship:'Nachi', bio:'Arrived in Surigao Strait 40 minutes behind Nishimura to find burning wreckage. After Nachi collided with the crippled Mogami he judged the battle lost and withdrew — the only Japanese admiral at Leyte to retreat with his force largely intact.', fate:'Survived the war; died 1973.', wiki:'Kiyohide_Shima' },
-  northern:{ name:'Vice Admiral Jisaburō Ozawa', role:'Commander, Mobile Force (Northern / decoy force)', flagship:'Zuikaku, then Ōyodo', bio:'Commanded the carrier force at the Philippine Sea and now led the near-empty carriers north as bait. His plan worked perfectly — Halsey took the whole of TF 38 after him — at the cost of all four carriers. Regarded by both sides as one of the ablest Japanese admirals of the war.', fate:'Survived; last commander of the Combined Fleet. Died 1966.', wiki:'Jisaburō_Ozawa' },
-  taffy3:  { name:'Rear Admiral Clifton A. F. Sprague', role:'Commander, Task Unit 77.4.3 (Taffy 3)', flagship:'Fanshaw Bay', bio:'"Ziggy" Sprague found four battleships and eight cruisers on his horizon at dawn and fought them for two and a half hours with six escort carriers, three destroyers and four destroyer escorts. His handling — running into the wind to launch, then turning into rain squalls and smoke while his escorts charged — is a textbook of small-ship tactics.', fate:'Died 1955; USS Clifton Sprague named for him.', wiki:'Clifton_Sprague' },
-  tg383:   { name:'Rear Admiral Frederick C. Sherman', role:'Commander, Task Group 38.3', flagship:'Essex', bio:'Fought off three land-based raids on 24 October (losing Princeton) while striking Kurita, then located Ozawa that afternoon. His group led the strikes off Cape Engaño.', fate:'Retired 1947; died 1957.', wiki:'Frederick_C._Sherman' },
-  tg382:   { name:'Admiral William F. Halsey Jr.', role:'Commander, Third Fleet (embarked in New Jersey with TG 38.2)', flagship:'New Jersey', bio:'Aggressive to a fault, Halsey took every carrier and fast battleship north after Ozawa on the night of 24 October, leaving San Bernardino Strait unguarded. Nimitz\'s query — "Where is, repeat, where is Task Force 34? The world wonders" — reduced him to tears of rage. He turned south too late to catch Kurita.', fate:'Fleet Admiral 1945; died 1959.', wiki:'William_Halsey_Jr.' },
-  tg384:   { name:'Rear Admiral Ralph E. Davison', role:'Commander, Task Group 38.4', flagship:'Franklin', bio:'His Enterprise aircraft found and attacked Nishimura in the Sulu Sea on the morning of 24 October, then his group joined the run north.', fate:'Died 1972.', wiki:'Ralph_E._Davison' },
-  tg381:   { name:'Vice Admiral John S. McCain Sr.', role:'Commander, Task Group 38.1', flagship:'Wasp', bio:'Recalled while steaming to Ulithi, he launched strikes at Kurita from 335 nautical miles on 25 October — the longest carrier strike of the war — and harried the retreating Center Force on the 26th.', fate:'Died 1945, four days after the Japanese surrender.', wiki:'John_S._McCain_Sr.' },
-  tg772:   { name:'Rear Admiral Jesse B. Oldendorf', role:'Commander, Task Group 77.2 (Bombardment and Fire Support Group)', flagship:'Louisville', bio:'Laid a textbook trap across Surigao Strait: PT boats, then destroyers, then six battleships — five of them Pearl Harbor survivors — crossing the T of Nishimura\'s line. The last battleship-versus-battleship action in history.', fate:'Died 1974.', wiki:'Jesse_B._Oldendorf' },
-  darter:  { name:'Cdr David H. McClintock & Cdr Bladen D. Claggett', role:'Commanding officers, USS Darter and USS Dace', flagship:'Darter', bio:'Working as a pair in the Palawan Passage, they made the first contact report on Kurita and sank two heavy cruisers and crippled a third before Darter grounded on Bombay Shoal. Dace took off her entire crew.', fate:'Both survived the war.', wiki:'USS_Darter_(SS-227)' },
-};
-SCENARIOS.bismarck.commanders = {
-  bismarck:   { name:'Admiral Günther Lütjens', role:'Fleet Commander (Flottenchef)', flagship:'Bismarck', bio:'A reserved, pessimistic professional who had already taken Scharnhorst and Gneisenau into the Atlantic. Chose the Denmark Strait, declined to finish Prince of Wales after sinking Hood, and made for France. His long radio signal on 25 May — sent believing he was still being shadowed — helped the British relocate him. Captain Ernst Lindemann commanded the ship itself.', fate:'Killed in the final battle, 27 May 1941, two days after his 52nd birthday.', wiki:'Günther_Lütjens' },
-  holland:    { name:'Vice Admiral Lancelot Holland', role:'Commander, Battlecruiser Squadron', flagship:'Hood', bio:'Intercepted Bismarck at dawn on 24 May with Hood and the brand-new Prince of Wales. Closed rapidly to shorten the time Hood\'s thin deck armour was exposed to plunging fire — and initially engaged the wrong ship.', fate:'Lost with Hood at 06:00, 24 May; 1,415 died, 3 survived.', wiki:'Lancelot_Holland' },
-  wakewalker: { name:'Rear Admiral Frederic Wake-Walker', role:'Commander, 1st Cruiser Squadron', flagship:'Norfolk', bio:'Shadowed Bismarck for 30 hours through the Denmark Strait and beyond using Suffolk\'s radar, then lost her on the 25th during a zig-zag. Criticised by Pound for not re-engaging with Prince of Wales; defended by Tovey.', fate:'Third Sea Lord 1942–45; died 1945.', wiki:'Frederic_Wake-Walker' },
-  tovey:      { name:'Admiral Sir John Tovey', role:'Commander-in-Chief, Home Fleet', flagship:'King George V', bio:'Directed the hunt from sea. Misplotted Bismarck\'s signals on 25 May and steamed north-east for seven hours before turning for Brest. Fought the final action with fuel so low he had to break off within the hour of Bismarck falling silent.', fate:'Admiral of the Fleet 1943; died 1971.', wiki:'John_Tovey,_1st_Baron_Tovey' },
-  rodney:     { name:'Captain Frederick Dalrymple-Hamilton', role:'Commanding Officer, HMS Rodney', flagship:'Rodney', bio:'Left the troopship Britannic on his own judgement and gambled correctly that Bismarck was making for Brest. Rodney\'s nine 16-inch guns wrecked Bismarck\'s forward turrets in the first quarter-hour of the final battle.', fate:'Retired as Admiral; died 1974.', wiki:'Frederick_Dalrymple-Hamilton' },
-  forceh:     { name:'Vice Admiral Sir James Somerville', role:'Commander, Force H', flagship:'Renown', bio:'Brought Force H north from Gibraltar through a full gale to cut Bismarck off from France. Ark Royal\'s second Swordfish strike, launched on his order in appalling conditions, jammed Bismarck\'s rudders and decided the chase.', fate:'Admiral of the Fleet 1945; died 1949.', wiki:'James_Somerville' },
-  vian:       { name:'Captain Philip Vian', role:'Captain (D), 4th Destroyer Flotilla', flagship:'Cossack', bio:'Left convoy WS 8B on his own initiative to find Bismarck, then harried her all night with five destroyers in heavy seas, keeping her fixed for the battleships at dawn.', fate:'Admiral of the Fleet 1952; died 1968.', wiki:'Philip_Vian' },
-  dorsetshire:{ name:'Captain Benjamin Martin', role:'Commanding Officer, HMS Dorsetshire', flagship:'Dorsetshire', bio:'Left convoy SL 74 unasked, arrived during the battle and fired the torpedoes that preceded Bismarck\'s sinking. Rescued 85 survivors before a U-boat alarm forced him to leave hundreds in the water.', fate:'Retired as Rear Admiral.', wiki:'HMS_Dorsetshire_(40)' },
-  u556:       { name:'Kapitänleutnant Herbert Wohlfarth', role:'Commanding Officer, U-556', flagship:'U-556', bio:'"Parzival" Wohlfarth had jokingly signed a certificate promising to protect his "godmother" Bismarck. On 26 May Renown and Ark Royal passed directly across his bows — and he had no torpedoes left.', fate:'Captured June 1941; died 1982.', wiki:'Herbert_Wohlfarth' },
-  u74:        { name:'Kapitänleutnant Eitel-Friedrich Kentrat', role:'Commanding Officer, U-74', flagship:'U-74', bio:'Ordered to Bismarck\'s position to collect her war diary; arrived after the sinking and picked up three survivors from a raft.', fate:'Survived the war; died 1974.', wiki:'Eitel-Friedrich_Kentrat' },
-};
-
-// approximate men lost at the sinking (published figures; ~ where accounts differ)
-const LOST = {
-  leyte: { musashi:1023, atago:360, maya:336, chokai:800, chikuma:900, suzuya:247, noshiro:328, yamashiro:1626, fuso:1620, mogami:192, yamagumo:238, michishio:265, asagumo:191, abukuma:250, zuikaku:843, zuiho:215, chitose:903, chiyoda:1470, tama:450, gambier:147, stlo:113, johnston:186, hoel:253, sbr:89, princeton:108, darter:0 },
-  bismarck: { hood:1415, bismarck:2086, mashona:46 },
-};
-for (const [sid, m] of Object.entries(LOST)) SCENARIOS[sid].ships.forEach(s => { if (m[s.id] !== undefined) s.lost = m[s.id]; });
-
-// torpedo attacks: from ship id or {lat,lon,label}; to ship id; t = launch; run = minutes to target; n = torpedoes; hit = true/false
-SCENARIOS.leyte.torpedoes = [
-  { from:'darter', to:'atago', t:'23 05:24', run:2, n:6, hit:true, note:'Four hits — Atago sinks in 20 minutes' },
-  { from:'darter', to:'takao', t:'23 05:27', n:4, run:2, hit:true, note:'Two hits; Takao out of the war' },
-  { from:'dace',   to:'maya',  t:'23 05:54', n:4, run:2, hit:true, note:'Four hits; Maya blows up' },
-  { from:{lat:10.28, lon:125.50, label:'USS Melvin (DesRon 54)'}, to:'fuso', t:'25 03:05', run:4, n:5, hit:true, note:'One hit; Fusō falls out of line and sinks' },
-  { from:{lat:10.40, lon:125.28, label:'DesRon 54 / 24'}, to:'yamagumo', t:'25 03:15', run:4, n:5, hit:true, note:'Yamagumo blows up; Michishio and Asagumo also hit' },
-  { from:{lat:10.40, lon:125.28, label:'DesRon 24'}, to:'yamashiro', t:'25 03:30', run:6, n:8, hit:true, note:'Yamashiro takes up to four torpedoes before the battle line opens fire' },
-  { from:{lat:9.85, lon:125.15, label:'PT-137'}, to:'abukuma', t:'25 03:22', run:3, n:1, hit:true, note:'A torpedo aimed at a destroyer runs on and hits Abukuma' },
-  { from:'johnston', to:'kumano', t:'25 07:20', run:7, n:10, hit:true, note:'Bow blown off; Kumano and Suzuya (taking off Kumano\'s admiral) both leave the battle' },
-  { from:'hoel', to:'kongo', t:'25 07:25', run:6, n:5, hit:false, note:'Kongō combs the spread' },
-  { from:'hoel', to:'haguro', t:'25 07:50', run:5, n:5, hit:false, note:'Haguro evades; Hoel now has two guns and no torpedoes' },
-  { from:'heermann', to:'haguro', t:'25 07:54', run:5, n:7, hit:false, note:'Haguro turns away' },
-  { from:'heermann', to:'yamato', t:'25 07:56', run:9, n:3, hit:false, note:'Yamato turns north to comb the torpedoes — and steams out of the battle for ten minutes' },
-  { from:'sbr', to:'chokai', t:'25 08:00', run:5, n:3, hit:false, note:'Roberts\' three torpedoes miss, but she then closes to 4,000 yd with her 5-inch guns' },
-];
-SCENARIOS.bismarck.torpedoes = [
-  { from:'rodney', to:'bismarck', t:'27 09:30', run:5, n:6, hit:false, note:'Rodney fires torpedoes from her bow tubes — possibly the only battleship ever to torpedo another' },
-  { from:'cossack', to:'bismarck', t:'27 01:40', run:4, n:3, hit:false, note:'Claimed hits in the dark; German survivors recorded none' },
-  { from:'maori', to:'bismarck', t:'27 01:50', run:4, n:2, hit:false, note:'Starshell and torpedoes through the night' },
-  { from:'dorsetshire', to:'bismarck', t:'27 10:20', run:3, n:2, hit:true, note:'Two hits on the starboard side' },
-  { from:'dorsetshire', to:'bismarck', t:'27 10:36', run:2, n:1, hit:true, note:'One hit to port; Bismarck rolls over at 10:39' },
-];
-
-// gun targets for the engagements (tracer animation picks an afloat target from the list)
-(function(){
-  const L = SCENARIOS.leyte.engagements, B = SCENARIOS.bismarck.engagements;
-  const set = (arr, idx, targets) => { if (arr[idx]) arr[idx].targets = targets; };
-  set(L, 1, ['yamashiro']); set(L, 2, ['louisville','wv','california']); set(L, 3, ['mogami','asagumo']);
-  set(L, 4, ['gambier','johnston','hoel','sbr','heermann','fanshaw','kalinin']); set(L, 5, ['johnston']);
-  set(L, 6, ['kumano','kongo','yahagi','chikuma']); set(L, 7, ['kongo','haguro']); set(L, 8, ['chikuma','haguro','tone']); set(L, 9, ['chokai','chikuma']); set(L, 10, ['chokai','chikuma','tone']); set(L, 11, ['heermann','fanshaw']);
-  L[3].targets = ['louisville']; // Louisville/Mogami/Asagumo pursuit: cross-fire
-  set(B, 0, null); B[0].pairs = { bismarck:['hood','pow'], eugen:['hood','pow'], hood:['bismarck','eugen'], pow:['bismarck'] };
-  set(B, 1, null); B[1].pairs = { bismarck:['pow','suffolk'], pow:['bismarck'], suffolk:['bismarck'] };
-  set(B, 2, ['sheffield']); set(B, 3, null); B[3].pairs = { bismarck:['cossack','maori','zulu','sikh','piorun'], cossack:['bismarck'], maori:['bismarck'], zulu:['bismarck'], sikh:['bismarck'], piorun:['bismarck'] };
-  set(B, 4, ['bismarck']); set(B, 5, ['bismarck']); set(B, 6, ['bismarck']); set(B, 7, ['rodney','kgv']);
-  L[4].pairs = null;
+// ====================== FLEETVIEW CORE (shared by the browser app and the build tools) ======================
+// Pure functions only — no DOM, no Leaflet. Concatenated into index.html by tools/build.sh and
+// require()'d by tools/bake-routes.mjs / tools/build-data.mjs, so the waypoint derivation and the
+// routing hash are guaranteed identical at build time and at runtime.
+const FV = (function(){
+  const HOUR = 3600e3, DAY = 24 * HOUR;
+  // 'DD HH:MM' within the scenario's base month [year, monthIndex], or 'YYYY-MM-DD HH:MM'
+  function makeT(base){ const [BY, BM] = base; return s => { const m = String(s).match(/^(?:(\d{4})-(\d{2})-)?(\d{1,2}) (\d{1,2}):(\d{2})$/); if (!m) throw new Error('Bad time: ' + s); return Date.UTC(m[1] ? +m[1] : BY, m[2] ? +m[2]-1 : BM, +m[3], +m[4], +m[5]); }; }
+  function bearing(a, b){ const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, Δλ=(b.lon-a.lon)*Math.PI/180; const y=Math.sin(Δλ)*Math.cos(φ2); const x=Math.cos(φ1)*Math.sin(φ2)-Math.sin(φ1)*Math.cos(φ2)*Math.cos(Δλ); return (Math.atan2(y,x)*180/Math.PI+360)%360; }
+  function distNm(a, b){ const R=3440.065; const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, dφ=φ2-φ1, dλ=(b.lon-a.lon)*Math.PI/180; const h=Math.sin(dφ/2)**2+Math.cos(φ1)*Math.cos(φ2)*Math.sin(dλ/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+  // Interpolate along a raw route ([time,lat,lon,note]) at absolute time t
+  function interpRaw(route, t, T){
+    for (let i = 0; i < route.length - 1; i++){
+      const a = T(route[i][0]), b = T(route[i+1][0]);
+      if (t >= a && t <= b){ const f = b === a ? 0 : (t - a) / (b - a); return [route[i][1] + (route[i+1][1]-route[i][1])*f, route[i][2] + (route[i+1][2]-route[i][2])*f]; }
+    }
+    const l = route[route.length-1]; return [l[1], l[2]];
+  }
+  // A ship's own waypoint list: base route up to `until`, then its `extra` track. src = documented fix?
+  function rawWaypoints(s, routes, T){
+    const base = routes[s.route]; if (!base) throw new Error(`Ship ${s.id}: unknown route '${s.route}'`);
+    let raw;
+    if (s.until){
+      const u = T(s.until);
+      raw = base.filter(p => T(p[0]) <= u);
+      if (!raw.length || T(raw[raw.length-1][0]) !== u) raw.push([s.until, ...interpRaw(base, u, T)]);
+      raw = raw.concat(s.extra || []);
+    } else raw = base.slice();
+    const wp = raw.map(p => ({ t: T(p[0]), lat: p[1], lon: p[2], note: p[3] || null, src: p[4] === 'S' ? true : p[4] === 'R' ? false : !!p[3] }));
+    if (s.sunk) wp[wp.length-1].src = true;
+    return wp;
+  }
+  // FNV-1a over the geometry+timing of a waypoint list; baked routing is only applied when this still matches
+  function wpHash(wp){ let h = 0x811c9dc5; const str = wp.map(p => `${p.t},${p.lat},${p.lon}`).join(';'); for (let i = 0; i < str.length; i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8, '0'); }
+  // Apply a baked routing record { hash, snap:{idx:[lat,lon]}, via:{legIdx:[[lat,lon],...]} } to a raw waypoint list.
+  // Intermediate points are spread along the detour at constant speed; original waypoint times are kept.
+  function applyBakedRouting(wp, r){
+    let legs = 0, snapped = 0;
+    const base = wp.map((p, i) => { const s = r.snap && r.snap[i]; if (!s) return p; snapped++; return Object.assign({}, p, { lat: s[0], lon: s[1], snapped: true }); });
+    const out = [base[0]];
+    for (let i = 1; i < base.length; i++){
+      const a = base[i-1], b = base[i], via = r.via && r.via[i];
+      if (via && via.length){
+        legs++;
+        const chain = [[a.lat, a.lon], ...via, [b.lat, b.lon]]; const cum = [0];
+        for (let k = 1; k < chain.length; k++) cum.push(cum[k-1] + distNm({lat:chain[k-1][0], lon:chain[k-1][1]}, {lat:chain[k][0], lon:chain[k][1]}));
+        const total = cum[cum.length-1] || 1;
+        via.forEach((p, k) => out.push({ t: a.t + (b.t - a.t) * cum[k+1] / total, lat: p[0], lon: p[1], note: null, src: false, via: true }));
+      }
+      out.push(b);
+    }
+    return { wp: out, legs, snapped };
+  }
+  // Strip a scenario-specific role from a ship type: 'Heavy cruiser (Kurita flagship)' → 'Heavy cruiser', 'Fleet carrier — TG 38.3' → 'Fleet carrier'
+  function shipClass(type){ return String(type || '').replace(/\s*\(.*\)\s*$/, '').replace(/\s+[—–-]\s+.*$/, '').trim(); }
+  return { HOUR, DAY, makeT, bearing, distNm, interpRaw, rawWaypoints, wpHash, applyBakedRouting, shipClass };
 })();
-
-// ============================================================================
-// Rescue & pickup operations — plus the destroyers that carried them out
-// ============================================================================
-(function(){
-  const L = SCENARIOS.leyte, B = SCENARIOS.bismarck; const W = 'https://en.wikipedia.org/wiki/';
-  // --- Leyte: Center Force destroyers with rescue stories
-  L.ships.push(
-    { id:'shimakaze', name:'Shimakaze', force:'center', type:'Destroyer — fastest in the IJN (40 kn)', route:'center', until:'24 15:30',
-      extra:[['24 19:35', 13.10, 122.50, 'Standing by the capsizing Musashi with Kiyoshimo'], ['25 02:30', 13.10, 122.55, '1,376 survivors embarked between the two destroyers'], ['25 12:00', 12.30, 121.00], ['25 20:00', 12.00, 120.20, 'Coron Bay'], ['26 12:00', 14.38, 120.58, 'Lands survivors at Corregidor'], ['29 00:00', 14.55, 120.90]], wiki: W + 'Japanese_destroyer_Shimakaze_(1942)' },
-    { id:'kiyoshimo', name:'Kiyoshimo', force:'center', type:'Destroyer', route:'center', until:'24 15:30',
-      extra:[['24 19:35', 13.10, 122.50, 'Rescuing Musashi survivors'], ['25 02:30', 13.10, 122.55], ['25 12:00', 12.30, 121.00], ['25 20:00', 12.00, 120.20, 'Coron Bay'], ['26 12:00', 14.38, 120.58, 'Corregidor'], ['29 00:00', 14.55, 120.90]], wiki: W + 'Japanese_destroyer_Kiyoshimo' },
-    { id:'nowaki', name:'Nowaki', force:'center', type:'Destroyer', route:'center', until:'25 06:45',
-      extra:[['25 09:00', 11.55, 126.55, 'Detached to stand by the crippled Chikuma'], ['25 11:30', 11.37, 126.27, 'Scuttles Chikuma and embarks her survivors'], ['25 14:00', 11.60, 126.00, 'Racing to rejoin Kurita'], ['25 21:00', 12.40, 125.20], ['26 01:35', 13.00, 124.90, 'Caught off San Bernardino by TF 34\'s vanguard cruisers and destroyers']],
-      sunk:'26 01:35', sunkBy:'Cruisers Vincennes, Biloxi, Miami and destroyers of TF 34 — lost with all hands, including Chikuma\'s survivors (one man survived)', lost: 1000, wiki: W + 'Japanese_destroyer_Nowaki_(1940)' },
-    { id:'fujinami', name:'Fujinami', force:'center', type:'Destroyer', route:'center', until:'25 06:45',
-      extra:[['25 09:05', 11.45, 126.40, 'Detached to the disabled Chōkai'], ['25 11:00', 11.37, 126.37, 'Scuttles Chōkai and embarks her survivors'], ['25 14:00', 11.80, 126.00], ['25 21:30', 12.55, 124.40, 'Through San Bernardino with Kurita'], ['26 06:00', 12.60, 123.20, 'Sent to aid the grounded Hayashimo'], ['27 10:00', 12.30, 122.40], ['27 12:00', 12.00, 122.50, 'Sunk by TG 38.2 aircraft off Mindoro — no survivors from either crew']],
-      sunk:'27 12:00', sunkBy:'TG 38.2 aircraft — lost with all hands and every Chōkai survivor aboard', lost: 900, wiki: W + 'Japanese_destroyer_Fujinami' },
-  );
-  // casualty accounting now follows the men: light at the cruiser sinkings, heavy when the rescue destroyers were lost
-  L.ships.find(s => s.id === 'chokai').lost = 150; L.ships.find(s => s.id === 'chikuma').lost = 100;
-  // --- Bismarck: Electra (Hood's survivors) and Tartar (Mashona's)
-  B.ships.push(
-    { id:'electra', name:'HMS Electra', force:'holland', type:'E-class destroyer', route:'holland', until:'24 02:00',
-      extra:[['24 06:00', 63.00, -29.50, 'Ordered back to the battle area'], ['24 08:00', 63.33, -31.80, 'Finds three survivors of Hood among the wreckage'], ['24 09:00', 63.30, -31.70], ['25 12:00', 64.40, -21.80, 'Hvalfjörður'], ['28 18:00', 64.40, -21.80]], wiki: W + 'HMS_Electra_(H27)' },
-    { id:'tartar', name:'HMS Tartar', force:'rodney', type:'Tribal-class destroyer (Rodney\'s escort)', route:'rodney', until:'26 22:00',
-      extra:[['27 12:00', 51.50, -15.50, 'Homeward with Mashona and Somali, low on fuel'], ['28 09:00', 52.90, -11.80, 'Under Luftwaffe attack alongside Mashona'], ['28 14:30', 52.97, -11.60, 'Rescues 184 of Mashona\'s crew during a lull'], ['28 18:00', 53.20, -9.50, 'Toward the Clyde']], wiki: W + 'HMS_Tartar_(F43)' },
-  );
-  // --- rescue operations: by = ship id or {lat,lon,label}; of = sunk ship id or {lat,lon,label}; saved = men picked up
-  L.rescues = [
-    { by:'shimakaze', of:'musashi', from:'24 19:35', to:'25 02:30', saved:1376, note:'Shimakaze and Kiyoshimo circle the wreck site through the night; 1,023 of Musashi\'s crew are lost' },
-    { by:'kiyoshimo', of:'musashi', from:'24 19:35', to:'25 02:30', saved:null, note:'Shares the Musashi rescue with Shimakaze' },
-    { by:'dace', of:'darter', from:'24 00:05', to:'24 06:00', saved:81, note:'Darter\'s entire crew crosses to Dace by rubber boat; Dace then tries and fails to destroy the wreck' },
-    { by:'fujinami', of:'chokai', from:'25 11:00', to:'25 12:30', saved:null, note:'Every Chōkai survivor embarked — all lost two days later when Fujinami is sunk' },
-    { by:'nowaki', of:'chikuma', from:'25 11:30', to:'25 14:00', saved:null, note:'Chikuma\'s survivors embarked — lost with Nowaki off San Bernardino on the 26th; one man survived' },
-    { by:'heermann', of:'stlo', from:'25 11:25', to:'25 13:30', saved:784, note:'Heermann, Dennis, John C. Butler and Raymond pick up St. Lo\'s crew within hours' },
-    { by:{lat:11.60, lon:126.20, label:'Leyte rescue group (PC-623, PC-1119, LCIs)'}, of:'johnston', from:'26 22:00', to:'27 14:00', saved:1150, note:'Survivors of Johnston, Hoel, Samuel B. Roberts and Gambier Bay drift for two days before a search group from Leyte Gulf finds them' },
-    { by:{lat:19.33, lon:125.85, label:'Wakatsuki & Kuwa'}, of:'zuikaku', from:'25 14:14', to:'25 16:30', saved:862, note:'Destroyers Wakatsuki and Kuwa rescue 862 of Zuikaku\'s crew; Ozawa has already shifted to Ōyodo' },
-    { by:{lat:19.33, lon:125.25, label:'Kuwa & Wakatsuki'}, of:'zuiho', from:'25 15:26', to:'25 17:30', saved:759, note:'Zuihō\'s survivors picked up under continuing air attack' },
-    { by:{lat:15.35, lon:123.52, label:'Birmingham, Reno, Irwin'}, of:'princeton', from:'24 10:30', to:'24 17:50', saved:1361, note:'Birmingham comes alongside to fight the fires — and loses 233 men when Princeton\'s magazine explodes at 15:23' },
-  ];
-  B.rescues = [
-    { by:'electra', of:'hood', from:'24 08:00', to:'24 09:00', saved:3, note:'Of 1,418 men, Electra finds Ted Briggs, Bob Tilburn and Bill Dundas' },
-    { by:'dorsetshire', of:'bismarck', from:'27 10:45', to:'27 11:40', saved:85, note:'Rescue abandoned after a U-boat alarm, leaving hundreds in the water' },
-    { by:'maori', of:'bismarck', from:'27 10:45', to:'27 11:40', saved:25, note:'Maori picks up 25 more before the destroyers withdraw' },
-    { by:'u74', of:'bismarck', from:'27 19:00', to:'27 19:30', saved:3, note:'Three men on a raft; the weather ship Sachsenwald finds two more the next night' },
-    { by:'tartar', of:'mashona', from:'28 13:00', to:'28 14:30', saved:184, note:'Ten of the rescued die of hypothermia; 46 lost with the ship' },
-  ];
-  // timeline events for the notable ones
-  L.events.push(['24 19:40', 'Shimakaze and Kiyoshimo begin rescuing Musashi survivors (1,376 saved)', 13.10, 122.50], ['26 22:00', 'Search group from Leyte finds Taffy 3 survivors after two days adrift', 11.60, 126.20], ['27 12:00', 'Fujinami sunk with all of Chōkai\'s survivors aboard', 12.00, 122.50]);
-  B.events.push(['24 08:00', 'Electra finds Hood\'s three survivors', 63.33, -31.80], ['27 10:45', 'Dorsetshire and Maori rescue 110 Bismarck survivors', 48.18, -16.20], ['28 14:30', 'Tartar rescues 184 of Mashona\'s crew', 52.97, -11.60]);
-})();
+if (typeof module !== 'undefined' && module.exports) module.exports = FV;
+// ====================== BOOT: load data on demand, then start the engine ======================
+// index.html carries no scenario data. At start-up we fetch data/index.json (campaign list + war span),
+// then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
+// Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '1.3';
-$('version').textContent = 'v' + APP_VERSION; $('version').title = 'FleetView v' + APP_VERSION + ' — see CHANGELOG.md';
+const APP_VERSION = '2.0';
+const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
+const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
+
+async function loadJSON(url){ const r = await fetch(url, { cache: 'no-cache' }); if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`); return r.json(); }
+function bootMessage(html, isError){ const el = $('boot'); if (!el) return; el.innerHTML = html; el.classList.toggle('err', !!isError); el.style.display = html ? '' : 'none'; }
+function fvGoto(id, t){ location.hash = '#s=' + id + (t ? '&t=' + t : ''); location.reload(); }
+
+const fleetviewReady = (async function boot(){
+  $('version').textContent = 'v' + APP_VERSION; $('version').title = 'FleetView v' + APP_VERSION + ' — see CHANGELOG.md';
+  try {
+    bootMessage('Loading campaign index…');
+    const INDEX = await loadJSON(DATA_BASE + 'index.json');
+    const camp = INDEX.campaigns.find(c => c.id === hashParams.s) || INDEX.campaigns.find(c => c.id === INDEX.default) || INDEX.campaigns[0];
+    if (!camp) throw new Error('index.json lists no campaigns');
+    bootMessage(`Loading ${camp.title}…`);
+    const [SC, REGISTRY] = await Promise.all([
+      loadJSON(DATA_BASE + camp.file),
+      loadJSON(DATA_BASE + (INDEX.ships || 'ships.json')).catch(e => { console.warn('Ship registry unavailable', e); return { ships: {} }; }),
+    ]);
+    bootMessage('');
+    return runApp({ INDEX, SC, REGISTRY });
+  } catch (e){
+    console.error(e);
+    const local = location.protocol === 'file:';
+    bootMessage(`<b>FleetView could not load its data.</b><br>${e.message}` + (local ? `<br><br>Browsers block <code>fetch()</code> from <code>file://</code>. Serve the folder instead, e.g. <code>python3 -m http.server</code> or <code>npx serve</code>, and open <code>http://localhost:8000/</code>.` : ''), true);
+    throw e;
+  }
+})();
+if (typeof window !== 'undefined'){ window.fvGoto = fvGoto; window.fleetviewReady = fleetviewReady; }
+
+function runApp(DATA){
+const { INDEX, SC, REGISTRY } = DATA;
 // ====================== SCENARIO & ENGINE ======================
+// Everything from here to the end of tail.html runs inside runApp(DATA) — see app0.js.
 const NATIONS = {
   USN: { name:'United States Navy', short:'US Navy',  side:'allied', color:'#2563eb' },
   RN:  { name:'Royal Navy',         short:'Royal Navy', side:'allied', color:'#2563eb' },
   IJN: { name:'Imperial Japanese Navy', short:'IJN',  side:'axis',   color:'#c0262b' },
   KM:  { name:'Kriegsmarine',       short:'Kriegsmarine', side:'axis', color:'#4b5563' },
 };
-const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
-const SC = SCENARIOS[hashParams.s] || SCENARIOS.leyte;
 const { forces: FORCES, routes: ROUTES, ships: SHIPS, strikes: STRIKES, groups: GROUPS, events: EVENTS, ports: PORTS } = SC;
-const [BASE_Y, BASE_M] = SC.base;
+const CAMPAIGNS = INDEX.campaigns, CAMPAIGN = CAMPAIGNS.find(c => c.id === SC.id) || null;
 // 'DD HH:MM' within the scenario's base month, or 'YYYY-MM-DD HH:MM'
-const T = s => { const m = s.match(/^(?:(\d{4})-(\d{2})-)?(\d{1,2}) (\d{1,2}):(\d{2})$/); return Date.UTC(m[1] ? +m[1] : BASE_Y, m[2] ? +m[2]-1 : BASE_M, +m[3], +m[4], +m[5]); };
+const T = FV.makeT(SC.base);
 const T0 = T(SC.start), T1 = T(SC.end);
-const HOUR = 3600e3, DAY = 24 * HOUR;
+const { HOUR, DAY, bearing, distNm } = FV;
 const KEY_SHIPS = new Set(SC.keyShips || []);
 const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -1408,37 +527,24 @@ function fmtDate(t){ const d = new Date(t); return `${DOW[d.getUTCDay()]} ${d.ge
 function fmtTime(t){ const d = new Date(t); return `${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}`; }
 function fmtShort(t){ const d = new Date(t); return `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${fmtTime(t)}`; }
 function fmtLL(lat, lon){ const f = (v, p, n) => { const a = Math.abs(v); let d = Math.floor(a), m = Math.round((a - d) * 60); if (m === 60){ d++; m = 0; } return `${d}°${String(m).padStart(2,'0')}′${v>=0?p:n}`; }; return `${f(lat,'N','S')} ${f(lon,'E','W')}`; }
-function bearing(a, b){ const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, Δλ=(b.lon-a.lon)*Math.PI/180; const y=Math.sin(Δλ)*Math.cos(φ2); const x=Math.cos(φ1)*Math.sin(φ2)-Math.sin(φ1)*Math.cos(φ2)*Math.cos(Δλ); return (Math.atan2(y,x)*180/Math.PI+360)%360; }
-function distNm(a, b){ const R=3440.065; const φ1=a.lat*Math.PI/180, φ2=b.lat*Math.PI/180, dφ=φ2-φ1, dλ=(b.lon-a.lon)*Math.PI/180; const h=Math.sin(dφ/2)**2+Math.cos(φ1)*Math.cos(φ2)*Math.sin(dλ/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
 
 // header
+document.title = 'FleetView — ' + SC.title;
 document.querySelector('#side .sub').textContent = SC.subtitle;
 document.querySelector('#clock small').textContent = SC.tz;
 $('foot').textContent = SC.footnote;
-(function(){ const sel = $('scenario'); Object.values(SCENARIOS).forEach(sc => { const o = document.createElement('option'); o.value = sc.id; o.textContent = sc.title; if (sc === SC) o.selected = true; sel.appendChild(o); }); sel.onchange = e => { location.hash = '#s=' + e.target.value; location.reload(); }; })();
+(function(){ const sel = $('scenario'); CAMPAIGNS.forEach(c => { const o = document.createElement('option'); o.value = c.id; o.textContent = c.title; if (c.id === SC.id) o.selected = true; sel.appendChild(o); }); sel.onchange = e => fvGoto(e.target.value); })();
 
 // Interpolate along a raw route ([time,lat,lon,note]) at absolute time t
-function interpRaw(route, t){
-  for (let i = 0; i < route.length - 1; i++){
-    const a = T(route[i][0]), b = T(route[i+1][0]);
-    if (t >= a && t <= b){ const f = b === a ? 0 : (t - a) / (b - a); return [route[i][1] + (route[i+1][1]-route[i][1])*f, route[i][2] + (route[i+1][2]-route[i][2])*f]; }
-  }
-  const l = route[route.length-1]; return [l[1], l[2]];
-}
+const interpRaw = (route, t) => FV.interpRaw(route, t, T);
 
+// Registry merge: a scenario ship inherits name / type / wiki from data/ships.json when it does not set them itself
+const REG = (REGISTRY && REGISTRY.ships) || {};
+SHIPS.forEach(s => { const r = REG[s.ref || s.id]; if (!r) return; s.reg = r; if (!s.name) s.name = r.name; if (!s.type) s.type = r.class || ''; if (!s.wiki && r.wiki) s.wiki = r.wiki; });
 // Build per-ship waypoint arrays and formation offsets
 const groupIdx = {};
 SHIPS.forEach(s => {
-  const base = ROUTES[s.route];
-  let raw;
-  if (s.until){
-    const u = T(s.until);
-    raw = base.filter(p => T(p[0]) <= u);
-    if (!raw.length || T(raw[raw.length-1][0]) !== u) raw.push([s.until, ...interpRaw(base, u)]);
-    raw = raw.concat(s.extra || []);
-  } else raw = base.slice();
-  s.wp = raw.map(p => ({ t: T(p[0]), lat: p[1], lon: p[2], note: p[3] || null, src: p[4] === 'S' ? true : p[4] === 'R' ? false : !!p[3] }));
-  if (s.sunk) s.wp[s.wp.length-1].src = true;
+  s.wp = FV.rawWaypoints(s, ROUTES, T); s.wpHash = FV.wpHash(s.wp);
   s.untilT = s.until ? T(s.until) : Infinity;
   s.sunkT = s.sunk ? T(s.sunk) : Infinity;
   s.color = FORCES[s.force].color;
@@ -1645,7 +751,10 @@ function fillPopup(s){
   let conf = ''; { let best = null; for (const w of s.wp){ if (w.src && !w.via && Math.abs(w.t - state.t) < (best ? Math.abs(best.t - state.t) : Infinity)) best = w; }
     if (best && Math.abs(best.t - state.t) <= 30*60e3) conf = '<span class="cf ok">● documented fix</span>'; else if (best){ const h = Math.abs(best.t - state.t) / HOUR; conf = `<span class="cf">○ reconstructed · nearest fix ${h < 1 ? Math.round(h*60) + ' min' : h.toFixed(h < 10 ? 1 : 0) + ' h'} ${best.t < state.t ? 'earlier' : 'later'}</span>`; } }
   const following = state.follow === s;
-  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div><div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost !== undefined && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
+  // cross-campaign registry: other campaigns this ship appears in (deep links), and her eventual fate if not lost here
+  const reg = s.reg || {}; const also = (reg.appearances || []).filter(a => a.scenario !== SC.id).map(a => { const c = CAMPAIGNS.find(c => c.id === a.scenario); return c ? `<a href="#s=${c.id}&t=${a.from}" onclick="fvGoto('${c.id}','${a.from}');return false" title="${c.subtitle || ''}">${c.title}</a>${a.sunk ? ' ✕' : ''}` : null; }).filter(Boolean);
+  const regHtml = (also.length ? `<div class="k also">Also in: ${also.join(' · ')}</div>` : '') + (reg.fate && !s.sunk ? `<div class="k also">Fate: ${reg.fate}</div>` : '');
+  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div>${regHtml}<div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost !== undefined && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
   if (!popup.isOpen()) popup.openOn(map);
 }
 
@@ -1860,126 +969,41 @@ function renderPorts(){
 state.ports = true;
 $('optPorts').onchange = e => { state.ports = e.target.checked; render(); };
 const _render2 = render; render = function(){ _render2(); renderBooms(); renderPorts(); };
-// ====================== SEA ROUTING ======================
-// Loads Natural Earth 1:10m land (world-atlas TopoJSON), rasterises it to a grid over the scenario area,
-// and re-routes any waypoint leg that crosses land using A*. Purely cosmetic: waypoint times are kept,
-// intermediate points are spread along the detour at constant speed.
-const ROUTING = { res: (SC.routing && SC.routing.res) || 0.03, bbox: SC.routing && SC.routing.bbox, margin: 3, url: 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-10m.json', alt: 'https://unpkg.com/world-atlas@2.0.2/land-10m.json' };
+// ====================== SEA ROUTING (pre-baked) ======================
+// Routing around coastlines is computed at build time by tools/bake-routes.mjs (Natural Earth 1:10m, A* on a
+// 2–3 km grid) and stored in the scenario JSON under routing.ships[shipId] = { hash, snap, via }. Here we only
+// apply it: waypoint times are kept, detour points are spread along each leg at constant speed. A record is
+// ignored (straight legs, console warning) when its hash no longer matches the ship's waypoints — i.e. the
+// data was edited after the last bake. Nothing is downloaded at runtime.
+const ROUTING = SC.routing || {};
+const BAKED = ROUTING.ships || null;
 
-function topoToRings(topo){
-  const tr = topo.transform, sc = tr ? tr.scale : [1,1], tl = tr ? tr.translate : [0,0];
-  const arcs = topo.arcs.map(arc => { let x = 0, y = 0; return arc.map(p => { if (tr){ x += p[0]; y += p[1]; return [x*sc[0]+tl[0], y*sc[1]+tl[1]]; } return [p[0], p[1]]; }); });
-  const ring = idxs => { let out = []; for (const i of idxs){ const a = i < 0 ? arcs[~i].slice().reverse() : arcs[i]; out = out.concat(out.length ? a.slice(1) : a); } return out; };
-  const rings = []; const walk = g => { if (!g) return; if (g.type === 'GeometryCollection') g.geometries.forEach(walk); else if (g.type === 'Polygon') g.arcs.forEach(r => rings.push(ring(r))); else if (g.type === 'MultiPolygon') g.arcs.forEach(p => p.forEach(r => rings.push(ring(r)))); };
-  Object.values(topo.objects).forEach(walk); return rings;
-}
-
-// Grid: mask[i] = 1 land, 0 sea; near[i] = 1 if sea cell touches land (soft penalty)
-function buildGrid(rings, bbox, res){
-  const [lat0, lon0, lat1, lon1] = bbox; const W = Math.ceil((lon1 - lon0) / res), H = Math.ceil((lat1 - lat0) / res);
-  const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const ctx = cv.getContext('2d');
-  ctx.fillStyle = '#000'; ctx.beginPath();
-  for (const r of rings){ let inside = false; for (const [x, y] of r){ if (x >= lon0 - 1 && x <= lon1 + 1 && y >= lat0 - 1 && y <= lat1 + 1){ inside = true; break; } } if (!inside) continue;
-    r.forEach(([x, y], i) => { const px = (x - lon0) / res, py = (lat1 - y) / res; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.closePath(); }
-  ctx.fill('evenodd');
-  const img = ctx.getImageData(0, 0, W, H).data; const mask = new Uint8Array(W*H), near = new Uint8Array(W*H);
-  for (let i = 0; i < W*H; i++) mask[i] = img[i*4+3] > 127 ? 1 : 0;
-  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++){ const i = y*W+x; if (mask[i]) continue; for (let dy = -1; dy <= 1 && !near[i]; dy++) for (let dx = -1; dx <= 1; dx++){ const nx = x+dx, ny = y+dy; if (nx >= 0 && ny >= 0 && nx < W && ny < H && mask[ny*W+nx]){ near[i] = 1; break; } } }
-  return { W, H, mask, near, lat0, lon0, lat1, lon1, res,
-    toCell(lat, lon){ return [Math.min(W-1, Math.max(0, Math.floor((lon - lon0) / res))), Math.min(H-1, Math.max(0, Math.floor((lat1 - lat) / res)))]; },
-    toLL(x, y){ return [lat1 - (y + .5) * res, lon0 + (x + .5) * res]; },
-    isLand(lat, lon){ const [x, y] = this.toCell(lat, lon); return mask[y*W+x] === 1; } };
-}
-
-// Binary heap on f-scores
-function Heap(f){ const a = []; return { push(i){ a.push(i); let k = a.length-1; while (k){ const p = (k-1)>>1; if (f[a[p]] <= f[a[k]]) break; [a[p], a[k]] = [a[k], a[p]]; k = p; } },
-  pop(){ const top = a[0], last = a.pop(); if (a.length){ a[0] = last; let k = 0; for(;;){ let l = 2*k+1, r = l+1, m = k; if (l < a.length && f[a[l]] < f[a[m]]) m = l; if (r < a.length && f[a[r]] < f[a[m]]) m = r; if (m === k) break; [a[m], a[k]] = [a[k], a[m]]; k = m; } } return top; }, get size(){ return a.length; } }; }
-
-function nearestSea(G, x, y, maxR){ if (!G.mask[y*G.W+x]) return [x, y]; for (let r = 1; r <= maxR; r++) for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++){ if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue; const nx = x+dx, ny = y+dy; if (nx >= 0 && ny >= 0 && nx < G.W && ny < G.H && !G.mask[ny*G.W+nx]) return [nx, ny]; } return null; }
-
-function astar(G, a, b, box){
-  const { W, H, mask, near } = G; const N = W*H;
-  if (!astar.g){ astar.g = new Float32Array(N); astar.f = new Float32Array(N); astar.from = new Int32Array(N); astar.gen = new Uint32Array(N); astar.cur = 0; }
-  const g = astar.g, f = astar.f, from = astar.from, gen = astar.gen, cur = ++astar.cur;
-  const [ax, ay] = a, [bx, by] = b; const heap = Heap(f);
-  const h = (x, y) => { const dx = Math.abs(x-bx), dy = Math.abs(y-by); return Math.max(dx, dy) + 0.4142 * Math.min(dx, dy); };
-  const si = ay*W+ax; g[si] = 0; f[si] = h(ax, ay); from[si] = -1; gen[si] = cur; heap.push(si);
-  const closed = new Uint8Array(0); let expanded = 0;
-  while (heap.size){
-    const i = heap.pop(); if (i === by*W+bx){ const path = []; let k = i; while (k !== -1){ path.push([k % W, (k / W) | 0]); k = from[k]; } return path.reverse(); }
-    if (++expanded > 4e6) return null;
-    const x = i % W, y = (i / W) | 0;
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++){ if (!dx && !dy) continue; const nx = x+dx, ny = y+dy;
-      if (nx < box[0] || nx > box[2] || ny < box[1] || ny > box[3]) continue; const ni = ny*W+nx; if (mask[ni]) continue;
-      if (dx && dy && (mask[y*W+nx] || mask[ny*W+x])) continue; // no corner cutting
-      const step = (dx && dy ? 1.4142 : 1) * (near[ni] ? 2.5 : 1); const ng = g[i] + step;
-      if (gen[ni] !== cur || ng < g[ni]){ gen[ni] = cur; g[ni] = ng; f[ni] = ng + h(nx, ny); from[ni] = i; heap.push(ni); } }
-  }
-  return null;
-}
-
-function lineClear(G, x0, y0, x1, y1){ const n = Math.ceil(Math.max(Math.abs(x1-x0), Math.abs(y1-y0))) * 2 + 1; for (let k = 0; k <= n; k++){ const x = Math.round(x0 + (x1-x0)*k/n), y = Math.round(y0 + (y1-y0)*k/n); if (G.mask[y*G.W+x]) return false; } return true; }
-function pullString(G, path){ const out = [path[0]]; let i = 0; while (i < path.length-1){ let j = path.length-1; while (j > i+1 && !lineClear(G, path[i][0], path[i][1], path[j][0], path[j][1])) j--; out.push(path[j]); i = j; } return out; }
-
-// does the straight leg a→b cross land (ignoring the first/last 0.12° near ports)?
-function inGrid(G, p){ return p.lat > G.lat0 && p.lat < G.lat1 && p.lon > G.lon0 && p.lon < G.lon1; }
-function legCrossesLand(G, a, b){ if (!inGrid(G, a) || !inGrid(G, b)) return false; const d = Math.hypot(b.lat-a.lat, b.lon-a.lon); if (d < 1e-6) return false; const n = Math.max(2, Math.ceil(d / (G.res/2))); for (let k = 0; k <= n; k++){ const f = k/n; if (G.isLand(a.lat + (b.lat-a.lat)*f, a.lon + (b.lon-a.lon)*f)) return true; } return false; }
-// move a waypoint that sits on land to the centre of the nearest sea cell
-function snapToSea(G, p){ if (!inGrid(G, p) || !G.isLand(p.lat, p.lon)) return p; const c = G.toCell(p.lat, p.lon); const s = nearestSea(G, c[0], c[1], 25); if (!s) return p; const [lat, lon] = G.toLL(s[0], s[1]); return Object.assign({}, p, { lat, lon, snapped: true }); }
-
-function routeLeg(G, a, b){
-  let [ax, ay] = G.toCell(a.lat, a.lon), [bx, by] = G.toCell(b.lat, b.lon);
-  const sa = nearestSea(G, ax, ay, 12), sb = nearestSea(G, bx, by, 12); if (!sa || !sb) return null;
-  const m = Math.round(ROUTING.margin / G.res);
-  const box = [Math.max(0, Math.min(sa[0], sb[0]) - m), Math.max(0, Math.min(sa[1], sb[1]) - m), Math.min(G.W-1, Math.max(sa[0], sb[0]) + m), Math.min(G.H-1, Math.max(sa[1], sb[1]) + m)];
-  const path = astar(G, sa, sb, box); if (!path || path.length < 3) return null;
-  const pts = pullString(G, path).slice(1, -1).map(([x, y]) => G.toLL(x, y));
-  return pts;
-}
-
-function applyRouting(G){
-  let legs = 0, snapped = 0;
+function applyRouting(){
+  let legs = 0, snapped = 0, stale = 0, routedShips = 0;
   for (const s of SHIPS){
     if (!s.wp0) s.wp0 = s.wp;
-    const base = s.wp0.map(p => { const q = snapToSea(G, p); if (q !== p) snapped++; return q; });
-    const out = [base[0]];
-    for (let i = 1; i < base.length; i++){
-      const a = base[i-1], b = base[i];
-      if (legCrossesLand(G, a, b)){
-        const via = routeLeg(G, a, b);
-        if (via && via.length){
-          legs++;
-          const chain = [[a.lat, a.lon], ...via, [b.lat, b.lon]]; const cum = [0];
-          for (let k = 1; k < chain.length; k++) cum.push(cum[k-1] + distNm({lat:chain[k-1][0], lon:chain[k-1][1]}, {lat:chain[k][0], lon:chain[k][1]}));
-          const total = cum[cum.length-1] || 1;
-          via.forEach((p, k) => out.push({ t: a.t + (b.t - a.t) * cum[k+1] / total, lat: p[0], lon: p[1], note: null, via: true }));
-        }
-      }
-      out.push(b);
-    }
-    s.wp = out; buildRouteLines(s);
+    const r = BAKED && BAKED[s.id];
+    if (!r){ s.wp = s.wp0; buildRouteLines(s); continue; }
+    if (r.hash !== s.wpHash){ stale++; s.wp = s.wp0; buildRouteLines(s); continue; }
+    const res = FV.applyBakedRouting(s.wp0, r);
+    s.wp = res.wp; legs += res.legs; snapped += res.snapped; if (res.legs || res.snapped) routedShips++;
+    buildRouteLines(s);
   }
-  return { legs, snapped };
+  if (stale) console.warn(`Sea routing: ${stale} ship(s) have stale baked routing — edit made after the last bake; run tools/bake-routes.mjs ${SC.id}`);
+  return { legs, snapped, stale, routedShips };
 }
 function clearRouting(){ for (const s of SHIPS){ if (s.wp0){ s.wp = s.wp0; buildRouteLines(s); } } }
 
-const seaStatus = document.createElement('div'); seaStatus.id = 'seastatus'; seaStatus.textContent = 'Sea routing: loading coastline…'; $('foot').parentNode.insertBefore(seaStatus, $('foot'));
-state.searoute = true; let seaGrid = null;
+const seaStatus = document.createElement('div'); seaStatus.id = 'seastatus'; $('foot').parentNode.insertBefore(seaStatus, $('foot'));
+state.searoute = true;
 (function(){ const l = document.createElement('label'); l.innerHTML = '<input type="checkbox" id="optSea" checked> Sea routing'; $('opts').appendChild(l);
-  l.querySelector('input').onchange = e => { state.searoute = e.target.checked; if (seaGrid){ if (state.searoute) applyRouting(seaGrid); else clearRouting(); render(); } }; })();
+  l.querySelector('input').onchange = e => { state.searoute = e.target.checked; if (state.searoute) applyRouting(); else clearRouting(); render(); }; })();
 
-(async function initRouting(){
-  if (typeof fetch !== 'function') return;
-  try {
-    let topo; try { topo = await (await fetch(ROUTING.url)).json(); } catch(e){ topo = await (await fetch(ROUTING.alt)).json(); }
-    const rings = topoToRings(topo);
-    let lat0 = 90, lat1 = -90, lon0 = 180, lon1 = -180;
-    for (const s of SHIPS) for (const p of s.wp){ lat0 = Math.min(lat0, p.lat); lat1 = Math.max(lat1, p.lat); lon0 = Math.min(lon0, p.lon); lon1 = Math.max(lon1, p.lon); }
-    const bbox = ROUTING.bbox || [lat0 - 1, lon0 - 1, lat1 + 1, lon1 + 1];
-    const t0 = performance.now(); seaGrid = buildGrid(rings, bbox, ROUTING.res);
-    const r = state.searoute ? applyRouting(seaGrid) : { legs: 0, snapped: 0 }; render();
-    seaStatus.textContent = `Sea routing: on · ${r.legs} legs re-routed, ${r.snapped} waypoints nudged off shore (${Math.round(performance.now() - t0)} ms, ${seaGrid.W}×${seaGrid.H} @ ${ROUTING.res}°)`;
-  } catch (e){ console.warn('Sea routing unavailable', e); seaStatus.textContent = 'Sea routing: unavailable offline — using straight legs'; }
+(function initRouting(){
+  if (!BAKED){ seaStatus.textContent = 'Sea routing: not baked for this campaign — straight legs (run tools/bake-routes.mjs)'; $('optSea').disabled = true; return; }
+  const r = applyRouting();
+  seaStatus.textContent = `Sea routing: baked ${ROUTING.bakedAt || ''} · ${r.legs} legs re-routed, ${r.snapped} waypoints nudged off shore` + (r.stale ? ` · ${r.stale} ship(s) stale` : '') + ` · ${ROUTING.source || 'coastline'} @ ${ROUTING.res}°`;
+  seaStatus.title = 'Computed at build time from Natural Earth 1:10m coastlines; the browser downloads no coastline data.';
 })();
 // ====================== GUNFIRE & BOMB FLASHES ======================
 const ENG = (SC.engagements || []).map(e => ({ ships: e.ships.map(id => shipById[id]).filter(Boolean), t0: T(e.from), t1: T(e.to), rate: e.rate || .35 }));
@@ -2165,11 +1189,44 @@ function renderRescues(){
 EV.forEach(e => { if (/rescu|survivor/i.test(e.title)) e.rescue = true; });
 const _renderEvents = renderEvents; renderEvents = function(){ _renderEvents(); EV.forEach(e => { if (e.rescue) e.el.classList.add('rescue'); }); };
 const _render5 = render; render = function(){ _render5(); renderRescues(); };
+// ====================== WAR-LEVEL TIMELINE ======================
+// A second, coarser bar above the battle slider spanning the whole war at sea (index.json → war.start/end).
+// Every campaign in data/index.json is a block; the current one is highlighted and carries the position marker.
+// Click another campaign to open it; click inside the current block to jump to that point of the battle.
+const WAR0 = Date.parse(INDEX.war.start + 'Z'), WAR1 = Date.parse(INDEX.war.end + 'Z');
+const warbar = $('warbar'), warcamps = $('warcamps'), warpos = $('warpos');
+const warPct = t => (t - WAR0) / (WAR1 - WAR0) * 100;
+for (let y = new Date(WAR0).getUTCFullYear() + 1; y <= new Date(WAR1).getUTCFullYear(); y++){ const el = document.createElement('div'); el.className = 'yr'; el.style.left = warPct(Date.UTC(y, 0, 1)) + '%'; el.textContent = y; warbar.appendChild(el); }
+const WARC = CAMPAIGNS.map(c => {
+  const t0 = Date.parse(c.start + 'Z'), t1 = Date.parse(c.end + 'Z'), cur = c.id === SC.id;
+  const el = document.createElement('div'); el.className = 'camp' + (cur ? ' cur' : '');
+  el.title = `${c.title}\n${c.subtitle} · ${c.ships} ships, ${c.losses} lost` + (cur ? '' : '\nClick to open');
+  el.innerHTML = `<span class="cl">${c.title.replace(/\s+—.*$/, '')}</span>`;
+  el.onclick = e => { if (!cur){ fvGoto(c.id); return; } const r = el.getBoundingClientRect(); const f = r.width ? (e.clientX - r.left) / r.width : 0; togglePlay(false); setTime(T0 + (T1 - T0) * Math.max(0, Math.min(1, f)), true); };
+  warcamps.appendChild(el); return { c, t0, t1, cur, el };
+});
+function layoutWar(){
+  const W = warbar.clientWidth; if (!W) return; const shown = [];
+  const fits = (a, b) => shown.every(([x, y]) => b < x - 6 || a > y + 6);
+  for (const w of [...WARC].sort((a, b) => (b.cur - a.cur) || (a.t0 - b.t0))){ // current campaign's label has priority
+    const x0 = warPct(w.t0) / 100 * W, x1 = warPct(w.t1) / 100 * W; const bw = Math.max(9, x1 - x0);
+    const left = Math.max(0, Math.min(W - bw, (x0 + x1) / 2 - bw / 2)); w.el.style.left = left + 'px'; w.el.style.width = bw + 'px';
+    const lbl = w.el.querySelector('.cl'); lbl.style.display = ''; const lw = lbl.offsetWidth || 70, lc = left + bw / 2;
+    if (fits(lc - lw / 2, lc + lw / 2)) shown.push([lc - lw / 2, lc + lw / 2]); else lbl.style.display = 'none';
+  }
+}
+function renderWar(){ warpos.style.left = warPct(state.t) + '%'; }
+layoutWar(); if (window.ResizeObserver) new ResizeObserver(layoutWar).observe(warbar); window.addEventListener('resize', layoutWar);
+const _render6 = render; render = function(){ _render6(); renderWar(); };
 // ---- init
 (function init(){
   const m = (hashParams.t || '').match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/); if (m){ const v = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5]); if (v >= T0 && v <= T1) state.t = v; }
   render();
 })();
+// inline handlers in popup HTML need these on window
+window.toggleFollow = toggleFollow; window.stopFollow = stopFollow;
+return { SC, INDEX, REGISTRY, state, setTime, togglePlay, SHIPS, EV, T, T0, T1, posAt, render, openPopup, STRIKES, strikeAt, FLAGS, fmtDate, fmtShort, flicker, applyRouting, clearRouting, layoutWar, WARC };
+} // end runApp
 </script>
 </body>
 </html>

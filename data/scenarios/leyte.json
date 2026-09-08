@@ -1,0 +1,1731 @@
+{
+ "id": "leyte",
+ "title": "Battle of Leyte Gulf",
+ "subtitle": "Philippines · 17–28 October 1944",
+ "base": [1944, 9],
+ "start": "17 00:00",
+ "end": "29 00:00",
+ "tz": "Tokyo time · UTC+9",
+ "majorDays": [24, 25],
+ "view": {
+  "center": [13.5, 124],
+  "zoom": 6,
+  "min": 4,
+  "max": 11
+ },
+ "routing": {
+  "res": 0.02,
+  "bbox": [-1, 103, 26, 136],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-08",
+  "ships": {
+   "yamato": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "musashi": {
+    "hash": "e9972646",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]]
+    }
+   },
+   "nagato": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "kongo": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "haruna": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "atago": {
+    "hash": "845b584a",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03]
+    }
+   },
+   "maya": {
+    "hash": "dd6835bf",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03]
+    }
+   },
+   "takao": {
+    "hash": "acce391e",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [5.07, 115.03],
+     "13": [5.07, 115.03]
+    },
+    "via": {
+     "12": [[5.11, 115.03]]
+    }
+   },
+   "myoko": {
+    "hash": "06f0a982",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "19": [5.07, 115.03],
+     "20": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "16": [[12.13, 121.13]],
+     "17": [[11.55, 119.99], [11.51, 119.71], [11.39, 119.41]],
+     "18": [[8.35, 116.99]],
+     "19": [[5.23, 115.11]]
+    }
+   },
+   "haguro": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "chokai": {
+    "hash": "efc5046a",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]]
+    }
+   },
+   "chikuma": {
+    "hash": "9910dbdb",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]]
+    }
+   },
+   "tone": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "suzuya": {
+    "hash": "eba702f4",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]]
+    }
+   },
+   "kumano": {
+    "hash": "a4a150f7",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "25": [12.53, 125.25],
+     "26": [12.57, 124.27]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "26": [[12.61, 125.15], [12.59, 124.25]],
+     "27": [[12.51, 123.97], [12.71, 123.59]],
+     "28": [[12.23, 122.55], [12.07, 121.99]],
+     "29": [[11.97, 120.23]],
+     "30": [[11.99, 120.39], [13.59, 120.27], [14.37, 120.67]]
+    }
+   },
+   "yahagi": {
+    "hash": "c100d612",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99],
+     "35": [5.07, 115.03],
+     "36": [5.07, 115.03]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]],
+     "32": [[12.07, 121.99]],
+     "34": [[10.47, 119.73], [8.85, 118.03]],
+     "35": [[8.11, 117.31], [5.15, 115.03]]
+    }
+   },
+   "noshiro": {
+    "hash": "0e9c852c",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "28": [12.53, 125.25],
+     "29": [12.57, 124.39],
+     "30": [12.53, 123.99]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "29": [[12.61, 125.15]],
+     "30": [[12.61, 124.23], [12.51, 124.03]],
+     "31": [[12.71, 123.57]]
+    }
+   },
+   "yamashiro": {
+    "hash": "97249587",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]]
+    }
+   },
+   "fuso": {
+    "hash": "1afca130",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]]
+    }
+   },
+   "mogami": {
+    "hash": "9b641c34",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]],
+     "15": [[9.89, 125.31]]
+    }
+   },
+   "shigure": {
+    "hash": "f8554c0e",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55],
+     "14": [10.01, 125.29],
+     "18": [5.07, 115.03],
+     "19": [5.07, 115.03]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]],
+     "15": [[9.95, 125.33], [9.89, 125.27]],
+     "16": [[8.51, 121.61]],
+     "18": [[7.05, 116.97], [7.03, 116.71], [5.19, 115.03]]
+    }
+   },
+   "yamagumo": {
+    "hash": "260b0593",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]]
+    }
+   },
+   "michishio": {
+    "hash": "dadbd2ee",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]]
+    }
+   },
+   "asagumo": {
+    "hash": "9a90d662",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "9": [9.11, 123.55]
+    },
+    "via": {
+     "6": [[5.79, 115.43]],
+     "9": [[9.05, 123.49]],
+     "10": [[9.07, 123.65]],
+     "12": [[9.95, 125.33]]
+    }
+   },
+   "nachi": {
+    "hash": "fe58fae9",
+    "snap": {
+     "12": [9.37, 122.69]
+    },
+    "via": {
+     "2": [[23.25, 119.39]],
+     "4": [[12.07, 119.89], [11.93, 120.11]],
+     "6": [[11.79, 120.23]],
+     "7": [[9.01, 123.01], [9.13, 123.85]],
+     "9": [[9.93, 125.33]],
+     "10": [[9.89, 125.31]],
+     "12": [[9.07, 123.61], [9.03, 122.95]],
+     "13": [[9.47, 122.53]],
+     "14": [[11.89, 120.19]],
+     "15": [[11.99, 120.39], [13.59, 120.27], [14.37, 120.67]]
+    }
+   },
+   "ashigara": {
+    "hash": "fe58fae9",
+    "snap": {
+     "12": [9.37, 122.69]
+    },
+    "via": {
+     "2": [[23.25, 119.39]],
+     "4": [[12.07, 119.89], [11.93, 120.11]],
+     "6": [[11.79, 120.23]],
+     "7": [[9.01, 123.01], [9.13, 123.85]],
+     "9": [[9.93, 125.33]],
+     "10": [[9.89, 125.31]],
+     "12": [[9.07, 123.61], [9.03, 122.95]],
+     "13": [[9.47, 122.53]],
+     "14": [[11.89, 120.19]],
+     "15": [[11.99, 120.39], [13.59, 120.27], [14.37, 120.67]]
+    }
+   },
+   "abukuma": {
+    "hash": "4e60a51a",
+    "via": {
+     "2": [[23.25, 119.39]],
+     "4": [[12.07, 119.89], [11.93, 120.11]],
+     "6": [[11.79, 120.23]],
+     "7": [[9.01, 123.01], [9.13, 123.85]],
+     "12": [[9.27, 123.45], [9.03, 123.15], [9.03, 122.95]]
+    }
+   },
+   "zuikaku": { "hash": "21ce7a76" },
+   "zuiho": { "hash": "abcec858" },
+   "chitose": { "hash": "815f44b1" },
+   "chiyoda": { "hash": "b5cf2e08" },
+   "ise": { "hash": "a6829512" },
+   "hyuga": { "hash": "a6829512" },
+   "oyodo": { "hash": "a64599e5" },
+   "tama": { "hash": "02d8a8ae" },
+   "fanshaw": { "hash": "76e3e679" },
+   "gambier": { "hash": "8de4b329" },
+   "stlo": { "hash": "be25be25" },
+   "kalinin": { "hash": "76e3e679" },
+   "johnston": { "hash": "cbdf1bce" },
+   "hoel": { "hash": "4ce55b21" },
+   "heermann": { "hash": "76e3e679" },
+   "sbr": { "hash": "36c06685" },
+   "essex": { "hash": "7edeaeac" },
+   "lexington": { "hash": "7edeaeac" },
+   "princeton": { "hash": "6caee4cb" },
+   "intrepid": { "hash": "d1fd256a" },
+   "newjersey": { "hash": "d1fd256a" },
+   "iowa": { "hash": "d1fd256a" },
+   "enterprise": { "hash": "f8061af7" },
+   "hornet": { "hash": "40e0866d" },
+   "wv": {
+    "hash": "6d6448e7",
+    "via": {
+     "1": [[10.77, 125.61]]
+    }
+   },
+   "california": {
+    "hash": "6d6448e7",
+    "via": {
+     "1": [[10.77, 125.61]]
+    }
+   },
+   "mississippi": {
+    "hash": "6d6448e7",
+    "via": {
+     "1": [[10.77, 125.61]]
+    }
+   },
+   "louisville": {
+    "hash": "6d6448e7",
+    "via": {
+     "1": [[10.77, 125.61]]
+    }
+   },
+   "darter": { "hash": "89afae3f" },
+   "dace": { "hash": "2fe3e5a8" },
+   "shimakaze": {
+    "hash": "9b3f89ff",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.19, 121.25], [12.13, 121.09], [12.27, 121.01]],
+     "20": [[11.97, 120.31]],
+     "21": [[11.99, 120.39], [13.61, 120.27]]
+    }
+   },
+   "kiyoshimo": {
+    "hash": "9b3f89ff",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.19, 121.25], [12.13, 121.09], [12.27, 121.01]],
+     "20": [[11.97, 120.31]],
+     "21": [[11.99, 120.39], [13.61, 120.27]]
+    }
+   },
+   "nowaki": {
+    "hash": "e8db86c5",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "26": [12.47, 125.29]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "26": [[12.49, 125.33]],
+     "27": [[12.61, 125.25]]
+    }
+   },
+   "fujinami": {
+    "hash": "2f02eb61",
+    "snap": {
+     "0": [0.21, 104.57],
+     "1": [0.21, 104.57],
+     "4": [5.07, 115.03],
+     "5": [5.07, 115.03],
+     "12": [12.31, 121.13],
+     "26": [12.57, 124.39]
+    },
+    "via": {
+     "11": [[12.35, 119.89]],
+     "19": [[12.69, 123.79], [12.51, 124.01]],
+     "20": [[12.65, 124.45]],
+     "21": [[12.57, 125.25]],
+     "26": [[12.61, 125.17]],
+     "27": [[12.61, 124.23], [12.51, 124.03], [12.71, 123.57]],
+     "28": [[12.25, 122.59]]
+    }
+   }
+  }
+ },
+ "keyShips": ["yamato", "musashi", "yamashiro", "zuikaku", "nachi", "fanshaw", "johnston", "essex", "newjersey", "wv", "darter"],
+ "scenes": [
+  ["Overview", "25 06:30", [13.5, 124], 6],
+  ["Palawan Passage", "23 05:20", [9.5, 117.2], 9],
+  ["Sibuyan Sea", "24 14:30", [12.9, 122.5], 8],
+  ["Surigao Strait", "25 03:45", [10.3, 125.35], 9],
+  ["Samar", "25 08:30", [11.75, 126.3], 9],
+  ["Cape Engaño", "25 13:00", [19.1, 126], 8]
+ ],
+ "defaultTime": "25 06:30",
+ "footnote": "Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "center": { "name": "IJN Center Force (Kurita)", "color": "#e5484d", "nation": "IJN" },
+  "southern": { "name": "IJN Southern Force (Nishimura)", "color": "#f97316", "nation": "IJN" },
+  "shima": { "name": "IJN 2nd Striking Force (Shima)", "color": "#eab308", "nation": "IJN" },
+  "northern": { "name": "IJN Northern Force (Ozawa)", "color": "#d946ef", "nation": "IJN" },
+  "taffy3": { "name": "USN Taffy 3 (C. Sprague)", "color": "#3b82f6", "nation": "USN" },
+  "tf38": { "name": "USN Task Force 38 (Halsey/Mitscher)", "color": "#06b6d4", "nation": "USN" },
+  "tg772": { "name": "USN TG 77.2 (Oldendorf)", "color": "#22c55e", "nation": "USN" },
+  "subs": { "name": "USN Submarines", "color": "#94a3b8", "nation": "USN" }
+ },
+ "routes": {
+  "center": [["17 00:00", 0.2, 104.58, "At anchor, Lingga Roads"], ["18 01:00", 0.2, 104.58, "Center Force sorties from Lingga Roads"], ["18 12:00", 1.6, 106.5], ["19 12:00", 3.4, 110.8], ["20 12:00", 5.05, 115.05, "Arrives Brunei Bay; refuels"], ["22 08:00", 5.05, 115.05, "Departs Brunei for Palawan Passage"], ["22 18:00", 6.9, 115.9], ["23 00:00", 8.3, 116.6, "Enters Palawan Passage; shadowed by Darter & Dace"], ["23 05:30", 9.45, 117.25, "Atago & Maya torpedoed; Kurita shifts flag to Yamato"], ["23 12:00", 10.7, 118.1], ["23 20:00", 11.7, 119.4], ["24 00:00", 12.25, 120.3, "Mindoro Strait"], ["24 06:00", 12.35, 121.2, "Tablas Strait"], ["24 08:10", 12.5, 121.6, "Sighted by Intrepid scout plane"], ["24 10:26", 12.7, 122, "First TF 38 air strike"], ["24 14:00", 12.9, 122.5, "Repeated strikes; Musashi falls behind"], ["24 15:30", 12.95, 122.75, "Kurita reverses course west"], ["24 17:15", 12.85, 122.35, "Turns back east for San Bernardino"], ["24 22:00", 12.7, 123.4], ["25 00:35", 12.55, 124.2, "Transits San Bernardino Strait unopposed"], ["25 03:00", 12.65, 124.65, "Exits strait into Philippine Sea"], ["25 05:30", 12.3, 125.7], ["25 06:45", 12.05, 126.15, "Sights Taffy 3 — Battle off Samar begins"], ["25 08:00", 11.9, 126.3, "General pursuit"], ["25 09:20", 11.65, 126.2, "Kurita orders break-off and regroup"], ["25 11:00", 11.95, 126.4], ["25 12:36", 11.8, 126.05, "Feints toward Leyte Gulf, then turns north"], ["25 13:30", 12.15, 125.9], ["25 17:00", 12.5, 125.2], ["25 21:30", 12.55, 124.4, "Re-enters San Bernardino Strait"], ["26 00:00", 12.55, 124], ["26 08:30", 12.7, 122.6, "Air attacks in Sibuyan Sea / Tablas Strait"], ["26 12:00", 12, 121.5], ["26 20:00", 11, 119.8], ["27 12:00", 8.5, 117.5], ["28 21:00", 5.05, 115.05, "Center Force anchors at Brunei"], ["29 00:00", 5.05, 115.05]],
+  "southern": [["17 00:00", 0.2, 104.58, "At anchor, Lingga Roads"], ["18 01:00", 0.2, 104.58, "Sorties with Center Force"], ["18 12:00", 1.6, 106.5], ["19 12:00", 3.4, 110.8], ["20 12:00", 5.05, 115.05, "Arrives Brunei"], ["22 15:00", 5.05, 115.05, "Southern Force departs Brunei"], ["23 04:00", 7.6, 117, "Balabac Strait"], ["23 16:00", 8.3, 119.6, "Sulu Sea"], ["24 09:18", 9, 121.5, "Attacked by Enterprise aircraft"], ["24 18:00", 9.15, 123.6, "Mindanao Sea"], ["24 22:00", 9.45, 124.9, "PT-boat attacks begin"], ["25 01:00", 9.85, 125.2, "Enters Surigao Strait"], ["25 03:00", 10.15, 125.35, "US destroyer torpedo attacks"], ["25 03:51", 10.35, 125.35, "Oldendorf battle line opens fire"], ["25 04:19", 10.37, 125.355, "Yamashiro capsizes and sinks"]],
+  "shima": [["17 00:00", 23.55, 119.55, "Mako, Pescadores"], ["21 16:00", 23.55, 119.55, "Second Striking Force departs Mako"], ["22 12:00", 19.5, 118.6], ["23 12:00", 14.6, 119.2], ["23 20:00", 12, 120.2, "Coron Bay; refuels"], ["24 02:00", 12, 120.2, "Departs Coron"], ["24 12:00", 10.1, 121.6, "Sulu Sea"], ["24 22:00", 9.2, 123.9], ["25 03:25", 9.9, 125.2, "Enters Surigao Strait astern of Nishimura"], ["25 04:30", 10.28, 125.35, "Nachi collides with Mogami; Shima reverses course"], ["25 06:00", 9.8, 125.2], ["25 14:00", 9.3, 124], ["26 06:00", 9.4, 122.7], ["26 20:00", 11, 121], ["27 12:00", 12, 120.2, "Coron Bay"], ["28 12:00", 14.55, 120.9, "Manila Bay"], ["29 00:00", 14.55, 120.9]],
+  "northern": [["17 00:00", 34.2, 132.5, "Kure / Inland Sea"], ["20 17:00", 32.7, 132.1, "Northern Force sorties via Bungo Suido"], ["21 12:00", 30, 131.2], ["22 12:00", 26.5, 129.2], ["23 12:00", 22.5, 127.3], ["24 06:00", 19.2, 126], ["24 11:45", 18.6, 125.7, "Launches strike against TG 38.3"], ["24 16:00", 18.2, 125.5, "Sighted by Sherman's scouts"], ["24 22:00", 18.6, 125.8, "Turns north — Halsey takes the bait"], ["25 08:00", 19, 126, "First US strike arrives 08:48"], ["25 14:14", 19.33, 125.85, "Zuikaku sinks"]],
+  "taffy3": [["17 00:00", 8.5, 130, "En route from Manus"], ["18 12:00", 10.5, 128], ["19 06:00", 11.2, 126.7, "Begins air support for Leyte landings"], ["19 18:00", 11, 127.3], ["20 06:00", 11.3, 126.6, "A-Day: 6th Army lands on Leyte"], ["20 18:00", 11, 127.3], ["21 06:00", 11.3, 126.6], ["21 18:00", 11, 127.3], ["22 06:00", 11.3, 126.6], ["22 18:00", 11, 127.3], ["23 06:00", 11.3, 126.6], ["23 18:00", 11, 127.3], ["24 06:00", 11.3, 126.6], ["24 18:00", 11.2, 127], ["25 06:00", 11.75, 126.55, "Dawn CAP launched"], ["25 06:58", 11.7, 126.5, "Yamato opens fire — Battle off Samar"], ["25 08:00", 11.5, 126.35, "Fleeing south under smoke"], ["25 09:30", 11.3, 126.2], ["25 10:50", 11.22, 126.1, "Kamikaze attacks"], ["25 12:00", 11, 126.2], ["25 18:00", 10.5, 126.6], ["26 12:00", 10, 127.8, "Retires toward Manus"], ["28 12:00", 8, 130.5], ["29 00:00", 7.5, 131]],
+  "tg383": [["17 00:00", 15.5, 131, "Refuelling east of Luzon"], ["18 06:00", 16, 124.8, "Strikes on Luzon airfields"], ["19 06:00", 16, 124.8], ["20 06:00", 15.5, 125.2], ["21 06:00", 15, 126.5], ["22 12:00", 15.5, 128, "Refuelling"], ["23 12:00", 15.5, 125.5], ["24 06:00", 15.35, 123.8, "Off Polillo; strikes Sibuyan Sea, then Ozawa"], ["24 16:00", 15.3, 124], ["24 20:22", 15.5, 124.8, "Halsey orders TF 38 north after Ozawa"], ["25 00:00", 16.5, 125.3], ["25 06:00", 17.4, 125.9, "Launches strikes vs Northern Force"], ["25 12:00", 18.3, 126], ["25 18:00", 18.9, 126.1], ["26 06:00", 18.5, 126.6], ["26 18:00", 17, 127.2], ["27 12:00", 15, 128.5], ["28 12:00", 12, 132], ["29 00:00", 11, 133.5]],
+  "tg382": [["17 00:00", 15, 131], ["18 06:00", 14.5, 125.5, "Strikes on Luzon"], ["19 06:00", 14.5, 125.5], ["20 06:00", 13.5, 126], ["21 06:00", 13, 126.5], ["22 12:00", 13.5, 128.5, "Refuelling"], ["23 12:00", 13.2, 126], ["24 06:00", 13.2, 125.5, "East of San Bernardino; strikes Center Force"], ["24 20:22", 14, 125.5, "Ordered north"], ["25 00:00", 15.8, 125.7], ["25 06:00", 17, 125.9], ["25 11:15", 17.5, 126, "TF 34 and TG 38.2 detached; turn south"], ["25 18:00", 15, 125.6], ["26 01:00", 12.9, 124.9, "Off San Bernardino — Kurita already gone; Nowaki sunk"], ["26 06:00", 13.3, 125.5, "Launches strikes on retreating Center Force"], ["26 12:00", 13.5, 125.8], ["27 12:00", 14, 127.5], ["28 12:00", 12, 132], ["29 00:00", 11, 133.5]],
+  "tg384": [["17 00:00", 10.5, 131.5], ["18 06:00", 11, 127.5, "Strikes Leyte / Mindanao"], ["19 06:00", 11, 127.5], ["20 06:00", 11, 127.5], ["21 06:00", 11, 127.5], ["22 12:00", 11.5, 130, "Toward Ulithi; recalled"], ["23 12:00", 11.5, 128], ["24 06:00", 11.2, 127.2, "Strikes Nishimura in Sulu Sea"], ["24 20:22", 12.5, 126.5, "Ordered north"], ["25 00:00", 14.3, 126.2], ["25 06:00", 16.6, 126], ["25 12:00", 17.8, 126.1], ["25 18:00", 18.5, 126.2], ["26 06:00", 18.2, 126.7], ["26 18:00", 16.8, 127.3], ["27 12:00", 14.8, 128.6], ["28 12:00", 12, 132], ["29 00:00", 11, 133.5]],
+  "tg381": [["17 00:00", 13, 131], ["18 06:00", 13, 127, "Strikes Visayas"], ["19 06:00", 13, 127], ["20 06:00", 12.5, 127.5], ["21 06:00", 12.5, 127.5], ["22 12:00", 13, 129.5, "Detached to Ulithi"], ["23 12:00", 13.5, 132], ["24 12:00", 13.5, 133.5, "Recalled by Halsey"], ["25 06:00", 13.2, 130.5], ["25 12:00", 13, 129.3, "Long-range strikes on Kurita"], ["26 06:00", 12.6, 127.8, "Strikes retreating Center Force"], ["27 12:00", 13, 129.5], ["28 12:00", 12, 132], ["29 00:00", 11, 133.5]],
+  "tg772": [["17 00:00", 9.5, 128.5, "Approaching Leyte from Manus"], ["18 08:00", 10.8, 125.6, "Bombardment of Leyte landing beaches"], ["19 12:00", 10.9, 125.3], ["20 10:00", 10.9, 125.2, "A-Day fire support"], ["21 12:00", 10.9, 125.3], ["22 12:00", 10.9, 125.3], ["23 12:00", 10.9, 125.3], ["24 20:00", 10.6, 125.4, "Battle line forms across Surigao Strait"], ["25 03:51", 10.55, 125.38, "Opens fire on Yamashiro"], ["25 04:30", 10.5, 125.36], ["25 06:00", 10.3, 125.3, "Pursuit south"], ["25 10:00", 10.8, 125.3, "Returns to Leyte Gulf"], ["29 00:00", 10.85, 125.3]],
+  "darter": [["17 00:00", 9, 116.8, "Patrolling Palawan Passage"], ["21 12:00", 8.5, 116.7], ["23 00:16", 9.3, 117.1, "Radar contact on Center Force at 30,000 yd"], ["23 05:24", 9.47, 117.27, "Torpedoes Atago and Takao"], ["23 12:00", 9.5, 117.1, "Trails damaged Takao"], ["24 00:05", 9.45, 116.93, "Runs aground on Bombay Shoal"]]
+ },
+ "ships": [
+  { "id": "yamato", "name": "Yamato", "force": "center", "type": "Battleship", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamato" },
+  {
+   "id": "musashi",
+   "name": "Musashi",
+   "force": "center",
+   "type": "Battleship",
+   "route": "center",
+   "until": "24 14:00",
+   "extra": [["24 19:35", 13.12, 122.53, "Capsizes after ~19 torpedo and 17 bomb hits"]],
+   "sunk": "24 19:35",
+   "sunkBy": "TF 38 carrier aircraft, Sibuyan Sea",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Musashi",
+   "lost": 1023
+  },
+  { "id": "nagato", "name": "Nagato", "force": "center", "type": "Battleship", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Nagato" },
+  { "id": "kongo", "name": "Kongō", "force": "center", "type": "Battleship", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kongō" },
+  { "id": "haruna", "name": "Haruna", "force": "center", "type": "Battleship", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Haruna" },
+  {
+   "id": "atago",
+   "name": "Atago",
+   "force": "center",
+   "type": "Heavy cruiser (Kurita flagship)",
+   "route": "center",
+   "until": "23 05:30",
+   "extra": [["23 05:53", 9.47, 117.28, "Sinks 30 min after four torpedo hits"]],
+   "sunk": "23 05:53",
+   "sunkBy": "USS Darter",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Atago",
+   "lost": 360
+  },
+  {
+   "id": "maya",
+   "name": "Maya",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "23 05:30",
+   "extra": [["23 06:05", 9.45, 117.38, "Explodes and sinks"]],
+   "sunk": "23 06:05",
+   "sunkBy": "USS Dace",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Maya",
+   "lost": 336
+  },
+  {
+   "id": "takao",
+   "name": "Takao",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "23 05:30",
+   "extra": [["23 05:34", 9.46, 117.27, "Two torpedo hits; detached to Brunei"], ["23 18:00", 8, 116.6], ["24 12:00", 6, 115.6], ["24 20:00", 5.05, 115.05, "Brunei (later Singapore for repairs)"], ["29 00:00", 5.05, 115.05]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Takao_(1930)"
+  },
+  {
+   "id": "myoko",
+   "name": "Myōkō",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "24 10:26",
+   "extra": [["24 10:29", 12.7, 122, "Aerial torpedo hit; detached"], ["24 20:00", 12.3, 120.8], ["25 12:00", 10, 118.5], ["26 06:00", 7.5, 116.5], ["26 16:00", 5.05, 115.05, "Brunei"], ["29 00:00", 5.05, 115.05]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Myōkō"
+  },
+  { "id": "haguro", "name": "Haguro", "force": "center", "type": "Heavy cruiser", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Haguro" },
+  {
+   "id": "chokai",
+   "name": "Chōkai",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 08:00", 11.7, 126.45], ["25 09:05", 11.45, 126.4, "Disabled by gunfire and bombs"], ["25 11:00", 11.37, 126.37, "Scuttled by Fujinami"]],
+   "sunk": "25 11:00",
+   "sunkBy": "Taffy 3 aircraft & gunfire; scuttled",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chōkai",
+   "lost": 150
+  },
+  {
+   "id": "chikuma",
+   "name": "Chikuma",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 08:00", 11.7, 126.55], ["25 09:00", 11.55, 126.55, "Aerial torpedo hit; steering lost"], ["25 11:30", 11.37, 126.27, "Scuttled by Nowaki"]],
+   "sunk": "25 11:30",
+   "sunkBy": "Taffy 3 aircraft; scuttled",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chikuma_(1938)",
+   "lost": 100
+  },
+  { "id": "tone", "name": "Tone", "force": "center", "type": "Heavy cruiser", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tone_(1937)" },
+  {
+   "id": "suzuya",
+   "name": "Suzuya",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 08:00", 11.8, 126.4], ["25 10:50", 11.75, 126.2, "Near-miss detonates own torpedoes"], ["25 13:22", 11.75, 126.18, "Sinks"]],
+   "sunk": "25 13:22",
+   "sunkBy": "Taffy 3 aircraft",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Suzuya_(1934)",
+   "lost": 247
+  },
+  {
+   "id": "kumano",
+   "name": "Kumano",
+   "force": "center",
+   "type": "Heavy cruiser",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 07:27", 11.85, 126.25, "Bow blown off by Johnston torpedo"], ["25 09:00", 12.1, 126], ["25 14:00", 12.5, 125.2], ["25 20:00", 12.55, 124.3], ["26 06:00", 12.6, 123.2], ["26 14:00", 12.2, 121.8], ["27 12:00", 12, 120.2, "Coron Bay"], ["28 12:00", 14.55, 120.9, "Manila Bay"], ["29 00:00", 14.55, 120.9]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kumano"
+  },
+  { "id": "yahagi", "name": "Yahagi", "force": "center", "type": "Light cruiser", "route": "center", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Yahagi_(1942)" },
+  {
+   "id": "noshiro",
+   "name": "Noshiro",
+   "force": "center",
+   "type": "Light cruiser",
+   "route": "center",
+   "until": "26 08:30",
+   "extra": [["26 11:39", 11.7, 121.68, "Sinks south of Mindoro"]],
+   "sunk": "26 11:39",
+   "sunkBy": "TF 38 aircraft",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Noshiro",
+   "lost": 328
+  },
+  {
+   "id": "yamashiro",
+   "name": "Yamashiro",
+   "force": "southern",
+   "type": "Battleship (Nishimura flagship)",
+   "route": "southern",
+   "sunk": "25 04:19",
+   "sunkBy": "Torpedoes and battleship gunfire, Surigao Strait",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamashiro",
+   "lost": 1626
+  },
+  {
+   "id": "fuso",
+   "name": "Fusō",
+   "force": "southern",
+   "type": "Battleship",
+   "route": "southern",
+   "until": "25 03:00",
+   "extra": [["25 03:09", 10.15, 125.38, "Torpedoed by USS Melvin"], ["25 03:38", 10.15, 125.4, "Sinks (long thought to have broken in two)"]],
+   "sunk": "25 03:38",
+   "sunkBy": "USS Melvin torpedoes",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Fusō",
+   "lost": 1620
+  },
+  {
+   "id": "mogami",
+   "name": "Mogami",
+   "force": "southern",
+   "type": "Heavy cruiser",
+   "route": "southern",
+   "until": "25 03:51",
+   "extra": [["25 04:30", 10.3, 125.35, "Collides with Nachi"], ["25 06:00", 9.9, 125.2], ["25 09:00", 9.7, 124.9, "Air attack; dead in water"], ["25 13:07", 9.67, 124.83, "Scuttled by Akebono"]],
+   "sunk": "25 13:07",
+   "sunkBy": "Gunfire, collision, aircraft; scuttled",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)",
+   "lost": 192
+  },
+  {
+   "id": "shigure",
+   "name": "Shigure",
+   "force": "southern",
+   "type": "Destroyer",
+   "route": "southern",
+   "until": "25 03:51",
+   "extra": [["25 05:00", 10, 125.3, "Sole survivor of Nishimura's force retires"], ["25 12:00", 9.3, 124.3], ["26 12:00", 8.5, 121.5], ["27 12:00", 7.5, 118], ["27 20:00", 5.05, 115.05, "Brunei"], ["29 00:00", 5.05, 115.05]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shigure_(1935)"
+  },
+  {
+   "id": "yamagumo",
+   "name": "Yamagumo",
+   "force": "southern",
+   "type": "Destroyer",
+   "route": "southern",
+   "until": "25 03:00",
+   "extra": [["25 03:19", 10.25, 125.38, "Torpedoed; blows up"]],
+   "sunk": "25 03:19",
+   "sunkBy": "US destroyer torpedoes",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Yamagumo_(1937)",
+   "lost": 238
+  },
+  {
+   "id": "michishio",
+   "name": "Michishio",
+   "force": "southern",
+   "type": "Destroyer",
+   "route": "southern",
+   "until": "25 03:00",
+   "extra": [["25 03:20", 10.24, 125.4, "Torpedoed, dead in water"], ["25 03:58", 10.24, 125.4, "Sinks"]],
+   "sunk": "25 03:58",
+   "sunkBy": "US destroyer torpedoes",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Michishio",
+   "lost": 265
+  },
+  {
+   "id": "asagumo",
+   "name": "Asagumo",
+   "force": "southern",
+   "type": "Destroyer",
+   "route": "southern",
+   "until": "25 03:00",
+   "extra": [["25 03:20", 10.2, 125.35, "Bow blown off"], ["25 07:21", 10.07, 125.35, "Sunk by cruiser/destroyer gunfire"]],
+   "sunk": "25 07:21",
+   "sunkBy": "US cruiser & destroyer gunfire",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asagumo_(1937)",
+   "lost": 191
+  },
+  { "id": "nachi", "name": "Nachi", "force": "shima", "type": "Heavy cruiser (Shima flagship)", "route": "shima", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Nachi" },
+  { "id": "ashigara", "name": "Ashigara", "force": "shima", "type": "Heavy cruiser", "route": "shima", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Ashigara" },
+  {
+   "id": "abukuma",
+   "name": "Abukuma",
+   "force": "shima",
+   "type": "Light cruiser",
+   "route": "shima",
+   "until": "25 03:25",
+   "extra": [["25 03:25", 9.9, 125.22, "Torpedoed by PT-137"], ["25 06:00", 9.6, 124.9], ["25 14:00", 9.4, 124], ["26 06:00", 9.35, 122.6, "Air attack off Negros"], ["26 12:42", 9.33, 122.53, "Sinks"]],
+   "sunk": "26 12:42",
+   "sunkBy": "USAAF B-24s",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Abukuma",
+   "lost": 250
+  },
+  {
+   "id": "zuikaku",
+   "name": "Zuikaku",
+   "force": "northern",
+   "type": "Fleet carrier (Ozawa flagship)",
+   "route": "northern",
+   "sunk": "25 14:14",
+   "sunkBy": "TF 38 aircraft, off Cape Engaño",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku",
+   "lost": 843
+  },
+  {
+   "id": "zuiho",
+   "name": "Zuihō",
+   "force": "northern",
+   "type": "Light carrier",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 15:26", 19.33, 125.25, "Sinks"]],
+   "sunk": "25 15:26",
+   "sunkBy": "TF 38 aircraft",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuihō",
+   "lost": 215
+  },
+  {
+   "id": "chitose",
+   "name": "Chitose",
+   "force": "northern",
+   "type": "Light carrier",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 09:37", 19.33, 126.33, "Sinks in first strike"]],
+   "sunk": "25 09:37",
+   "sunkBy": "TF 38 aircraft",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Chitose",
+   "lost": 903
+  },
+  {
+   "id": "chiyoda",
+   "name": "Chiyoda",
+   "force": "northern",
+   "type": "Light carrier",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 10:00", 19.1, 126.3, "Crippled, dead in water"], ["25 16:55", 18.62, 126.75, "Sunk by cruiser gunfire — no survivors"]],
+   "sunk": "25 16:55",
+   "sunkBy": "TF 38 aircraft, then US cruiser gunfire",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Chiyoda",
+   "lost": 1470
+  },
+  {
+   "id": "ise",
+   "name": "Ise",
+   "force": "northern",
+   "type": "Hybrid battleship-carrier",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 14:00", 19.4, 125.9, "Dodges dozens of bombs"], ["25 20:00", 20.5, 125.6, "Retires north"], ["26 12:00", 24, 127], ["27 12:00", 28.3, 129.4, "Amami Ōshima"], ["29 00:00", 28.3, 129.4]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Ise"
+  },
+  {
+   "id": "hyuga",
+   "name": "Hyūga",
+   "force": "northern",
+   "type": "Hybrid battleship-carrier",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 14:00", 19.4, 125.9], ["25 20:00", 20.5, 125.6, "Retires north"], ["26 12:00", 24, 127], ["27 12:00", 28.3, 129.4, "Amami Ōshima"], ["29 00:00", 28.3, 129.4]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Hyūga"
+  },
+  {
+   "id": "oyodo",
+   "name": "Ōyodo",
+   "force": "northern",
+   "type": "Light cruiser",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 11:00", 19.3, 126, "Ozawa shifts flag from Zuikaku"], ["25 20:00", 20.5, 125.6], ["26 12:00", 24, 127], ["27 12:00", 28.3, 129.4, "Amami Ōshima"], ["29 00:00", 28.3, 129.4]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Ōyodo"
+  },
+  {
+   "id": "tama",
+   "name": "Tama",
+   "force": "northern",
+   "type": "Light cruiser",
+   "route": "northern",
+   "until": "25 08:00",
+   "extra": [["25 10:00", 19.3, 126.1, "Aerial torpedo hit; detached toward Okinawa"], ["25 23:10", 21.38, 127.32, "Torpedoed — lost with all hands"]],
+   "sunk": "25 23:10",
+   "sunkBy": "USS Jallao",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tama",
+   "lost": 450
+  },
+  { "id": "fanshaw", "name": "USS Fanshaw Bay", "force": "taffy3", "type": "Escort carrier (Sprague flagship)", "route": "taffy3", "wiki": "https://en.wikipedia.org/wiki/USS_Fanshaw_Bay" },
+  {
+   "id": "gambier",
+   "name": "USS Gambier Bay",
+   "force": "taffy3",
+   "type": "Escort carrier",
+   "route": "taffy3",
+   "until": "25 08:00",
+   "extra": [["25 08:40", 11.55, 126.25, "Dead in water under cruiser fire"], ["25 09:07", 11.52, 126.2, "Capsizes"]],
+   "sunk": "25 09:07",
+   "sunkBy": "IJN cruiser gunfire — only US carrier sunk by surface ships",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Gambier_Bay",
+   "lost": 147
+  },
+  {
+   "id": "stlo",
+   "name": "USS St. Lo",
+   "force": "taffy3",
+   "type": "Escort carrier",
+   "route": "taffy3",
+   "until": "25 10:50",
+   "extra": [["25 11:25", 11.22, 126.08, "Sinks after kamikaze hit"]],
+   "sunk": "25 11:25",
+   "sunkBy": "Kamikaze — first major warship lost to one",
+   "wiki": "https://en.wikipedia.org/wiki/USS_St._Lo",
+   "lost": 113
+  },
+  { "id": "kalinin", "name": "USS Kalinin Bay", "force": "taffy3", "type": "Escort carrier", "route": "taffy3", "wiki": "https://en.wikipedia.org/wiki/USS_Kalinin_Bay" },
+  {
+   "id": "johnston",
+   "name": "USS Johnston",
+   "force": "taffy3",
+   "type": "Destroyer (Cdr. Ernest Evans)",
+   "route": "taffy3",
+   "until": "25 06:58",
+   "extra": [["25 07:10", 11.76, 126.42, "Charges Kumano alone through the smoke"], ["25 07:27", 11.85, 126.3, "Torpedoes Kumano; hit by Kongō 14-inch shells"], ["25 08:00", 11.75, 126.25, "Rejoins the fight on one engine"], ["25 09:00", 11.7, 126.2, "Engages entire destroyer squadron"], ["25 09:45", 11.77, 126.16, "Abandon ship"], ["25 10:10", 11.77, 126.15, "Rolls over and sinks"]],
+   "sunk": "25 10:10",
+   "sunkBy": "IJN gunfire; a Japanese destroyer captain salutes the survivors",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Johnston_(DD-557)",
+   "lost": 186
+  },
+  {
+   "id": "hoel",
+   "name": "USS Hoel",
+   "force": "taffy3",
+   "type": "Destroyer",
+   "route": "taffy3",
+   "until": "25 06:58",
+   "extra": [["25 07:25", 11.9, 126.5, "Torpedo attack on Kongō"], ["25 08:30", 11.8, 126.55, "Dead in water, 40+ hits"], ["25 08:55", 11.77, 126.55, "Sinks"]],
+   "sunk": "25 08:55",
+   "sunkBy": "IJN battleship & cruiser gunfire",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hoel_(DD-533)",
+   "lost": 253
+  },
+  { "id": "heermann", "name": "USS Heermann", "force": "taffy3", "type": "Destroyer", "route": "taffy3", "wiki": "https://en.wikipedia.org/wiki/USS_Heermann" },
+  {
+   "id": "sbr",
+   "name": "USS Samuel B. Roberts",
+   "force": "taffy3",
+   "type": "Destroyer escort",
+   "route": "taffy3",
+   "until": "25 06:58",
+   "extra": [["25 08:00", 11.7, 126.3, "Torpedoes Chōkai"], ["25 09:00", 11.75, 126.2, "Hit by Kongō"], ["25 10:05", 11.75, 126.17, "Sinks"]],
+   "sunk": "25 10:05",
+   "sunkBy": "IJN gunfire — \"the destroyer escort that fought like a battleship\"",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Samuel_B._Roberts_(DE-413)",
+   "lost": 89
+  },
+  { "id": "essex", "name": "USS Essex", "force": "tf38", "type": "Fleet carrier — TG 38.3", "route": "tg383", "wiki": "https://en.wikipedia.org/wiki/USS_Essex_(CV-9)" },
+  { "id": "lexington", "name": "USS Lexington", "force": "tf38", "type": "Fleet carrier — TG 38.3 (Mitscher flagship)", "route": "tg383", "wiki": "https://en.wikipedia.org/wiki/USS_Lexington_(CV-16)" },
+  {
+   "id": "princeton",
+   "name": "USS Princeton",
+   "force": "tf38",
+   "type": "Light carrier — TG 38.3",
+   "route": "tg383",
+   "until": "24 06:00",
+   "extra": [["24 09:38", 15.35, 123.5, "Single bomb; fires reach torpedo stowage"], ["24 17:50", 15.35, 123.52, "Scuttled by Reno"]],
+   "sunk": "24 17:50",
+   "sunkBy": "Land-based Judy dive bomber; scuttled",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Princeton_(CVL-23)",
+   "lost": 108
+  },
+  { "id": "intrepid", "name": "USS Intrepid", "force": "tf38", "type": "Fleet carrier — TG 38.2", "route": "tg382", "wiki": "https://en.wikipedia.org/wiki/USS_Intrepid_(CV-11)" },
+  { "id": "newjersey", "name": "USS New Jersey", "force": "tf38", "type": "Battleship — Halsey flagship (TF 34)", "route": "tg382", "wiki": "https://en.wikipedia.org/wiki/USS_New_Jersey_(BB-62)" },
+  { "id": "iowa", "name": "USS Iowa", "force": "tf38", "type": "Battleship — TF 34", "route": "tg382", "wiki": "https://en.wikipedia.org/wiki/USS_Iowa_(BB-61)" },
+  { "id": "enterprise", "name": "USS Enterprise", "force": "tf38", "type": "Fleet carrier — TG 38.4", "route": "tg384", "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)" },
+  { "id": "hornet", "name": "USS Hornet", "force": "tf38", "type": "Fleet carrier — TG 38.1", "route": "tg381", "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-12)" },
+  { "id": "wv", "name": "USS West Virginia", "force": "tg772", "type": "Battleship (Pearl Harbor survivor)", "route": "tg772", "wiki": "https://en.wikipedia.org/wiki/USS_West_Virginia_(BB-48)" },
+  { "id": "california", "name": "USS California", "force": "tg772", "type": "Battleship", "route": "tg772", "wiki": "https://en.wikipedia.org/wiki/USS_California_(BB-44)" },
+  { "id": "mississippi", "name": "USS Mississippi", "force": "tg772", "type": "Battleship — fired the last battleship salvo in history", "route": "tg772", "wiki": "https://en.wikipedia.org/wiki/USS_Mississippi_(BB-41)" },
+  { "id": "louisville", "name": "USS Louisville", "force": "tg772", "type": "Heavy cruiser (Oldendorf flagship)", "route": "tg772", "wiki": "https://en.wikipedia.org/wiki/USS_Louisville_(CA-28)" },
+  {
+   "id": "darter",
+   "name": "USS Darter",
+   "force": "subs",
+   "type": "Submarine",
+   "route": "darter",
+   "sunk": "24 00:05",
+   "sunkBy": "Grounded on Bombay Shoal; crew rescued by Dace",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Darter_(SS-227)",
+   "lost": 0
+  },
+  {
+   "id": "dace",
+   "name": "USS Dace",
+   "force": "subs",
+   "type": "Submarine",
+   "route": "darter",
+   "until": "23 05:24",
+   "extra": [["23 05:56", 9.45, 117.38, "Torpedoes Maya"], ["23 12:00", 9.5, 117.1], ["24 00:05", 9.45, 116.93, "Rescues Darter's crew"], ["24 06:00", 9.3, 116.7], ["25 12:00", 7.5, 115.8], ["27 12:00", 3, 114, "Toward Fremantle"], ["29 00:00", 0.5, 113]],
+   "wiki": "https://en.wikipedia.org/wiki/USS_Dace_(SS-247)"
+  },
+  {
+   "id": "shimakaze",
+   "name": "Shimakaze",
+   "force": "center",
+   "type": "Destroyer — fastest in the IJN (40 kn)",
+   "route": "center",
+   "until": "24 15:30",
+   "extra": [["24 19:35", 13.1, 122.5, "Standing by the capsizing Musashi with Kiyoshimo"], ["25 02:30", 13.1, 122.55, "1,376 survivors embarked between the two destroyers"], ["25 12:00", 12.3, 121], ["25 20:00", 12, 120.2, "Coron Bay"], ["26 12:00", 14.38, 120.58, "Lands survivors at Corregidor"], ["29 00:00", 14.55, 120.9]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shimakaze_(1942)"
+  },
+  {
+   "id": "kiyoshimo",
+   "name": "Kiyoshimo",
+   "force": "center",
+   "type": "Destroyer",
+   "route": "center",
+   "until": "24 15:30",
+   "extra": [["24 19:35", 13.1, 122.5, "Rescuing Musashi survivors"], ["25 02:30", 13.1, 122.55], ["25 12:00", 12.3, 121], ["25 20:00", 12, 120.2, "Coron Bay"], ["26 12:00", 14.38, 120.58, "Corregidor"], ["29 00:00", 14.55, 120.9]],
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kiyoshimo"
+  },
+  {
+   "id": "nowaki",
+   "name": "Nowaki",
+   "force": "center",
+   "type": "Destroyer",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 09:00", 11.55, 126.55, "Detached to stand by the crippled Chikuma"], ["25 11:30", 11.37, 126.27, "Scuttles Chikuma and embarks her survivors"], ["25 14:00", 11.6, 126, "Racing to rejoin Kurita"], ["25 21:00", 12.4, 125.2], ["26 01:35", 13, 124.9, "Caught off San Bernardino by TF 34's vanguard cruisers and destroyers"]],
+   "sunk": "26 01:35",
+   "sunkBy": "Cruisers Vincennes, Biloxi, Miami and destroyers of TF 34 — lost with all hands, including Chikuma's survivors (one man survived)",
+   "lost": 1000,
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Nowaki_(1940)"
+  },
+  {
+   "id": "fujinami",
+   "name": "Fujinami",
+   "force": "center",
+   "type": "Destroyer",
+   "route": "center",
+   "until": "25 06:45",
+   "extra": [["25 09:05", 11.45, 126.4, "Detached to the disabled Chōkai"], ["25 11:00", 11.37, 126.37, "Scuttles Chōkai and embarks her survivors"], ["25 14:00", 11.8, 126], ["25 21:30", 12.55, 124.4, "Through San Bernardino with Kurita"], ["26 06:00", 12.6, 123.2, "Sent to aid the grounded Hayashimo"], ["27 10:00", 12.3, 122.4], ["27 12:00", 12, 122.5, "Sunk by TG 38.2 aircraft off Mindoro — no survivors from either crew"]],
+   "sunk": "27 12:00",
+   "sunkBy": "TG 38.2 aircraft — lost with all hands and every Chōkai survivor aboard",
+   "lost": 900,
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Fujinami"
+  }
+ ],
+ "strikes": [
+  {
+   "id": "st1",
+   "name": "TG 38.2 strike 1",
+   "nation": "USN",
+   "from": { "route": "tg382" },
+   "target": { "ship": "yamato" },
+   "launch": "24 09:10",
+   "arrive": "24 10:26",
+   "leave": "24 10:50",
+   "recover": "24 12:00",
+   "count": 45,
+   "note": "Intrepid & Cabot open the Battle of the Sibuyan Sea; first torpedo hit on Musashi"
+  },
+  {
+   "id": "st2",
+   "name": "TG 38.2 strike 2",
+   "nation": "USN",
+   "from": { "route": "tg382" },
+   "target": { "ship": "musashi" },
+   "launch": "24 11:45",
+   "arrive": "24 12:45",
+   "leave": "24 13:05",
+   "recover": "24 14:15",
+   "count": 42,
+   "note": "Musashi takes 3 more torpedoes and 2 bombs; speed drops to 22 kn"
+  },
+  {
+   "id": "st3",
+   "name": "TG 38.3 strike",
+   "nation": "USN",
+   "from": { "route": "tg383" },
+   "target": { "ship": "musashi" },
+   "launch": "24 12:15",
+   "arrive": "24 13:30",
+   "leave": "24 13:50",
+   "recover": "24 15:00",
+   "count": 68,
+   "note": "Essex & Lexington Helldivers and Avengers concentrate on the lagging Musashi"
+  },
+  {
+   "id": "st4",
+   "name": "TG 38.4 strike",
+   "nation": "USN",
+   "from": { "route": "tg384" },
+   "target": { "ship": "musashi" },
+   "launch": "24 13:00",
+   "arrive": "24 14:15",
+   "leave": "24 14:40",
+   "recover": "24 16:00",
+   "count": 65,
+   "note": "Enterprise & Franklin: Musashi down by the bow, Myōkō already detached"
+  },
+  {
+   "id": "st5",
+   "name": "TG 38.2/38.4 strike 3",
+   "nation": "USN",
+   "from": { "route": "tg382" },
+   "target": { "ship": "musashi" },
+   "launch": "24 14:00",
+   "arrive": "24 15:10",
+   "leave": "24 15:35",
+   "recover": "24 16:50",
+   "count": 75,
+   "note": "Final strike of the day: 10+ torpedo hits; Kurita reverses course at 15:30"
+  },
+  {
+   "id": "st6",
+   "name": "Enterprise strike (Sulu Sea)",
+   "nation": "USN",
+   "from": { "route": "tg384" },
+   "target": { "ship": "yamashiro" },
+   "launch": "24 06:30",
+   "arrive": "24 09:18",
+   "leave": "24 09:40",
+   "recover": "24 12:30",
+   "count": 26,
+   "note": "Fusō catapult hit, Shigure damaged — the only air attack Nishimura faces"
+  },
+  {
+   "id": "st7",
+   "name": "Luzon land-based raid",
+   "nation": "IJN",
+   "land": true,
+   "from": { "lat": 15.19, "lon": 120.56 },
+   "target": { "ship": "princeton" },
+   "launch": "24 08:00",
+   "arrive": "24 09:38",
+   "leave": "24 10:00",
+   "recover": "24 11:30",
+   "count": 60,
+   "note": "Clark Field aircraft; a lone Judy puts a 250 kg bomb through Princeton's deck"
+  },
+  {
+   "id": "st8",
+   "name": "Ozawa's carrier strike",
+   "nation": "IJN",
+   "from": { "route": "northern" },
+   "target": { "ship": "essex" },
+   "launch": "24 11:45",
+   "arrive": "24 13:15",
+   "leave": "24 13:40",
+   "recover": "24 15:30",
+   "oneway": true,
+   "recoverAt": { "lat": 15.19, "lon": 120.56 },
+   "count": 76,
+   "note": "Mostly shot down by Sherman's CAP; survivors fly on to Luzon, leaving Ozawa ~29 aircraft"
+  },
+  {
+   "id": "st9",
+   "name": "Taffy 3 strike",
+   "nation": "USN",
+   "from": { "route": "taffy3" },
+   "target": { "ship": "yamato" },
+   "launch": "25 07:00",
+   "arrive": "25 07:20",
+   "leave": "25 08:30",
+   "recover": "25 09:30",
+   "recoverAt": { "lat": 11.2, "lon": 125 },
+   "count": 60,
+   "note": "Everything that can fly is launched; many aircraft recover at Tacloban airstrip"
+  },
+  {
+   "id": "st10",
+   "name": "Taffy 2 strike 1",
+   "nation": "USN",
+   "from": { "lat": 10.9, "lon": 126.8 },
+   "target": { "ship": "chokai" },
+   "launch": "25 07:45",
+   "arrive": "25 08:20",
+   "leave": "25 09:15",
+   "recover": "25 10:00",
+   "count": 50,
+   "note": "Stump's Taffy 2 Avengers cripple Chōkai and Chikuma"
+  },
+  {
+   "id": "st11",
+   "name": "Taffy 2/3 strike 2",
+   "nation": "USN",
+   "from": { "lat": 10.9, "lon": 126.8 },
+   "target": { "ship": "suzuya" },
+   "launch": "25 10:15",
+   "arrive": "25 10:50",
+   "leave": "25 11:30",
+   "recover": "25 12:15",
+   "count": 70,
+   "note": "Near-miss sets off Suzuya's torpedoes; Kurita's force is now circling"
+  },
+  {
+   "id": "st12",
+   "name": "Taffy 1 strike",
+   "nation": "USN",
+   "from": { "lat": 10, "lon": 127 },
+   "target": { "ship": "mogami" },
+   "launch": "25 07:45",
+   "arrive": "25 09:00",
+   "leave": "25 09:20",
+   "recover": "25 10:30",
+   "count": 30,
+   "note": "Avengers finish the crippled Mogami retreating from Surigao"
+  },
+  {
+   "id": "st13",
+   "name": "Cape Engaño strike 1",
+   "nation": "USN",
+   "from": { "route": "tg383" },
+   "target": { "ship": "chitose" },
+   "launch": "25 06:00",
+   "arrive": "25 08:48",
+   "leave": "25 09:10",
+   "recover": "25 10:30",
+   "count": 180,
+   "note": "Dawn launch, held orbiting until Ozawa located; Chitose sunk, Zuikaku torpedoed"
+  },
+  {
+   "id": "st14",
+   "name": "Cape Engaño strike 2",
+   "nation": "USN",
+   "from": { "route": "tg383" },
+   "target": { "ship": "chiyoda" },
+   "launch": "25 08:35",
+   "arrive": "25 09:45",
+   "leave": "25 10:05",
+   "recover": "25 11:20",
+   "count": 36,
+   "note": "Chiyoda crippled and left dead in the water"
+  },
+  {
+   "id": "st15",
+   "name": "Cape Engaño strike 3",
+   "nation": "USN",
+   "from": { "route": "tg383" },
+   "target": { "ship": "zuikaku" },
+   "launch": "25 11:45",
+   "arrive": "25 13:10",
+   "leave": "25 13:40",
+   "recover": "25 15:00",
+   "count": 200,
+   "note": "Largest strike of the battle; Zuikaku and Zuihō both sunk"
+  },
+  {
+   "id": "st16",
+   "name": "Cape Engaño strike 4",
+   "nation": "USN",
+   "from": { "route": "tg383" },
+   "target": { "ship": "ise" },
+   "launch": "25 13:15",
+   "arrive": "25 14:45",
+   "leave": "25 15:10",
+   "recover": "25 16:30",
+   "count": 40,
+   "note": "Ise dodges 34 near-misses; Hyūga also escapes"
+  },
+  {
+   "id": "st17",
+   "name": "Kamikaze — Shikishima unit",
+   "nation": "IJN",
+   "land": true,
+   "oneway": true,
+   "from": { "lat": 15.22, "lon": 120.55 },
+   "target": { "ship": "stlo" },
+   "launch": "25 07:25",
+   "arrive": "25 10:49",
+   "leave": "25 10:53",
+   "recover": "25 10:53",
+   "count": 9,
+   "note": "Lt Yukio Seki's 5 Zeros with 4 escorts from Mabalacat: first organised kamikaze attack"
+  },
+  {
+   "id": "st18",
+   "name": "TG 38.1 long-range strike",
+   "nation": "USN",
+   "from": { "route": "tg381" },
+   "target": { "ship": "yamato" },
+   "launch": "25 10:30",
+   "arrive": "25 13:15",
+   "leave": "25 13:40",
+   "recover": "25 16:15",
+   "count": 100,
+   "note": "McCain launches at ~335 nm — the longest carrier strike of the war"
+  },
+  {
+   "id": "st19",
+   "name": "TG 38.2 strike (26 Oct)",
+   "nation": "USN",
+   "from": { "route": "tg382" },
+   "target": { "ship": "yamato" },
+   "launch": "26 06:00",
+   "arrive": "26 08:30",
+   "leave": "26 09:00",
+   "recover": "26 10:30",
+   "count": 80,
+   "note": "Kurita harried through the Sibuyan Sea; Yamato takes two bombs"
+  },
+  {
+   "id": "st20",
+   "name": "TG 38.1 strike (26 Oct)",
+   "nation": "USN",
+   "from": { "route": "tg381" },
+   "target": { "ship": "noshiro" },
+   "launch": "26 09:30",
+   "arrive": "26 11:00",
+   "leave": "26 11:40",
+   "recover": "26 13:30",
+   "count": 60,
+   "note": "Light cruiser Noshiro sunk south of Mindoro"
+  },
+  {
+   "id": "st21",
+   "name": "Luzon land-based raids on TG 38.3",
+   "nation": "IJN",
+   "land": true,
+   "from": { "lat": 15.19, "lon": 120.56 },
+   "target": { "ship": "essex" },
+   "launch": "24 07:15",
+   "arrive": "24 08:30",
+   "leave": "24 09:35",
+   "recover": "24 10:45",
+   "count": 150,
+   "note": "Three waves from Clark; Essex CAP breaks them up — McCampbell shoots down nine in one sortie"
+  },
+  {
+   "id": "st22",
+   "name": "Kamikaze — Asahi/Kikusui units (Davao)",
+   "nation": "IJN",
+   "land": true,
+   "oneway": true,
+   "from": { "lat": 7.07, "lon": 125.6 },
+   "target": { "lat": 10, "lon": 127 },
+   "launch": "25 06:30",
+   "arrive": "25 07:40",
+   "leave": "25 07:45",
+   "recover": "25 07:45",
+   "count": 6,
+   "note": "Hit escort carriers Santee and Suwannee of Taffy 1 — the first kamikaze hits of the war, three hours before St. Lo"
+  },
+  {
+   "id": "st23",
+   "name": "USAAF B-24s from Morotai",
+   "nation": "USN",
+   "land": true,
+   "from": { "lat": 2.05, "lon": 128.3 },
+   "target": { "ship": "abukuma" },
+   "launch": "26 07:30",
+   "arrive": "26 10:06",
+   "leave": "26 10:45",
+   "recover": "26 13:45",
+   "count": 44,
+   "note": "5th and 13th Air Force Liberators catch Shima's cripples off Negros; Abukuma sinks at 12:42"
+  },
+  {
+   "id": "st24",
+   "name": "Kamikaze on Taffy 1 (Cebu)",
+   "nation": "IJN",
+   "land": true,
+   "oneway": true,
+   "from": { "lat": 10.3, "lon": 123.9 },
+   "target": { "lat": 10, "lon": 127.5 },
+   "launch": "26 11:30",
+   "arrive": "26 12:40",
+   "leave": "26 12:45",
+   "recover": "26 12:45",
+   "count": 4,
+   "note": "Suwannee hit a second time while landing aircraft; 85 killed"
+  }
+ ],
+ "groups": {
+  "center": "Center Force",
+  "southern": "Southern Force",
+  "shima": "2nd Striking Force",
+  "northern": "Northern Force",
+  "taffy3": "Taffy 3",
+  "tg383": "TG 38.3",
+  "tg382": "TG 38.2 / TF 34",
+  "tg384": "TG 38.4",
+  "tg381": "TG 38.1",
+  "tg772": "TG 77.2",
+  "darter": "Darter & Dace"
+ },
+ "events": [["18 01:00", "Center Force sorties from Lingga Roads", 0.2, 104.58], ["20 10:00", "A-Day: US 6th Army lands on Leyte", 11.05, 125.05], ["20 17:00", "Ozawa's decoy Northern Force sorties from Bungo Suido", 32.7, 132.1], ["22 08:00", "Kurita departs Brunei", 5.05, 115.05], ["22 15:00", "Nishimura departs Brunei", 5.05, 115.05], ["23 05:24", "Darter torpedoes Atago (Kurita swims for it) and Takao", 9.47, 117.27], ["23 06:05", "Dace sinks Maya", 9.45, 117.38], ["24 00:05", "Darter runs aground on Bombay Shoal", 9.45, 116.93], ["24 08:10", "Center Force sighted entering Tablas Strait", 12.5, 121.6], ["24 09:18", "Southern Force attacked in Sulu Sea", 9, 121.5], ["24 09:38", "Princeton hit by a single bomb", 15.35, 123.5], ["24 10:26", "Battle of the Sibuyan Sea: first strike on Kurita", 12.7, 122], ["24 15:30", "Kurita reverses course — Halsey believes he is beaten", 12.95, 122.75], ["24 16:40", "Ozawa finally sighted; Halsey decides to go north", 18.2, 125.5], ["24 17:15", "Kurita turns back toward San Bernardino", 12.85, 122.35], ["24 17:50", "Princeton scuttled", 15.35, 123.52], ["24 19:35", "Musashi sinks", 13.12, 122.53], ["24 20:22", "Halsey takes all of TF 38 north; strait left unguarded", 15.5, 124.8], ["25 00:35", "Center Force transits San Bernardino Strait", 12.55, 124.2], ["25 03:09", "Battle of Surigao Strait: Fusō torpedoed", 10.15, 125.38], ["25 03:51", "Oldendorf's battle line opens fire", 10.55, 125.38], ["25 04:19", "Yamashiro sinks with Nishimura aboard", 10.37, 125.355], ["25 04:30", "Nachi collides with Mogami; Shima retreats", 10.28, 125.35], ["25 06:45", "Battle off Samar begins — Kurita sights Taffy 3", 12.05, 126.15], ["25 07:27", "Johnston torpedoes Kumano", 11.87, 126.28], ["25 08:48", "Battle off Cape Engaño: first strike hits Ozawa", 19, 126], ["25 08:55", "Hoel sinks", 11.77, 126.55], ["25 09:07", "Gambier Bay sinks", 11.52, 126.2], ["25 09:20", "Kurita breaks off the pursuit", 11.65, 126.2], ["25 09:37", "Chitose sinks", 19.33, 126.33], ["25 10:00", "Nimitz to Halsey: \"Where is TF 34? The world wonders\"", 17.4, 125.9], ["25 10:05", "Samuel B. Roberts sinks", 11.75, 126.17], ["25 10:10", "Johnston sinks", 11.77, 126.15], ["25 11:15", "TF 34 (Lee) turns south — too late", 17.5, 126], ["25 11:25", "St. Lo sunk by kamikaze", 11.22, 126.08], ["25 12:36", "Kurita abandons attack on Leyte Gulf", 11.8, 126.05], ["25 13:07", "Mogami scuttled", 9.67, 124.83], ["25 13:22", "Suzuya sinks", 11.75, 126.18], ["25 14:14", "Zuikaku — last Pearl Harbor carrier — sinks", 19.33, 125.85], ["25 15:26", "Zuihō sinks", 19.33, 125.25], ["25 16:55", "Chiyoda sunk by cruiser gunfire", 18.62, 126.75], ["25 21:30", "Kurita re-enters San Bernardino Strait", 12.55, 124.4], ["25 23:10", "Tama torpedoed by USS Jallao", 21.38, 127.32], ["26 11:39", "Noshiro sinks", 11.7, 121.68], ["26 12:42", "Abukuma sinks", 9.33, 122.53], ["28 21:00", "Remnants of Center Force reach Brunei", 5.05, 115.05], ["24 19:40", "Shimakaze and Kiyoshimo begin rescuing Musashi survivors (1,376 saved)", 13.1, 122.5], ["26 22:00", "Search group from Leyte finds Taffy 3 survivors after two days adrift", 11.6, 126.2], ["27 12:00", "Fujinami sunk with all of Chōkai's survivors aboard", 12, 122.5]],
+ "ports": [
+  { "name": "Kure", "lat": 34.23, "lon": 132.57, "control": "IJN", "kind": "port", "note": "IJN home port; Ozawa sorties via Bungo Suido" },
+  { "name": "Amami Ōshima", "lat": 28.3, "lon": 129.4, "control": "IJN", "kind": "port", "note": "Anchorage; Ise & Hyūga shelter here 27 Oct" },
+  { "name": "Mako (Pescadores)", "lat": 23.55, "lon": 119.55, "control": "IJN", "kind": "port", "note": "Shima's 2nd Striking Force base" },
+  { "name": "Manila", "lat": 14.58, "lon": 120.97, "control": "IJN", "kind": "port", "note": "Main IJN base in the Philippines" },
+  { "name": "Clark / Mabalacat", "lat": 15.19, "lon": 120.56, "control": "IJN", "kind": "air", "note": "1st Air Fleet; kamikaze units form here" },
+  { "name": "Coron Bay", "lat": 12, "lon": 120.2, "control": "IJN", "kind": "port", "note": "Fuelling anchorage for Shima" },
+  { "name": "Cebu", "lat": 10.3, "lon": 123.9, "control": "IJN", "kind": "air", "note": "Land-based air; kamikaze staging" },
+  { "name": "Davao", "lat": 7.07, "lon": 125.6, "control": "IJN", "kind": "air", "note": "Southern air base" },
+  { "name": "Ormoc", "lat": 11, "lon": 124.6, "control": "IJN", "kind": "port", "note": "Japanese supply port on west Leyte" },
+  { "name": "Brunei Bay", "lat": 5.05, "lon": 115.05, "control": "IJN", "kind": "port", "note": "Fuelling base for Kurita & Nishimura" },
+  { "name": "Lingga Roads", "lat": 0.2, "lon": 104.58, "control": "IJN", "kind": "port", "note": "Fleet anchorage near Singapore" },
+  { "name": "Tacloban", "lat": 11.24, "lon": 125, "control": "IJN", "captured": "20 10:00", "kind": "air", "note": "Leyte landing beaches; airstrip used by Taffy aircraft 25 Oct" },
+  { "name": "Dulag", "lat": 10.95, "lon": 125.03, "control": "IJN", "captured": "20 10:00", "kind": "port", "note": "Southern landing beaches, Leyte Gulf" },
+  { "name": "Ulithi", "lat": 10, "lon": 139.7, "control": "USN", "kind": "port", "note": "Third Fleet fleet anchorage" },
+  { "name": "Kossol Roads", "lat": 7.8, "lon": 134.5, "control": "USN", "kind": "port", "note": "Forward anchorage, Palau" },
+  { "name": "Peleliu", "lat": 7, "lon": 134.25, "control": "USN", "kind": "air", "note": "Airfield taken Sept–Oct 1944" },
+  { "name": "Morotai", "lat": 2.05, "lon": 128.3, "control": "USN", "kind": "air", "note": "Airfield taken Sept 1944" },
+  { "name": "Manus (Seeadler)", "lat": -2, "lon": 147.4, "control": "USN", "kind": "port", "note": "Seventh Fleet staging base" },
+  { "name": "Tacloban airstrip", "lat": 11.22, "lon": 125.03, "control": "IJN", "captured": "20 10:00", "kind": "air", "note": "Taffy aircraft land here on 25 Oct; Army fighters arrive 27 Oct" },
+  { "name": "Tokyo — Imperial GHQ", "lat": 35.68, "lon": 139.69, "control": "IJN", "kind": "hq", "hq": "Navy General Staff · Combined Fleet HQ at Hiyoshi", "note": "Toyoda's Combined Fleet staff directs Shō-Gō 1 from an underground bunker at Hiyoshi, near Tokyo" },
+  { "name": "Manila — SW Area Fleet HQ", "lat": 14.6, "lon": 121, "control": "IJN", "kind": "hq", "hq": "Southwest Area Fleet · 1st Air Fleet (Ōnishi)", "note": "Ōnishi organises the first kamikaze units here on 19–20 Oct" },
+  { "name": "Hollandia — GHQ SWPA", "lat": -2.55, "lon": 140.7, "control": "USN", "kind": "hq", "hq": "MacArthur's General Headquarters", "note": "MacArthur embarks in cruiser Nashville for the Leyte landings; 7th Fleet answers to him, not Nimitz" },
+  { "name": "Pearl Harbor — CINCPAC", "lat": 21.35, "lon": -157.95, "control": "USN", "kind": "hq", "hq": "Nimitz — Pacific Fleet HQ", "note": "Origin of the \"Where is Task Force 34? The world wonders\" signal" }
+ ],
+ "engagements": [
+  {
+   "ships": ["yamashiro", "fuso", "mogami", "shigure", "yamagumo", "michishio", "asagumo"],
+   "from": "25 03:00",
+   "to": "25 03:50",
+   "rate": 0.25,
+   "note": "Destroyer torpedo attacks"
+  },
+  {
+   "ships": ["wv", "california", "mississippi", "louisville"],
+   "from": "25 03:51",
+   "to": "25 04:09",
+   "rate": 0.55,
+   "note": "Battle line opens fire",
+   "targets": ["yamashiro"]
+  },
+  {
+   "ships": ["yamashiro", "mogami", "shigure"],
+   "from": "25 03:51",
+   "to": "25 04:19",
+   "rate": 0.45,
+   "targets": ["louisville", "wv", "california"]
+  },
+  {
+   "ships": ["louisville", "mogami", "asagumo"],
+   "from": "25 04:20",
+   "to": "25 07:21",
+   "rate": 0.12,
+   "note": "Pursuit and mopping up",
+   "targets": ["louisville"]
+  },
+  {
+   "ships": ["yamato", "nagato", "kongo", "haruna", "haguro", "chokai", "chikuma", "tone", "suzuya", "yahagi", "noshiro"],
+   "from": "25 06:58",
+   "to": "25 09:20",
+   "rate": 0.45,
+   "targets": ["gambier", "johnston", "hoel", "sbr", "heermann", "fanshaw", "kalinin"],
+   "pairs": null
+  },
+  {
+   "ships": ["kumano"],
+   "from": "25 06:58",
+   "to": "25 07:27",
+   "rate": 0.45,
+   "targets": ["johnston"]
+  },
+  {
+   "ships": ["johnston"],
+   "from": "25 07:00",
+   "to": "25 09:45",
+   "rate": 0.6,
+   "targets": ["kumano", "kongo", "yahagi", "chikuma"]
+  },
+  {
+   "ships": ["hoel"],
+   "from": "25 07:05",
+   "to": "25 08:40",
+   "rate": 0.55,
+   "targets": ["kongo", "haguro"]
+  },
+  {
+   "ships": ["heermann"],
+   "from": "25 07:15",
+   "to": "25 09:10",
+   "rate": 0.5,
+   "targets": ["chikuma", "haguro", "tone"]
+  },
+  {
+   "ships": ["sbr"],
+   "from": "25 07:30",
+   "to": "25 09:50",
+   "rate": 0.55,
+   "targets": ["chokai", "chikuma"]
+  },
+  {
+   "ships": ["gambier", "fanshaw", "kalinin"],
+   "from": "25 07:30",
+   "to": "25 09:15",
+   "rate": 0.2,
+   "note": "Single 5-inch guns",
+   "targets": ["chokai", "chikuma", "tone"]
+  },
+  {
+   "ships": ["yamato", "nagato", "haruna", "tone", "haguro"],
+   "from": "25 09:20",
+   "to": "25 09:35",
+   "rate": 0.15,
+   "targets": ["heermann", "fanshaw"]
+  }
+ ],
+ "utcOffset": 9,
+ "commanders": {
+  "center": { "name": "Vice Admiral Takeo Kurita", "role": "Commander, First Diversion Attack Force (Center Force)", "flagship": "Atago, then Yamato", "bio": "A cautious, experienced surface officer who had commanded cruiser divisions since Java Sea. Swam for his life when Atago went down under him on 23 October, then led the surviving fleet through San Bernardino Strait. His decision to break off the pursuit off Samar at 09:20 — believing he faced Halsey's fleet carriers — remains one of the most debated calls of the war.", "fate": "Survived the war; died 1977 aged 88.", "wiki": "Takeo_Kurita" },
+  "southern": { "name": "Vice Admiral Shōji Nishimura", "role": "Commander, Force C (Southern Force)", "flagship": "Yamashiro", "bio": "Ordered to force Surigao Strait and reach Leyte Gulf at dawn in concert with Kurita, he pressed on through PT-boat and destroyer attacks into the guns of six battleships, despite knowing Kurita had been delayed. Made no attempt to coordinate with Shima's force following behind.", "fate": "Went down with Yamashiro at 04:19 on 25 October.", "wiki": "Shōji_Nishimura" },
+  "shima": { "name": "Vice Admiral Kiyohide Shima", "role": "Commander, Second Striking Force", "flagship": "Nachi", "bio": "Arrived in Surigao Strait 40 minutes behind Nishimura to find burning wreckage. After Nachi collided with the crippled Mogami he judged the battle lost and withdrew — the only Japanese admiral at Leyte to retreat with his force largely intact.", "fate": "Survived the war; died 1973.", "wiki": "Kiyohide_Shima" },
+  "northern": { "name": "Vice Admiral Jisaburō Ozawa", "role": "Commander, Mobile Force (Northern / decoy force)", "flagship": "Zuikaku, then Ōyodo", "bio": "Commanded the carrier force at the Philippine Sea and now led the near-empty carriers north as bait. His plan worked perfectly — Halsey took the whole of TF 38 after him — at the cost of all four carriers. Regarded by both sides as one of the ablest Japanese admirals of the war.", "fate": "Survived; last commander of the Combined Fleet. Died 1966.", "wiki": "Jisaburō_Ozawa" },
+  "taffy3": { "name": "Rear Admiral Clifton A. F. Sprague", "role": "Commander, Task Unit 77.4.3 (Taffy 3)", "flagship": "Fanshaw Bay", "bio": "\"Ziggy\" Sprague found four battleships and eight cruisers on his horizon at dawn and fought them for two and a half hours with six escort carriers, three destroyers and four destroyer escorts. His handling — running into the wind to launch, then turning into rain squalls and smoke while his escorts charged — is a textbook of small-ship tactics.", "fate": "Died 1955; USS Clifton Sprague named for him.", "wiki": "Clifton_Sprague" },
+  "tg383": { "name": "Rear Admiral Frederick C. Sherman", "role": "Commander, Task Group 38.3", "flagship": "Essex", "bio": "Fought off three land-based raids on 24 October (losing Princeton) while striking Kurita, then located Ozawa that afternoon. His group led the strikes off Cape Engaño.", "fate": "Retired 1947; died 1957.", "wiki": "Frederick_C._Sherman" },
+  "tg382": { "name": "Admiral William F. Halsey Jr.", "role": "Commander, Third Fleet (embarked in New Jersey with TG 38.2)", "flagship": "New Jersey", "bio": "Aggressive to a fault, Halsey took every carrier and fast battleship north after Ozawa on the night of 24 October, leaving San Bernardino Strait unguarded. Nimitz's query — \"Where is, repeat, where is Task Force 34? The world wonders\" — reduced him to tears of rage. He turned south too late to catch Kurita.", "fate": "Fleet Admiral 1945; died 1959.", "wiki": "William_Halsey_Jr." },
+  "tg384": { "name": "Rear Admiral Ralph E. Davison", "role": "Commander, Task Group 38.4", "flagship": "Franklin", "bio": "His Enterprise aircraft found and attacked Nishimura in the Sulu Sea on the morning of 24 October, then his group joined the run north.", "fate": "Died 1972.", "wiki": "Ralph_E._Davison" },
+  "tg381": { "name": "Vice Admiral John S. McCain Sr.", "role": "Commander, Task Group 38.1", "flagship": "Wasp", "bio": "Recalled while steaming to Ulithi, he launched strikes at Kurita from 335 nautical miles on 25 October — the longest carrier strike of the war — and harried the retreating Center Force on the 26th.", "fate": "Died 1945, four days after the Japanese surrender.", "wiki": "John_S._McCain_Sr." },
+  "tg772": { "name": "Rear Admiral Jesse B. Oldendorf", "role": "Commander, Task Group 77.2 (Bombardment and Fire Support Group)", "flagship": "Louisville", "bio": "Laid a textbook trap across Surigao Strait: PT boats, then destroyers, then six battleships — five of them Pearl Harbor survivors — crossing the T of Nishimura's line. The last battleship-versus-battleship action in history.", "fate": "Died 1974.", "wiki": "Jesse_B._Oldendorf" },
+  "darter": { "name": "Cdr David H. McClintock & Cdr Bladen D. Claggett", "role": "Commanding officers, USS Darter and USS Dace", "flagship": "Darter", "bio": "Working as a pair in the Palawan Passage, they made the first contact report on Kurita and sank two heavy cruisers and crippled a third before Darter grounded on Bombay Shoal. Dace took off her entire crew.", "fate": "Both survived the war.", "wiki": "USS_Darter_(SS-227)" }
+ },
+ "torpedoes": [
+  { "from": "darter", "to": "atago", "t": "23 05:24", "run": 2, "n": 6, "hit": true, "note": "Four hits — Atago sinks in 20 minutes" },
+  { "from": "darter", "to": "takao", "t": "23 05:27", "n": 4, "run": 2, "hit": true, "note": "Two hits; Takao out of the war" },
+  { "from": "dace", "to": "maya", "t": "23 05:54", "n": 4, "run": 2, "hit": true, "note": "Four hits; Maya blows up" },
+  {
+   "from": { "lat": 10.28, "lon": 125.5, "label": "USS Melvin (DesRon 54)" },
+   "to": "fuso",
+   "t": "25 03:05",
+   "run": 4,
+   "n": 5,
+   "hit": true,
+   "note": "One hit; Fusō falls out of line and sinks"
+  },
+  {
+   "from": { "lat": 10.4, "lon": 125.28, "label": "DesRon 54 / 24" },
+   "to": "yamagumo",
+   "t": "25 03:15",
+   "run": 4,
+   "n": 5,
+   "hit": true,
+   "note": "Yamagumo blows up; Michishio and Asagumo also hit"
+  },
+  {
+   "from": { "lat": 10.4, "lon": 125.28, "label": "DesRon 24" },
+   "to": "yamashiro",
+   "t": "25 03:30",
+   "run": 6,
+   "n": 8,
+   "hit": true,
+   "note": "Yamashiro takes up to four torpedoes before the battle line opens fire"
+  },
+  {
+   "from": { "lat": 9.85, "lon": 125.15, "label": "PT-137" },
+   "to": "abukuma",
+   "t": "25 03:22",
+   "run": 3,
+   "n": 1,
+   "hit": true,
+   "note": "A torpedo aimed at a destroyer runs on and hits Abukuma"
+  },
+  { "from": "johnston", "to": "kumano", "t": "25 07:20", "run": 7, "n": 10, "hit": true, "note": "Bow blown off; Kumano and Suzuya (taking off Kumano's admiral) both leave the battle" },
+  { "from": "hoel", "to": "kongo", "t": "25 07:25", "run": 6, "n": 5, "hit": false, "note": "Kongō combs the spread" },
+  { "from": "hoel", "to": "haguro", "t": "25 07:50", "run": 5, "n": 5, "hit": false, "note": "Haguro evades; Hoel now has two guns and no torpedoes" },
+  { "from": "heermann", "to": "haguro", "t": "25 07:54", "run": 5, "n": 7, "hit": false, "note": "Haguro turns away" },
+  { "from": "heermann", "to": "yamato", "t": "25 07:56", "run": 9, "n": 3, "hit": false, "note": "Yamato turns north to comb the torpedoes — and steams out of the battle for ten minutes" },
+  { "from": "sbr", "to": "chokai", "t": "25 08:00", "run": 5, "n": 3, "hit": false, "note": "Roberts' three torpedoes miss, but she then closes to 4,000 yd with her 5-inch guns" }
+ ],
+ "rescues": [
+  { "by": "shimakaze", "of": "musashi", "from": "24 19:35", "to": "25 02:30", "saved": 1376, "note": "Shimakaze and Kiyoshimo circle the wreck site through the night; 1,023 of Musashi's crew are lost" },
+  { "by": "kiyoshimo", "of": "musashi", "from": "24 19:35", "to": "25 02:30", "saved": null, "note": "Shares the Musashi rescue with Shimakaze" },
+  { "by": "dace", "of": "darter", "from": "24 00:05", "to": "24 06:00", "saved": 81, "note": "Darter's entire crew crosses to Dace by rubber boat; Dace then tries and fails to destroy the wreck" },
+  { "by": "fujinami", "of": "chokai", "from": "25 11:00", "to": "25 12:30", "saved": null, "note": "Every Chōkai survivor embarked — all lost two days later when Fujinami is sunk" },
+  { "by": "nowaki", "of": "chikuma", "from": "25 11:30", "to": "25 14:00", "saved": null, "note": "Chikuma's survivors embarked — lost with Nowaki off San Bernardino on the 26th; one man survived" },
+  { "by": "heermann", "of": "stlo", "from": "25 11:25", "to": "25 13:30", "saved": 784, "note": "Heermann, Dennis, John C. Butler and Raymond pick up St. Lo's crew within hours" },
+  {
+   "by": { "lat": 11.6, "lon": 126.2, "label": "Leyte rescue group (PC-623, PC-1119, LCIs)" },
+   "of": "johnston",
+   "from": "26 22:00",
+   "to": "27 14:00",
+   "saved": 1150,
+   "note": "Survivors of Johnston, Hoel, Samuel B. Roberts and Gambier Bay drift for two days before a search group from Leyte Gulf finds them"
+  },
+  {
+   "by": { "lat": 19.33, "lon": 125.85, "label": "Wakatsuki & Kuwa" },
+   "of": "zuikaku",
+   "from": "25 14:14",
+   "to": "25 16:30",
+   "saved": 862,
+   "note": "Destroyers Wakatsuki and Kuwa rescue 862 of Zuikaku's crew; Ozawa has already shifted to Ōyodo"
+  },
+  {
+   "by": { "lat": 19.33, "lon": 125.25, "label": "Kuwa & Wakatsuki" },
+   "of": "zuiho",
+   "from": "25 15:26",
+   "to": "25 17:30",
+   "saved": 759,
+   "note": "Zuihō's survivors picked up under continuing air attack"
+  },
+  {
+   "by": { "lat": 15.35, "lon": 123.52, "label": "Birmingham, Reno, Irwin" },
+   "of": "princeton",
+   "from": "24 10:30",
+   "to": "24 17:50",
+   "saved": 1361,
+   "note": "Birmingham comes alongside to fight the fires — and loses 233 men when Princeton's magazine explodes at 15:23"
+  }
+ ],
+ "schema": 1
+}
