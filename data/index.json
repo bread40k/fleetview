@@ -1,7 +1,12 @@
 {
  "schema": 1,
- "generated": "2026-09-08T21:30:14.430Z",
- "war": { "start": "1939-09-01T00:00", "end": "1945-09-02T12:00", "label": "The war at sea, 1939–45" },
+ "generated": "2026-09-08T21:57:31.336Z",
+ "war": {
+  "start": "1939-09-01T00:00",
+  "end": "1945-09-02T12:00",
+  "label": "The war at sea, 1939–45",
+  "milestones": [["1939-09-01", "Germany invades Poland — the war begins"], ["1939-09-03", "Britain and France declare war on Germany"], ["1940-05-10", "Germany invades France and the Low Countries"], ["1940-06-22", "France signs the armistice"], ["1940-07-10", "Battle of Britain begins"], ["1941-06-22", "Operation Barbarossa — Germany invades the Soviet Union"], ["1941-12-08", "United States and Britain declare war on Japan; Germany declares war on the US on the 11th"], ["1942-02-15", "Singapore surrenders"], ["1942-11-04", "Second Battle of El Alamein won"], ["1943-02-02", "German Sixth Army surrenders at Stalingrad"], ["1943-05-13", "Axis forces in North Africa surrender"], ["1943-09-08", "Italy's surrender announced"], ["1944-06-06", "D-Day — Allied landings in Normandy"], ["1944-07-20", "Bomb plot against Hitler fails"], ["1944-08-25", "Paris liberated"], ["1944-12-16", "Battle of the Bulge begins"], ["1945-02-04", "Yalta Conference opens"], ["1945-03-10", "Tokyo firebombed — Operation Meetinghouse"], ["1945-04-12", "President Roosevelt dies; Truman succeeds him"], ["1945-04-30", "Hitler kills himself in Berlin"], ["1945-05-08", "VE Day — Germany surrenders"], ["1945-08-06", "Atomic bomb on Hiroshima"], ["1945-08-08", "Soviet Union declares war on Japan"], ["1945-08-09", "Atomic bomb on Nagasaki"], ["1945-08-15", "Japan announces its surrender — VJ Day"], ["1945-09-02", "Surrender signed in Tokyo Bay — the war ends"]]
+ },
  "default": "leyte",
  "ships": "ships.json",
  "campaigns": [
