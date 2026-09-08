@@ -10,9 +10,10 @@ Currently included:
 
 | Campaign | Dates | Ships | Air ops |
 |---|---|---|---|
-| Battle of Leyte Gulf | 17–28 Oct 1944 | 57 | 24 |
-| Operation Rheinübung — the Bismarck chase | 18–28 May 1941 | 23 | 13 |
-| Operation Ten-Go — the last sortie of Yamato (skeleton) | 5–7 Apr 1945 | 1 | 0 |
+| Operation Rheinübung — the Bismarck chase | 18–28 May 1941 | 25 | 13 |
+| Battle of Midway (with the Aleutians diversion) | 25 May – 7 Jun 1942 | 70 | 31 |
+| Battle of Leyte Gulf | 17–28 Oct 1944 | 61 | 24 |
+| Operation Ten-Go — the last sortie of Yamato | 5–8 Apr 1945 | 30 | 11 |
 
 ## Features
 
@@ -67,7 +68,7 @@ torpedoes, engagements (gun targets), events, ports (bases / airfields / HQ), re
 routing      { res, bbox, margin, source, bakedAt, ships:{ shipId:{ hash, snap, via } } }   ← written by the baker, don't edit by hand
 ```
 
-Times are `'DD HH:MM'` in the scenario's zone time (`base` gives the year and month; Tokyo UTC+9 for Leyte, ~UTC+2 for the Bismarck chase). A ship follows its `route` until `until`, then its own `extra` track. Positions of battles and sinkings are taken from published records; transit legs between documented fixes are reconstructions and are drawn dotted — mark a waypoint `'S'` (sourced) or `'R'` (reconstructed) to override the default (a note ⇒ sourced).
+Times are `'DD HH:MM'` in the scenario's zone time (`base` gives the year and month; Tokyo UTC+9 for Leyte and Ten-Go, ~UTC+2 for the Bismarck chase, Midway local UTC−12 for Midway), or `'YYYY-MM-DD HH:MM'` when a campaign spans two months. A scenario that straddles the 180th meridian sets `view.dateline: true` and writes its longitudes continuously (177°W as 183), so tracks never wrap; the app normalises them for display. A ship follows its `route` until `until`, then its own `extra` track. Positions of battles and sinkings are taken from published records; transit legs between documented fixes are reconstructions and are drawn dotted — mark a waypoint `'S'` (sourced) or `'R'` (reconstructed) to override the default (a note ⇒ sourced).
 
 `ships.json` is keyed by ship id (or a ship's `ref`, for two different ships that share an id across campaigns). A scenario ship inherits `name`, `type` and `wiki` from the registry when it doesn't set them; `appearances` are regenerated from the scenario files, everything else you add by hand is kept.
 
@@ -85,7 +86,9 @@ Routing records are keyed by a hash of each ship's waypoints: if you edit a trac
 
 ### Sources
 
-- Samuel Eliot Morison, *History of United States Naval Operations in World War II*, vols. X and XII
+- Samuel Eliot Morison, *History of United States Naval Operations in World War II*, vols. IV, X, XII and XIV
+- Jonathan Parshall & Anthony Tully, *Shattered Sword*; Nagumo's action report (*The Japanese Story of the Battle of Midway*, ONI 1947); CINCPAC, Enterprise, Hornet and Yorktown action reports; ONI Combat Narrative *The Battle of Midway*
+- CTF 58 action report (Ten-Go); NHHC H-Gram 044; Tameichi Hara, *Japanese Destroyer Captain*
 - Anthony Tully, *Battle of Surigao Strait*; combinedfleet.com Tabular Records of Movement
 - Dictionary of American Naval Fighting Ships (DANFS); Naval History and Heritage Command H-Grams
 - Ludovic Kennedy, *Pursuit*; Iain Ballantyne, *Killing the Bismarck*; naval-history.net
@@ -97,7 +100,7 @@ Corrections and new scenarios are very welcome — open an issue, or edit `data/
 
 ## Status
 
-Two campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) is done. Next: an ingestion pipeline for TROM / naval-history.net / DANFS sources, then battle packs — Midway, Pearl Harbor, Java Sea, Coral Sea, Matapan, River Plate, Philippine Sea, Guadalcanal, PQ 17, Ten-Go.
+Four campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) and Phase 2 (the ingestion pipeline) are done; Phase 3 battle packs are under way — next Pearl Harbor, Java Sea, Coral Sea, Matapan, River Plate, Philippine Sea, Guadalcanal, PQ 17.
 
 ## Licence
 
