@@ -480,7 +480,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.5';
+const APP_VERSION = '2.6';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -765,7 +765,7 @@ function fillPopup(s){
   // cross-campaign registry: other campaigns this ship appears in (deep links), and her eventual fate if not lost here
   const reg = s.reg || {}; const also = (reg.appearances || []).filter(a => a.scenario !== SC.id).map(a => { const c = CAMPAIGNS.find(c => c.id === a.scenario); return c ? `<a href="#s=${c.id}&t=${a.from}" onclick="fvGoto('${c.id}','${a.from}');return false" title="${c.subtitle || ''}">${c.title}</a>${a.sunk ? ' ✕' : ''}` : null; }).filter(Boolean);
   const regHtml = (also.length ? `<div class="k also">Also in: ${also.join(' · ')}</div>` : '') + (reg.fate && !s.sunk ? `<div class="k also">Fate: ${reg.fate}</div>` : '');
-  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div>${regHtml}<div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost !== undefined && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
+  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div>${regHtml}<div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost != null && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
   if (!popup.isOpen()) popup.openOn(map);
 }
 

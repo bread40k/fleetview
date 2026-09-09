@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.6 — 2026-09-09
+
+**Four new campaigns**
+- **The Attack on Pearl Harbor** (25 Nov – 8 Dec 1941): the Kido Butai's northern route from Hitokappu Bay (reconstructed from its operation orders), the two waves, the midget submarines and Ward's first shot, Battleship Row berth by berth with Nevada's run, Enterprise's scouts flying into the raid, Lexington and Indianapolis at sea. Second dateline campaign (continuous longitudes). 51 ships, 8 torpedo hits.
+- **Battle of the Coral Sea** (1–12 May 1942): Point Buttercup, the Tulagi strikes, the two forces 70 miles apart in the dark, Neosho and Sims, Shōhō ('Scratch one flattop'), Crace off Jomard Passage, the dusk strike, the 8 May exchange and Lexington's end, Neosho found four days later. 46 ships, 12 air operations.
+- **The Doolittle Raid** (2–25 Apr 1942): Hornet from Alameda, Enterprise from Pearl, the rendezvous at 38°N 180°, Nitto Maru, the launch 650 miles out, the sixteen B-25s drawn as one flight to Tokyo and on to Chuchow (and York's to Vladivostok), Nagumo's futile chase. Third dateline campaign.
+- **Operation Tungsten** (27 Mar – 7 Apr 1944): Forces 1 and 2, convoy JW 58 with its three U-boat kills (positions from uboat.net), the two Barracuda strikes on Tirpitz in Kåfjord, Duke of York's detachment. The flying-off position is derived (120 miles NW of Kåfjord — no fix published).
+
+**Engine** — a ship sunk with no known death toll no longer breaks the popup (`lost: null` guarded). Smoke test: 18 runs.
+
+**Registry** — 442 ships. Enterprise now in four campaigns (Pearl Harbor, Doolittle, Midway, Leyte); Akagi, Zuikaku and Shōkaku in three; Yorktown links Coral Sea and Midway; Hornet CV-8 Doolittle and Midway; West Virginia and California carry their raising and return to Surigao Strait in their fates. Some sixty hand-edited fates added.
+
 ## v2.5 — 2026-09-09
 
 **Seven new campaigns — the war in European waters**

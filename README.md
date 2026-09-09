@@ -15,10 +15,14 @@ Currently included:
 | Battle of Cape Matapan | 26 Mar – 1 Apr 1941 | 33 | 9 |
 | Operation Rheinübung — the Bismarck chase | 18–28 May 1941 | 25 | 13 |
 | The Royal Navy at Crete | 20 May – 1 Jun 1941 | 41 | 16 |
+| The Attack on Pearl Harbor | 25 Nov – 8 Dec 1941 | 51 | 5 |
 | The Channel Dash — Operation Cerberus | 11–13 Feb 1942 | 17 | 5 |
+| The Doolittle Raid | 2–25 Apr 1942 | 19 | 5 |
+| Battle of the Coral Sea | 1–12 May 1942 | 46 | 12 |
 | Battle of Midway (with the Aleutians diversion) | 25 May – 7 Jun 1942 | 70 | 31 |
 | Convoy PQ 17 | 27 Jun – 13 Jul 1942 | 74 | 8 |
 | Battle of the North Cape | 22–27 Dec 1943 | 22 | 1 |
+| Operation Tungsten — the Fleet Air Arm strikes Tirpitz | 27 Mar – 7 Apr 1944 | 33 | 5 |
 | Battle of Leyte Gulf | 17–28 Oct 1944 | 61 | 24 |
 | Operation Ten-Go — the last sortie of Yamato | 5–8 Apr 1945 | 30 | 11 |
 
@@ -98,6 +102,7 @@ Routing records are keyed by a hash of each ship's waypoints: if you edit a trac
 - Jonathan Parshall & Anthony Tully, *Shattered Sword*; Nagumo's action report (*The Japanese Story of the Battle of Midway*, ONI 1947); CINCPAC, Enterprise, Hornet and Yorktown action reports; ONI Combat Narrative *The Battle of Midway*
 - CTF 58 action report (Ten-Go); NHHC H-Gram 044; Tameichi Hara, *Japanese Destroyer Captain*
 - London Gazette despatches: Harwood (River Plate), Warburton-Lee / Whitworth (Narvik), Cunningham (Matapan, Crete), Fraser (North Cape); Bucknill enquiry extracts (Channel Dash)
+- Pearl Harbor: Nagumo's operation orders (Japanese Monograph 97), combinedfleet.com TROMs, NHHC action reports; Coral Sea: CTF 17, Lexington and Yorktown action reports; Doolittle: Hornet, Enterprise and Doolittle's own reports (ibiblio HyperWar); Tungsten: Admiralty War Diary (naval-history.net), Battle Summary No. 27
 - combinedfleet.com, scharnhorst-class.dk, uboat.net (PQ 17 losses), warsailors.com, the Narvik dive-site surveys (dykkepedia.com), Italian and German Wikipedia for the Regia Marina and Kriegsmarine side
 - Anthony Tully, *Battle of Surigao Strait*; combinedfleet.com Tabular Records of Movement
 - Dictionary of American Naval Fighting Ships (DANFS); Naval History and Heritage Command H-Grams
@@ -110,7 +115,7 @@ Corrections and new scenarios are very welcome — open an issue, or edit `data/
 
 ## Status
 
-Eleven campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) and Phase 2 (the ingestion pipeline) are done; Phase 3 battle packs are under way — next Pearl Harbor, Java Sea, Coral Sea, Philippine Sea, Guadalcanal, Force Z, Pedestal, Taranto.
+Fifteen campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) and Phase 2 (the ingestion pipeline) are done; Phase 3 battle packs are under way — next Java Sea, Force Z, Guadalcanal, Philippine Sea, Pedestal, Taranto, Truk.
 
 ## Licence
 
