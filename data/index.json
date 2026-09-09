@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-09-09T09:49:57.450Z",
+ "generated": "2026-09-09T11:29:12.253Z",
  "war": {
   "start": "1939-09-01T00:00",
   "end": "1945-09-02T12:00",
@@ -26,7 +26,7 @@
    "airOps": 2,
    "events": 20,
    "routed": true,
-   "bytes": 16064
+   "bytes": 16297
   },
   {
    "id": "narvik",
@@ -44,7 +44,7 @@
    "airOps": 4,
    "events": 29,
    "routed": true,
-   "bytes": 43310
+   "bytes": 43998
   },
   {
    "id": "matapan",
@@ -62,7 +62,7 @@
    "airOps": 9,
    "events": 22,
    "routed": true,
-   "bytes": 37384
+   "bytes": 37735
   },
   {
    "id": "bismarck",
@@ -80,7 +80,7 @@
    "airOps": 13,
    "events": 33,
    "routed": true,
-   "bytes": 42342
+   "bytes": 42554
   },
   {
    "id": "crete",
@@ -98,7 +98,7 @@
    "airOps": 16,
    "events": 29,
    "routed": true,
-   "bytes": 45127
+   "bytes": 45904
   },
   {
    "id": "pearlharbor",
@@ -116,7 +116,7 @@
    "airOps": 5,
    "events": 30,
    "routed": true,
-   "bytes": 37180
+   "bytes": 38616
   },
   {
    "id": "channeldash",
@@ -134,7 +134,7 @@
    "airOps": 5,
    "events": 20,
    "routed": true,
-   "bytes": 20692
+   "bytes": 20760
   },
   {
    "id": "doolittle",
@@ -170,7 +170,7 @@
    "airOps": 12,
    "events": 28,
    "routed": true,
-   "bytes": 43029
+   "bytes": 43359
   },
   {
    "id": "midway",
@@ -188,7 +188,7 @@
    "airOps": 31,
    "events": 52,
    "routed": true,
-   "bytes": 72103
+   "bytes": 72752
   },
   {
    "id": "pq17",
@@ -206,7 +206,7 @@
    "airOps": 8,
    "events": 25,
    "routed": true,
-   "bytes": 62674
+   "bytes": 63126
   },
   {
    "id": "northcape",
@@ -224,7 +224,7 @@
    "airOps": 1,
    "events": 19,
    "routed": true,
-   "bytes": 26626
+   "bytes": 26930
   },
   {
    "id": "tungsten",
@@ -242,7 +242,7 @@
    "airOps": 5,
    "events": 14,
    "routed": true,
-   "bytes": 25965
+   "bytes": 26047
   },
   {
    "id": "leyte",
@@ -260,7 +260,7 @@
    "airOps": 24,
    "events": 49,
    "routed": true,
-   "bytes": 74595
+   "bytes": 75670
   },
   {
    "id": "tengo",
@@ -278,7 +278,7 @@
    "airOps": 11,
    "events": 37,
    "routed": true,
-   "bytes": 35422
+   "bytes": 35696
   }
  ]
 }
