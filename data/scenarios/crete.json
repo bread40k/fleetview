@@ -1,0 +1,873 @@
+{
+ "id": "crete",
+ "title": "The Royal Navy at Crete",
+ "subtitle": "Eastern Mediterranean · 20 May – 1 June 1941",
+ "base": [1941, 4],
+ "start": "20 00:00",
+ "end": "1941-06-02 00:00",
+ "tz": "Fleet time · UTC+3",
+ "utcOffset": 3,
+ "majorDays": [22, 29],
+ "view": {
+  "center": [34.6, 25],
+  "zoom": 6,
+  "min": 4,
+  "max": 12
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["warspite", "gloucester", "fiji", "kelly", "orion", "dido", "naiad", "formidable", "calcutta", "lupo", "sagittario"],
+ "scenes": [
+  ["Overview", "22 14:00", [34.6, 25], 6],
+  ["Airborne assault", "20 08:00", [35.5, 24.2], 8],
+  ["Lupo convoy", "21 23:30", [35.8, 24], 8],
+  ["Sagittario convoy", "22 10:10", [36.2, 24.6], 8],
+  ["Black 22nd", "22 16:00", [35.8, 23.1], 8],
+  ["Kelly and Kashmir", "23 07:55", [34.5, 23.3], 8],
+  ["Scarpanto strike", "26 05:30", [34.5, 26.8], 7],
+  ["Heraklion", "29 06:25", [35.2, 26], 8],
+  ["Sphakia", "30 01:00", [35.2, 24.14], 9],
+  ["Calcutta", "1941-06-01 09:22", [31.9, 28.3], 7]
+ ],
+ "defaultTime": "22 14:00",
+ "footnote": "Fleet time (Zone −3, UTC+3). Sinking positions from Cunningham's despatch and naval-history.net; force movements between them are reconstructed from the despatch's bearings and timings. Casualty totals for ships that survived (Warspite, Orion, Dido, Formidable…) are not counted by the loss counter — some 1,800–2,000 sailors died in all. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "a1": { "name": "RN Force A1 — battleships (Rawlings)", "color": "#3b82f6", "nation": "RN" },
+  "b": { "name": "RN Force B — Gloucester & Fiji (Rowley)", "color": "#06b6d4", "nation": "RN" },
+  "c": { "name": "RN Force C (King)", "color": "#22c55e", "nation": "RN" },
+  "d": { "name": "RN Force D (Glennie) · Heraklion force (Rawlings)", "color": "#a855f7", "nation": "RN" },
+  "5df": { "name": "RN 5th Destroyer Flotilla (Mountbatten)", "color": "#eab308", "nation": "RN" },
+  "formidable": { "name": "RN Force A — Formidable (Pridham-Wippell)", "color": "#0ea5e9", "nation": "RN" },
+  "sphakia": { "name": "RN Sphakia evacuation forces", "color": "#94a3b8", "nation": "RN" },
+  "rm": { "name": "RM Convoy escorts (Mimbelli / Cigala Fulgosi)", "color": "#15803d", "nation": "RM" }
+ },
+ "schema": 1,
+ "routes": {
+  "a1": [["20 05:00", 35.3, 21.6, "Dawn, 100 miles west of Crete: Warspite, Valiant and destroyers", "R"], ["21 05:00", 35.7, 22.3, "60 miles west of the Antikithera Strait", "R"], ["22 05:00", 35.9, 22.3, "45 miles south-west of the Kithera Channel", "R"], ["22 12:25", 35.85, 22.5, "Turns east at 23 knots into the Kithera Channel to cover King's retreat", "R"], ["22 13:32", 35.9, 23.2, "Warspite hit — starboard 4-inch and 6-inch batteries wrecked", "R"], ["22 14:00", 35.95, 23.1, "Meets Force C; Gloucester and Fiji sent back for Greyhound's survivors", "R"], ["22 20:00", 35.3, 23, "Retiring south-west; Kandahar and Kingston rejoin with Fiji's survivors overnight", "R"], ["23 04:08", 34.6, 24.5, "Cunningham orders all forces to Alexandria — a cipher error about pom-pom ammunition", "R"], ["23 20:00", 32.6, 27.5], ["24 08:00", 31.2, 29.88, "Alexandria", "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "b": [["20 00:00", 34.2, 22.6], ["21 07:00", 35.333, 22.417, "Rendezvous 35°20′N 22°25′E", "S"], ["21 22:00", 36.35, 22.4, "Patrols off Cape Matapan and enters the Aegean", "R"], ["22 05:00", 35.9, 24, "Dawn 25 miles north of Canea; bombed from 06:30", "R"], ["22 08:30", 35.95, 23.1, "Rejoins Rawlings with 18% and 30% of AA ammunition left", "R"], ["22 14:07", 35.97, 23.05, "Sent back to cover Kandahar and Kingston picking up Greyhound's men — recalled at 14:57", "R"], ["22 15:50", 36.03, 22.98, "Gloucester hit by several bombs, stopped and burning — 294° Pori 9 miles", "S"]],
+  "c": [["20 22:00", 35.35, 26.55, "Through the Kaso Strait; a skirmish with Italian MAS boats", "R"], ["21 05:00", 35.5, 25.8], ["21 12:49", 34.583, 26.567, "Juno hit by three bombs, sinks in two minutes", "S"], ["21 20:00", 35, 26.3], ["22 04:00", 35.5, 25.2, "Off Heraklion; sweeps north-west", "R"], ["22 08:30", 36, 24.7, "Perth sinks a lone caique", "R"], ["22 10:00", 36.25, 24.6, "25 miles south of Milos: the Sagittario convoy — 38 caiques, 4,000 troops for Heraklion", "S"], ["22 10:10", 36.2, 24.5, "King turns away: Carlisle down to 21 knots, Naiad's ammunition low", "R"], ["22 13:21", 36, 23.4, "Naiad two turrets out; Carlisle hit, Captain Hampton killed", "R"], ["22 14:00", 35.95, 23.1, "Meets Force A1", "R"], ["22 20:00", 35.3, 23], ["24 08:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "d": [["20 22:00", 35.7, 23.5, "Through the Antikithera Channel", "R"], ["21 05:00", 35.5, 23], ["21 23:30", 35.81, 24.02, "Destroys the Maleme-bound caique convoy 18 miles north of Canea; Lupo hit 18 times", "S"], ["22 03:30", 35.7, 23.8, "Turns west, ammunition low", "R"], ["22 06:00", 35.8, 22.8], ["22 07:16", 35.7, 22.7, "Ordered to Alexandria", "R"], ["23 12:00", 32.8, 27.5], ["23 20:00", 31.2, 29.88, null, "S"]],
+  "5df": [["21 21:30", 35.9, 14.51, "Kelly, Kashmir, Kipling, Kelvin, Jackal sail from Malta", "S"], ["22 16:00", 35.9, 23, "Joins Rawlings west of Crete", "R"], ["22 23:00", 35.6, 24, "Kelly and Kashmir bombard Maleme and sink a caique in Canea Bay", "R"], ["23 05:00", 35.1, 23.6, "Retiring at full speed", "R"], ["23 07:55", 34.5, 23.25, "24 Stukas: Kashmir sinks in two minutes, Kelly capsizes at 30 knots", "S"], ["23 13:06", 33.6, 25.5, "Kipling, with 279 survivors, survives 83 bombs", "R"], ["24 08:00", 31.2, 29.88, "Kipling towed in the last 50 miles out of fuel", "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "formidable": [["25 12:00", 32.5, 28, "Force A reconstituted: Queen Elizabeth, Barham, Formidable with twelve serviceable Fulmars", "R"], ["26 05:00", 33.9, 26.3, "Strike launched 100 miles south-south-west of Scarpanto", "R"], ["26 13:20", 34, 26.5, "Formidable hit twice, Nubian's stern blown off — Stukas from North Africa", "R"], ["27 08:58", 33, 29.4, "Barham hit on Y turret", "R"], ["27 18:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "sphakia1": [["28 08:00", 31.2, 29.88, "Napier, Nizam, Kelvin, Kandahar for the first Sphakia lift", "S"], ["29 00:30", 35.2, 24.14, "Embarks 700 and lands rations for 15,000", "S"], ["29 03:00", 35.15, 24.2], ["29 17:00", 31.2, 29.88, null, "S"], ["30 09:00", 31.2, 29.88, "Napier and Nizam sail again", "S"], ["31 00:30", 35.2, 24.14, "1,400 embarked", "S"], ["31 03:00", 35.15, 24.2], ["31 08:50", 33.5, 27, "Napier damaged by near-misses", "R"], ["31 17:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "sphakia2": [["29 06:00", 31.2, 29.88, "King's Force D: Phoebe, Perth, Glengyle, Calcutta, Coventry, three destroyers", "S"], ["29 23:30", 35.2, 24.14, "6,000 embarked overnight", "S"], ["30 03:20", 35.15, 24.2], ["30 09:30", 34, 25.5, "Perth hit in the fore boiler room", "R"], ["30 18:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "sphakia4": [["31 08:00", 31.2, 29.88, "Phoebe, Abdiel, Kimberley, Hotspur, Jackal — the last lift", "S"], ["31 23:20", 35.2, 24.14, "Nearly 4,000 embarked; 5,000 left to surrender", "S"], ["1941-06-01 03:00", 35.15, 24.2], ["1941-06-01 17:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+  "lupo": [["21 12:00", 36.72, 24.45, "Twenty-five caiques with 2,300 mountain troops sail from Milos for Maleme, Lupo escorting", "S"], ["21 23:30", 35.81, 24.02, "Run down by Force D: Lupo hit eighteen times, ten caiques sunk, 297 soldiers drowned", "S"], ["22 06:00", 36.3, 24.2], ["22 12:00", 36.72, 24.45], ["1941-06-02 00:00", 36.72, 24.45]],
+  "sagittario": [["22 04:00", 36.72, 24.45, "Sagittario leads the second convoy for Heraklion", "S"], ["22 10:10", 36.25, 24.6, "Smoke screen and torpedo attack against Force C; the convoy turns back intact", "S"], ["22 14:00", 36.72, 24.45], ["1941-06-02 00:00", 36.72, 24.45]]
+ },
+ "groups": {
+  "a1": "Force A1",
+  "b": "Force B",
+  "c": "Force C",
+  "d": "Force D",
+  "5df": "5th Flotilla",
+  "formidable": "Force A",
+  "sphakia1": "Sphakia lifts (Arliss)",
+  "sphakia2": "Sphakia lift (King)",
+  "sphakia4": "Last lift",
+  "lupo": "Lupo convoy",
+  "sagittario": "Sagittario convoy"
+ },
+ "commanders": {
+  "a1": { "name": "Rear-Admiral Bernard Rawlings", "role": "Rear-Admiral, 7th Cruiser Squadron — Force A1; Heraklion force", "flagship": "HMS Warspite, then HMS Orion", "bio": "Held the battleships west of Crete for three days under air attack, then took the cruisers to Heraklion and brought 4,000 soldiers out through the Kaso Strait at dawn — losing a fifth of them and 260 of Orion's own people on the way.", "fate": "Commanded the British Pacific Fleet's carriers in 1945; died 1962.", "wiki": "Bernard_Rawlings" },
+  "c": { "name": "Rear-Admiral Edward King", "role": "Rear-Admiral, 15th Cruiser Squadron — Force C", "flagship": "HMS Naiad, then HMS Phoebe", "bio": "Found the second invasion convoy south of Milos on 22 May and turned away for want of ammunition — a decision Cunningham never forgave, though the convoy did turn back. Led the biggest Sphakia lift a week later.", "fate": "Assistant Chief of Naval Staff 1942; died 1971.", "wiki": "Edward_Leigh_Stuart_King" },
+  "d": { "name": "Rear-Admiral Irvine Glennie", "role": "Rear-Admiral (Destroyers) — Force D", "flagship": "HMS Dido", "bio": "Ran into the Maleme-bound caique convoy at 23:30 on 21 May and spent two and a half hours destroying it — the only seaborne landing the Germans attempted was stopped dead.", "fate": "Commander-in-Chief America and West Indies 1945; died 1980.", "wiki": "Irvine_Glennie" },
+  "b": { "name": "Captain Henry Rowley", "role": "Commanding Officer, HMS Gloucester — senior officer Force B", "flagship": "HMS Gloucester", "bio": "Sent back into the Kithera Channel with 18% of his AA ammunition to cover Greyhound's rescue. Gloucester was stopped and burning within the hour; 722 of her crew died.", "fate": "Killed 22 May 1941; his body came ashore at Mersa Matruh four weeks later." },
+  "5df": { "name": "Captain Lord Louis Mountbatten", "role": "Captain (D), 5th Destroyer Flotilla", "flagship": "HMS Kelly", "bio": "Brought five destroyers from Malta, bombarded Maleme by night and was caught by twenty-four Stukas at dawn. Kelly capsized under him at 30 knots.", "fate": "Survived; Supreme Allied Commander South-East Asia, last Viceroy of India; murdered 1979.", "wiki": "Louis_Mountbatten,_1st_Earl_Mountbatten_of_Burma" },
+  "formidable": { "name": "Vice-Admiral Henry Pridham-Wippell", "role": "Vice-Admiral, 1st Battle Squadron — Force A", "flagship": "HMS Queen Elizabeth", "bio": "Took Formidable — with twelve serviceable fighters — to strike Scarpanto on 26 May; the Stukas found her on the way home.", "fate": "Commander-in-Chief Dover 1942–45; died 1952.", "wiki": "Henry_Pridham-Wippell" },
+  "sphakia2": { "name": "Rear-Admiral Edward King", "role": "Force D — the second Sphakia lift", "flagship": "HMS Phoebe", "bio": "6,000 men in one night from an open beach, with Glengyle's landing craft.", "fate": "", "wiki": "Edward_Leigh_Stuart_King" },
+  "lupo": { "name": "Tenente di Vascello Francesco Mimbelli", "role": "Commanding Officer, Lupo", "flagship": "Lupo", "bio": "Escorting twenty-five caiques with a single torpedo boat, he turned into three cruisers and four destroyers, fired his torpedoes at point-blank range and got Lupo home with eighteen hits. His convoy was destroyed but he was decorated by both Italy and Germany.", "fate": "Survived; a postwar admiral.", "wiki": "Francesco_Mimbelli" },
+  "sagittario": { "name": "Tenente di Vascello Giuseppe Cigala Fulgosi", "role": "Commanding Officer, Sagittario", "flagship": "Sagittario", "bio": "Laid smoke and attacked Force C with torpedoes while his thirty-eight caiques turned back — and saw King break off. The Heraklion landing never happened, but not one of his soldiers drowned.", "fate": "Medaglia d'oro; survived the war." }
+ },
+ "ships": [
+  { "id": "warspite", "name": "HMS Warspite", "force": "a1", "type": "Battleship (Rawlings flagship)", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)" },
+  { "id": "valiant", "name": "HMS Valiant", "force": "a1", "type": "Battleship", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Valiant_(1914)" },
+  {
+   "id": "napier",
+   "name": "HMAS Napier",
+   "force": "a1",
+   "type": "Destroyer (Capt Arliss, D7)",
+   "route": "a1",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Napier_(G97)",
+   "until": "24 08:00",
+   "extra": [["28 08:00", 31.2, 29.88, "Napier, Nizam, Kelvin, Kandahar for the first Sphakia lift", "S"], ["29 00:30", 35.2, 24.14, "Embarks 700 and lands rations for 15,000", "S"], ["29 03:00", 35.15, 24.2], ["29 17:00", 31.2, 29.88, null, "S"], ["30 09:00", 31.2, 29.88, "Napier and Nizam sail again", "S"], ["31 00:30", 35.2, 24.14, "1,400 embarked", "S"], ["31 03:00", 35.15, 24.2], ["31 08:50", 33.5, 27, "Napier damaged by near-misses", "R"], ["31 17:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]]
+  },
+  { "id": "kimberley", "name": "HMS Kimberley", "force": "a1", "type": "Destroyer", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Kimberley_(F50)" },
+  { "id": "griffin", "name": "HMS Griffin", "force": "a1", "type": "Destroyer", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Griffin_(H31)" },
+  { "id": "decoy", "name": "HMS Decoy", "force": "a1", "type": "Destroyer — carries King George II of Greece out of Crete", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Decoy_(H75)" },
+  {
+   "id": "imperial",
+   "name": "HMS Imperial",
+   "force": "a1",
+   "type": "Destroyer",
+   "route": "a1",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Imperial_(D09)",
+   "until": "24 08:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"]],
+   "sunk": "29 04:45",
+   "sunkBy": "Steering failure after a near-miss; scuttled by Hotspur",
+   "lost": 0
+  },
+  {
+   "id": "hotspur",
+   "name": "HMS Hotspur",
+   "force": "a1",
+   "type": "Destroyer",
+   "route": "a1",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hotspur_(H01)",
+   "until": "24 08:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]]
+  },
+  {
+   "id": "gloucester",
+   "name": "HMS Gloucester",
+   "force": "b",
+   "type": "Light cruiser (Capt Rowley)",
+   "route": "b",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Gloucester_(62)",
+   "until": "22 15:50",
+   "extra": [["22 17:15", 36.02, 22.98, "Sinks; 722 lost, Captain Rowley among them — 85 survivors picked up by the Germans", "S"]],
+   "sunk": "22 17:15",
+   "sunkBy": "Ju 87s and Ju 88s of VIII Fliegerkorps",
+   "lost": 722
+  },
+  {
+   "id": "fiji",
+   "name": "HMS Fiji",
+   "force": "b",
+   "type": "Light cruiser",
+   "route": "b",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Fiji_(58)",
+   "until": "22 15:50",
+   "extra": [["22 17:00", 35.4, 23.2, "Running south at 27 knots under continuous attack", "R"], ["22 18:45", 34.8, 23.3, "A single Bf 109's bomb lifts her plates; three more bombs at 19:15", "R"], ["22 20:15", 34.75, 23.25, "Capsizes; Kandahar and Kingston take 523 from the water after dark", "S"]],
+   "sunk": "22 20:15",
+   "sunkBy": "Bf 109 fighter-bombers and Ju 88s",
+   "lost": 241
+  },
+  {
+   "id": "greyhound",
+   "name": "HMS Greyhound",
+   "force": "b",
+   "type": "Destroyer",
+   "route": "b",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Greyhound_(H05)",
+   "until": "22 13:30",
+   "extra": [["22 13:51", 35.97, 23.05, "Two bombs while sinking a caique off Pori; goes down in fifteen minutes", "S"]],
+   "sunk": "22 14:06",
+   "sunkBy": "Ju 87s",
+   "lost": 76
+  },
+  { "id": "naiad", "name": "HMS Naiad", "force": "c", "type": "Light cruiser (King flagship)", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Naiad_(93)" },
+  {
+   "id": "perth",
+   "name": "HMAS Perth",
+   "force": "c",
+   "type": "Light cruiser",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Perth_(D29)",
+   "until": "24 08:00",
+   "extra": [["29 06:00", 31.2, 29.88, "King's Force D: Phoebe, Perth, Glengyle, Calcutta, Coventry, three destroyers", "S"], ["29 23:30", 35.2, 24.14, "6,000 embarked overnight", "S"], ["30 03:20", 35.15, 24.2], ["30 09:30", 34, 25.5, "Perth hit in the fore boiler room", "R"], ["30 18:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]]
+  },
+  {
+   "id": "calcutta",
+   "name": "HMS Calcutta",
+   "force": "c",
+   "type": "Anti-aircraft cruiser",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Calcutta_(D82)",
+   "until": "24 08:00",
+   "extra": [["29 06:00", 31.2, 29.88, "King's Force D: Phoebe, Perth, Glengyle, Calcutta, Coventry, three destroyers", "S"], ["29 23:30", 35.2, 24.14, "6,000 embarked overnight", "S"], ["30 03:20", 35.15, 24.2], ["30 09:30", 34, 25.5, "Perth hit in the fore boiler room", "R"], ["30 18:00", 31.2, 29.88, null, "S"], ["1941-06-01 06:00", 31.2, 29.88, "Sails with Coventry to cover the last convoy", "S"], ["1941-06-01 09:22", 31.917, 28.25, "Two Ju 88s out of the sun; two bombs — sinks 100 miles from Alexandria", "S"]],
+   "sunk": "1941-06-01 09:22",
+   "sunkBy": "Two Ju 88s",
+   "lost": 118
+  },
+  { "id": "carlisle", "name": "HMS Carlisle", "force": "c", "type": "Anti-aircraft cruiser", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Carlisle_(D67)" },
+  { "id": "kandahar", "name": "HMS Kandahar", "force": "c", "type": "Destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Kandahar_(F28)" },
+  { "id": "kingston", "name": "HMS Kingston", "force": "c", "type": "Destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Kingston_(F64)" },
+  { "id": "nubian", "name": "HMS Nubian", "force": "c", "type": "Tribal-class destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Nubian_(F36)" },
+  {
+   "id": "juno",
+   "name": "HMS Juno",
+   "force": "c",
+   "type": "Destroyer",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Juno_(F46)",
+   "sunk": "21 12:49",
+   "sunkBy": "Three bombs from Italian CANT Z.1007s",
+   "lost": 116
+  },
+  {
+   "id": "dido",
+   "name": "HMS Dido",
+   "force": "d",
+   "type": "Light cruiser (Glennie flagship)",
+   "route": "d",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Dido_(37)",
+   "until": "23 20:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]]
+  },
+  {
+   "id": "orion",
+   "name": "HMS Orion",
+   "force": "d",
+   "type": "Light cruiser (Rawlings' flagship 28–29 May)",
+   "route": "d",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Orion_(85)",
+   "until": "23 20:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]]
+  },
+  {
+   "id": "ajax",
+   "name": "HMS Ajax",
+   "force": "d",
+   "type": "Light cruiser",
+   "route": "d",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)",
+   "until": "23 20:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["29 08:00", 31.2, 29.88]]
+  },
+  { "id": "janus", "name": "HMS Janus", "force": "d", "type": "Destroyer", "route": "d", "wiki": "https://en.wikipedia.org/wiki/HMS_Janus_(F53)" },
+  { "id": "hasty", "name": "HMS Hasty", "force": "d", "type": "Destroyer", "route": "d", "wiki": "https://en.wikipedia.org/wiki/HMS_Hasty_(H24)" },
+  {
+   "id": "hereward",
+   "name": "HMS Hereward",
+   "force": "d",
+   "type": "Destroyer",
+   "route": "d",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hereward_(H93)",
+   "until": "23 20:00",
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"]],
+   "sunk": "29 06:25",
+   "sunkBy": "Ju 87s in the Kaso Strait; her 450 troops and 89 crew taken prisoner by Italian MAS boats",
+   "lost": 76
+  },
+  {
+   "id": "kelly",
+   "name": "HMS Kelly",
+   "force": "5df",
+   "type": "Destroyer (Capt Lord Louis Mountbatten, D5)",
+   "route": "5df",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kelly_(F01)",
+   "sunk": "23 08:25",
+   "sunkBy": "Ju 87s of I./StG 2 — capsized at 30 knots",
+   "lost": 128
+  },
+  {
+   "id": "kashmir",
+   "name": "HMS Kashmir",
+   "force": "5df",
+   "type": "Destroyer",
+   "route": "5df",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kashmir_(F12)",
+   "sunk": "23 07:57",
+   "sunkBy": "Ju 87s — sank in two minutes",
+   "lost": 79
+  },
+  { "id": "kipling", "name": "HMS Kipling", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Kipling_(F91)" },
+  { "id": "kelvin", "name": "HMS Kelvin", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Kelvin_(F37)" },
+  { "id": "jackal", "name": "HMS Jackal", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Jackal_(F22)" },
+  { "id": "formidable", "name": "HMS Formidable", "force": "formidable", "type": "Fleet carrier", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Formidable_(67)" },
+  { "id": "qe", "name": "HMS Queen Elizabeth", "force": "formidable", "type": "Battleship (Pridham-Wippell flagship)", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Queen_Elizabeth_(1913)" },
+  { "id": "barham", "name": "HMS Barham", "force": "formidable", "type": "Battleship", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Barham_(04)" },
+  { "id": "nizam", "name": "HMAS Nizam", "force": "sphakia", "type": "Destroyer", "route": "sphakia1", "wiki": "https://en.wikipedia.org/wiki/HMAS_Nizam_(G38)" },
+  {
+   "id": "phoebe",
+   "name": "HMS Phoebe",
+   "force": "sphakia",
+   "type": "Light cruiser (King's flag for the Sphakia lifts)",
+   "route": "sphakia2",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Phoebe_(43)",
+   "until": "30 18:00",
+   "extra": [["31 08:00", 31.2, 29.88, "Phoebe, Abdiel, Kimberley, Hotspur, Jackal — the last lift", "S"], ["31 23:20", 35.2, 24.14, "Nearly 4,000 embarked; 5,000 left to surrender", "S"], ["1941-06-01 03:00", 35.15, 24.2], ["1941-06-01 17:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]]
+  },
+  { "id": "glengyle", "name": "HMS Glengyle", "force": "sphakia", "type": "Landing ship — 3,000 men in one lift", "route": "sphakia2", "wiki": "https://en.wikipedia.org/wiki/HMS_Glengyle" },
+  {
+   "id": "coventry",
+   "name": "HMS Coventry",
+   "force": "sphakia",
+   "type": "Anti-aircraft cruiser",
+   "route": "sphakia2",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Coventry_(D43)",
+   "until": "30 18:00",
+   "extra": [["1941-06-01 06:00", 31.2, 29.88, null, "S"], ["1941-06-01 09:22", 31.917, 28.25, "Rescues 255 of Calcutta's crew", "S"], ["1941-06-01 16:00", 31.2, 29.88]]
+  },
+  { "id": "jervis", "name": "HMS Jervis", "force": "sphakia", "type": "Destroyer (Capt Mack, D14)", "route": "sphakia2", "wiki": "https://en.wikipedia.org/wiki/HMS_Jervis" },
+  { "id": "abdiel", "name": "HMS Abdiel", "force": "sphakia", "type": "Fast minelayer — 40 knots", "route": "sphakia4", "wiki": "https://en.wikipedia.org/wiki/HMS_Abdiel_(M39)" },
+  { "id": "lupo", "name": "Lupo", "force": "rm", "type": "Torpedo boat (TV Mimbelli)", "route": "lupo", "wiki": "https://en.wikipedia.org/wiki/Italian_torpedo_boat_Lupo" },
+  { "id": "sagittario", "name": "Sagittario", "force": "rm", "type": "Torpedo boat (TV Cigala Fulgosi)", "route": "sagittario", "wiki": "https://en.wikipedia.org/wiki/Italian_torpedo_boat_Sagittario" }
+ ],
+ "strikes": [
+  {
+   "id": "i1",
+   "name": "CANT Z.1007s sink Juno",
+   "nation": "RM",
+   "from": { "lat": 36.38, "lon": 28.1 },
+   "target": { "ship": "juno" },
+   "launch": "21 11:30",
+   "arrive": "21 12:49",
+   "leave": "21 12:55",
+   "recover": "21 14:15",
+   "count": 5,
+   "note": "High-level bombers of the Regia Aeronautica from Rhodes: three hits, Juno gone in two minutes — 116 lost",
+   "land": true
+  },
+  {
+   "id": "g1",
+   "name": "Ju 88s of LG 1 over Force B",
+   "nation": "KM",
+   "from": { "lat": 38.07, "lon": 23.55 },
+   "target": { "route": "b" },
+   "launch": "22 05:30",
+   "arrive": "22 06:30",
+   "leave": "22 08:00",
+   "recover": "22 09:30",
+   "count": 15,
+   "note": "Gloucester and Fiji, deep in the Aegean at dawn, are bombed for ninety minutes and burn through their ammunition",
+   "land": true
+  },
+  {
+   "id": "g2",
+   "name": "VIII Fliegerkorps against Force C",
+   "nation": "KM",
+   "from": { "lat": 35.42, "lon": 27.15 },
+   "target": { "ship": "naiad" },
+   "launch": "22 09:00",
+   "arrive": "22 09:50",
+   "leave": "22 13:50",
+   "recover": "22 15:00",
+   "count": 40,
+   "note": "Four hours of attacks on King's cruisers as they withdraw: Naiad two turrets out and flooded, Carlisle hit",
+   "land": true
+  },
+  {
+   "id": "g3",
+   "name": "Bf 109 Jabos hit Warspite",
+   "nation": "KM",
+   "from": { "lat": 36.8, "lon": 22.85 },
+   "target": { "ship": "warspite" },
+   "launch": "22 12:45",
+   "arrive": "22 13:32",
+   "leave": "22 13:40",
+   "recover": "22 14:45",
+   "count": 6,
+   "note": "A 500-kg bomb wrecks the starboard 4-inch and 6-inch batteries; 38 killed",
+   "land": true
+  },
+  {
+   "id": "g4",
+   "name": "Stukas sink Greyhound",
+   "nation": "KM",
+   "from": { "lat": 36.8, "lon": 22.85 },
+   "target": { "ship": "greyhound" },
+   "launch": "22 13:00",
+   "arrive": "22 13:51",
+   "leave": "22 14:00",
+   "recover": "22 15:00",
+   "count": 8,
+   "note": "Caught alone after sinking a caique between Pori and Antikithera",
+   "land": true
+  },
+  {
+   "id": "g5",
+   "name": "Gloucester's last fight",
+   "nation": "KM",
+   "from": { "lat": 36.8, "lon": 22.85 },
+   "target": { "ship": "gloucester" },
+   "launch": "22 15:00",
+   "arrive": "22 15:50",
+   "leave": "22 16:10",
+   "recover": "22 17:15",
+   "count": 20,
+   "note": "Ju 87s and Ju 88s on two cruisers whose AA guns are almost empty; Gloucester stopped and burning by 16:00",
+   "land": true
+  },
+  {
+   "id": "g6",
+   "name": "Fiji hunted down",
+   "nation": "KM",
+   "from": { "lat": 38.07, "lon": 23.55 },
+   "target": { "ship": "fiji" },
+   "launch": "22 17:45",
+   "arrive": "22 18:45",
+   "leave": "22 19:20",
+   "recover": "22 20:30",
+   "count": 12,
+   "note": "After twenty attacks in six hours a lone Bf 109's bomb opens her side; Lt Brenner's Ju 88 finishes her at 19:15",
+   "land": true
+  },
+  {
+   "id": "g7",
+   "name": "I./StG 2 destroys Kelly and Kashmir",
+   "nation": "KM",
+   "from": { "lat": 36.8, "lon": 22.85 },
+   "target": { "ship": "kelly" },
+   "launch": "23 07:00",
+   "arrive": "23 07:55",
+   "leave": "23 08:10",
+   "recover": "23 09:15",
+   "count": 24,
+   "note": "Twenty-four Stukas at dawn south of Crete; both destroyers gone within minutes",
+   "land": true
+  },
+  {
+   "id": "g8",
+   "name": "Kipling under attack",
+   "nation": "KM",
+   "from": { "lat": 35.42, "lon": 27.15 },
+   "target": { "ship": "kipling" },
+   "launch": "23 08:20",
+   "arrive": "23 09:00",
+   "leave": "23 13:06",
+   "recover": "23 14:30",
+   "count": 40,
+   "note": "Eighty-three bombs from forty aircraft; not one hit on the destroyer carrying 279 survivors",
+   "land": true
+  },
+  {
+   "id": "f1",
+   "name": "Formidable strikes Scarpanto",
+   "nation": "RN",
+   "from": { "route": "formidable" },
+   "target": { "lat": 35.42, "lon": 27.15 },
+   "launch": "26 05:00",
+   "arrive": "26 06:00",
+   "leave": "26 06:20",
+   "recover": "26 07:30",
+   "count": 8,
+   "note": "Four Albacores and four Fulmars — all the carrier can muster — wreck two aircraft on the ground and damage others"
+  },
+  {
+   "id": "g9",
+   "name": "StG 2 from North Africa hits Formidable",
+   "nation": "KM",
+   "from": { "lat": 32.4, "lon": 23.1 },
+   "target": { "ship": "formidable" },
+   "launch": "26 12:00",
+   "arrive": "26 13:20",
+   "leave": "26 13:35",
+   "recover": "26 15:00",
+   "count": 20,
+   "note": "Twenty Stukas from Tmimi: two hits blow out Formidable's starboard side; Nubian's stern blown off",
+   "land": true
+  },
+  {
+   "id": "g10",
+   "name": "Barham hit",
+   "nation": "KM",
+   "from": { "lat": 38.07, "lon": 23.55 },
+   "target": { "ship": "barham" },
+   "launch": "27 07:30",
+   "arrive": "27 08:58",
+   "leave": "27 09:10",
+   "recover": "27 10:45",
+   "count": 15,
+   "note": "Ju 88s and He 111s: a bomb on Y turret, two bulges flooded, a two-hour fire",
+   "land": true
+  },
+  {
+   "id": "g11",
+   "name": "Heraklion force bombed in the Kaso Strait",
+   "nation": "KM",
+   "from": { "lat": 35.42, "lon": 27.15 },
+   "target": { "ship": "hereward" },
+   "launch": "29 05:45",
+   "arrive": "29 06:25",
+   "leave": "29 09:15",
+   "recover": "29 10:30",
+   "count": 30,
+   "note": "From first light: Hereward sunk, Decoy and Orion slowed, Dido's B turret hit at 08:15, Orion's A turret at 09:00",
+   "land": true
+  },
+  {
+   "id": "g12",
+   "name": "Orion's bridge",
+   "nation": "KM",
+   "from": { "lat": 35.42, "lon": 27.15 },
+   "target": { "ship": "orion" },
+   "launch": "29 10:00",
+   "arrive": "29 10:45",
+   "leave": "29 10:55",
+   "recover": "29 12:15",
+   "count": 12,
+   "note": "A bomb through the bridge into the lower conning tower and messdecks packed with 1,100 soldiers — 260 killed, 280 wounded",
+   "land": true
+  },
+  {
+   "id": "g13",
+   "name": "Perth hit off Sphakia",
+   "nation": "KM",
+   "from": { "lat": 35.42, "lon": 27.15 },
+   "target": { "ship": "perth" },
+   "launch": "30 08:30",
+   "arrive": "30 09:30",
+   "leave": "30 09:40",
+   "recover": "30 11:00",
+   "count": 6,
+   "note": "Fore boiler room hit; 6,000 troops aboard the force",
+   "land": true
+  },
+  {
+   "id": "g14",
+   "name": "Calcutta sunk",
+   "nation": "KM",
+   "from": { "lat": 38.07, "lon": 23.55 },
+   "target": { "ship": "calcutta" },
+   "launch": "1941-06-01 07:00",
+   "arrive": "1941-06-01 09:22",
+   "leave": "1941-06-01 09:25",
+   "recover": "1941-06-01 11:30",
+   "count": 2,
+   "note": "Two Ju 88s dive out of the sun 100 miles north-west of Alexandria; two bombs, 118 lost",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  { "from": "lupo", "to": "dido", "t": "21 23:35", "n": 2, "run": 1, "hit": false, "note": "Lupo fires two torpedoes at the cruisers and passes down the British line at point-blank range" },
+  { "from": "sagittario", "to": "naiad", "t": "22 10:15", "n": 2, "run": 1, "hit": false, "note": "Sagittario's torpedoes miss; Kingston engages at 7,000 yards" }
+ ],
+ "engagements": [
+  {
+   "ships": ["dido", "orion", "ajax", "janus", "kimberley", "hasty", "hereward"],
+   "from": "21 23:30",
+   "to": "22 01:30",
+   "rate": 0.55,
+   "note": "Two and a half hours among the caiques; Orion hit by friendly fire",
+   "targets": ["lupo"]
+  },
+  {
+   "ships": ["lupo"],
+   "from": "21 23:30",
+   "to": "21 23:50",
+   "rate": 0.5,
+   "note": "Lupo: eighteen hits, eight killed, and away",
+   "targets": ["dido", "orion"]
+  },
+  {
+   "ships": ["naiad", "perth", "calcutta", "carlisle", "kandahar", "kingston", "nubian"],
+   "from": "22 09:50",
+   "to": "22 13:50",
+   "rate": 0.4,
+   "note": "Four hours of anti-aircraft fire"
+  },
+  {
+   "ships": ["kingston", "perth"],
+   "from": "22 10:10",
+   "to": "22 10:30",
+   "rate": 0.5,
+   "targets": ["sagittario"]
+  },
+  {
+   "ships": ["sagittario"],
+   "from": "22 10:10",
+   "to": "22 10:25",
+   "rate": 0.4,
+   "targets": ["kingston"]
+  },
+  {
+   "ships": ["warspite", "valiant", "gloucester", "fiji", "greyhound", "griffin", "kimberley"],
+   "from": "22 13:00",
+   "to": "22 17:15",
+   "rate": 0.45,
+   "note": "The fleet's ammunition runs out through the afternoon"
+  },
+  {
+   "ships": ["fiji", "kandahar", "kingston"],
+   "from": "22 17:30",
+   "to": "22 20:15",
+   "rate": 0.4,
+   "note": "Fiji's last hour — her AA guns firing practice rounds"
+  },
+  {
+   "ships": ["kelly", "kashmir", "kipling", "kelvin", "jackal"],
+   "from": "23 07:55",
+   "to": "23 08:30",
+   "rate": 0.5
+  },
+  {
+   "ships": ["kipling"],
+   "from": "23 08:30",
+   "to": "23 13:06",
+   "rate": 0.35,
+   "note": "Alone with 279 survivors aboard"
+  },
+  {
+   "ships": ["formidable", "qe", "barham", "nubian"],
+   "from": "26 13:15",
+   "to": "26 13:40",
+   "rate": 0.5
+  },
+  {
+   "ships": ["orion", "dido", "hotspur", "hereward", "kimberley", "imperial", "decoy", "jackal"],
+   "from": "29 06:00",
+   "to": "29 11:00",
+   "rate": 0.4,
+   "note": "Five hours under attack with 4,000 soldiers aboard"
+  },
+  {
+   "ships": ["calcutta", "coventry"],
+   "from": "1941-06-01 09:20",
+   "to": "1941-06-01 09:25",
+   "rate": 0.5
+  }
+ ],
+ "events": [["20 08:00", "Operation Merkur: German paratroops land at Maleme, Canea, Rethymno and Heraklion", 35.53, 23.83], ["20 22:00", "Force C enters the Aegean through the Kaso Strait", 35.35, 26.55], ["21 12:49", "Juno sunk by Italian bombers", 34.583, 26.567], ["21 12:00", "The Lupo convoy sails from Milos for Maleme", 36.72, 24.45], ["21 23:30", "Force D destroys the Lupo convoy north of Canea", 35.81, 24.02], ["22 10:00", "Force C finds the second convoy south of Milos — and turns away", 36.25, 24.6], ["22 13:32", "Warspite hit", 35.9, 23.2], ["22 13:51", "Greyhound sunk", 35.97, 23.05], ["22 15:50", "Gloucester stopped and burning", 36.03, 22.98], ["22 17:15", "Gloucester sinks — 722 lost", 36.03, 22.98], ["22 20:15", "Fiji capsizes", 34.75, 23.25], ["23 07:55", "Kelly and Kashmir sunk; Kipling rescues 279", 34.5, 23.25], ["23 04:08", "Cunningham recalls the fleet: 'the pom-pom ammunition is exhausted' — a cipher error", 34.6, 24.5], ["26 06:00", "Formidable's Albacores strike Scarpanto", 35.42, 27.15], ["26 13:20", "Formidable and Nubian hit", 34, 26.5], ["27 08:24", "Wavell: Crete cannot be held — evacuation ordered", 31.2, 29.88], ["27 08:58", "Barham hit", 33, 29.4], ["28 23:30", "Heraklion embarkation begins", 35.34, 25.13], ["29 00:30", "First Sphakia lift", 35.2, 24.14], ["29 04:45", "Imperial scuttled", 35.383, 25.633], ["29 06:25", "Hereward sunk in the Kaso Strait", 35.35, 26.35], ["29 10:45", "Orion's bridge hit — 260 killed", 33.9, 27.5], ["29 23:30", "Second Sphakia lift: 6,000 men", 35.2, 24.14], ["30 09:30", "Perth hit", 34, 25.5], ["31 00:30", "Third Sphakia lift", 35.2, 24.14], ["31 04:00", "Freyberg flown out by Sunderland", 35.2, 24.14], ["31 23:20", "Last lift: 4,000 embarked, 5,000 left behind", 35.2, 24.14], ["1941-06-01 09:22", "Calcutta sunk", 31.917, 28.25], ["1941-06-01 12:00", "Cunningham: 'It takes the Navy three years to build a ship; it would take three hundred to rebuild a tradition'", 31.2, 29.88]],
+ "ports": [
+  { "name": "Alexandria", "lat": 31.2, "lon": 29.88, "control": "RN", "kind": "port", "note": "Mediterranean Fleet base, 420 miles from Suda" },
+  { "name": "Suda Bay", "lat": 35.49, "lon": 24.15, "control": "RN", "kind": "port", "note": "Fleet anchorage; five MTBs sunk here 23 May; abandoned 27 May", "captured": "27 18:00", "capturedBy": "KM" },
+  { "name": "Heraklion", "lat": 35.34, "lon": 25.13, "control": "RN", "kind": "port", "note": "Held until the night of 28/29 May", "captured": "30 00:00", "capturedBy": "KM" },
+  { "name": "Sphakia", "lat": 35.2, "lon": 24.14, "control": "RN", "kind": "port", "note": "Fishing village on the south coast: four nights of evacuation", "captured": "1941-06-01 12:00", "capturedBy": "KM" },
+  { "name": "Maleme", "lat": 35.53, "lon": 23.83, "control": "RN", "kind": "air", "note": "The airfield whose loss decided the battle", "captured": "21 12:00", "capturedBy": "KM" },
+  { "name": "Malta", "lat": 35.9, "lon": 14.51, "control": "RN", "kind": "port", "note": "Mountbatten's 5th Flotilla sails from here" },
+  { "name": "Milos", "lat": 36.72, "lon": 24.45, "control": "KM", "kind": "port", "note": "Assembly point for the caique convoys" },
+  { "name": "Scarpanto (Karpathos)", "lat": 35.42, "lon": 27.15, "control": "KM", "kind": "air", "note": "III./StG 2's Stukas; bombarded by Force E and struck by Formidable" },
+  { "name": "Rhodes", "lat": 36.38, "lon": 28.1, "control": "RM", "kind": "air", "note": "Regia Aeronautica bombers — Juno's killers" },
+  { "name": "Molaoi", "lat": 36.8, "lon": 22.85, "control": "KM", "kind": "air", "note": "I./StG 2 and the Bf 109s of JG 77 on the Peloponnese" },
+  { "name": "Eleusis", "lat": 38.07, "lon": 23.55, "control": "KM", "kind": "air", "note": "LG 1's Ju 88s and II./KG 26's He 111s" },
+  { "name": "Argos", "lat": 37.63, "lon": 22.73, "control": "KM", "kind": "air", "note": "ZG 26 Bf 110s and II./StG 1" },
+  { "name": "Tmimi", "lat": 32.4, "lon": 23.1, "control": "KM", "kind": "air", "note": "II./StG 2 in Libya — Formidable's attackers" },
+  { "name": "Alexandria — C-in-C Mediterranean", "lat": 31.17, "lon": 29.95, "control": "RN", "kind": "hq", "note": "Cunningham directs the battle from ashore: 'Stick it out. Navy must not let Army down'", "hq": "Admiral Cunningham" },
+  { "name": "Athens — Fliegerkorps VIII / XI", "lat": 37.98, "lon": 23.73, "control": "KM", "kind": "hq", "note": "Von Richthofen's 500 aircraft and Student's paratroops", "hq": "von Richthofen · Student" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [30.2, 13.51, 37.72, 30.88],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "warspite": { "hash": "68d1be63" },
+   "valiant": { "hash": "68d1be63" },
+   "napier": {
+    "hash": "1dad6c97",
+    "snap": {
+     "11": [35.185, 24.115],
+     "15": [35.185, 24.115]
+    }
+   },
+   "kimberley": { "hash": "68d1be63" },
+   "griffin": { "hash": "68d1be63" },
+   "decoy": { "hash": "68d1be63" },
+   "imperial": {
+    "hash": "c4c98053",
+    "via": {
+     "13": [[35.335, 26.365], [35.395, 25.135]]
+    }
+   },
+   "hotspur": {
+    "hash": "f8f91cb1",
+    "via": {
+     "13": [[35.335, 26.365], [35.395, 25.135]]
+    }
+   },
+   "gloucester": {
+    "hash": "1c49e378",
+    "via": {
+     "3": [[35.995, 23.395]]
+    }
+   },
+   "fiji": {
+    "hash": "9c836c68",
+    "via": {
+     "3": [[35.995, 23.395]]
+    }
+   },
+   "greyhound": {
+    "hash": "55492ea1",
+    "via": {
+     "3": [[35.995, 23.395]]
+    }
+   },
+   "naiad": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "perth": {
+    "hash": "e851e70a",
+    "snap": {
+     "13": [35.185, 24.115]
+    },
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "calcutta": {
+    "hash": "35384e68",
+    "snap": {
+     "13": [35.185, 24.115]
+    },
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "carlisle": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "kandahar": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "kingston": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "nubian": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "juno": {
+    "hash": "0d2eeecf",
+    "via": {
+     "2": [[35.305, 26.365]],
+     "4": [[35.335, 26.365]]
+    }
+   },
+   "dido": {
+    "hash": "57ceb86f",
+    "via": {
+     "6": [[32.965, 26.995]],
+     "11": [[35.335, 26.365], [35.395, 25.135]]
+    }
+   },
+   "orion": {
+    "hash": "57ceb86f",
+    "via": {
+     "6": [[32.965, 26.995]],
+     "11": [[35.335, 26.365], [35.395, 25.135]]
+    }
+   },
+   "ajax": {
+    "hash": "e6c5c2e1",
+    "via": {
+     "6": [[32.965, 26.995]]
+    }
+   },
+   "janus": {
+    "hash": "b8d235ac",
+    "via": {
+     "6": [[32.965, 26.995]]
+    }
+   },
+   "hasty": {
+    "hash": "b8d235ac",
+    "via": {
+     "6": [[32.965, 26.995]]
+    }
+   },
+   "hereward": {
+    "hash": "9d59d759",
+    "via": {
+     "6": [[32.965, 26.995]],
+     "11": [[35.335, 26.365], [35.395, 25.135]]
+    }
+   },
+   "kelly": {
+    "hash": "e6549b8f",
+    "via": {
+     "2": [[35.635, 23.965]],
+     "3": [[35.725, 23.695], [35.485, 23.515], [35.185, 23.515]]
+    }
+   },
+   "kashmir": {
+    "hash": "e6549b8f",
+    "via": {
+     "2": [[35.635, 23.965]],
+     "3": [[35.725, 23.695], [35.485, 23.515], [35.185, 23.515]]
+    }
+   },
+   "kipling": {
+    "hash": "e6549b8f",
+    "via": {
+     "2": [[35.635, 23.965]],
+     "3": [[35.725, 23.695], [35.485, 23.515], [35.185, 23.515]]
+    }
+   },
+   "kelvin": {
+    "hash": "e6549b8f",
+    "via": {
+     "2": [[35.635, 23.965]],
+     "3": [[35.725, 23.695], [35.485, 23.515], [35.185, 23.515]]
+    }
+   },
+   "jackal": {
+    "hash": "e6549b8f",
+    "via": {
+     "2": [[35.635, 23.965]],
+     "3": [[35.725, 23.695], [35.485, 23.515], [35.185, 23.515]]
+    }
+   },
+   "formidable": { "hash": "03093e8f" },
+   "qe": { "hash": "03093e8f" },
+   "barham": { "hash": "03093e8f" },
+   "nizam": {
+    "hash": "12a542a9",
+    "snap": {
+     "1": [35.185, 24.115],
+     "5": [35.185, 24.115]
+    }
+   },
+   "phoebe": {
+    "hash": "507f01de",
+    "snap": {
+     "1": [35.185, 24.115],
+     "6": [35.185, 24.115]
+    }
+   },
+   "glengyle": {
+    "hash": "84a66670",
+    "snap": {
+     "1": [35.185, 24.115]
+    }
+   },
+   "coventry": {
+    "hash": "f1d7c9da",
+    "snap": {
+     "1": [35.185, 24.115]
+    }
+   },
+   "jervis": {
+    "hash": "84a66670",
+    "snap": {
+     "1": [35.185, 24.115]
+    }
+   },
+   "abdiel": {
+    "hash": "1256242f",
+    "snap": {
+     "1": [35.185, 24.115]
+    }
+   },
+   "lupo": {
+    "hash": "a2a86f26",
+    "via": {
+     "1": [[36.805, 24.325]],
+     "3": [[36.805, 24.355]]
+    }
+   },
+   "sagittario": {
+    "hash": "2806f58e",
+    "via": {
+     "1": [[36.805, 24.325], [36.505, 24.355]],
+     "2": [[36.715, 24.295], [36.805, 24.385]]
+    }
+   }
+  }
+ }
+}

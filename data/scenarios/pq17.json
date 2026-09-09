@@ -1,0 +1,1342 @@
+{
+ "id": "pq17",
+ "title": "Convoy PQ 17",
+ "subtitle": "Arctic · 27 June – 13 July 1942",
+ "base": [1942, 6],
+ "start": "1942-06-27 00:00",
+ "end": "13 12:00",
+ "tz": "British Double Summer Time · UTC+2",
+ "utcOffset": 2,
+ "majorDays": [4, 5],
+ "view": {
+  "center": [72.5, 22],
+  "zoom": 4,
+  "min": 3,
+  "max": 11
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["riverafton", "keppel", "london", "dukeofyork", "tirpitz", "u255", "k21", "christophernewport", "pauluspotter", "azerbaidjan"],
+ "scenes": [
+  ["Overview", "05 12:00", [72.5, 22], 4],
+  ["Hvalfjörður", "1942-06-27 16:00", [64.5, -21.5], 7],
+  ["Shadowed", "01 12:00", [71.5, -4], 6],
+  ["4 July attack", "04 20:20", [75.9, 27.2], 7],
+  ["Scatter", "04 22:15", [76, 27.5], 6],
+  ["Rösselsprung", "05 17:00", [71.2, 24.5], 7],
+  ["5 July — the slaughter", "05 18:00", [75.5, 38], 5],
+  ["Novaya Zemlya", "08 01:00", [72.4, 51], 6],
+  ["Kola approaches", "10 02:00", [69.5, 39.5], 7],
+  ["Archangel", "11 12:00", [64.8, 40], 7]
+ ],
+ "defaultTime": "04 22:15",
+ "footnote": "British Double Summer Time (UTC+2). Merchant-ship sinking positions from uboat.net and Wikipedia's shipwreck lists (three positions are unrecorded and are placed by their groups; two published latitudes look like misprints and are noted); the convoy's track between sightings, the cruisers' and Home Fleet's movements and Tirpitz's sortie are reconstructed. US and Panamanian ships are counted as US losses, British, Dutch and Soviet as British. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "convoy": { "name": "Convoy PQ 17 — British, Dutch & Soviet ships (Dowding)", "color": "#94a3b8", "nation": "RN" },
+  "convoyus": { "name": "Convoy PQ 17 — American ships", "color": "#cbd5e1", "nation": "USN" },
+  "escort": { "name": "RN Close escort (Broome)", "color": "#3b82f6", "nation": "RN" },
+  "cs1": { "name": "RN 1st Cruiser Squadron (Hamilton)", "color": "#06b6d4", "nation": "RN" },
+  "cs1us": { "name": "USN Cruisers with CS1", "color": "#38bdf8", "nation": "USN" },
+  "homefleet": { "name": "RN Home Fleet (Tovey)", "color": "#22c55e", "nation": "RN" },
+  "tf99": { "name": "USN Task Force 99 (Giffen)", "color": "#4ade80", "nation": "USN" },
+  "tirpitz": { "name": "KM Rösselsprung — Tirpitz group (Schniewind)", "color": "#e5484d", "nation": "KM" },
+  "kummetz": { "name": "KM Lützow / Scheer group (Kummetz)", "color": "#f97316", "nation": "KM" },
+  "uboats": { "name": "KM U-boats — Eisteufel", "color": "#9ca3af", "nation": "KM" },
+  "k21": { "name": "Soviet Northern Fleet — K-21 (Lunin)", "color": "#dc2626", "nation": "VMF" }
+ },
+ "schema": 1,
+ "routes": {
+  "convoy": [["1942-06-27 16:00", 64.23, -22.04, "Thirty-five merchant ships sail from Hvalfjörður; Commodore Dowding in River Afton", "S"], ["1942-06-28 00:00", 64.6, -24.5, "Clears Snæfellsnes", "R"], ["1942-06-28 14:00", 66.6, -24.6, "Off the north-west fjords: Richard Bland aground, Exford damaged by ice — both turn back", "R"], ["1942-06-29 12:00", 67.3, -18.5], ["1942-06-30 12:00", 69, -13, "Broome's close escort joins", "R"], ["01 12:00", 71, -6, "Sixty miles east of Jan Mayen: shadowed by U-255, U-408 and a BV 138", "R"], ["02 12:00", 73, 3.5, "Passes the homeward QP 13; seven He 115 torpedo floatplanes attack without result", "R"], ["03 13:00", 74.6, 13.5, "Steers to pass north of Bear Island, hugging the ice", "R"], ["04 03:15", 75.817, 22.25, "A lone He 115 torpedoes Christopher Newport in the fog", "S"], ["04 20:20", 75.95, 27.2, "Twenty-five He 111s of I./KG 26 attack: Navarino and William Hooper sunk, Azerbaidjan hit", "S"], ["04 22:15", 75.95, 27.5, "'Convoy is to scatter' — the Admiralty's third signal in 25 minutes, executed by Broome at 22:15", "S"]],
+  "escort": [["1942-06-27 16:00", 64.23, -22.04, "Thirty-five merchant ships sail from Hvalfjörður; Commodore Dowding in River Afton", "S"], ["1942-06-28 00:00", 64.6, -24.5, "Clears Snæfellsnes", "R"], ["1942-06-28 14:00", 66.6, -24.6, "Off the north-west fjords: Richard Bland aground, Exford damaged by ice — both turn back", "R"], ["1942-06-29 12:00", 67.3, -18.5], ["1942-06-30 12:00", 69, -13, "Broome's close escort joins", "R"], ["01 12:00", 71, -6, "Sixty miles east of Jan Mayen: shadowed by U-255, U-408 and a BV 138", "R"], ["02 12:00", 73, 3.5, "Passes the homeward QP 13; seven He 115 torpedo floatplanes attack without result", "R"], ["03 13:00", 74.6, 13.5, "Steers to pass north of Bear Island, hugging the ice", "R"], ["04 03:15", 75.817, 22.25, "A lone He 115 torpedoes Christopher Newport in the fog", "S"], ["04 20:20", 75.95, 27.2, "Twenty-five He 111s of I./KG 26 attack: Navarino and William Hooper sunk, Azerbaidjan hit", "S"], ["04 22:15", 75.95, 27.5, "'Convoy is to scatter' — the Admiralty's third signal in 25 minutes, executed by Broome at 22:15", "S"], ["05 00:00", 76.2, 26.2, "Broome's six destroyers join Hamilton's cruisers and withdraw west at 25 knots", "R"], ["05 12:00", 74.5, 10], ["07 14:00", 65.3, -13.3], ["07 16:00", 65.26, -14.01, "Seyðisfjörður", "R"], ["13 12:00", 65.26, -14.01]],
+  "cs1": [["1942-06-30 18:00", 65.26, -14.01, "London, Norfolk, Wichita, Tuscaloosa and three destroyers sail", "S"], ["1942-06-30 20:00", 65.3, -13.3], ["02 12:00", 73.5, 2, "Covering position north of the convoy", "R"], ["04 12:00", 76.3, 24, "Hamilton keeps the cruisers with the convoy past the 25°E limit", "R"], ["04 22:30", 76.2, 26.5, "Admiralty: 'Cruiser force withdraw to westward at high speed' — read as meaning Tirpitz is at sea", "S"], ["05 12:00", 74.5, 10], ["07 14:00", 65.3, -13.3], ["07 16:00", 65.26, -14.01], ["13 12:00", 65.26, -14.01]],
+  "homefleet": [["1942-06-29 00:00", 58.9, -3.05, "Duke of York, Washington, Victorious, Cumberland, Nigeria and destroyers sail", "S"], ["01 12:00", 68, -10], ["03 12:00", 72.5, -2, "Manchester and Eclipse join from Spitsbergen", "R"], ["04 12:00", 73, 3, "Cruising north-east of Jan Mayen, 300 miles from the convoy — too far to intervene", "R"], ["06 12:00", 71.5, -4], ["08 12:00", 58.9, -3.05], ["13 12:00", 58.9, -3.05]],
+  "tirpitz": [["02 20:00", 63.43, 10.4, "Tirpitz, Hipper and six destroyers sail from Trondheim", "S"], ["02 23:00", 63.65, 9.45], ["03 12:00", 66.5, 11, "Three destroyers run aground in the Leads and turn back", "R"], ["03 20:00", 68.1, 14, "Vestfjord", "R"], ["04 06:00", 70.55, 22.2], ["04 10:00", 69.99, 23.32, "Altafjord; waits for Hitler's permission", "S"], ["05 11:00", 70, 23.3, "Sorties on Raeder's provisional authority: Tirpitz, Hipper, Scheer, seven destroyers, two torpedo boats", "R"], ["05 13:30", 70.55, 22.2, "Stjernsund", "R"], ["05 15:00", 71.05, 23.9, "Clears the fjords as Hitler's consent finally arrives", "R"], ["05 17:00", 71.3, 24.6, "Off Ingøy: K-21 fires four torpedoes — unnoticed", "R"], ["05 20:00", 71.9, 26.5, "Sighted by a Catalina and by HMS Unshaken; the convoy is already scattered and dying", "R"], ["05 21:30", 72.1, 27.5, "Recalled by Raeder — the aircraft and U-boats need no help", "R"], ["06 08:00", 70.55, 22.2], ["06 12:00", 69.93, 23.05, "Back in Kåfjord", "S"], ["13 12:00", 69.93, 23.05]],
+  "kummetz": [["03 12:30", 68.52, 16.9, "Lützow, Scheer and six destroyers sail from Bogen", "S"], ["03 15:00", 68.55, 16.2, "Tjeldsund — where Lützow grounds", "R"], ["03 19:00", 68.9, 16.75, "Vågsfjord", "R"], ["03 22:00", 69.45, 17, "Andfjord — open sea", "R"], ["04 08:00", 70.55, 22.2], ["04 12:00", 69.99, 23.32, "Scheer reaches Altafjord; Kummetz shifts his flag to her", "R"], ["05 11:00", 70, 23.35], ["05 13:30", 70.55, 22.25], ["05 15:00", 71.05, 23.95], ["05 17:00", 71.3, 24.65], ["05 21:30", 72.1, 27.55], ["06 08:00", 70.55, 22.25], ["06 12:00", 69.93, 23.1], ["13 12:00", 69.93, 23.1]],
+  "lutzow": [["03 12:30", 68.52, 16.9, null, "S"], ["03 15:00", 68.4, 16, "Lützow runs aground in the Tjeldsund — out of the operation", "R"], ["13 12:00", 68.52, 16.9, "Back at Bogen for repairs", "R"]],
+  "k21": [["1942-06-27 00:00", 71.3, 25.2, "K-21 on patrol off the North Cape", "R"], ["05 17:00", 71.3, 24.6, "Fires four stern torpedoes at Tirpitz from 4,000 m; claims two hits", "R"], ["09 12:00", 70, 33.3], ["13 12:00", 69.2, 33.45, "Polyarny", "R"]],
+  "u255": [["01 12:00", 71, -5.5, "Reche sights the convoy east of Jan Mayen", "R"], ["04 12:00", 75.5, 22], ["06 16:38", 72.083, 48.5, "Sinks John Witherspoon", "S"], ["07 09:27", 71.633, 49.583, "Alcoa Ranger", "S"], ["08 01:00", 72.167, 51, "Olopana, ten miles off Moller Bay", "S"], ["13 08:25", 75.95, 40.167, "Boards and sinks the derelict Paulus Potter", "S"]],
+  "u703": [["04 12:00", 75.6, 23], ["05 08:27", 76.3, 33.5, "Finishes the bombed Empire Byron", "S"], ["05 21:05", 75.95, 43, "Sinks River Afton — the Commodore's ship", "S"], ["13 12:00", 73, 45]],
+  "u88": [["04 12:00", 75.7, 23.5], ["05 10:15", 76.833, 24.583, "Sinks Carlton (uboat.net gives 72°50′N — evidently 76°50′)", "S"], ["05 22:52", 75.133, 45.1, "Finishes Daniel Morgan", "S"], ["13 12:00", 73.5, 44]],
+  "u456": [["04 12:00", 75.4, 22.5], ["05 14:31", 75.083, 38, "Sinks Honomu", "S"], ["13 12:00", 73.5, 40]],
+  "u457": [["04 08:08", 75.817, 22.417, "Finishes Christopher Newport", "S"], ["07 14:56", 75, 45, "Finishes the oiler Aldersdale", "S"], ["13 12:00", 73.5, 45]],
+  "u334": [["04 12:00", 75.6, 24], ["04 23:03", 75.95, 27.25, "Finishes William Hooper", "S"], ["05 17:47", 74.9, 37.667, "Finishes Earlston", "S"], ["13 12:00", 73.5, 40]],
+  "u355": [["07 00:00", 72.6, 50], ["07 18:35", 72.5, 52, "Sinks Hartlebury 17 miles south of Britvin light", "S"], ["13 12:00", 72.5, 52]],
+  "u376": [["09 12:00", 70, 40], ["10 03:00", 69.417, 38.583, "Finishes Hoosier off Iokanka", "S"], ["13 12:00", 69.5, 38]],
+  "u251": [["09 12:00", 70.2, 41.5], ["10 00:45", 69.383, 40.833, "Finishes El Capitan", "S"], ["13 12:00", 69.5, 40]]
+ },
+ "groups": {
+  "convoy": "PQ 17",
+  "escort": "Broome",
+  "cs1": "Hamilton",
+  "homefleet": "Home Fleet",
+  "tirpitz": "Tirpitz",
+  "kummetz": "Scheer",
+  "lutzow": "Lützow",
+  "k21": "K-21",
+  "u255": "U-255",
+  "u703": "U-703",
+  "u88": "U-88",
+  "u456": "U-456",
+  "u457": "U-457",
+  "u334": "U-334",
+  "u355": "U-355",
+  "u376": "U-376",
+  "u251": "U-251"
+ },
+ "commanders": {
+  "convoy": { "name": "Commodore John Dowding RNR", "role": "Convoy Commodore", "flagship": "River Afton", "bio": "Watched his convoy ordered apart at 21:36 on 4 July — 'the scatter signal was a bitter pill' — was sunk with his own ship the next night, rescued by Lotus, and then spent a fortnight gathering the survivors out of Novaya Zemlya's bays and bringing them into Archangel.", "fate": "Survived; commodore of later Russian convoys." },
+  "escort": { "name": "Commander Jack Broome", "role": "Senior Officer, Close Escort", "flagship": "HMS Keppel", "bio": "Read the three Admiralty signals as meaning Tirpitz was over the horizon, scattered the convoy and took his destroyers to reinforce the cruisers — the decision he defended for the rest of his life, and won a libel action over.", "fate": "Captain; wrote Convoy Is To Scatter; died 1985.", "wiki": "Jack_Broome" },
+  "cs1": { "name": "Rear-Admiral Louis Hamilton", "role": "Commander, 1st Cruiser Squadron", "flagship": "HMS London", "bio": "Kept his four cruisers with the convoy beyond his orders, then obeyed 'withdraw to the westward at high speed' at 22:30 — taking Broome's destroyers with him and leaving the merchantmen to the aircraft and U-boats.", "fate": "Second-in-Command Home Fleet 1944; died 1957.", "wiki": "Louis_Hamilton_(Royal_Navy_officer)" },
+  "homefleet": { "name": "Admiral Sir John Tovey", "role": "Commander-in-Chief, Home Fleet", "flagship": "HMS Duke of York", "bio": "Had argued against running PQ 17 in the perpetual daylight of July and been overruled. Held the battlefleet and Victorious west of Bear Island as the bait for Tirpitz, too far to help the convoy — 'the most dreadful thing'.", "fate": "Admiral of the Fleet; died 1971.", "wiki": "John_Tovey,_1st_Baron_Tovey" },
+  "tirpitz": { "name": "Generaladmiral Otto Schniewind", "role": "Fleet Commander", "flagship": "Tirpitz", "bio": "Sailed on his own authority at 11:00 on 5 July before Hitler's permission came, was recalled at 21:30 without firing a shot — and won the battle anyway: the mere threat had scattered the convoy.", "fate": "Acquitted at Nuremberg; died 1964.", "wiki": "Otto_Schniewind" },
+  "kummetz": { "name": "Vizeadmiral Oskar Kummetz", "role": "Commander, Lützow group", "flagship": "Lützow, then Admiral Scheer", "bio": "Lost his flagship to a rock in the Tjeldsund before the operation began. Six months later he would fight the Barents Sea action against JW 51B.", "fate": "Survived the war; died 1980.", "wiki": "Oskar_Kummetz" },
+  "k21": { "name": "Captain 2nd Rank Nikolai Lunin", "role": "Commanding Officer, K-21", "flagship": "K-21", "bio": "Fired four stern torpedoes at Tirpitz off Ingøy at 17:00 on 5 July and reported two hits. German records show none, but the Soviet Union celebrated the attack for decades.", "fate": "Hero of the Soviet Union; rear-admiral; died 1970.", "wiki": "Nikolai_Lunin" },
+  "u255": { "name": "Kapitänleutnant Reinhart Reche", "role": "Commanding Officer, U-255", "flagship": "U-255", "bio": "Made the first contact east of Jan Mayen on 1 July and sank four ships — John Witherspoon, Alcoa Ranger, Olopana and, eight days after the scatter, the derelict Paulus Potter, whose confidential books he boarded her to take.", "fate": "Knight's Cross; survived the war; died 1993.", "wiki": "Reinhart_Reche" }
+ },
+ "ships": [
+  { "id": "keppel", "name": "HMS Keppel", "force": "escort", "type": "Destroyer (Cdr Broome, SOE)", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Keppel_(D84)" },
+  { "id": "fury", "name": "HMS Fury", "force": "escort", "type": "Destroyer", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Fury_(H76)" },
+  { "id": "offa", "name": "HMS Offa", "force": "escort", "type": "Destroyer", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Offa_(G29)" },
+  { "id": "leamington", "name": "HMS Leamington", "force": "escort", "type": "Destroyer", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Leamington_(G19)" },
+  { "id": "ledbury", "name": "HMS Ledbury", "force": "escort", "type": "Destroyer", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Ledbury_(L90)" },
+  { "id": "wilton", "name": "HMS Wilton", "force": "escort", "type": "Destroyer", "route": "escort", "wiki": "https://en.wikipedia.org/wiki/HMS_Wilton_(L128)" },
+  {
+   "id": "palomares",
+   "name": "HMS Palomares",
+   "force": "escort",
+   "type": "Anti-aircraft ship",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Palomares",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.6, 33], ["07 12:00", 73.3, 54.5, "Shelters in the Matochkin Strait", "R"], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "pozarica",
+   "name": "HMS Pozarica",
+   "force": "escort",
+   "type": "Anti-aircraft ship",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Pozarica",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.6, 33], ["07 12:00", 73.3, 54.5, "Shelters in the Matochkin Strait", "R"], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "lotus",
+   "name": "HMS Lotus",
+   "force": "escort",
+   "type": "Corvette — turned back for River Afton's survivors",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Lotus_(K130)",
+   "until": "04 22:15",
+   "extra": [["05 21:30", 75.95, 43, "Turns back alone for Dowding and River Afton's crew", "R"], ["07 12:00", 73.3, 54.5], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "ayrshire",
+   "name": "HMT Ayrshire",
+   "force": "escort",
+   "type": "Armed trawler (Lt Gradwell RNVR)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ayrshire_(FY225)",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 76.8, 30, "Leads Ironclad, Troubador and Silver Sword north into the ice, paints them white and lies up", "R"], ["07 12:00", 77.5, 45], ["10 12:00", 74.5, 52], ["11 12:00", 73.3, 54.5, "Matochkin Strait", "R"], ["13 12:00", 73.3, 54.5]]
+  },
+  {
+   "id": "rathlin",
+   "name": "Rathlin",
+   "force": "escort",
+   "type": "Rescue ship",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Rathlin",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.3, 33], ["07 12:00", 69, 42], ["08 12:00", 66.3, 40.7], ["09 12:00", 64.63, 39.95, "Archangel with Bellingham and Donbass", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "zamalek",
+   "name": "Zamalek",
+   "force": "escort",
+   "type": "Rescue ship",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Zamalek",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.6, 33], ["07 12:00", 73.3, 54.5, "Shelters in the Matochkin Strait", "R"], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "p614",
+   "name": "HMS P614",
+   "force": "escort",
+   "type": "Submarine",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_P614",
+   "until": "04 22:15",
+   "extra": [["04 23:30", 75.9, 27.3, "Tries to scuttle Navarino with a torpedo", "R"], ["07 12:00", 73, 40], ["11 12:00", 69.2, 33.45], ["13 12:00", 69.2, 33.45]]
+  },
+  { "id": "london", "name": "HMS London", "force": "cs1", "type": "Heavy cruiser (Hamilton flagship)", "route": "cs1", "wiki": "https://en.wikipedia.org/wiki/HMS_London_(69)" },
+  { "id": "norfolk", "name": "HMS Norfolk", "force": "cs1", "type": "Heavy cruiser", "route": "cs1", "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)" },
+  { "id": "wichita", "name": "USS Wichita", "force": "cs1us", "type": "Heavy cruiser", "route": "cs1", "wiki": "https://en.wikipedia.org/wiki/USS_Wichita_(CA-45)" },
+  { "id": "tuscaloosa", "name": "USS Tuscaloosa", "force": "cs1us", "type": "Heavy cruiser", "route": "cs1", "wiki": "https://en.wikipedia.org/wiki/USS_Tuscaloosa_(CA-37)" },
+  { "id": "wainwright", "name": "USS Wainwright", "force": "cs1us", "type": "Destroyer — broke up the 4 July attack", "route": "cs1", "wiki": "https://en.wikipedia.org/wiki/USS_Wainwright_(DD-419)" },
+  { "id": "dukeofyork", "name": "HMS Duke of York", "force": "homefleet", "type": "Battleship (Tovey flagship)", "route": "homefleet", "wiki": "https://en.wikipedia.org/wiki/HMS_Duke_of_York_(17)" },
+  { "id": "victorious", "name": "HMS Victorious", "force": "homefleet", "type": "Fleet carrier", "route": "homefleet", "wiki": "https://en.wikipedia.org/wiki/HMS_Victorious_(R38)" },
+  { "id": "cumberland", "name": "HMS Cumberland", "force": "homefleet", "type": "Heavy cruiser", "route": "homefleet", "wiki": "https://en.wikipedia.org/wiki/HMS_Cumberland_(57)" },
+  { "id": "nigeria", "name": "HMS Nigeria", "force": "homefleet", "type": "Light cruiser", "route": "homefleet", "wiki": "https://en.wikipedia.org/wiki/HMS_Nigeria_(60)" },
+  { "id": "washington", "name": "USS Washington", "force": "tf99", "type": "Battleship (Giffen flagship)", "route": "homefleet", "wiki": "https://en.wikipedia.org/wiki/USS_Washington_(BB-56)" },
+  { "id": "tirpitz", "name": "Tirpitz", "force": "tirpitz", "type": "Battleship (Schniewind flagship)", "route": "tirpitz", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Tirpitz" },
+  { "id": "hipper", "name": "Admiral Hipper", "force": "tirpitz", "type": "Heavy cruiser", "route": "tirpitz", "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Hipper" },
+  { "id": "ihn", "name": "Friedrich Ihn", "force": "tirpitz", "type": "Destroyer", "route": "tirpitz", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z14_Friedrich_Ihn" },
+  { "id": "scheer", "name": "Admiral Scheer", "force": "kummetz", "type": "Panzerschiff (Kummetz flag from 4 July)", "route": "kummetz", "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Scheer" },
+  { "id": "z29", "name": "Z29", "force": "kummetz", "type": "Destroyer", "route": "kummetz", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z29" },
+  { "id": "lutzow", "name": "Lützow", "force": "kummetz", "type": "Panzerschiff", "route": "lutzow", "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Deutschland" },
+  { "id": "u255", "name": "U-255", "force": "uboats", "type": "Type VIIC U-boat (Reche) — four ships", "route": "u255", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-255" },
+  { "id": "u703", "name": "U-703", "force": "uboats", "type": "Type VIIC U-boat (Bielfeld)", "route": "u703", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-703" },
+  { "id": "u88", "name": "U-88", "force": "uboats", "type": "Type VIIC U-boat (Bohmann)", "route": "u88", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-88" },
+  { "id": "u456", "name": "U-456", "force": "uboats", "type": "Type VIIC U-boat (Teichert)", "route": "u456", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-456" },
+  { "id": "u457", "name": "U-457", "force": "uboats", "type": "Type VIIC U-boat (Brandenburg)", "route": "u457", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-457" },
+  { "id": "u334", "name": "U-334", "force": "uboats", "type": "Type VIIC U-boat (Siemon)", "route": "u334", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-334" },
+  { "id": "u355", "name": "U-355", "force": "uboats", "type": "Type VIIC U-boat (La Baume)", "route": "u355", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-355" },
+  { "id": "u376", "name": "U-376", "force": "uboats", "type": "Type VIIC U-boat (Marks)", "route": "u376", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-376" },
+  { "id": "u251", "name": "U-251", "force": "uboats", "type": "Type VIIC U-boat (Timm)", "route": "u251", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-251" },
+  { "id": "k21", "name": "K-21", "force": "k21", "type": "Submarine (Capt Lunin)", "route": "k21", "wiki": "https://en.wikipedia.org/wiki/Soviet_submarine_K-21" },
+  {
+   "id": "riverafton",
+   "name": "River Afton",
+   "force": "convoy",
+   "type": "Merchant ship — Commodore Dowding's ship (British)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_River_Afton",
+   "until": "04 22:15",
+   "extra": [["05 21:05", 75.95, 43, "Three torpedoes from U-703; Dowding survives, 23 do not", "S"]],
+   "sunk": "05 21:22",
+   "sunkBy": "U-703",
+   "lost": 23
+  },
+  {
+   "id": "christophernewport",
+   "name": "Christopher Newport",
+   "force": "convoyus",
+   "type": "Merchant ship — Liberty ship (US)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Christopher_Newport",
+   "until": "04 03:15",
+   "extra": [["04 08:08", 75.817, 22.417, "Torpedoed by an He 115 at 03:15; P614 fails to scuttle her; U-457 does", "S"]],
+   "sunk": "04 08:08",
+   "sunkBy": "He 115 torpedo; finished by U-457",
+   "lost": 3
+  },
+  {
+   "id": "navarino",
+   "name": "Navarino",
+   "force": "convoy",
+   "type": "Merchant ship — British",
+   "route": "convoy",
+   "until": "04 20:20",
+   "extra": [["04 20:30", 75.95, 27.233, "He 111 torpedo; abandoned and sunk by P614", "S"]],
+   "sunk": "04 20:30",
+   "sunkBy": "He 111 of I./KG 26",
+   "lost": 15
+  },
+  {
+   "id": "williamhooper",
+   "name": "William Hooper",
+   "force": "convoyus",
+   "type": "Merchant ship — Liberty ship (US)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_William_Hooper",
+   "until": "04 20:20",
+   "extra": [["04 23:03", 75.95, 27.25, "Torpedoed by an He 111 at 20:20; finished by U-334", "S"]],
+   "sunk": "04 23:03",
+   "sunkBy": "He 111 torpedo; finished by U-334",
+   "lost": 3
+  },
+  {
+   "id": "empirebyron",
+   "name": "Empire Byron",
+   "force": "convoy",
+   "type": "Merchant ship — British — 15 tanks and 41 vehicles",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Empire_Byron",
+   "until": "04 22:15",
+   "extra": [["05 08:27", 76.3, 33.5, "Torpedoed by U-703", "S"]],
+   "sunk": "05 08:27",
+   "sunkBy": "U-703",
+   "lost": 10
+  },
+  {
+   "id": "carlton",
+   "name": "Carlton",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Carlton_(1920)",
+   "until": "04 22:15",
+   "extra": [["05 10:15", 76.833, 24.583, "Sunk in ten minutes by U-88; 26 survivors later lifted by German seaplanes", "S"]],
+   "sunk": "05 10:15",
+   "sunkBy": "U-88",
+   "lost": 3
+  },
+  {
+   "id": "honomu",
+   "name": "Honomu",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Honomu",
+   "until": "04 22:15",
+   "extra": [["05 14:31", 75.083, 38, "Two torpedoes from U-456", "S"]],
+   "sunk": "05 14:31",
+   "sunkBy": "U-456",
+   "lost": 13
+  },
+  {
+   "id": "earlston",
+   "name": "Earlston",
+   "force": "convoy",
+   "type": "Merchant ship — British",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Earlston",
+   "until": "04 22:15",
+   "extra": [["05 16:00", 75, 37.5, "Bombed by Ju 88s of III./KG 30", "R"], ["05 17:47", 74.9, 37.667, "Finished by U-334; her master a prisoner", "S"]],
+   "sunk": "05 17:47",
+   "sunkBy": "Ju 88s; finished by U-334",
+   "lost": 0
+  },
+  {
+   "id": "danielmorgan",
+   "name": "Daniel Morgan",
+   "force": "convoyus",
+   "type": "Merchant ship — Liberty ship (US)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Daniel_Morgan",
+   "until": "04 22:15",
+   "extra": [["05 20:00", 75.133, 44.167, "Bombed after shooting down two Ju 88s", "S"], ["05 22:52", 75.133, 45.1, "Finished by U-88", "S"]],
+   "sunk": "05 22:52",
+   "sunkBy": "Ju 88s; finished by U-88",
+   "lost": 3
+  },
+  {
+   "id": "sswashington",
+   "name": "Washington",
+   "force": "convoyus",
+   "type": "Merchant ship — US — bombed at the ice edge with Bolton Castle and Paulus Potter",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 17:00", 76.7, 36, "Ju 88s of KG 30 at the ice edge (position not recorded)", "R"]],
+   "sunk": "05 17:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 0
+  },
+  {
+   "id": "boltoncastle",
+   "name": "Bolton Castle",
+   "force": "convoy",
+   "type": "Merchant ship — British",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Bolton_Castle",
+   "until": "04 22:15",
+   "extra": [["05 17:00", 76.667, 36.5, "Bombed by KG 30", "S"]],
+   "sunk": "05 17:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 0
+  },
+  {
+   "id": "pauluspotter",
+   "name": "Paulus Potter",
+   "force": "convoy",
+   "type": "Merchant ship — Dutch",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Paulus_Potter",
+   "until": "04 22:15",
+   "extra": [["05 17:30", 77.067, 34.5, "Bombed and abandoned at the ice edge", "S"], ["13 08:25", 75.95, 40.167, "Drifting derelict for eight days; boarded by U-255, her papers taken, and sunk", "S"]],
+   "sunk": "13 08:25",
+   "sunkBy": "Ju 88s; sunk by U-255",
+   "lost": 0
+  },
+  {
+   "id": "pankraft",
+   "name": "Pan Kraft",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/Pan_Kraft",
+   "until": "04 22:15",
+   "extra": [["05 17:00", 76.833, 38, "Bombed and abandoned (Wikipedia's 78°50′N is evidently 76°50′)", "S"], ["07 06:00", 76.833, 38, "Sinks after Lotus's attempt to scuttle her", "S"]],
+   "sunk": "07 06:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 2
+  },
+  {
+   "id": "fairfieldcity",
+   "name": "Fairfield City",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 17:00", 74.667, 39.75, "Bombed by KG 30", "S"]],
+   "sunk": "05 17:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 8
+  },
+  {
+   "id": "peterkerr",
+   "name": "Peter Kerr",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 17:00", 74.5, 35, "Bombed, burnt out and abandoned", "S"]],
+   "sunk": "05 17:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 0
+  },
+  {
+   "id": "zaafaran",
+   "name": "Zaafaran",
+   "force": "convoy",
+   "type": "Merchant ship — rescue ship (British)",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 17:30", 75, 44, "Bombed in the Aldersdale group (position not recorded)", "R"]],
+   "sunk": "05 17:30",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 1
+  },
+  {
+   "id": "aldersdale",
+   "name": "RFA Aldersdale",
+   "force": "convoy",
+   "type": "Merchant ship — fleet oiler (British)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/RFA_Aldersdale",
+   "until": "04 22:15",
+   "extra": [["05 17:30", 75, 44.5, "Bombed; taken in tow by Salamander, then abandoned", "S"], ["07 14:56", 75, 45, "Shelled and torpedoed by U-457", "S"]],
+   "sunk": "07 14:56",
+   "sunkBy": "Ju 88s; finished by U-457",
+   "lost": 0
+  },
+  {
+   "id": "panatlantic",
+   "name": "Pan Atlantic",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["06 12:00", 73.5, 44, "Bombed by KG 30 (position not recorded)", "R"]],
+   "sunk": "06 12:00",
+   "sunkBy": "Ju 88s of KG 30",
+   "lost": 26
+  },
+  {
+   "id": "johnwitherspoon",
+   "name": "John Witherspoon",
+   "force": "convoyus",
+   "type": "Merchant ship — Liberty ship (US)",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_John_Witherspoon",
+   "until": "04 22:15",
+   "extra": [["06 16:38", 72.083, 48.5, "U-255", "S"]],
+   "sunk": "06 16:55",
+   "sunkBy": "U-255",
+   "lost": 1
+  },
+  {
+   "id": "alcoaranger",
+   "name": "Alcoa Ranger",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["07 09:27", 71.633, 49.583, "Torpedoed, then shelled, by U-255", "S"]],
+   "sunk": "07 12:00",
+   "sunkBy": "U-255",
+   "lost": 0
+  },
+  {
+   "id": "hartlebury",
+   "name": "Hartlebury",
+   "force": "convoy",
+   "type": "Merchant ship — British",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Hartlebury",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 73, 52.5, "Down the Novaya Zemlya coast", "R"], ["07 18:35", 72.5, 52, "U-355 — 38 lost", "S"]],
+   "sunk": "07 18:45",
+   "sunkBy": "U-355",
+   "lost": 38
+  },
+  {
+   "id": "olopana",
+   "name": "Olopana",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Olopana",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 73, 52.3], ["08 01:00", 72.167, 51, "Torpedoed and shelled by U-255 ten miles off Moller Bay", "S"]],
+   "sunk": "08 01:16",
+   "sunkBy": "U-255",
+   "lost": 7
+  },
+  {
+   "id": "hoosier",
+   "name": "Hoosier",
+   "force": "convoyus",
+   "type": "Merchant ship — US",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46, "The Matochkin group sails for Archangel", "R"], ["09 20:00", 69.9, 39.5, "Bombed 65 miles north-east of Iokanka", "R"], ["10 03:00", 69.417, 38.583, "Finished by U-376", "S"]],
+   "sunk": "10 03:00",
+   "sunkBy": "Ju 88s of II./KG 30; finished by U-376",
+   "lost": 0
+  },
+  {
+   "id": "elcapitan",
+   "name": "El Capitan",
+   "force": "convoyus",
+   "type": "Merchant ship — Panamanian",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46.2], ["09 20:00", 70.167, 41.667, "Bombed", "S"], ["10 00:45", 69.383, 40.833, "Finished by U-251", "S"]],
+   "sunk": "10 00:45",
+   "sunkBy": "Ju 88s of II./KG 30; finished by U-251",
+   "lost": 0
+  },
+  {
+   "id": "bellingham",
+   "name": "Bellingham",
+   "force": "convoyus",
+   "type": "Merchant ship — US — arrived",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.3, 33], ["07 12:00", 69, 42], ["08 12:00", 66.3, 40.7], ["09 12:00", 64.63, 39.95, "Archangel, 9 July, with Rathlin and Donbass", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "donbass",
+   "name": "Donbass",
+   "force": "convoy",
+   "type": "Merchant ship — Soviet tanker — arrived",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.3, 33.2], ["07 12:00", 69, 42.1], ["08 12:00", 66.3, 40.75], ["09 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "azerbaidjan",
+   "name": "Azerbaidjan",
+   "force": "convoy",
+   "type": "Merchant ship — Soviet tanker — torpedoed 4 July, arrived",
+   "route": "convoy",
+   "until": "04 20:20",
+   "extra": [["04 20:25", 75.96, 27.22, "Torpedoed; her cargo of linseed oil blows out — and she steams on at 9 knots", "R"], ["05 12:00", 75.7, 34], ["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46.4], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "oceanfreedom",
+   "name": "Ocean Freedom",
+   "force": "convoy",
+   "type": "Merchant ship — British — arrived",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.6, 33], ["07 12:00", 73.3, 54.5, "Shelters in the Matochkin Strait", "R"], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "samuelchase",
+   "name": "Samuel Chase",
+   "force": "convoyus",
+   "type": "Merchant ship — Liberty ship (US) — bombed 10 July, arrived",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 75.6, 33], ["07 12:00", 73.3, 54.5, "Shelters in the Matochkin Strait", "R"], ["09 12:00", 72.5, 52.5], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+  },
+  {
+   "id": "empiretide",
+   "name": "Empire Tide",
+   "force": "convoy",
+   "type": "Merchant ship — CAM ship (British) — sheltered in Moller Bay until 24 July",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Empire_Tide",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 72.2, 52.7, "Moller Bay, Novaya Zemlya, with 150 survivors from other ships aboard", "R"], ["13 12:00", 72.2, 52.7]]
+  },
+  {
+   "id": "winstonsalem",
+   "name": "Winston-Salem",
+   "force": "convoyus",
+   "type": "Merchant ship — US — ran herself aground on Novaya Zemlya",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["07 12:00", 73.3, 54], ["10 12:00", 72.6, 52, "Aground on the North Gusini shoal; refloated 28 July", "R"], ["13 12:00", 72.6, 52]]
+  },
+  {
+   "id": "ironclad",
+   "name": "Ironclad",
+   "force": "convoyus",
+   "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 76.8, 30.1], ["07 12:00", 77.5, 45.1], ["10 12:00", 74.5, 52.1], ["11 12:00", 73.3, 54.5, "Matochkin Strait", "R"], ["13 12:00", 73.3, 54.5]]
+  },
+  {
+   "id": "troubador",
+   "name": "Troubador",
+   "force": "convoy",
+   "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 76.8, 30.1], ["07 12:00", 77.5, 45.1], ["10 12:00", 74.5, 52.1], ["11 12:00", 73.3, 54.5, "Matochkin Strait", "R"], ["13 12:00", 73.3, 54.5]]
+  },
+  {
+   "id": "silversword",
+   "name": "Silver Sword",
+   "force": "convoyus",
+   "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+   "route": "convoy",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 76.8, 30.1], ["07 12:00", 77.5, 45.1], ["10 12:00", 74.5, 52.1], ["11 12:00", 73.3, 54.5, "Matochkin Strait", "R"], ["13 12:00", 73.3, 54.5]]
+  },
+  {
+   "id": "benjaminharrison",
+   "name": "Benjamin Harrison",
+   "force": "convoyus",
+   "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+   "route": "convoy",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Benjamin_Harrison",
+   "until": "04 22:15",
+   "extra": [["05 12:00", 76.8, 30.1], ["07 12:00", 77.5, 45.1], ["10 12:00", 74.5, 52.1], ["11 12:00", 73.3, 54.5, "Matochkin Strait", "R"], ["13 12:00", 73.3, 54.5]]
+  }
+ ],
+ "strikes": [
+  {
+   "id": "a1",
+   "name": "BV 138 shadowers",
+   "nation": "KM",
+   "from": { "lat": 69.65, "lon": 18.96 },
+   "target": { "route": "convoy" },
+   "launch": "01 08:00",
+   "arrive": "01 12:00",
+   "leave": "01 20:00",
+   "recover": "01 23:30",
+   "count": 1,
+   "note": "From 1 July the convoy is never out of sight of a flying boat",
+   "land": true
+  },
+  {
+   "id": "a2",
+   "name": "He 115 floatplanes — first attack",
+   "nation": "KM",
+   "from": { "lat": 69.65, "lon": 18.96 },
+   "target": { "route": "convoy" },
+   "launch": "02 15:00",
+   "arrive": "02 18:00",
+   "leave": "02 18:20",
+   "recover": "02 21:30",
+   "count": 7,
+   "note": "1./KüFlGr 906: seven torpedo floatplanes, no hits; one shot down and its crew rescued by another He 115",
+   "land": true
+  },
+  {
+   "id": "a3",
+   "name": "Lone He 115 in the fog",
+   "nation": "KM",
+   "from": { "lat": 69.65, "lon": 18.96 },
+   "target": { "ship": "christophernewport" },
+   "launch": "04 00:30",
+   "arrive": "04 03:15",
+   "leave": "04 03:25",
+   "recover": "04 06:00",
+   "count": 1,
+   "note": "A single torpedo out of the fog stops Christopher Newport — the first loss",
+   "land": true
+  },
+  {
+   "id": "a4",
+   "name": "I./KG 26 — 25 He 111 torpedo bombers",
+   "nation": "KM",
+   "from": { "lat": 69.056, "lon": 18.54 },
+   "target": { "route": "convoy" },
+   "launch": "04 18:00",
+   "arrive": "04 20:20",
+   "leave": "04 20:40",
+   "recover": "04 23:00",
+   "count": 25,
+   "note": "Hauptmann Eicke's Heinkels come in at mast height through Wainwright's barrage: Navarino and William Hooper sunk, Azerbaidjan hit; four aircraft lost. Two hours later the convoy is ordered to scatter",
+   "land": true
+  },
+  {
+   "id": "a5",
+   "name": "KG 30 Ju 88s — 5 July",
+   "nation": "KM",
+   "from": { "lat": 70.067, "lon": 24.974 },
+   "target": { "ship": "boltoncastle" },
+   "launch": "05 14:30",
+   "arrive": "05 16:30",
+   "leave": "05 18:30",
+   "recover": "05 20:30",
+   "count": 30,
+   "note": "With the convoy scattered and its escort gone, Bloedorn's Ju 88s pick off ships singly all afternoon: Washington, Bolton Castle, Paulus Potter, Pan Kraft, Fairfield City, Peter Kerr, Zaafaran; Earlston, Empire Byron, Aldersdale and Daniel Morgan crippled for the U-boats",
+   "land": true
+  },
+  {
+   "id": "a6",
+   "name": "Ju 88s find Pan Atlantic",
+   "nation": "KM",
+   "from": { "lat": 70.067, "lon": 24.974 },
+   "target": { "ship": "panatlantic" },
+   "launch": "06 09:30",
+   "arrive": "06 12:00",
+   "leave": "06 12:15",
+   "recover": "06 15:00",
+   "count": 6,
+   "note": "Twenty-six of her crew die",
+   "land": true
+  },
+  {
+   "id": "a7",
+   "name": "II./KG 30 off the Murman coast",
+   "nation": "KM",
+   "from": { "lat": 70.067, "lon": 24.974 },
+   "target": { "ship": "hoosier" },
+   "launch": "09 17:30",
+   "arrive": "09 20:00",
+   "leave": "09 20:40",
+   "recover": "09 23:00",
+   "count": 12,
+   "note": "The Matochkin group, within 60 miles of the Kola coast: Hoosier and El Capitan stopped, Samuel Chase damaged",
+   "land": true
+  },
+  {
+   "id": "c1",
+   "name": "Catalina finds Tirpitz",
+   "nation": "RN",
+   "from": { "lat": 69.1, "lon": 33.4 },
+   "target": { "ship": "tirpitz" },
+   "launch": "05 16:00",
+   "arrive": "05 20:00",
+   "leave": "05 20:30",
+   "recover": "05 23:30",
+   "count": 1,
+   "note": "A 210 Squadron Catalina from Grasnaya reports the battle group off the North Cape — an hour after Raeder has already decided to recall it",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  {
+   "from": { "lat": 75.83, "lon": 22.1, "label": "He 115" },
+   "to": "christophernewport",
+   "t": "04 03:15",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "Engine room hit; three killed"
+  },
+  {
+   "from": { "lat": 75.9, "lon": 27, "label": "He 111s of I./KG 26" },
+   "to": "navarino",
+   "t": "04 20:20",
+   "n": 3,
+   "run": 1,
+   "hit": true,
+   "note": null
+  },
+  {
+   "from": { "lat": 75.9, "lon": 27.05, "label": "He 111s of I./KG 26" },
+   "to": "williamhooper",
+   "t": "04 20:20",
+   "n": 3,
+   "run": 1,
+   "hit": true,
+   "note": null
+  },
+  {
+   "from": { "lat": 75.92, "lon": 27.1, "label": "He 111s of I./KG 26" },
+   "to": "azerbaidjan",
+   "t": "04 20:22",
+   "n": 2,
+   "run": 1,
+   "hit": true,
+   "note": "The Soviet tanker's linseed oil blows sky-high — and she steams on"
+  },
+  { "from": "u457", "to": "christophernewport", "t": "04 08:08", "n": 1, "run": 1, "hit": true, "note": "Coup de grâce after P614's torpedo fails" },
+  { "from": "p614", "to": "navarino", "t": "04 21:30", "n": 1, "run": 1, "hit": true, "note": "Scuttles the abandoned Navarino" },
+  { "from": "u334", "to": "williamhooper", "t": "04 23:03", "n": 2, "run": 1, "hit": true, "note": "One dud, one hit" },
+  { "from": "u703", "to": "empirebyron", "t": "05 08:27", "n": 2, "run": 1, "hit": true, "note": null },
+  { "from": "u88", "to": "carlton", "t": "05 10:15", "n": 1, "run": 1, "hit": true, "note": "Sinks in ten minutes" },
+  { "from": "u456", "to": "honomu", "t": "05 14:31", "n": 2, "run": 1, "hit": true, "note": null },
+  { "from": "u334", "to": "earlston", "t": "05 17:47", "n": 1, "run": 1, "hit": true, "note": null },
+  { "from": "u703", "to": "riverafton", "t": "05 21:02", "n": 3, "run": 1, "hit": true, "note": "Dowding, his commodore's staff and the survivors are picked up by Lotus" },
+  { "from": "u88", "to": "danielmorgan", "t": "05 22:52", "n": 1, "run": 1, "hit": true, "note": null },
+  { "from": "u255", "to": "johnwitherspoon", "t": "06 16:38", "n": 2, "run": 1, "hit": true, "note": null },
+  { "from": "u255", "to": "alcoaranger", "t": "07 09:27", "n": 1, "run": 1, "hit": true, "note": "Then shelled until she sinks" },
+  { "from": "u457", "to": "aldersdale", "t": "07 14:56", "n": 1, "run": 1, "hit": true, "note": "After an hour's shelling" },
+  { "from": "u355", "to": "hartlebury", "t": "07 18:35", "n": 3, "run": 1, "hit": true, "note": "38 of her crew die in the water" },
+  { "from": "u255", "to": "olopana", "t": "08 01:00", "n": 1, "run": 1, "hit": true, "note": null },
+  { "from": "u251", "to": "elcapitan", "t": "10 00:45", "n": 1, "run": 1, "hit": true, "note": null },
+  { "from": "u376", "to": "hoosier", "t": "10 02:56", "n": 2, "run": 1, "hit": true, "note": null },
+  { "from": "u255", "to": "pauluspotter", "t": "13 08:25", "n": 1, "run": 1, "hit": true, "note": "Reche's boarding party takes her confidential books first" },
+  { "from": "k21", "to": "tirpitz", "t": "05 17:00", "n": 4, "run": 1, "hit": false, "note": "Four stern torpedoes at 4,000 m; two explosions heard — the Germans notice nothing" }
+ ],
+ "engagements": [
+  {
+   "ships": ["keppel", "fury", "offa", "leamington", "ledbury", "wilton", "palomares", "pozarica", "wainwright"],
+   "from": "04 20:10",
+   "to": "04 20:45",
+   "rate": 0.6,
+   "note": "Wainwright charges the Heinkels head-on; the AA ships and every merchantman's Oerlikons open up"
+  },
+  {
+   "ships": ["danielmorgan", "washington", "boltoncastle", "pauluspotter", "pankraft", "fairfieldcity", "peterkerr"],
+   "from": "05 16:30",
+   "to": "05 18:30",
+   "rate": 0.3,
+   "note": "Merchant gunners alone; Daniel Morgan claims two Ju 88s"
+  },
+  {
+   "ships": ["u255"],
+   "from": "07 10:00",
+   "to": "07 12:00",
+   "rate": 0.4,
+   "note": "Deck gun on the abandoned Alcoa Ranger",
+   "targets": ["alcoaranger"]
+  },
+  {
+   "ships": ["u457"],
+   "from": "07 11:40",
+   "to": "07 13:00",
+   "rate": 0.4,
+   "targets": ["aldersdale"]
+  },
+  {
+   "ships": ["hoosier", "elcapitan", "samuelchase", "palomares", "pozarica", "azerbaidjan"],
+   "from": "09 20:00",
+   "to": "09 20:40",
+   "rate": 0.4
+  }
+ ],
+ "events": [["1942-06-27 16:00", "PQ 17 sails: 35 merchant ships with 297 aircraft, 594 tanks, 4,246 vehicles", 64.23, -22.04], ["1942-06-29 00:00", "Tovey's Home Fleet sails from Scapa", 58.9, -3.05], ["01 12:00", "First U-boat contact east of Jan Mayen", 71, -6], ["02 20:00", "Tirpitz and Hipper leave Trondheim", 63.43, 10.4], ["03 15:00", "Lützow runs aground; three of Tirpitz's destroyers likewise", 68.4, 16], ["04 03:15", "Christopher Newport torpedoed — the first loss", 75.817, 22.25], ["04 10:00", "Tirpitz arrives in Altafjord", 69.99, 23.32], ["04 20:20", "Twenty-five He 111s: Navarino and William Hooper sunk", 75.95, 27.2], ["04 21:11", "Admiralty: 'Cruiser force withdraw to westward at high speed'", 76.2, 26.5], ["04 21:23", "Admiralty: 'Owing to threat from surface ships convoy is to disperse and proceed to Russian ports'", 75.95, 27.5], ["04 21:36", "Admiralty: 'Convoy is to scatter' — Pound's decision, against his own staff's advice", 75.95, 27.5], ["04 22:15", "Broome scatters the convoy and takes his destroyers to join the cruisers", 75.95, 27.5], ["05 08:27", "Empire Byron sunk", 76.3, 33.5], ["05 11:00", "Tirpitz sorties from Altafjord", 70, 23.3], ["05 17:00", "K-21 attacks Tirpitz", 71.3, 24.6], ["05 17:00", "KG 30's afternoon: seven ships sunk by bombs", 76, 37], ["05 21:05", "River Afton sunk; Commodore Dowding in the water", 75.95, 43], ["05 21:30", "Raeder recalls Tirpitz: the aircraft and U-boats need no help", 72.1, 27.5], ["06 16:38", "John Witherspoon sunk off Novaya Zemlya", 72.083, 48.5], ["07 12:00", "Dowding, in Lotus, collects the ships sheltering in the Matochkin Strait", 73.3, 54.5], ["07 18:35", "Hartlebury sunk — 38 lost", 72.5, 52], ["09 12:00", "Bellingham, Donbass and Rathlin reach Archangel — the first arrivals", 64.63, 39.95], ["10 03:00", "Hoosier and El Capitan, sixty miles from Kola, sunk", 69.4, 39.5], ["11 12:00", "Ocean Freedom, Samuel Chase, Zamalek, Palomares and Pozarica reach Archangel", 64.63, 39.95], ["13 08:25", "U-255 sinks the derelict Paulus Potter — the last of twenty-four", 75.95, 40.167]],
+ "ports": [
+  { "name": "Hvalfjörður", "lat": 64.23, "lon": -22.04, "control": "RN", "kind": "port", "note": "Convoy assembly anchorage, Iceland" },
+  { "name": "Seyðisfjörður", "lat": 65.26, "lon": -14.01, "control": "RN", "kind": "port", "note": "Hamilton's cruisers sail from here and return here" },
+  { "name": "Scapa Flow", "lat": 58.9, "lon": -3.05, "control": "RN", "kind": "port", "note": "Home Fleet base" },
+  { "name": "Reykjavík", "lat": 64.15, "lon": -21.94, "control": "RN", "kind": "port", "note": "Hvalfjörður's parent port" },
+  { "name": "Archangel", "lat": 64.63, "lon": 39.95, "control": "VMF", "kind": "port", "note": "Convoy destination; eleven of thirty-five ships arrive" },
+  { "name": "Murmansk — Polyarny", "lat": 69.2, "lon": 33.45, "control": "VMF", "kind": "port", "note": "Northern Fleet base; the Catalinas fly from Grasnaya" },
+  { "name": "Matochkin Strait", "lat": 73.3, "lon": 54.5, "control": "VMF", "kind": "port", "note": "Novaya Zemlya: the scattered ships' refuge" },
+  { "name": "Moller Bay", "lat": 72.2, "lon": 52.7, "control": "VMF", "kind": "port", "note": "Empire Tide's hiding place for three weeks" },
+  { "name": "Trondheim", "lat": 63.43, "lon": 10.4, "control": "KM", "kind": "port", "note": "Tirpitz's base" },
+  { "name": "Bogen (Narvik)", "lat": 68.52, "lon": 16.9, "control": "KM", "kind": "port", "note": "Lützow and Scheer" },
+  { "name": "Altafjord — Kåfjord", "lat": 69.93, "lon": 23.05, "control": "KM", "kind": "port", "note": "The jumping-off anchorage for Rösselsprung" },
+  { "name": "Bardufoss", "lat": 69.056, "lon": 18.54, "control": "KM", "kind": "air", "note": "I./KG 26 He 111 torpedo bombers" },
+  { "name": "Banak", "lat": 70.067, "lon": 24.974, "control": "KM", "kind": "air", "note": "KG 30 Ju 88s — 202 sorties against PQ 17 for five aircraft lost" },
+  { "name": "Tromsø", "lat": 69.65, "lon": 18.96, "control": "KM", "kind": "air", "note": "He 115 floatplanes and BV 138 flying boats" },
+  { "name": "Kirkenes", "lat": 69.72, "lon": 30.05, "control": "KM", "kind": "port", "note": "U-boat forward base" },
+  { "name": "London — Admiralty", "lat": 51.505, "lon": -0.128, "control": "RN", "kind": "hq", "note": "Pound's Operational Intelligence Centre could not prove Tirpitz was still in Altafjord; at 21:11 he chose to assume she was not", "hq": "First Sea Lord Pound" },
+  { "name": "Kiel — Marinegruppe Nord", "lat": 54.32, "lon": 10.14, "control": "KM", "kind": "hq", "note": "Carls's headquarters; Hitler's veto on risking Tirpitz to carriers held the sortie until 5 July", "hq": "Gruppe Nord (Carls)" },
+  { "name": "Polyarny — Northern Fleet HQ", "lat": 69.22, "lon": 33.5, "control": "VMF", "kind": "hq", "note": "Golovko's fleet: K-21's patrol line and the Catalinas", "hq": "Admiral Golovko" }
+ ],
+ "rescues": [
+  { "by": "zamalek", "of": "navarino", "from": "04 20:30", "to": "04 22:00", "saved": null, "note": "Zamalek and Rathlin take off the crews of Navarino and William Hooper before the scatter" },
+  { "by": "lotus", "of": "riverafton", "from": "05 21:30", "to": "05 23:30", "saved": 37, "note": "Lotus turns back alone and finds Dowding and 36 survivors on rafts" },
+  { "by": "rathlin", "of": "empirebyron", "from": "05 09:00", "to": "05 11:00", "saved": null, "note": "Rathlin stays with the stragglers" }
+ ],
+ "routing": {
+  "res": 0.03,
+  "bbox": [57.9, -25.6, 78.5, 55.5],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "keppel": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "fury": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "offa": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "leamington": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "ledbury": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "wilton": {
+    "hash": "260d79af",
+    "snap": {
+     "14": [65.285, -13.975],
+     "15": [65.285, -13.975]
+    }
+   },
+   "palomares": {
+    "hash": "a436448f",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.275]],
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "pozarica": {
+    "hash": "a436448f",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.275]],
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "lotus": {
+    "hash": "ba142255",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "ayrshire": {
+    "hash": "6f5687c2",
+    "snap": {
+     "14": [73.355, 54.455],
+     "15": [73.355, 54.455]
+    },
+    "via": {
+     "14": [[73.325, 54.125], [73.325, 54.365]]
+    }
+   },
+   "rathlin": {
+    "hash": "d2370b30",
+    "snap": {
+     "14": [64.655, 39.965],
+     "15": [64.655, 39.965]
+    },
+    "via": {
+     "13": [[66.875, 41.315]]
+    }
+   },
+   "zamalek": {
+    "hash": "a436448f",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.275]],
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "p614": {
+    "hash": "74b01d4d",
+    "snap": {
+     "13": [69.245, 33.425],
+     "14": [69.245, 33.425]
+    },
+    "via": {
+     "13": [[69.305, 33.515], [69.245, 33.455]]
+    }
+   },
+   "london": {
+    "hash": "e3574821",
+    "snap": {
+     "0": [65.285, -13.975],
+     "7": [65.285, -13.975],
+     "8": [65.285, -13.975]
+    }
+   },
+   "norfolk": {
+    "hash": "e3574821",
+    "snap": {
+     "0": [65.285, -13.975],
+     "7": [65.285, -13.975],
+     "8": [65.285, -13.975]
+    }
+   },
+   "wichita": {
+    "hash": "e3574821",
+    "snap": {
+     "0": [65.285, -13.975],
+     "7": [65.285, -13.975],
+     "8": [65.285, -13.975]
+    }
+   },
+   "tuscaloosa": {
+    "hash": "e3574821",
+    "snap": {
+     "0": [65.285, -13.975],
+     "7": [65.285, -13.975],
+     "8": [65.285, -13.975]
+    }
+   },
+   "wainwright": {
+    "hash": "e3574821",
+    "snap": {
+     "0": [65.285, -13.975],
+     "7": [65.285, -13.975],
+     "8": [65.285, -13.975]
+    }
+   },
+   "dukeofyork": {
+    "hash": "5150390a",
+    "via": {
+     "1": [[58.745, -3.325]],
+     "5": [[58.835, -3.445], [58.745, -3.175], [58.835, -3.085]]
+    }
+   },
+   "victorious": {
+    "hash": "5150390a",
+    "via": {
+     "1": [[58.745, -3.325]],
+     "5": [[58.835, -3.445], [58.745, -3.175], [58.835, -3.085]]
+    }
+   },
+   "cumberland": {
+    "hash": "5150390a",
+    "via": {
+     "1": [[58.745, -3.325]],
+     "5": [[58.835, -3.445], [58.745, -3.175], [58.835, -3.085]]
+    }
+   },
+   "nigeria": {
+    "hash": "5150390a",
+    "via": {
+     "1": [[58.745, -3.325]],
+     "5": [[58.835, -3.445], [58.745, -3.175], [58.835, -3.085]]
+    }
+   },
+   "washington": {
+    "hash": "5150390a",
+    "via": {
+     "1": [[58.745, -3.325]],
+     "5": [[58.835, -3.445], [58.745, -3.175], [58.835, -3.085]]
+    }
+   },
+   "tirpitz": {
+    "hash": "12f02a73",
+    "snap": {
+     "0": [63.455, 10.385],
+     "4": [70.565, 22.175],
+     "5": [70.025, 23.285],
+     "6": [70.025, 23.285],
+     "7": [70.565, 22.175],
+     "12": [70.565, 22.175],
+     "13": [70.025, 23.135],
+     "14": [70.025, 23.135]
+    },
+    "via": {
+     "1": [[63.515, 10.175], [63.455, 9.995], [63.545, 9.845], [63.665, 9.725]],
+     "4": [[68.015, 13.445], [68.315, 13.505], [69.755, 16.355], [70.505, 20.495]],
+     "5": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045], [70.025, 23.195]],
+     "7": [[70.055, 23.165], [70.295, 23.015], [70.445, 22.745], [70.445, 22.115]],
+     "8": [[70.445, 22.115], [70.535, 23.105]],
+     "12": [[71.015, 24.365], [70.835, 23.975], [70.685, 23.405], [70.475, 22.775], [70.445, 22.115]],
+     "13": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045]]
+    }
+   },
+   "hipper": {
+    "hash": "12f02a73",
+    "snap": {
+     "0": [63.455, 10.385],
+     "4": [70.565, 22.175],
+     "5": [70.025, 23.285],
+     "6": [70.025, 23.285],
+     "7": [70.565, 22.175],
+     "12": [70.565, 22.175],
+     "13": [70.025, 23.135],
+     "14": [70.025, 23.135]
+    },
+    "via": {
+     "1": [[63.515, 10.175], [63.455, 9.995], [63.545, 9.845], [63.665, 9.725]],
+     "4": [[68.015, 13.445], [68.315, 13.505], [69.755, 16.355], [70.505, 20.495]],
+     "5": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045], [70.025, 23.195]],
+     "7": [[70.055, 23.165], [70.295, 23.015], [70.445, 22.745], [70.445, 22.115]],
+     "8": [[70.445, 22.115], [70.535, 23.105]],
+     "12": [[71.015, 24.365], [70.835, 23.975], [70.685, 23.405], [70.475, 22.775], [70.445, 22.115]],
+     "13": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045]]
+    }
+   },
+   "ihn": {
+    "hash": "12f02a73",
+    "snap": {
+     "0": [63.455, 10.385],
+     "4": [70.565, 22.175],
+     "5": [70.025, 23.285],
+     "6": [70.025, 23.285],
+     "7": [70.565, 22.175],
+     "12": [70.565, 22.175],
+     "13": [70.025, 23.135],
+     "14": [70.025, 23.135]
+    },
+    "via": {
+     "1": [[63.515, 10.175], [63.455, 9.995], [63.545, 9.845], [63.665, 9.725]],
+     "4": [[68.015, 13.445], [68.315, 13.505], [69.755, 16.355], [70.505, 20.495]],
+     "5": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045], [70.025, 23.195]],
+     "7": [[70.055, 23.165], [70.295, 23.015], [70.445, 22.745], [70.445, 22.115]],
+     "8": [[70.445, 22.115], [70.535, 23.105]],
+     "12": [[71.015, 24.365], [70.835, 23.975], [70.685, 23.405], [70.475, 22.775], [70.445, 22.115]],
+     "13": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045]]
+    }
+   },
+   "scheer": {
+    "hash": "65ecc8e3",
+    "snap": {
+     "0": [68.495, 16.955],
+     "1": [68.525, 16.175],
+     "4": [70.565, 22.175],
+     "5": [70.025, 23.285],
+     "7": [70.565, 22.235],
+     "11": [70.565, 22.235],
+     "12": [69.965, 23.135],
+     "13": [69.965, 23.135]
+    },
+    "via": {
+     "3": [[69.425, 16.865]],
+     "4": [[70.295, 19.115]],
+     "5": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045], [70.025, 23.195]],
+     "7": [[70.025, 23.315], [70.055, 23.165], [70.295, 23.015], [70.445, 22.745], [70.445, 22.115], [70.565, 22.175]],
+     "8": [[70.535, 22.115], [70.415, 22.175], [70.565, 23.135]],
+     "11": [[70.955, 23.675], [70.595, 23.195], [70.445, 22.445], [70.445, 22.115], [70.565, 22.175]],
+     "12": [[70.535, 22.115], [70.415, 22.175], [70.415, 22.835], [70.265, 23.045], [69.995, 23.165]]
+    }
+   },
+   "z29": {
+    "hash": "65ecc8e3",
+    "snap": {
+     "0": [68.495, 16.955],
+     "1": [68.525, 16.175],
+     "4": [70.565, 22.175],
+     "5": [70.025, 23.285],
+     "7": [70.565, 22.235],
+     "11": [70.565, 22.235],
+     "12": [69.965, 23.135],
+     "13": [69.965, 23.135]
+    },
+    "via": {
+     "3": [[69.425, 16.865]],
+     "4": [[70.295, 19.115]],
+     "5": [[70.445, 22.115], [70.415, 22.835], [70.265, 23.045], [70.025, 23.195]],
+     "7": [[70.025, 23.315], [70.055, 23.165], [70.295, 23.015], [70.445, 22.745], [70.445, 22.115], [70.565, 22.175]],
+     "8": [[70.535, 22.115], [70.415, 22.175], [70.565, 23.135]],
+     "11": [[70.955, 23.675], [70.595, 23.195], [70.445, 22.445], [70.445, 22.115], [70.565, 22.175]],
+     "12": [[70.535, 22.115], [70.415, 22.175], [70.415, 22.835], [70.265, 23.045], [69.995, 23.165]]
+    }
+   },
+   "lutzow": {
+    "hash": "46077900",
+    "snap": {
+     "0": [68.495, 16.955],
+     "2": [68.495, 16.955]
+    },
+    "via": {
+     "1": [[68.405, 16.805], [68.405, 16.295], [68.345, 16.085]],
+     "2": [[68.345, 16.235], [68.405, 16.415], [68.435, 16.955]]
+    }
+   },
+   "u255": { "hash": "25d9cc77" },
+   "u703": { "hash": "cbc54a79" },
+   "u88": { "hash": "259560e2" },
+   "u456": { "hash": "195e1f2d" },
+   "u457": { "hash": "28979792" },
+   "u334": { "hash": "5d3e1f94" },
+   "u355": { "hash": "0cd9560f" },
+   "u376": { "hash": "a4cd260a" },
+   "u251": { "hash": "efbbb62a" },
+   "k21": {
+    "hash": "e3fe7757",
+    "snap": {
+     "3": [69.245, 33.425]
+    },
+    "via": {
+     "2": [[71.015, 29.885]],
+     "3": [[69.395, 33.575], [69.245, 33.455]]
+    }
+   },
+   "riverafton": { "hash": "0a3aafa4" },
+   "christophernewport": { "hash": "03d12e04" },
+   "navarino": { "hash": "8dcd1a86" },
+   "williamhooper": { "hash": "cde22a7d" },
+   "empirebyron": { "hash": "982ddeca" },
+   "carlton": {
+    "hash": "12d0c13f",
+    "via": {
+     "11": [[76.805, 24.605]]
+    }
+   },
+   "honomu": { "hash": "ffa62027" },
+   "earlston": { "hash": "3f3ae2f4" },
+   "danielmorgan": { "hash": "13d71c06" },
+   "sswashington": { "hash": "91aaf2a3" },
+   "boltoncastle": { "hash": "649f426e" },
+   "pauluspotter": { "hash": "3409ba7c" },
+   "pankraft": { "hash": "3976eb32" },
+   "fairfieldcity": { "hash": "cd2eef22" },
+   "peterkerr": { "hash": "3f88bf26" },
+   "zaafaran": { "hash": "43315d7c" },
+   "aldersdale": { "hash": "dbded70f" },
+   "panatlantic": { "hash": "d1532dc7" },
+   "johnwitherspoon": { "hash": "12292c54" },
+   "alcoaranger": { "hash": "75532a8f" },
+   "hartlebury": { "hash": "204e4428" },
+   "olopana": { "hash": "838bd740" },
+   "hoosier": {
+    "hash": "1c22d304",
+    "snap": {
+     "11": [73.355, 54.455]
+    },
+    "via": {
+     "11": [[73.325, 54.275]],
+     "12": [[73.325, 54.245], [73.265, 51.395]]
+    }
+   },
+   "elcapitan": {
+    "hash": "83ad3bd7",
+    "snap": {
+     "11": [73.355, 54.455]
+    },
+    "via": {
+     "11": [[73.325, 54.275]],
+     "12": [[73.325, 54.245], [73.295, 53.195]]
+    }
+   },
+   "bellingham": {
+    "hash": "d2370b30",
+    "snap": {
+     "14": [64.655, 39.965],
+     "15": [64.655, 39.965]
+    },
+    "via": {
+     "13": [[66.875, 41.315]]
+    }
+   },
+   "donbass": {
+    "hash": "95e953b0",
+    "snap": {
+     "14": [64.655, 39.965],
+     "15": [64.655, 39.965]
+    },
+    "via": {
+     "13": [[66.875, 41.315]]
+    }
+   },
+   "azerbaidjan": {
+    "hash": "4c0d9565",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.245]],
+     "13": [[73.325, 54.245], [73.265, 51.485]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "oceanfreedom": {
+    "hash": "a436448f",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.275]],
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "samuelchase": {
+    "hash": "a436448f",
+    "snap": {
+     "12": [73.355, 54.455],
+     "16": [64.655, 39.965],
+     "17": [64.655, 39.965]
+    },
+    "via": {
+     "12": [[73.325, 54.275]],
+     "13": [[73.325, 54.245], [73.325, 53.345], [72.725, 52.325]],
+     "15": [[66.875, 41.315]]
+    }
+   },
+   "empiretide": {
+    "hash": "a69cd9c4",
+    "snap": {
+     "11": [72.305, 52.625],
+     "12": [72.305, 52.625]
+    }
+   },
+   "winstonsalem": {
+    "hash": "4913ab36",
+    "via": {
+     "12": [[73.355, 53.555], [72.755, 52.205]]
+    }
+   },
+   "ironclad": {
+    "hash": "ac44eba3",
+    "snap": {
+     "14": [73.355, 54.455],
+     "15": [73.355, 54.455]
+    },
+    "via": {
+     "14": [[73.325, 54.125], [73.325, 54.365]]
+    }
+   },
+   "troubador": {
+    "hash": "ac44eba3",
+    "snap": {
+     "14": [73.355, 54.455],
+     "15": [73.355, 54.455]
+    },
+    "via": {
+     "14": [[73.325, 54.125], [73.325, 54.365]]
+    }
+   },
+   "silversword": {
+    "hash": "ac44eba3",
+    "snap": {
+     "14": [73.355, 54.455],
+     "15": [73.355, 54.455]
+    },
+    "via": {
+     "14": [[73.325, 54.125], [73.325, 54.365]]
+    }
+   },
+   "benjaminharrison": {
+    "hash": "ac44eba3",
+    "snap": {
+     "14": [73.355, 54.455],
+     "15": [73.355, 54.455]
+    },
+    "via": {
+     "14": [[73.325, 54.125], [73.325, 54.365]]
+    }
+   }
+  }
+ }
+}

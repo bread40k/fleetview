@@ -1,0 +1,400 @@
+{
+ "id": "channeldash",
+ "title": "The Channel Dash — Operation Cerberus",
+ "subtitle": "English Channel · 11–13 February 1942",
+ "base": [1942, 1],
+ "start": "11 12:00",
+ "end": "13 14:00",
+ "tz": "British time · UTC+1 (German clocks one hour ahead)",
+ "utcOffset": 1,
+ "majorDays": [12],
+ "view": {
+  "center": [51.2, 2.5],
+  "zoom": 6,
+  "min": 4,
+  "max": 12
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["scharnhorst", "gneisenau", "eugen", "z29", "campbell", "worcester", "mtb221", "sealion"],
+ "scenes": [
+  ["Overview", "12 12:30", [51.2, 2.5], 6],
+  ["Brest", "11 21:45", [48.4, -4.6], 9],
+  ["Undetected", "12 06:00", [49.7, -2], 7],
+  ["Sighted at last", "12 10:42", [50.6, 1.3], 8],
+  ["The Strait", "12 12:20", [51, 1.6], 9],
+  ["Swordfish", "12 12:45", [51.05, 1.85], 10],
+  ["Destroyers attack", "12 15:43", [51.8, 3.5], 9],
+  ["Mines", "12 21:34", [53.5, 5.6], 7],
+  ["Home", "13 09:30", [53.9, 8.9], 8]
+ ],
+ "defaultTime": "12 12:30",
+ "footnote": "British time (GMT+1; the German war diaries run one hour ahead). No source gives lat/lon fixes for this action — every position is reconstructed from named headlands, ranges and speeds, including the three mine strikes. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "cerberus": { "name": "KM Brest Group (Ciliax)", "color": "#e5484d", "nation": "KM" },
+  "harwich": { "name": "RN 21st & 16th Destroyer Flotillas (Pizey)", "color": "#3b82f6", "nation": "RN" },
+  "dover": { "name": "RN Dover MTBs (Pumphrey)", "color": "#22c55e", "nation": "RN" },
+  "subs": { "name": "RN Submarine Sealion", "color": "#94a3b8", "nation": "RN" }
+ },
+ "schema": 1,
+ "routes": {
+  "cerberus": [["11 12:00", 48.383, -4.483, "Scharnhorst, Gneisenau and Prinz Eugen at Brest after eleven months of RAF bombing", "S"], ["11 21:45", 48.38, -4.5, "Weighs two hours late after an air-raid alarm — led by Z29, six destroyers, then the torpedo boats", "S"], ["12 00:30", 48.55, -5.1, "Off Ushant at 30 knots; Coastal Command's radar patrols have both failed", "R"], ["12 04:50", 49.85, -2.4, "Past the Casquets and Alderney in the dark", "R"], ["12 08:00", 49.75, -0.3, "North-west of Le Havre; the 2nd Torpedo Boat Flotilla joins; German jamming of British radar begins", "R"], ["12 10:42", 50.62, 1.25, "Sighted off Le Touquet by Group Captain Beamish's Spitfire — who keeps radio silence until he lands", "R"], ["12 11:56", 50.93, 1.45, "Off Cap Gris-Nez; the 5th Torpedo Boat Flotilla joins", "R"], ["12 12:19", 50.98, 1.55, "South Foreland's 9.2-inch battery fires 33 rounds — all miss; MTBs attack at 12:23", "R"], ["12 12:45", 51.05, 1.85, "Esmonde's six Swordfish attack off Gravelines — all shot down", "R"], ["12 14:31", 51.4, 3, "Scharnhorst mined off the Scheldt; Ciliax shifts to Z29", "R"], ["12 15:43", 51.8, 3.5, "Pizey's destroyers attack through the bomber melee; Worcester wrecked", "R"], ["12 19:55", 53.5, 5.2, "Gneisenau mined off Terschelling; under way again after 30 minutes", "R"], ["13 03:50", 54.18, 7.89, "Gneisenau and Prinz Eugen rejoin off Heligoland", "R"], ["13 07:00", 53.87, 8.7, "Elbe mouth", "R"], ["13 09:30", 53.892, 9.138, "Brunsbüttel locks; Gneisenau strikes a wreck going in", "S"]],
+  "harwich": [["12 11:56", 52.08, 1.57, "Exercising off Orford Ness when the alarm comes — ordered to intercept at 28 knots", "S"], ["12 13:18", 51.9, 2.6, "Walpole drops out with a bearing failure; the rest cross the German minefield", "R"], ["12 15:17", 51.85, 3.35, "Campbell's radar: contact at nine miles", "R"], ["12 15:43", 51.8, 3.5, "Attack at 3,300 yards through bomb splashes; Worcester closes to 2,200 yards", "R"], ["12 16:30", 51.85, 3.2, "Stands by the burning Worcester", "R"], ["13 06:00", 51.95, 1.25], ["13 14:00", 51.95, 1.25]],
+  "dover": [["12 11:55", 51.13, 1.31, "Five MTBs and two MGBs sail", "S"], ["12 12:23", 51.03, 1.75, "Fires torpedoes at 4,000 yards through the E-boat screen — no hits", "R"], ["12 13:30", 51.13, 1.31], ["13 14:00", 51.13, 1.31]],
+  "sealion": [["11 12:00", 48.35, -4.7, "On patrol off Brest", "R"], ["11 20:35", 48.4, -4.75, "Withdraws seaward to charge batteries — the squadron passes unseen", "R"], ["12 06:00", 48.6, -5], ["13 14:00", 48.6, -5]]
+ },
+ "groups": { "cerberus": "Brest Group", "harwich": "Pizey", "dover": "Dover MTBs", "sealion": "Sealion" },
+ "commanders": {
+  "cerberus": { "name": "Vizeadmiral Otto Ciliax", "role": "Befehlshaber der Schlachtschiffe", "flagship": "Scharnhorst, then Z29, then Hermann Schoemann", "bio": "Ran three heavy ships through the Strait of Dover in daylight under a fighter umbrella planned by Galland, changing flagship twice when Scharnhorst was mined and Z29 disabled herself. A tactical triumph that ended the Atlantic surface war: Gneisenau never sailed again.", "fate": "Commander-in-Chief Norway 1943–45; died 1964.", "wiki": "Otto_Ciliax" },
+  "harwich": { "name": "Captain Mark Pizey", "role": "Captain (D), 21st Destroyer Flotilla", "flagship": "HMS Campbell", "bio": "Took six twenty-year-old destroyers from an exercise off Orford Ness straight across a German minefield to attack battleships in daylight. All torpedoes missed; Worcester was nearly lost.", "fate": "Admiral Sir Mark Pizey; Commander-in-Chief Indian Navy 1951–55; died 1993.", "wiki": "Charles_Pizey" },
+  "dover": { "name": "Lieutenant-Commander Nigel Pumphrey", "role": "Senior Officer, Dover MTBs", "flagship": "MTB 221", "bio": "Five MTBs and two gunboats against a battle squadron behind a screen of E-boats; fired at 4,000 yards under fire from everything the Germans had.", "fate": "DSO, DSC; survived the war.", "wiki": "Nigel_Pumphrey" }
+ },
+ "ships": [
+  {
+   "id": "scharnhorst",
+   "name": "Scharnhorst",
+   "force": "cerberus",
+   "type": "Battleship (Ciliax flagship)",
+   "route": "cerberus",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Scharnhorst",
+   "until": "12 14:31",
+   "extra": [["12 15:05", 51.42, 3.05, "Under way again on the port engine, working up to 27 knots — 30 miles astern of the others", "R"], ["12 21:34", 53.6, 5.95, "Second mine north of Terschelling: engines stop, 7° list, 1,000 tons of water", "R"], ["12 22:23", 53.62, 6, "Under way at 12 knots", "R"], ["13 10:00", 53.52, 8.13, "Wilhelmshaven; the Jade is iced", "S"], ["13 14:00", 53.52, 8.13]]
+  },
+  { "id": "gneisenau", "name": "Gneisenau", "force": "cerberus", "type": "Battleship", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Gneisenau" },
+  { "id": "eugen", "name": "Prinz Eugen", "force": "cerberus", "type": "Heavy cruiser", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Prinz_Eugen" },
+  { "id": "z29", "name": "Z29", "force": "cerberus", "type": "Destroyer (Bey; Ciliax's flag from 14:31)", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z29" },
+  { "id": "beitzen", "name": "Richard Beitzen", "force": "cerberus", "type": "Destroyer", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z4_Richard_Beitzen" },
+  { "id": "jacobi", "name": "Paul Jacobi", "force": "cerberus", "type": "Destroyer", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z5_Paul_Jacobi" },
+  { "id": "ihn", "name": "Friedrich Ihn", "force": "cerberus", "type": "Destroyer", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z14_Friedrich_Ihn" },
+  { "id": "schoemann", "name": "Hermann Schoemann", "force": "cerberus", "type": "Destroyer", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z7_Hermann_Schoemann" },
+  { "id": "z25", "name": "Z25", "force": "cerberus", "type": "Destroyer", "route": "cerberus", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z25" },
+  { "id": "campbell", "name": "HMS Campbell", "force": "harwich", "type": "Destroyer (Capt Pizey, D21)", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Campbell_(D60)" },
+  { "id": "vivacious", "name": "HMS Vivacious", "force": "harwich", "type": "Destroyer", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Vivacious_(D36)" },
+  {
+   "id": "worcester",
+   "name": "HMS Worcester",
+   "force": "harwich",
+   "type": "Destroyer",
+   "route": "harwich",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Worcester_(D96)",
+   "until": "12 15:43",
+   "extra": [["12 16:30", 51.8, 3.45, "Six 11-inch and 8-inch hits, both boiler rooms out, 27 dead", "R"], ["13 18:00", 51.95, 1.25, "Reaches Harwich under her own steam", "R"]]
+  },
+  { "id": "mackay", "name": "HMS Mackay", "force": "harwich", "type": "Destroyer (Capt Wright, D16)", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Mackay_(D70)" },
+  { "id": "whitshed", "name": "HMS Whitshed", "force": "harwich", "type": "Destroyer", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Whitshed_(D77)" },
+  {
+   "id": "walpole",
+   "name": "HMS Walpole",
+   "force": "harwich",
+   "type": "Destroyer",
+   "route": "harwich",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Walpole_(D41)",
+   "until": "12 13:18",
+   "extra": [["12 18:00", 51.95, 1.25, "Back to Harwich with a wiped bearing", "R"]]
+  },
+  { "id": "mtb221", "name": "MTB 221", "force": "dover", "type": "Motor torpedo boat (Lt Cdr Pumphrey)", "route": "dover", "wiki": "https://en.wikipedia.org/wiki/Nigel_Pumphrey" },
+  { "id": "sealion", "name": "HMS Sealion", "force": "subs", "type": "Submarine", "route": "sealion", "wiki": "https://en.wikipedia.org/wiki/HMS_Sealion_(72S)" }
+ ],
+ "strikes": [
+  {
+   "id": "r1",
+   "name": "Spitfire recce — Beamish sights the squadron",
+   "nation": "RN",
+   "from": { "lat": 51.3, "lon": -0.09 },
+   "target": { "ship": "eugen" },
+   "launch": "12 10:10",
+   "arrive": "12 10:42",
+   "leave": "12 10:45",
+   "recover": "12 11:09",
+   "count": 2,
+   "note": "Group Captain Beamish and Wing Commander Boyd stumble on the ships off Le Touquet, keep radio silence and report only on landing at Kenley — Ramsay hears at 11:30",
+   "land": true
+  },
+  {
+   "id": "r2",
+   "name": "825 Squadron — Esmonde's Swordfish",
+   "nation": "RN",
+   "from": { "lat": 51.34, "lon": 1.35 },
+   "target": { "ship": "eugen" },
+   "launch": "12 12:20",
+   "arrive": "12 12:45",
+   "leave": "12 12:55",
+   "recover": "12 12:55",
+   "count": 6,
+   "note": "Six Swordfish with ten Spitfires of 72 Squadron as their only escort; all six shot down, 13 of 18 aircrew killed; Lt Cdr Eugene Esmonde's posthumous VC",
+   "land": true,
+   "oneway": true
+  },
+  {
+   "id": "r3",
+   "name": "Bomber Command's three waves",
+   "nation": "RN",
+   "from": { "lat": 52.4, "lon": -0.6 },
+   "target": { "ship": "gneisenau" },
+   "launch": "12 13:30",
+   "arrive": "12 14:20",
+   "leave": "12 18:15",
+   "recover": "12 19:30",
+   "count": 242,
+   "note": "242 sorties in low cloud; 39 aircraft find something to bomb, 15 are lost, nothing is hit",
+   "land": true
+  },
+  {
+   "id": "r4",
+   "name": "217 Squadron Beauforts",
+   "nation": "RN",
+   "from": { "lat": 50.82, "lon": -0.92 },
+   "target": { "ship": "eugen" },
+   "launch": "12 14:30",
+   "arrive": "12 15:40",
+   "leave": "12 15:50",
+   "recover": "12 17:00",
+   "count": 4,
+   "note": "Torpedo attacks on Prinz Eugen from 1,000 yards; further Beaufort attacks at 17:10, 18:00 and 18:05 — no hits",
+   "land": true
+  },
+  {
+   "id": "g1",
+   "name": "Operation Donnerkeil — Galland's umbrella",
+   "nation": "KM",
+   "from": { "lat": 50.87, "lon": 1.72 },
+   "target": { "route": "cerberus" },
+   "launch": "12 08:00",
+   "arrive": "12 08:30",
+   "leave": "12 17:00",
+   "recover": "12 17:30",
+   "count": 176,
+   "note": "JG 2, JG 26 and JG 1 in relays from Brittany to Holland, 16 fighters overhead at all times; 22 Luftwaffe aircraft lost",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  { "from": "mtb221", "to": "eugen", "t": "12 12:23", "n": 2, "run": 1, "hit": false, "note": "Pumphrey's boats fire at 4,000 yards through the E-boat screen" },
+  {
+   "from": { "lat": 51.06, "lon": 1.8, "label": "825 Sqn Swordfish" },
+   "to": "eugen",
+   "t": "12 12:45",
+   "n": 4,
+   "run": 1,
+   "hit": false,
+   "note": "The surviving Swordfish drop at close range; no hits"
+  },
+  { "from": "campbell", "to": "gneisenau", "t": "12 15:43", "n": 6, "run": 1, "hit": false, "note": "Campbell and Vivacious at 3,300 yards" },
+  { "from": "worcester", "to": "eugen", "t": "12 15:45", "n": 3, "run": 1, "hit": false, "note": "Worcester holds on to 2,200 yards and is smothered" },
+  { "from": "mackay", "to": "eugen", "t": "12 15:47", "n": 4, "run": 1, "hit": false, "note": "Mackay and Whitshed" }
+ ],
+ "engagements": [
+  {
+   "ships": ["scharnhorst", "gneisenau", "eugen", "z29", "beitzen", "jacobi", "ihn", "schoemann", "z25"],
+   "from": "12 12:20",
+   "to": "12 12:55",
+   "rate": 0.5,
+   "note": "Every gun in the squadron against six Swordfish and five MTBs"
+  },
+  {
+   "ships": ["gneisenau", "eugen"],
+   "from": "12 15:43",
+   "to": "12 15:55",
+   "rate": 0.6,
+   "note": "Gneisenau and Prinz Eugen wreck Worcester; Captain Fein ceases fire when she appears to be sinking",
+   "targets": ["worcester", "campbell", "vivacious"]
+  },
+  {
+   "ships": ["campbell", "vivacious", "worcester", "mackay", "whitshed"],
+   "from": "12 15:43",
+   "to": "12 15:55",
+   "rate": 0.45,
+   "note": "4.7-inch guns at a battleship",
+   "targets": ["gneisenau", "eugen"]
+  }
+ ],
+ "events": [["11 20:30", "RAF raid on Brest: the squadron waits two hours at anchor", 48.383, -4.483], ["11 20:35", "Sealion withdraws to charge batteries — the one submarine watching Brest", 48.4, -4.75], ["11 21:45", "The squadron sails", 48.38, -4.5], ["11 22:38", "Coastal Command's 'Stopper' Hudson lands with a failed radar; its relief finds nothing", 48.9, -5], ["12 06:30", "Dawn patrol 'Habo' recalled for fog", 49.9, -1.2], ["12 09:20", "German jamming blankets the south-coast radars", 50.7, 0.5], ["12 10:00", "Swingate radar at Dover plots three large ships at 60 miles — taken for an air-sea rescue exercise", 50.35, 1.35], ["12 10:42", "Beamish sees the ships — and says nothing until he lands", 50.62, 1.25], ["12 11:30", "Ramsay at Dover learns the squadron is off Boulogne; Operation Fuller is ordered", 51.13, 1.31], ["12 12:19", "South Foreland battery opens fire at 27,000 yards", 51.14, 1.373], ["12 12:23", "Dover MTBs attack", 51.03, 1.75], ["12 12:45", "Esmonde's Swordfish annihilated", 51.05, 1.85], ["12 14:31", "Scharnhorst hits a mine off the Scheldt; Ciliax transfers to Z29", 51.4, 3], ["12 15:43", "Harwich destroyers attack; Worcester hit six times", 51.8, 3.5], ["12 17:30", "Z29 disabled by her own premature shell; Ciliax moves again, to Hermann Schoemann", 52.6, 4.3], ["12 19:55", "Gneisenau mined off Terschelling", 53.5, 5.2], ["12 21:34", "Scharnhorst's second mine: engines stopped, 1,000 tons flooding", 53.6, 5.95], ["13 07:00", "Gneisenau and Prinz Eugen reach the Elbe", 53.87, 8.7], ["13 10:00", "Scharnhorst limps into Wilhelmshaven", 53.52, 8.13], ["13 12:00", "The Times: 'nothing more mortifying to the pride of sea-power has happened since the seventeenth century'", 51.5, -0.1]],
+ "ports": [
+  { "name": "Brest", "lat": 48.383, "lon": -4.483, "control": "KM", "kind": "port", "note": "Home of the Brest Group since March 1941; bombed 300 times" },
+  { "name": "Cherbourg", "lat": 49.645, "lon": -1.62, "control": "KM", "kind": "port", "note": "Torpedo boats and minesweepers" },
+  { "name": "Le Havre", "lat": 49.494, "lon": 0.108, "control": "KM", "kind": "port", "note": "2nd Torpedo Boat Flotilla joins from here" },
+  { "name": "Boulogne", "lat": 50.727, "lon": 1.6, "control": "KM", "kind": "port", "note": "4th S-boat Flotilla" },
+  { "name": "Dunkirk", "lat": 51.04, "lon": 2.38, "control": "KM", "kind": "port", "note": "3rd Torpedo Boat Flotilla" },
+  { "name": "Wilhelmshaven", "lat": 53.52, "lon": 8.13, "control": "KM", "kind": "port", "note": "Scharnhorst docks here, badly flooded" },
+  { "name": "Brunsbüttel", "lat": 53.892, "lon": 9.138, "control": "KM", "kind": "port", "note": "Kiel Canal locks — Gneisenau and Prinz Eugen's destination" },
+  { "name": "Audembert", "lat": 50.87, "lon": 1.72, "control": "KM", "kind": "air", "note": "Galland's headquarters for Donnerkeil" },
+  { "name": "Abbeville-Drucat", "lat": 50.14, "lon": 1.83, "control": "KM", "kind": "air", "note": "JG 26" },
+  { "name": "Schiphol", "lat": 52.31, "lon": 4.76, "control": "KM", "kind": "air", "note": "JG 1 relays over the Dutch coast" },
+  { "name": "Dover", "lat": 51.13, "lon": 1.31, "control": "RN", "kind": "port", "note": "MTBs, and the South Foreland 9.2-inch battery at Swingate" },
+  { "name": "Manston", "lat": 51.34, "lon": 1.35, "control": "RN", "kind": "air", "note": "825 Squadron's six Swordfish" },
+  { "name": "Kenley", "lat": 51.3, "lon": -0.09, "control": "RN", "kind": "air", "note": "Beamish's Spitfires" },
+  { "name": "Thorney Island", "lat": 50.82, "lon": -0.92, "control": "RN", "kind": "air", "note": "217 Squadron Beauforts" },
+  { "name": "Harwich", "lat": 51.95, "lon": 1.25, "control": "RN", "kind": "port", "note": "Pizey's old V & W destroyers" },
+  { "name": "Dover Castle — Vice-Admiral Dover", "lat": 51.129, "lon": 1.321, "control": "RN", "kind": "hq", "note": "Ramsay's headquarters; Operation Fuller had waited a year for this day and still failed", "hq": "Vice-Admiral Ramsay" },
+  { "name": "Paris — Marinegruppe West", "lat": 48.86, "lon": 2.35, "control": "KM", "kind": "hq", "note": "Saalwächter's command; Hitler had insisted on a daylight passage of the Strait", "hq": "Gruppe West (Saalwächter)" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [47.35, -6.1, 55.18, 10.14],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "scharnhorst": {
+    "hash": "05d8ed14",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465]
+    },
+    "via": {
+     "11": [[53.545, 5.165]],
+     "13": [[53.755, 8.045], [53.545, 8.195], [53.485, 8.165]]
+    }
+   },
+   "gneisenau": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "eugen": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "z29": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "beitzen": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "jacobi": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "ihn": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "schoemann": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "z25": {
+    "hash": "3cda7f62",
+    "snap": {
+     "0": [48.385, -4.465],
+     "1": [48.385, -4.465],
+     "14": [53.875, 9.095]
+    },
+    "via": {
+     "11": [[53.425, 5.015]],
+     "13": [[53.905, 8.735]]
+    }
+   },
+   "campbell": {
+    "hash": "e4ac0d5f",
+    "via": {
+     "5": [[51.925, 1.295]]
+    }
+   },
+   "vivacious": {
+    "hash": "e4ac0d5f",
+    "via": {
+     "5": [[51.925, 1.295]]
+    }
+   },
+   "worcester": {
+    "hash": "e1a5f25e",
+    "via": {
+     "5": [[51.925, 1.295]]
+    }
+   },
+   "mackay": {
+    "hash": "e4ac0d5f",
+    "via": {
+     "5": [[51.925, 1.295]]
+    }
+   },
+   "whitshed": {
+    "hash": "e4ac0d5f",
+    "via": {
+     "5": [[51.925, 1.295]]
+    }
+   },
+   "walpole": {
+    "hash": "ee7f062d",
+    "via": {
+     "2": [[51.925, 1.295]]
+    }
+   },
+   "mtb221": {
+    "hash": "260bd1c7",
+    "snap": {
+     "0": [51.115, 1.295],
+     "2": [51.115, 1.295],
+     "3": [51.115, 1.295]
+    }
+   },
+   "sealion": {
+    "hash": "6c1b8e8b",
+    "snap": {
+     "0": [48.355, -4.675]
+    },
+    "via": {
+     "1": [[48.295, -4.765], [48.385, -4.795]]
+    }
+   }
+  }
+ }
+}

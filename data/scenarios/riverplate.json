@@ -1,0 +1,249 @@
+{
+ "id": "riverplate",
+ "title": "Battle of the River Plate",
+ "subtitle": "South Atlantic · 1–20 December 1939",
+ "base": [1939, 11],
+ "start": "01 00:00",
+ "end": "21 00:00",
+ "tz": "Harwood's zone time · UTC−2",
+ "utcOffset": -2,
+ "majorDays": [13, 17],
+ "view": {
+  "center": [-33, -48],
+  "zoom": 5,
+  "min": 3,
+  "max": 12
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["spee", "ajax", "achilles", "exeter", "cumberland", "altmark"],
+ "scenes": [
+  ["Overview", "13 07:00", [-33, -48], 5],
+  ["Last victims", "07 19:00", [-22, -12], 4],
+  ["Concentration", "12 07:00", [-35, -50], 7],
+  ["The battle", "13 06:40", [-34.5, -49.4], 9],
+  ["Break-off", "13 07:40", [-34.6, -49.6], 9],
+  ["Chase to the Plate", "13 19:15", [-34.9, -54], 7],
+  ["Montevideo", "15 12:00", [-34.95, -56.2], 10],
+  ["Scuttling", "17 20:54", [-34.97, -56.3], 11]
+ ],
+ "defaultTime": "13 06:40",
+ "footnote": "Times as in Commodore Harwood's despatch (Zone +2, i.e. UTC−2, one hour ahead of Montevideo). The squadron's 05:20 position, Graf Spee's victims and the wreck position are from the despatch and Wikipedia; Graf Spee's own track and the Altmark's whereabouts are reconstructed. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "spee": { "name": "KM Panzerschiff Admiral Graf Spee (Langsdorff)", "color": "#e5484d", "nation": "KM" },
+  "altmark": { "name": "KM Supply ship Altmark", "color": "#9ca3af", "nation": "KM" },
+  "forceg": { "name": "RN Force G — South America Division (Harwood)", "color": "#3b82f6", "nation": "RN" },
+  "merchants": { "name": "British merchant shipping", "color": "#94a3b8", "nation": "RN" }
+ },
+ "schema": 1,
+ "routes": {
+  "spee": [["01 00:00", -18.6, 6.2, "Disguised with a dummy funnel and turret, hunting the Cape route", "R"], ["02 13:00", -19.25, 5.083, "Sinks the Blue Star liner Doric Star (10,086 GRT) — 19°15′S 5°05′E; her RRR signal reaches Harwood", "S"], ["03 06:00", -21.5, 3, "Sinks Tairoa 170 miles to the south-west", "S"], ["06 12:00", -24.5, -12, "Last rendezvous with Altmark; 140 prisoners transferred", "R"], ["07 19:00", -25.017, -27.833, "Sinks Streonshalh; her secret route papers point Langsdorff at the Plate traffic", "S"], ["12 12:00", -31.5, -43.5, "The Arado breaks down; disguise removed", "R"], ["13 06:14", -34.35, -49.45, "Sights masts; identifies Exeter and two destroyers — then cruisers. Opens fire at 06:18", "R"], ["13 06:37", -34.45, -49.55, "Turns 150° to port under smoke; Exeter's B turret already gone", "R"], ["13 07:16", -34.55, -49.6, "Hard to port toward Ajax and Achilles; hit amidships", "R"], ["13 07:40", -34.6, -49.75, "Steadies on 270°, then 255° at 22 knots — for Montevideo", "R"], ["13 12:00", -34.75, -51.6, "Shadowed at 15 miles by Achilles and Ajax", "R"], ["13 19:15", -34.9, -54.5, "Two salvoes at Ajax at 26,000 yards", "R"], ["13 21:32", -34.95, -55.6, "Fires at Achilles off Punta Negra after sunset", "R"], ["14 00:50", -34.905, -56.18, "Anchors in Montevideo roads", "S"], ["17 18:15", -34.905, -56.18, "Weighs with a skeleton crew; 700 men have gone to the Tacoma", "S"], ["17 20:54", -34.972, -56.298, "'GRAF SPEE has blown herself up' — Ajax's aircraft. Wreck at 34°58′S 56°18′W", "S"]],
+  "altmark": [["01 00:00", -22, -14, "Waiting in the empty mid-Atlantic", "R"], ["06 12:00", -24.5, -12, "Takes 140 prisoners from Graf Spee", "R"], ["12 00:00", -27, -16], ["21 00:00", -30, -18, "Loiters in the South Atlantic until 24 January; intercepted by Cossack in Jøssingfjord 16 February", "R"]],
+  "forceg": [["01 00:00", -35.6, -55.4, "Ajax off the Plate; Achilles off Rio, Exeter at Port Stanley, Cumberland off the Plate", "R"], ["03 12:00", -35.4, -54, "Doric Star's signal: Harwood works out that a raider steaming at 15 knots can reach the Plate on 13 December", "R"], ["10 16:00", -35, -50, "Ajax and Achilles concentrate at 35°S 50°W", "S"], ["12 07:00", -35, -50, "Exeter joins from the Falklands; Harwood signals his battle plan", "S"], ["13 05:20", -34.567, -49.283, "34°34′S 49°17′W, course 060°, 14 knots — Ajax, Achilles, Exeter in line", "S"], ["13 06:14", -34.5, -49.35, "Smoke bearing 320°; Exeter: 'I think it is a pocket battleship'", "R"], ["13 06:40", -34.4, -49.45, "First Division closes to draw fire from Exeter", "R"], ["13 07:24", -34.5, -49.55, "Ajax fires four torpedoes at 9,000 yards; X and Y turrets disabled a minute later", "R"], ["13 07:40", -34.55, -49.65, "Ajax and Achilles break off east under smoke — 'a serious shortage of ammunition'", "R"], ["13 12:00", -34.7, -51.4, "Shadowing at 15 miles, Achilles to starboard, Ajax to port", "R"], ["13 19:15", -34.85, -54.3], ["14 00:50", -34.98, -55.95, "Off Montevideo; Cumberland ordered up from the Falklands", "R"], ["15 12:00", -35.05, -55.9, "Patrol off English Bank; Ajax oils from Olynthus", "R"], ["17 20:54", -35.02, -56.2, "Watching the scuttling from the estuary", "R"], ["21 00:00", -35.1, -56]],
+  "cumberland": [["01 00:00", -51.69, -57.86, "Self-refit at Port Stanley", "S"], ["13 12:00", -51.69, -57.86, "Sails on Captain Fallowfield's own initiative", "S"], ["14 22:00", -35, -56, "1,014 miles in 34 hours; takes Exeter's place off the Plate", "S"], ["21 00:00", -35.1, -56.05]],
+  "doricstar": [["01 00:00", -18.3, 6.6, "Blue Star liner from Auckland with frozen meat and wool", "R"], ["02 13:00", -19.25, 5.083, "Stopped and sunk after transmitting RRR", "S"]],
+  "tairoa": [["01 00:00", -20.6, 4.6, "Shaw Savill, Melbourne for Freetown", "R"], ["03 06:00", -21.5, 3, "Shelled while transmitting; sunk", "S"]],
+  "streonshalh": [["04 00:00", -23.5, -22, "Montevideo for Freetown with wheat", "R"], ["07 19:00", -25.017, -27.833, "Sunk; secret routing papers seized", "S"]]
+ },
+ "groups": { "spee": "Graf Spee", "altmark": "Altmark", "forceg": "Force G", "cumberland": "Cumberland" },
+ "commanders": {
+  "spee": { "name": "Kapitän zur See Hans Langsdorff", "role": "Commanding Officer, Admiral Graf Spee", "flagship": "Admiral Graf Spee", "bio": "A Jutland veteran who sank nine ships totalling 50,000 tons without taking a single merchant life. Wounded twice on his open bridge on 13 December, he ran for Montevideo rather than fight on with his fuel system damaged, then, refused time for repairs and believing a battle squadron waited outside, scuttled his ship to save his crew.", "fate": "Shot himself in Buenos Aires on 20 December 1939, aged 45.", "wiki": "Hans_Langsdorff" },
+  "forceg": { "name": "Commodore Henry Harwood", "role": "Commodore Commanding, South America Division", "flagship": "HMS Ajax", "bio": "Guessed from Doric Star's distress call that the raider would come to the Plate, and had his three cruisers waiting. His plan — attack immediately in two divisions from either flank — had been worked out at the War College years before. Promoted rear-admiral and knighted the same day.", "fate": "Commander-in-Chief Mediterranean 1942–43; died 1950.", "wiki": "Henry_Harwood" },
+  "cumberland": { "name": "Captain W. H. G. Fallowfield", "role": "Commanding Officer, HMS Cumberland", "flagship": "HMS Cumberland", "bio": "Sailed from Port Stanley at noon on his own initiative, before Harwood's signal reached him, and covered 1,014 miles in 34 hours to replace the crippled Exeter off Montevideo.", "fate": "Survived the war." }
+ },
+ "ships": [
+  {
+   "id": "spee",
+   "name": "Admiral Graf Spee",
+   "force": "spee",
+   "type": "Panzerschiff (Langsdorff flagship)",
+   "route": "spee",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Graf_Spee",
+   "sunk": "17 20:54",
+   "sunkBy": "Scuttled by her own crew off Montevideo",
+   "lost": 36
+  },
+  { "id": "altmark", "name": "Altmark", "force": "altmark", "type": "Supply tanker", "route": "altmark", "wiki": "https://en.wikipedia.org/wiki/German_tanker_Altmark" },
+  { "id": "ajax", "name": "HMS Ajax", "force": "forceg", "type": "Light cruiser (Harwood flagship)", "route": "forceg", "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)" },
+  { "id": "achilles", "name": "HMS Achilles", "force": "forceg", "type": "Light cruiser (New Zealand Division)", "route": "forceg", "wiki": "https://en.wikipedia.org/wiki/HMS_Achilles_(70)" },
+  {
+   "id": "exeter",
+   "name": "HMS Exeter",
+   "force": "forceg",
+   "type": "Heavy cruiser (Capt F. S. Bell)",
+   "route": "forceg",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Exeter_(68)",
+   "until": "13 07:40",
+   "extra": [["13 07:40", -34.65, -49.5, "All three turrets out, 61 dead, 7° list — hauls off south-east at 18 knots", "R"], ["13 18:00", -36.4, -51], ["16 12:00", -51.69, -57.86, "Emergency repairs at Port Stanley; a 13-month refit at Devonport follows", "R"], ["21 00:00", -51.69, -57.86]]
+  },
+  { "id": "cumberland", "name": "HMS Cumberland", "force": "forceg", "type": "Heavy cruiser", "route": "cumberland", "wiki": "https://en.wikipedia.org/wiki/HMS_Cumberland_(57)" },
+  {
+   "id": "doricstar",
+   "name": "Doric Star",
+   "force": "merchants",
+   "type": "Merchant ship — Blue Star Line",
+   "route": "doricstar",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Doric_Star",
+   "sunk": "02 13:00",
+   "sunkBy": "Admiral Graf Spee",
+   "lost": 0
+  },
+  {
+   "id": "tairoa",
+   "name": "Tairoa",
+   "force": "merchants",
+   "type": "Merchant ship — Shaw Savill",
+   "route": "tairoa",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Tairoa",
+   "sunk": "03 06:00",
+   "sunkBy": "Admiral Graf Spee",
+   "lost": 0
+  },
+  { "id": "streonshalh", "name": "Streonshalh", "force": "merchants", "type": "Merchant ship", "route": "streonshalh", "sunk": "07 19:00", "sunkBy": "Admiral Graf Spee", "lost": 0 }
+ ],
+ "strikes": [
+  {
+   "id": "a1",
+   "name": "Ajax's Seafox spots for the squadron",
+   "nation": "RN",
+   "from": { "route": "forceg" },
+   "target": { "ship": "spee" },
+   "launch": "13 06:37",
+   "arrive": "13 06:50",
+   "leave": "13 08:20",
+   "recover": "13 09:12",
+   "count": 1,
+   "note": "Lt Lewin's Seafox is catapulted under fire and spots for Ajax and Achilles until the break-off"
+  },
+  {
+   "id": "a2",
+   "name": "Ajax's aircraft watches the end",
+   "nation": "RN",
+   "from": { "route": "forceg" },
+   "target": { "ship": "spee" },
+   "launch": "17 18:00",
+   "arrive": "17 18:30",
+   "leave": "17 21:00",
+   "recover": "17 21:30",
+   "count": 1,
+   "note": "20:54: 'GRAF SPEE has blown herself up'"
+  }
+ ],
+ "torpedoes": [
+  { "from": "exeter", "to": "spee", "t": "13 06:32", "n": 3, "run": 1, "hit": false, "note": "Starboard tubes; Graf Spee combs the tracks" },
+  { "from": "ajax", "to": "spee", "t": "13 07:24", "n": 4, "run": 1, "hit": false, "note": "Fired at 9,000 yards as the range closes — all miss" }
+ ],
+ "engagements": [
+  {
+   "ships": ["spee"],
+   "from": "13 06:18",
+   "to": "13 07:40",
+   "rate": 0.5,
+   "note": "Six 11-inch guns concentrate on Exeter, then shift to the light cruisers",
+   "targets": ["exeter", "ajax", "achilles"]
+  },
+  {
+   "ships": ["exeter"],
+   "from": "13 06:20",
+   "to": "13 07:30",
+   "rate": 0.45,
+   "note": "Eight 8-inch until B, then A, then Y turret are knocked out",
+   "targets": ["spee"]
+  },
+  {
+   "ships": ["ajax", "achilles"],
+   "from": "13 06:21",
+   "to": "13 07:40",
+   "rate": 0.6,
+   "note": "Sixteen 6-inch guns; some 70 hits are claimed on Graf Spee",
+   "targets": ["spee"]
+  },
+  {
+   "ships": ["spee"],
+   "from": "13 10:05",
+   "to": "13 10:10",
+   "rate": 0.3,
+   "note": "Fires at Achilles at 23,000 yards",
+   "targets": ["achilles"]
+  },
+  {
+   "ships": ["spee"],
+   "from": "13 19:15",
+   "to": "13 19:20",
+   "rate": 0.3,
+   "note": "Two salvoes at Ajax at 26,000 yards",
+   "targets": ["ajax"]
+  },
+  {
+   "ships": ["spee"],
+   "from": "13 21:32",
+   "to": "13 21:45",
+   "rate": 0.3,
+   "note": "Fires at Achilles off Punta Negra",
+   "targets": ["achilles"]
+  }
+ ],
+ "events": [["02 13:00", "Doric Star sunk — her RRR signal tells Harwood a raider is loose on the Cape route", -19.25, 5.083], ["03 06:00", "Tairoa sunk 170 miles south-west of Doric Star", -21.5, 3], ["03 12:00", "Harwood's appreciation: the raider will reach the Plate on 13 December — Ajax, Achilles and Exeter to concentrate there", -35.4, -54], ["07 19:00", "Streonshalh sunk; her papers send Langsdorff to the Plate", -25.017, -27.833], ["10 16:00", "Ajax and Achilles meet at 35°S 50°W", -35, -50], ["12 07:00", "Exeter joins; Harwood's plan — attack at once, by day or night, in two divisions", -35, -50], ["13 06:14", "Smoke bearing 320°: Exeter sent to investigate", -34.5, -49.35], ["13 06:18", "Graf Spee opens fire at 19,000 yards", -34.35, -49.45], ["13 06:24", "Exeter's B turret wrecked; bridge swept, Captain Bell wounded", -34.45, -49.3], ["13 06:40", "Achilles' director hit — four killed", -34.4, -49.45], ["13 07:25", "Ajax's X and Y turrets disabled by one shell", -34.5, -49.55], ["13 07:40", "Break-off: Harwood turns east under smoke; Graf Spee heads west for the Plate", -34.55, -49.65], ["13 09:46", "Cumberland ordered up from the Falklands", -51.69, -57.86], ["13 11:05", "Exeter ordered to the Falklands", -34.9, -49.9], ["14 00:50", "Graf Spee anchors at Montevideo", -34.905, -56.18], ["14 22:00", "Cumberland arrives off the Plate", -35, -56], ["15 19:00", "Uruguay grants 72 hours; British merchantmen sail to invoke the 24-hour rule; the Admiralty hints Ark Royal and Renown are near", -34.9, -56.16], ["17 17:20", "Over 700 of Graf Spee's crew transfer to the German freighter Tacoma", -34.905, -56.18], ["17 20:54", "Graf Spee blown up by her own crew in the estuary", -34.972, -56.298], ["20 00:00", "Langsdorff shoots himself in Buenos Aires, lying on his ship's ensign", -34.6, -58.38]],
+ "ports": [
+  { "name": "Montevideo", "lat": -34.9, "lon": -56.16, "control": "RN", "kind": "port", "note": "Neutral Uruguay; Graf Spee's 72-hour refuge. Her dead lie in the Cementerio del Norte" },
+  { "name": "Buenos Aires", "lat": -34.6, "lon": -58.38, "control": "RN", "kind": "port", "note": "Neutral Argentina; Graf Spee's crew interned here, Langsdorff buried at La Chacarita" },
+  { "name": "Port Stanley", "lat": -51.69, "lon": -57.86, "control": "RN", "kind": "port", "note": "Falklands base: Cumberland refitting, Exeter's refuge after the battle" },
+  { "name": "Rio de Janeiro", "lat": -22.91, "lon": -43.17, "control": "RN", "kind": "port", "note": "Achilles' patrol area before the concentration" },
+  { "name": "Samborombón Bay", "lat": -35.9, "lon": -57.1, "control": "RN", "kind": "port", "note": "RFA Olynthus oils the cruisers here and off the Rouen Bank" },
+  { "name": "London — Admiralty", "lat": 51.505, "lon": -0.128, "control": "RN", "kind": "hq", "note": "Feeds the newspapers with Renown and Ark Royal 'off the Plate' — they were five days away", "hq": "Admiralty (Pound · Churchill)" },
+  { "name": "Berlin — Seekriegsleitung", "lat": 52.52, "lon": 13.4, "control": "KM", "kind": "hq", "note": "Raeder and Hitler leave Langsdorff the choice: fight through to Buenos Aires or scuttle — but no internment", "hq": "OKM (Raeder)" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [-52.69, -58.86, -17.3, 7.6],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "spee": {
+    "hash": "a402d51c",
+    "snap": {
+     "13": [-34.895, -56.205],
+     "14": [-34.895, -56.205]
+    },
+    "via": {
+     "12": [[-34.985, -55.005]],
+     "13": [[-34.925, -56.205]]
+    }
+   },
+   "altmark": { "hash": "1d22ead6" },
+   "ajax": {
+    "hash": "5c77d181",
+    "via": {
+     "11": [[-35.015, -55.185]]
+    }
+   },
+   "achilles": {
+    "hash": "5c77d181",
+    "via": {
+     "11": [[-35.015, -55.185]]
+    }
+   },
+   "exeter": {
+    "hash": "a7a51e58",
+    "snap": {
+     "11": [-51.665, -57.825],
+     "12": [-51.665, -57.825]
+    }
+   },
+   "cumberland": {
+    "hash": "23a68880",
+    "snap": {
+     "0": [-51.665, -57.825],
+     "1": [-51.665, -57.825]
+    },
+    "via": {
+     "2": [[-51.635, -57.735]]
+    }
+   },
+   "doricstar": { "hash": "8ba91554" },
+   "tairoa": { "hash": "bfeabdcc" },
+   "streonshalh": { "hash": "57c473b5" }
+  }
+ }
+}

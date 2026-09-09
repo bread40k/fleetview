@@ -1,0 +1,742 @@
+{
+ "id": "matapan",
+ "title": "Battle of Cape Matapan",
+ "subtitle": "Eastern Mediterranean · 26 March – 1 April 1941",
+ "base": [1941, 2],
+ "start": "26 12:00",
+ "end": "1941-04-01 18:00",
+ "tz": "Zone −2 · UTC+2",
+ "utcOffset": 2,
+ "majorDays": [28],
+ "view": {
+  "center": [36, 21],
+  "zoom": 6,
+  "min": 4,
+  "max": 12
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["vittorioveneto", "zara", "fiume", "pola", "warspite", "formidable", "orion", "jervis", "havock", "gradisca"],
+ "scenes": [
+  ["Overview", "28 15:00", [36, 21], 6],
+  ["Sortie", "27 12:20", [38, 17.5], 6],
+  ["Action off Gavdos", "28 08:30", [34.2, 24.2], 8],
+  ["Vittorio Veneto opens fire", "28 11:00", [34.4, 24], 8],
+  ["Torpedo hit", "28 15:19", [35.3, 21.9], 8],
+  ["Dusk strike — Pola", "28 19:50", [35.25, 21], 9],
+  ["Night action", "28 22:28", [35.35, 20.95], 10],
+  ["Pola's end", "29 04:03", [35.25, 21], 10],
+  ["Survivors", "29 10:00", [35.5, 21.4], 8],
+  ["Gradisca", "31 21:00", [35.7, 21.2], 8]
+ ],
+ "defaultTime": "28 22:28",
+ "footnote": "Zone −2 (UTC+2). Pridham-Wippell's rendezvous, the Sunderland's sighting, the night-action position and the survivors' positions are from the despatch and Italian records; the Gaudos action and the torpedo hit on Vittorio Veneto are dead-reckoned from the despatch's bearings and ranges. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "iachino": { "name": "RM Fleet — Vittorio Veneto (Iachino)", "color": "#15803d", "nation": "RM" },
+  "sansonetti": { "name": "RM 3rd Division (Sansonetti)", "color": "#65a30d", "nation": "RM" },
+  "cattaneo": { "name": "RM 1st Division (Cattaneo)", "color": "#e5484d", "nation": "RM" },
+  "legnani": { "name": "RM 8th Division (Legnani)", "color": "#a3e635", "nation": "RM" },
+  "gradisca": { "name": "RM Hospital ship Gradisca", "color": "#d4d4d8", "nation": "RM" },
+  "forcea": { "name": "RN Force A — battlefleet (Cunningham)", "color": "#3b82f6", "nation": "RN" },
+  "forceb": { "name": "RN Force B — cruisers (Pridham-Wippell)", "color": "#06b6d4", "nation": "RN" }
+ },
+ "schema": 1,
+ "routes": {
+  "iachino": [["26 21:30", 40.84, 14.25, "Vittorio Veneto sails from Naples with four destroyers", "S"], ["27 06:00", 38.25, 15.6, "The 3rd Division joins off Messina", "R"], ["27 12:20", 36.9, 17.167, "A 230 Squadron Sunderland reports 'three cruisers and a destroyer' — the cover story for Ultra", "S"], ["27 22:00", 35.6, 20, "Supermarina cancels the Aegean sweep; the whole force to concentrate south of Crete", "R"], ["28 06:35", 34.9, 23.2, "Vittorio Veneto's Ro.43 sights Pridham-Wippell's cruisers", "R"], ["28 10:58", 34.45, 23.9, "Opens fire on Orion's squadron at 16 miles — 94 rounds of 15-inch in 29 salvoes", "R"], ["28 11:27", 34.5, 23.7, "Formidable's first Albacore strike; Iachino turns for home at 28 knots", "R"], ["28 15:19", 35.3, 21.9, "Lt Cdr Dalyell-Stead's torpedo hits the port quarter; 4,000 tons of water, stopped for six minutes", "R"], ["28 19:50", 35.3, 21.1, "Dusk strike: five columns, smoke and searchlights — Pola hit and stopped", "R"], ["29 08:00", 36.7, 18.5], ["29 17:00", 39, 18.4], ["30 00:00", 40.47, 17.24, "Taranto", "R"], ["1941-04-01 18:00", 40.47, 17.24]],
+  "sansonetti": [["27 06:00", 38.25, 15.6, "Trieste, Trento, Bolzano and three destroyers", "S"], ["27 12:20", 36.949999999999996, 17.167, "Sighted by the Sunderland", "S"], ["28 06:00", 34.6, 24.2], ["28 08:12", 34.4, 24.3, "Opens fire on Orion's squadron at 25,000 yards", "R"], ["28 08:55", 34.15, 24.7, "Ceases fire and turns north-west — Pridham-Wippell follows", "R"], ["28 10:58", 34.45, 24, "Has drawn the British cruisers under Vittorio Veneto's guns", "R"], ["28 12:00", 34.75, 23.5], ["28 15:15", 35.3, 21.95], ["28 19:50", 35.3, 21.15], ["29 08:00", 36.7, 18.5], ["30 00:00", 38.25, 15.6], ["1941-04-01 18:00", 38.25, 15.6]],
+  "cattaneo": [["26 11:00", 40.47, 17.24, "Zara, Fiume, Pola and four destroyers sail from Taranto", "S"], ["27 10:00", 37.3, 17.8, "Joins the fleet", "R"], ["27 22:00", 35.7, 20.1], ["28 12:00", 35, 23, "Ten miles north of Vittorio Veneto", "R"], ["28 15:15", 35.4, 21.95], ["28 19:50", 35.25, 21, "Pola torpedoed in the dusk attack; stopped, without power", "S"], ["28 21:06", 35.5, 20.75, "Zara, Fiume, Alfieri, Carducci, Gioberti and Oriani reverse course to stand by Pola — destroyers astern", "R"], ["28 22:27", 35.35, 20.95, "Greyhound's searchlight: Warspite, Valiant and Barham open fire at 3,800 yards", "S"], ["29 00:00", 35.6, 20.7, "Oriani and Gioberti escape north-west", "R"], ["29 12:00", 37.3, 18.5], ["30 00:00", 40.47, 17.24], ["1941-04-01 18:00", 40.47, 17.24]],
+  "legnani": [["26 20:00", 40.64, 17.94, "Abruzzi and Garibaldi with two destroyers", "S"], ["27 11:00", 37.2, 17.9], ["27 22:00", 35.7, 20.2], ["28 12:00", 35, 23.1], ["28 19:50", 35.35, 21.15], ["29 12:00", 37.3, 18.6], ["30 00:00", 40.64, 17.94], ["1941-04-01 18:00", 40.64, 17.94]],
+  "gradisca": [["30 12:00", 40.47, 17.24, "Hospital ship Gradisca sails on Cunningham's plain-language signal to Rome", "R"], ["31 21:00", 35.683, 21.183, "Arrives at the survivors' position; picks up 160 from Alfieri's rafts through 1 April", "S"], ["1941-04-01 18:00", 36.2, 20.5]],
+  "forcea": [["27 19:00", 31.2, 29.92, "Warspite, Barham, Valiant, Formidable and nine destroyers sail after dark — Cunningham has spent the afternoon at the golf club", "S"], ["28 08:27", 33.9, 25.8, "Pridham-Wippell bears 267°, 90 miles; Valiant sent ahead", "R"], ["28 12:30", 34.1, 24.8, "Force B rejoins", "R"], ["28 15:15", 34.4, 23.7, "Vittorio Veneto bears 290°, 65 miles, making 15 knots", "R"], ["28 19:00", 34.9, 22.2], ["28 20:40", 35.05, 21.7, "Mack's eight destroyers sent ahead to attack the crippled battleship", "R"], ["28 22:10", 35.3, 21.05, "Valiant's radar: a stopped ship six miles on the port bow", "R"], ["28 22:27", 35.32, 21, "Two Zara-class cruisers cross the bows at 3,800 yards, turrets trained fore and aft", "S"], ["28 23:30", 35.45, 21.05, "The battlefleet withdraws north-east; four destroyers left to finish the cruisers", "R"], ["29 07:00", 35.9, 21.633, "Rendezvous 35°54′N 21°38′E", "S"], ["29 08:00", 35.717, 21.667, "Sweeps 220° over the battle area", "S"], ["29 11:00", 35.5, 21.2, "Survivors picked up until German aircraft appear; course 120° for Alexandria", "R"], ["30 17:30", 31.2, 29.92, "Alexandria", "S"], ["1941-04-01 18:00", 31.2, 29.92]],
+  "forceb": [["27 13:00", 37.94, 23.65, "Orion, Ajax, Perth, Gloucester and destroyers sail from Piraeus", "S"], ["27 20:00", 36.5, 23.9], ["28 06:30", 34.333, 24.167, "Rendezvous 34°20′N 24°10′E, 30 miles south of Gavdos", "S"], ["28 07:45", 34.1, 24.15, "Orion sights three cruisers to the north", "R"], ["28 08:12", 34.05, 24.2, "Sansonetti opens fire at 25,000 yards; Gloucester replies", "R"], ["28 08:55", 33.9, 24.4, "Italians turn away; Pridham-Wippell follows at 28 knots — towards Vittorio Veneto", "R"], ["28 10:58", 34.3, 24, "A battleship at 16 miles: smoke, 30 knots, straddled for twenty minutes", "R"], ["28 11:40", 34.2, 24.3, "Iachino breaks off after the Albacore attack", "R"], ["28 12:30", 34.2, 24.6, "Meets the battlefleet", "R"], ["28 15:00", 34.6, 23.5, "Sent ahead to regain touch", "R"], ["28 19:30", 35.1, 21.5], ["28 20:15", 35.2, 21.15, "Orion's radar: a stopped ship six miles ahead — Pola", "R"], ["28 22:00", 35.5, 20.7, "Passes north of Cattaneo unseen", "R"], ["29 08:00", 35.75, 21.7], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+ },
+ "groups": { "iachino": "Iachino", "sansonetti": "3rd Division", "cattaneo": "1st Division", "legnani": "8th Division", "gradisca": "Gradisca", "forcea": "Battlefleet", "forceb": "Force B" },
+ "commanders": {
+  "iachino": { "name": "Ammiraglio di squadra Angelo Iachino", "role": "Commander-in-Chief, Italian Fleet", "flagship": "Vittorio Veneto", "bio": "Sent to sweep the convoy routes on German assurances that the British had one battleship fit for sea and no carrier. Believed Cunningham was 170 miles astern when he sent Cattaneo back for Pola — into a battlefleet that was 50.", "fate": "Kept his command until April 1943; wrote two books explaining Matapan; died 1976.", "wiki": "Angelo_Iachino" },
+  "cattaneo": { "name": "Ammiraglio di divisione Carlo Cattaneo", "role": "Commander, 1st Division", "flagship": "Zara", "bio": "Ordered back at 21:06 to tow Pola home, with his destroyers astern instead of ahead and his guns unmanned for the night. Warspite's searchlights found him at 3,800 yards.", "fate": "Lost with Zara, 29 March 1941; Medaglia d'oro.", "wiki": "Carlo_Cattaneo_(admiral)" },
+  "sansonetti": { "name": "Ammiraglio di divisione Luigi Sansonetti", "role": "Commander, 3rd Division", "flagship": "Trieste", "bio": "Fought the only gun action of the day, an hour at extreme range with Pridham-Wippell's cruisers, and drew them toward Vittorio Veneto exactly as intended.", "fate": "Deputy Chief of Naval Staff 1941–43; died 1959.", "wiki": "Luigi_Sansonetti" },
+  "legnani": { "name": "Ammiraglio di divisione Antonio Legnani", "role": "Commander, 8th Division", "flagship": "Duca degli Abruzzi", "bio": "Two light cruisers that never saw the enemy.", "fate": "Died 1943.", "wiki": "Antonio_Legnani" },
+  "forcea": { "name": "Admiral Sir Andrew Cunningham", "role": "Commander-in-Chief, Mediterranean Fleet", "flagship": "HMS Warspite", "bio": "Given the enemy's sailing orders by Bletchley Park, he covered the source with a Sunderland and a round of golf, took his three old battleships to sea after dark, and — against his staff's advice — pressed on into the night after the crippled Vittorio Veneto. Three heavy cruisers and two destroyers for one Albacore.", "fate": "First Sea Lord 1943–46; Viscount Cunningham of Hyndhope.", "wiki": "Andrew_Cunningham,_1st_Viscount_Cunningham_of_Hyndhope" },
+  "forceb": { "name": "Vice-Admiral Henry Pridham-Wippell", "role": "Vice-Admiral, Light Forces", "flagship": "HMS Orion", "bio": "Led four cruisers on a running fight with Sansonetti's 8-inch ships, then found himself under Vittorio Veneto's 15-inch guns at 16 miles. Twenty minutes of straddles, no hits; the Albacores got him out.", "fate": "Commander-in-Chief Dover 1942–45; died 1952.", "wiki": "Henry_Pridham-Wippell" }
+ },
+ "ships": [
+  { "id": "vittorioveneto", "name": "Vittorio Veneto", "force": "iachino", "type": "Battleship (Iachino flagship)", "route": "iachino", "wiki": "https://en.wikipedia.org/wiki/Italian_battleship_Vittorio_Veneto" },
+  { "id": "trieste", "name": "Trieste", "force": "sansonetti", "type": "Heavy cruiser (Sansonetti flagship)", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trieste" },
+  { "id": "trento", "name": "Trento", "force": "sansonetti", "type": "Heavy cruiser", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trento" },
+  { "id": "bolzano", "name": "Bolzano", "force": "sansonetti", "type": "Heavy cruiser", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Bolzano" },
+  {
+   "id": "zara",
+   "name": "Zara",
+   "force": "cattaneo",
+   "type": "Heavy cruiser (Cattaneo flagship)",
+   "route": "cattaneo",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Zara",
+   "until": "28 22:27",
+   "extra": [["29 02:40", 35.35, 20.95, "Wrecked by 15-inch fire, scuttling charges lit; torpedoed by Jervis and blows up — Cattaneo lost", "S"]],
+   "sunk": "29 02:40",
+   "sunkBy": "Warspite, Valiant and Barham; torpedoed by Jervis",
+   "lost": 783
+  },
+  {
+   "id": "fiume",
+   "name": "Fiume",
+   "force": "cattaneo",
+   "type": "Heavy cruiser",
+   "route": "cattaneo",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Fiume",
+   "until": "28 22:27",
+   "extra": [["28 23:15", 35.36, 20.93, "Five of Warspite's first six shells hit; capsizes stern first", "S"]],
+   "sunk": "28 23:15",
+   "sunkBy": "Warspite's and Valiant's 15-inch at 3,800 yards",
+   "lost": 812
+  },
+  {
+   "id": "pola",
+   "name": "Pola",
+   "force": "cattaneo",
+   "type": "Heavy cruiser",
+   "route": "cattaneo",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Pola",
+   "until": "28 19:50",
+   "extra": [["29 03:14", 35.25, 21, "Found by Havock; Jervis goes alongside and takes off 258 men", "S"], ["29 04:03", 35.25, 21, "Torpedoed by Jervis and Nubian", "S"]],
+   "sunk": "29 04:03",
+   "sunkBy": "Aerial torpedo; finished by Jervis and Nubian",
+   "lost": 328
+  },
+  {
+   "id": "alfieri",
+   "name": "Vittorio Alfieri",
+   "force": "cattaneo",
+   "type": "Destroyer (Capt Toscano)",
+   "route": "cattaneo",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Vittorio_Alfieri",
+   "until": "28 22:27",
+   "extra": [["28 23:30", 35.33, 20.97, "Fires four salvoes and three torpedoes before Stuart's torpedo finishes her", "R"]],
+   "sunk": "28 23:30",
+   "sunkBy": "Battleship gunfire and HMAS Stuart",
+   "lost": 211
+  },
+  {
+   "id": "carducci",
+   "name": "Giosuè Carducci",
+   "force": "cattaneo",
+   "type": "Destroyer",
+   "route": "cattaneo",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Giosu%C3%A8_Carducci",
+   "until": "28 22:27",
+   "extra": [["28 23:45", 35.33, 21, "Torpedoed by Havock", "R"]],
+   "sunk": "28 23:45",
+   "sunkBy": "Gunfire and HMS Havock",
+   "lost": 169
+  },
+  { "id": "oriani", "name": "Alfredo Oriani", "force": "cattaneo", "type": "Destroyer", "route": "cattaneo", "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Alfredo_Oriani" },
+  { "id": "gioberti", "name": "Vincenzo Gioberti", "force": "cattaneo", "type": "Destroyer", "route": "cattaneo", "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Vincenzo_Gioberti" },
+  { "id": "abruzzi", "name": "Duca degli Abruzzi", "force": "legnani", "type": "Light cruiser (Legnani flagship)", "route": "legnani", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Luigi_di_Savoia_Duca_degli_Abruzzi" },
+  { "id": "garibaldi", "name": "Giuseppe Garibaldi", "force": "legnani", "type": "Light cruiser", "route": "legnani", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Giuseppe_Garibaldi_(1936)" },
+  { "id": "gradisca", "name": "Gradisca", "force": "gradisca", "type": "Hospital ship", "route": "gradisca", "wiki": "https://en.wikipedia.org/wiki/SS_Gradisca" },
+  { "id": "warspite", "name": "HMS Warspite", "force": "forcea", "type": "Battleship (Cunningham flagship)", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)" },
+  { "id": "barham", "name": "HMS Barham", "force": "forcea", "type": "Battleship (Rawlings)", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Barham_(04)" },
+  { "id": "valiant", "name": "HMS Valiant", "force": "forcea", "type": "Battleship — the only one with radar", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Valiant_(1914)" },
+  { "id": "formidable", "name": "HMS Formidable", "force": "forcea", "type": "Fleet carrier (Boyd)", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Formidable_(67)" },
+  {
+   "id": "jervis",
+   "name": "HMS Jervis",
+   "force": "forcea",
+   "type": "Destroyer (Capt Mack, D14)",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Jervis",
+   "until": "28 20:40",
+   "extra": [["28 22:00", 35.55, 20.6, "Mack's eight destroyers sweep north-west for Vittorio Veneto — and pass ahead of Cattaneo unseen", "R"], ["29 00:30", 35.8, 20.2], ["29 02:00", 35.4, 21, "Turns back toward the burning Zara", "R"], ["29 02:40", 35.35, 20.95, "Jervis torpedoes Zara", "S"], ["29 03:14", 35.25, 21, "Havock's 'battleship' is Pola; Jervis goes alongside", "S"], ["29 04:03", 35.25, 21, "Jervis and Nubian torpedo Pola", "S"], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  {
+   "id": "janus",
+   "name": "HMS Janus",
+   "force": "forcea",
+   "type": "Destroyer",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Janus_(F53)",
+   "until": "28 20:40",
+   "extra": [["28 22:00", 35.55, 20.6, "Mack's eight destroyers sweep north-west for Vittorio Veneto — and pass ahead of Cattaneo unseen", "R"], ["29 00:30", 35.8, 20.2], ["29 02:00", 35.4, 21, "Turns back toward the burning Zara", "R"], ["29 02:40", 35.35, 20.95, "Jervis torpedoes Zara", "S"], ["29 03:14", 35.25, 21, "Havock's 'battleship' is Pola; Jervis goes alongside", "S"], ["29 04:03", 35.25, 21, "Jervis and Nubian torpedo Pola", "S"], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  {
+   "id": "nubian",
+   "name": "HMS Nubian",
+   "force": "forcea",
+   "type": "Tribal-class destroyer",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Nubian_(F36)",
+   "until": "28 20:40",
+   "extra": [["28 22:00", 35.55, 20.6, "Mack's eight destroyers sweep north-west for Vittorio Veneto — and pass ahead of Cattaneo unseen", "R"], ["29 00:30", 35.8, 20.2], ["29 02:00", 35.4, 21, "Turns back toward the burning Zara", "R"], ["29 02:40", 35.35, 20.95, "Jervis torpedoes Zara", "S"], ["29 03:14", 35.25, 21, "Havock's 'battleship' is Pola; Jervis goes alongside", "S"], ["29 04:03", 35.25, 21, "Jervis and Nubian torpedo Pola", "S"], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  {
+   "id": "mohawk",
+   "name": "HMS Mohawk",
+   "force": "forcea",
+   "type": "Tribal-class destroyer",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Mohawk_(F31)",
+   "until": "28 20:40",
+   "extra": [["28 22:00", 35.55, 20.6, "Mack's eight destroyers sweep north-west for Vittorio Veneto — and pass ahead of Cattaneo unseen", "R"], ["29 00:30", 35.8, 20.2], ["29 02:00", 35.4, 21, "Turns back toward the burning Zara", "R"], ["29 02:40", 35.35, 20.95, "Jervis torpedoes Zara", "S"], ["29 03:14", 35.25, 21, "Havock's 'battleship' is Pola; Jervis goes alongside", "S"], ["29 04:03", 35.25, 21, "Jervis and Nubian torpedo Pola", "S"], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  {
+   "id": "stuart",
+   "name": "HMAS Stuart",
+   "force": "forcea",
+   "type": "Destroyer (Capt Waller, D10)",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Stuart_(D00)",
+   "until": "28 22:38",
+   "extra": [["28 23:20", 35.33, 20.97, "Torpedoes Alfieri, then fights Carducci", "R"], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  {
+   "id": "havock",
+   "name": "HMS Havock",
+   "force": "forcea",
+   "type": "Destroyer",
+   "route": "forcea",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Havock_(H43)",
+   "until": "28 22:38",
+   "extra": [["28 23:40", 35.33, 21, "Torpedoes Carducci", "R"], ["29 00:10", 35.25, 21, "Finds the darkened Pola and reports 'a battleship'", "R"], ["29 04:03", 35.25, 21], ["29 07:00", 35.9, 21.633], ["30 17:30", 31.2, 29.92, null, "S"], ["1941-04-01 18:00", 31.2, 29.92]]
+  },
+  { "id": "greyhound", "name": "HMS Greyhound", "force": "forcea", "type": "Destroyer — her searchlight opened the night action", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Greyhound_(H05)" },
+  { "id": "griffin", "name": "HMS Griffin", "force": "forcea", "type": "Destroyer", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Griffin_(H31)" },
+  { "id": "hotspur", "name": "HMS Hotspur", "force": "forcea", "type": "Destroyer", "route": "forcea", "wiki": "https://en.wikipedia.org/wiki/HMS_Hotspur_(H01)" },
+  { "id": "orion", "name": "HMS Orion", "force": "forceb", "type": "Light cruiser (Pridham-Wippell flagship)", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Orion_(85)" },
+  { "id": "ajax", "name": "HMS Ajax", "force": "forceb", "type": "Light cruiser", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)" },
+  { "id": "perth", "name": "HMAS Perth", "force": "forceb", "type": "Light cruiser", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMAS_Perth_(D29)" },
+  { "id": "gloucester", "name": "HMS Gloucester", "force": "forceb", "type": "Light cruiser — 24 knots on a damaged shaft bracket", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Gloucester_(62)" },
+  { "id": "hasty", "name": "HMS Hasty", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Hasty_(H24)" },
+  { "id": "hereward", "name": "HMS Hereward", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Hereward_(H93)" }
+ ],
+ "strikes": [
+  {
+   "id": "s1",
+   "name": "Sunderland of 230 Squadron",
+   "nation": "RN",
+   "from": { "lat": 37.98, "lon": 23.55 },
+   "target": { "ship": "trieste" },
+   "launch": "27 09:00",
+   "arrive": "27 12:20",
+   "leave": "27 13:00",
+   "recover": "27 16:00",
+   "count": 1,
+   "note": "Sent deliberately to be seen: the 'chance' sighting that would explain Cunningham's sortie without revealing Ultra",
+   "land": true
+  },
+  {
+   "id": "s2",
+   "name": "Vittorio Veneto's Ro.43",
+   "nation": "RM",
+   "from": { "route": "iachino" },
+   "target": { "ship": "orion" },
+   "launch": "28 06:00",
+   "arrive": "28 06:35",
+   "leave": "28 07:30",
+   "recover": "28 08:30",
+   "count": 1,
+   "note": "The floatplane finds Pridham-Wippell 65 km away and flies on to Leros",
+   "oneway": true,
+   "recoverAt": { "lat": 37.15, "lon": 26.85 }
+  },
+  {
+   "id": "s3",
+   "name": "Formidable's first strike",
+   "nation": "RN",
+   "from": { "route": "forcea" },
+   "target": { "ship": "vittorioveneto" },
+   "launch": "28 09:39",
+   "arrive": "28 11:27",
+   "leave": "28 11:40",
+   "recover": "28 12:45",
+   "count": 6,
+   "note": "Six Albacores of 826 Squadron; no hits, but Iachino turns away from the cruisers and for home"
+  },
+  {
+   "id": "s4",
+   "name": "815 Squadron from Maleme",
+   "nation": "RN",
+   "from": { "lat": 35.53, "lon": 23.83 },
+   "target": { "ship": "trieste" },
+   "launch": "28 11:00",
+   "arrive": "28 12:05",
+   "leave": "28 12:15",
+   "recover": "28 13:30",
+   "count": 3,
+   "note": "Three Swordfish attack the 3rd Division without result",
+   "land": true
+  },
+  {
+   "id": "s5",
+   "name": "RAF Blenheims from Greece",
+   "nation": "RN",
+   "from": { "lat": 38.11, "lon": 23.78 },
+   "target": { "ship": "vittorioveneto" },
+   "launch": "28 13:00",
+   "arrive": "28 14:45",
+   "leave": "28 16:55",
+   "recover": "28 18:30",
+   "count": 23,
+   "note": "Twenty-three Blenheims in waves through the afternoon — no hits",
+   "land": true
+  },
+  {
+   "id": "s6",
+   "name": "Formidable's second strike — the hit",
+   "nation": "RN",
+   "from": { "route": "forcea" },
+   "target": { "ship": "vittorioveneto" },
+   "launch": "28 12:35",
+   "arrive": "28 15:10",
+   "leave": "28 15:21",
+   "recover": "28 16:30",
+   "count": 7,
+   "note": "Three Albacores and two Swordfish of 829 Squadron with two Fulmars; Lt Cdr Dalyell-Stead presses in and hits the port quarter — his aircraft is shot down, the only British dead of the battle"
+  },
+  {
+   "id": "s7",
+   "name": "S.79 torpedo bombers from Rhodes",
+   "nation": "RM",
+   "from": { "lat": 36.38, "lon": 28.1 },
+   "target": { "ship": "formidable" },
+   "launch": "28 15:00",
+   "arrive": "28 16:30",
+   "leave": "28 16:45",
+   "recover": "28 18:30",
+   "count": 3,
+   "note": "Buscaglia's Sparvieri find Formidable and miss",
+   "land": true
+  },
+  {
+   "id": "s8",
+   "name": "Dusk strike",
+   "nation": "RN",
+   "from": { "route": "forcea" },
+   "target": { "ship": "pola" },
+   "launch": "28 17:35",
+   "arrive": "28 19:36",
+   "leave": "28 19:50",
+   "recover": "28 21:30",
+   "count": 8,
+   "note": "Six Albacores and two Swordfish, joined by two Swordfish from Maleme, attack through smoke, searchlights and a barrage; one torpedo stops Pola"
+  },
+  {
+   "id": "s9",
+   "name": "Ju 88s attack the fleet",
+   "nation": "KM",
+   "from": { "lat": 37.47, "lon": 15.07 },
+   "target": { "ship": "formidable" },
+   "launch": "29 13:30",
+   "arrive": "29 15:30",
+   "leave": "29 15:45",
+   "recover": "29 17:30",
+   "count": 6,
+   "note": "X Fliegerkorps from Sicily finds the fleet on its way home; no damage",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  {
+   "from": { "lat": 35.32, "lon": 21.95, "label": "829 Sqn Albacore (Dalyell-Stead)" },
+   "to": "vittorioveneto",
+   "t": "28 15:19",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "Port side aft by the outer propeller; Vittorio Veneto stopped for six minutes and limited to 19 knots"
+  },
+  {
+   "from": { "lat": 35.3, "lon": 21.05, "label": "Dusk strike" },
+   "to": "pola",
+   "t": "28 19:50",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "Starboard side: three compartments flooded, five boilers out, no power"
+  },
+  { "from": "alfieri", "to": "warspite", "t": "28 22:30", "n": 3, "run": 1, "hit": false, "note": "Three torpedoes in reply before she is silenced" },
+  { "from": "stuart", "to": "alfieri", "t": "28 23:20", "n": 4, "run": 1, "hit": true, "note": null },
+  { "from": "havock", "to": "carducci", "t": "28 23:40", "n": 4, "run": 1, "hit": true, "note": null },
+  { "from": "jervis", "to": "zara", "t": "29 02:35", "n": 4, "run": 1, "hit": true, "note": "Two hits; Zara blows up at 02:40" },
+  { "from": "jervis", "to": "pola", "t": "29 04:00", "n": 2, "run": 1, "hit": true, "note": "After taking off 258 of her crew" },
+  { "from": "nubian", "to": "pola", "t": "29 04:03", "n": 1, "run": 1, "hit": true, "note": "Pola's magazines explode" }
+ ],
+ "engagements": [
+  {
+   "ships": ["trieste", "trento", "bolzano"],
+   "from": "28 08:12",
+   "to": "28 08:55",
+   "rate": 0.45,
+   "note": "525 rounds of 8-inch at 24,000 m; no hits",
+   "targets": ["orion", "ajax", "perth", "gloucester"]
+  },
+  {
+   "ships": ["gloucester"],
+   "from": "28 08:29",
+   "to": "28 08:40",
+   "rate": 0.4,
+   "note": "Three salvoes, all short",
+   "targets": ["trieste"]
+  },
+  {
+   "ships": ["vittorioveneto"],
+   "from": "28 10:58",
+   "to": "28 11:27",
+   "rate": 0.5,
+   "note": "94 rounds of 15-inch in 29 salvoes; Orion splinter-damaged",
+   "targets": ["orion", "ajax", "perth", "gloucester"]
+  },
+  {
+   "ships": ["vittorioveneto", "trieste", "trento", "bolzano", "zara", "fiume", "pola"],
+   "from": "28 19:36",
+   "to": "28 19:50",
+   "rate": 0.5,
+   "note": "Barrage and searchlights against the dusk strike"
+  },
+  {
+   "ships": ["warspite", "valiant", "barham"],
+   "from": "28 22:27",
+   "to": "28 22:35",
+   "rate": 0.7,
+   "note": "Twenty-four 15-inch guns at 3,800 yards; Fiume and Zara wrecked in three minutes",
+   "targets": ["fiume", "zara"]
+  },
+  {
+   "ships": ["alfieri", "carducci", "oriani", "gioberti"],
+   "from": "28 22:30",
+   "to": "28 22:35",
+   "rate": 0.4,
+   "targets": ["warspite", "valiant"]
+  },
+  {
+   "ships": ["greyhound", "griffin", "stuart", "havock"],
+   "from": "28 22:38",
+   "to": "28 23:45",
+   "rate": 0.5,
+   "note": "Four destroyers finish the cruisers and their escorts",
+   "targets": ["alfieri", "carducci", "zara"]
+  },
+  {
+   "ships": ["alfieri"],
+   "from": "28 23:00",
+   "to": "28 23:20",
+   "rate": 0.4,
+   "note": "Alfieri fires back until she sinks",
+   "targets": ["stuart"]
+  }
+ ],
+ "events": [["26 21:30", "Vittorio Veneto sails from Naples — Bletchley has read the sailing order", 40.84, 14.25], ["27 12:20", "The Sunderland's sighting east of Sicily", 36.9, 17.167], ["27 16:00", "Cunningham, suitcase in hand, spends the afternoon at the Alexandria golf club under the Japanese consul's eye", 31.2, 29.92], ["27 19:00", "The battlefleet slips out of Alexandria after dark", 31.2, 29.92], ["28 06:35", "Vittorio Veneto's floatplane finds Pridham-Wippell", 34.9, 23.2], ["28 08:12", "Action off Gavdos: Sansonetti's cruisers open fire", 34.4, 24.3], ["28 10:58", "Vittorio Veneto opens fire on the cruisers at 16 miles", 34.45, 23.9], ["28 11:27", "First Albacore strike; Iachino turns for home", 34.5, 23.7], ["28 15:19", "Torpedo hit on Vittorio Veneto", 35.3, 21.9], ["28 19:50", "Dusk strike: Pola torpedoed and stopped", 35.25, 21], ["28 21:06", "Cattaneo turns back for Pola with Zara, Fiume and four destroyers", 35.5, 20.75], ["28 22:10", "Valiant's radar: a stopped ship six miles ahead", 35.3, 21.05], ["28 22:27", "Night action: Fiume and Zara destroyed at 3,800 yards", 35.35, 20.95], ["28 23:15", "Fiume sinks", 35.35, 20.95], ["28 23:30", "Alfieri sunk", 35.33, 20.97], ["28 23:45", "Carducci sunk", 35.33, 21], ["29 02:40", "Zara blows up", 35.35, 20.95], ["29 04:03", "Pola torpedoed by Jervis and Nubian", 35.25, 21], ["29 09:50", "The fleet picks up 905 survivors", 35.6, 21.4], ["29 11:00", "German aircraft — Cunningham breaks off the rescue and signals Rome the position", 35.5, 21.2], ["31 21:00", "Gradisca reaches the survivors", 35.683, 21.183], ["30 17:30", "The fleet enters Alexandria: three cruisers and two destroyers sunk for one aircraft", 31.2, 29.92]],
+ "ports": [
+  { "name": "Alexandria", "lat": 31.2, "lon": 29.92, "control": "RN", "kind": "port", "note": "Mediterranean Fleet base" },
+  { "name": "Piraeus", "lat": 37.94, "lon": 23.65, "control": "RN", "kind": "port", "note": "Pridham-Wippell's cruisers covering the troop convoys to Greece" },
+  { "name": "Suda Bay", "lat": 35.49, "lon": 24.13, "control": "RN", "kind": "port", "note": "Fleet anchorage in Crete" },
+  { "name": "Maleme", "lat": 35.53, "lon": 23.83, "control": "RN", "kind": "air", "note": "815 Squadron Swordfish" },
+  { "name": "Menidi (Athens)", "lat": 38.11, "lon": 23.78, "control": "RN", "kind": "air", "note": "RAF Blenheims and 230 Squadron's Sunderlands (Scaramanga)" },
+  { "name": "Malta", "lat": 35.9, "lon": 14.51, "control": "RN", "kind": "port", "note": "Ultra's cover: 'air reconnaissance from Malta'" },
+  { "name": "Taranto", "lat": 40.47, "lon": 17.24, "control": "RM", "kind": "port", "note": "Main fleet base; the 1st Division sails from here" },
+  { "name": "Naples", "lat": 40.84, "lon": 14.25, "control": "RM", "kind": "port", "note": "Vittorio Veneto's base" },
+  { "name": "Messina", "lat": 38.25, "lon": 15.6, "control": "RM", "kind": "port", "note": "The 3rd Division" },
+  { "name": "Brindisi", "lat": 40.64, "lon": 17.94, "control": "RM", "kind": "port", "note": "The 8th Division" },
+  { "name": "Rhodes", "lat": 36.38, "lon": 28.1, "control": "RM", "kind": "air", "note": "Regia Aeronautica reconnaissance and S.79 torpedo bombers" },
+  { "name": "Catania", "lat": 37.47, "lon": 15.07, "control": "KM", "kind": "air", "note": "X Fliegerkorps — the promised German air cover that never came" },
+  { "name": "Rome — Supermarina", "lat": 41.9, "lon": 12.5, "control": "RM", "kind": "hq", "note": "Ordered the sortie at German urging; a D/F fix at 20:05 put the British fleet 75 miles from Iachino — and was ignored", "hq": "Supermarina (Riccardi)" },
+  { "name": "Alexandria — C-in-C Mediterranean", "lat": 31.17, "lon": 29.97, "control": "RN", "kind": "hq", "note": "Cunningham's headquarters; Bletchley's decrypt 'today's the day minus three' arrived on 25 March", "hq": "Admiral Cunningham" }
+ ],
+ "rescues": [
+  { "by": "jervis", "of": "pola", "from": "29 03:14", "to": "29 04:00", "saved": 258, "note": "Jervis lies alongside for 45 minutes and takes off 22 officers and 236 men" },
+  { "by": "greyhound", "of": "zara", "from": "29 09:50", "to": "29 11:00", "saved": 905, "note": "The fleet's destroyers pick up 55 officers and 850 men from Zara, Fiume, Alfieri and Carducci until German aircraft appear; Cunningham signals Rome in clear with the survivors' position" },
+  { "by": "gradisca", "of": "alfieri", "from": "31 21:00", "to": "1941-04-01 12:00", "saved": 160, "note": "The hospital ship Gradisca finds Alfieri's raft at 35°41′N 21°11′E and rescues 13 officers and 147 men" }
+ ],
+ "routing": {
+  "res": 0.03,
+  "bbox": [30.2, 13.25, 41.84, 30.92],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "vittorioveneto": {
+    "hash": "9e3220bc",
+    "snap": {
+     "1": [38.285, 15.605]
+    },
+    "via": {
+     "1": [[40.025, 14.495]],
+     "2": [[38.255, 15.635], [37.985, 15.605]],
+     "11": [[40.445, 17.165]]
+    }
+   },
+   "trieste": {
+    "hash": "b7467236",
+    "snap": {
+     "0": [38.285, 15.605],
+     "10": [38.285, 15.605],
+     "11": [38.285, 15.605]
+    },
+    "via": {
+     "1": [[38.255, 15.635], [37.985, 15.605]],
+     "10": [[37.955, 15.605], [38.285, 15.635]]
+    }
+   },
+   "trento": {
+    "hash": "b7467236",
+    "snap": {
+     "0": [38.285, 15.605],
+     "10": [38.285, 15.605],
+     "11": [38.285, 15.605]
+    },
+    "via": {
+     "1": [[38.255, 15.635], [37.985, 15.605]],
+     "10": [[37.955, 15.605], [38.285, 15.635]]
+    }
+   },
+   "bolzano": {
+    "hash": "b7467236",
+    "snap": {
+     "0": [38.285, 15.605],
+     "10": [38.285, 15.605],
+     "11": [38.285, 15.605]
+    },
+    "via": {
+     "1": [[38.255, 15.635], [37.985, 15.605]],
+     "10": [[37.955, 15.605], [38.285, 15.635]]
+    }
+   },
+   "zara": {
+    "hash": "86b2d694",
+    "via": {
+     "1": [[40.265, 17.165]]
+    }
+   },
+   "fiume": {
+    "hash": "1e7387db",
+    "via": {
+     "1": [[40.265, 17.165]]
+    }
+   },
+   "pola": {
+    "hash": "791ff8d5",
+    "via": {
+     "1": [[40.265, 17.165]]
+    }
+   },
+   "alfieri": {
+    "hash": "867c05f6",
+    "via": {
+     "1": [[40.265, 17.165]]
+    }
+   },
+   "carducci": {
+    "hash": "a047cee1",
+    "via": {
+     "1": [[40.265, 17.165]]
+    }
+   },
+   "oriani": {
+    "hash": "db88767d",
+    "via": {
+     "1": [[40.265, 17.165]],
+     "10": [[40.445, 17.165]]
+    }
+   },
+   "gioberti": {
+    "hash": "db88767d",
+    "via": {
+     "1": [[40.265, 17.165]],
+     "10": [[40.445, 17.165]]
+    }
+   },
+   "abruzzi": {
+    "hash": "dbcdc8fd",
+    "snap": {
+     "0": [40.655, 17.975],
+     "6": [40.655, 17.975],
+     "7": [40.655, 17.975]
+    },
+    "via": {
+     "1": [[40.595, 18.155], [40.145, 18.575]],
+     "6": [[40.205, 18.545], [40.685, 18.005]]
+    }
+   },
+   "garibaldi": {
+    "hash": "dbcdc8fd",
+    "snap": {
+     "0": [40.655, 17.975],
+     "6": [40.655, 17.975],
+     "7": [40.655, 17.975]
+    },
+    "via": {
+     "1": [[40.595, 18.155], [40.145, 18.575]],
+     "6": [[40.205, 18.545], [40.685, 18.005]]
+    }
+   },
+   "gradisca": {
+    "hash": "6133b345",
+    "via": {
+     "1": [[40.385, 17.165]]
+    }
+   },
+   "warspite": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "barham": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "valiant": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "formidable": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "jervis": {
+    "hash": "32e32be3",
+    "snap": {
+     "0": [31.235, 29.885],
+     "13": [31.235, 29.885],
+     "14": [31.235, 29.885]
+    }
+   },
+   "janus": {
+    "hash": "32e32be3",
+    "snap": {
+     "0": [31.235, 29.885],
+     "13": [31.235, 29.885],
+     "14": [31.235, 29.885]
+    }
+   },
+   "nubian": {
+    "hash": "32e32be3",
+    "snap": {
+     "0": [31.235, 29.885],
+     "13": [31.235, 29.885],
+     "14": [31.235, 29.885]
+    }
+   },
+   "mohawk": {
+    "hash": "32e32be3",
+    "snap": {
+     "0": [31.235, 29.885],
+     "13": [31.235, 29.885],
+     "14": [31.235, 29.885]
+    }
+   },
+   "stuart": {
+    "hash": "a44919df",
+    "snap": {
+     "0": [31.235, 29.885],
+     "11": [31.235, 29.885],
+     "12": [31.235, 29.885]
+    }
+   },
+   "havock": {
+    "hash": "e9ec46d1",
+    "snap": {
+     "0": [31.235, 29.885],
+     "13": [31.235, 29.885],
+     "14": [31.235, 29.885]
+    }
+   },
+   "greyhound": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "griffin": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "hotspur": {
+    "hash": "0f8ea3ee",
+    "snap": {
+     "0": [31.235, 29.885],
+     "12": [31.235, 29.885],
+     "13": [31.235, 29.885]
+    }
+   },
+   "orion": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   },
+   "ajax": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   },
+   "perth": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   },
+   "gloucester": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   },
+   "hasty": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   },
+   "hereward": {
+    "hash": "683cce64",
+    "snap": {
+     "14": [31.235, 29.885],
+     "15": [31.235, 29.885]
+    },
+    "via": {
+     "2": [[35.375, 23.495], [34.805, 23.735]]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,824 @@
+{
+ "routing": {
+  "res": 0.02,
+  "bbox": [52.5, -2.3, 69.5, 20],
+  "snap": false,
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "heidkamp": {
+    "hash": "d931e434",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]]
+    }
+   },
+   "schmitt": {
+    "hash": "d931e434",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]]
+    }
+   },
+   "roeder": {
+    "hash": "d931e434",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]]
+    }
+   },
+   "ludemann": {
+    "hash": "8b5975e0",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]]
+    }
+   },
+   "kunne": {
+    "hash": "88680516",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "11": [[68.43, 17.29], [68.49, 17.47]]
+    }
+   },
+   "zenker": {
+    "hash": "97fb4cc1",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "10": [[68.41, 17.03]],
+     "11": [[68.41, 16.33]],
+     "12": [[68.43, 16.47], [68.43, 17.29]],
+     "14": [[68.43, 17.61]]
+    }
+   },
+   "giese": {
+    "hash": "8663a72d",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "10": [[68.41, 17.03]],
+     "11": [[68.41, 16.33]],
+     "12": [[68.43, 16.47], [68.43, 17.29]]
+    }
+   },
+   "koellner": {
+    "hash": "7a86ae96",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "10": [[68.41, 17.03]],
+     "11": [[68.33, 16.87]],
+     "12": [[68.33, 16.89], [68.41, 16.89]]
+    }
+   },
+   "thiele": {
+    "hash": "5d514e44",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "9": [[68.35, 16.89], [68.33, 16.87]],
+     "10": [[68.33, 16.89], [68.41, 17.03]]
+    }
+   },
+   "arnim": {
+    "hash": "cecb70df",
+    "via": {
+     "2": [[60.85, 4.81], [60.97, 4.75], [62.57, 4.87]],
+     "7": [[68.39, 16.27], [68.43, 16.77]],
+     "9": [[68.35, 16.89], [68.33, 16.87]],
+     "10": [[68.33, 16.89], [68.41, 17.03]]
+    }
+   },
+   "scharnhorst": { "hash": "88fd422f" },
+   "gneisenau": { "hash": "88fd422f" },
+   "hipper": {
+    "hash": "bbe449b1",
+    "via": {
+     "1": [[59.99, 4.75], [62.53, 4.83]],
+     "5": [[63.65, 9.75], [63.47, 9.97], [63.47, 10.37]],
+     "7": [[63.49, 10.17], [63.49, 9.91], [63.67, 9.69], [63.65, 9.47]]
+    }
+   },
+   "u64": {
+    "hash": "86c3c9d0",
+    "via": {
+     "1": [[68.37, 16.19], [68.43, 16.65], [68.43, 17.29]]
+    }
+   },
+   "u51": { "hash": "674be0e8" },
+   "janwellem": { "hash": "de998e2a" },
+   "rauenfels": { "hash": "a9e344ba" },
+   "eidsvold": { "hash": "47e408d1" },
+   "norge": { "hash": "41e3ff5f" },
+   "glowworm": { "hash": "06ad342f" },
+   "renown": {
+    "hash": "bdc2b03f",
+    "via": {
+     "1": [[60.73, -1.15]],
+     "4": [[67.83, 13.21]]
+    }
+   },
+   "hardy": {
+    "hash": "0d66863c",
+    "via": {
+     "1": [[60.89, -0.99]],
+     "3": [[67.83, 13.01]],
+     "4": [[67.99, 15.03]],
+     "5": [[68.13, 15.33], [68.43, 16.49]]
+    }
+   },
+   "hunter": {
+    "hash": "64b13b60",
+    "via": {
+     "1": [[60.89, -0.99]],
+     "3": [[67.83, 13.01]],
+     "4": [[67.99, 15.03]],
+     "5": [[68.13, 15.33], [68.43, 16.49]]
+    }
+   },
+   "hotspur": {
+    "hash": "741a2d25",
+    "via": {
+     "1": [[60.89, -0.99]],
+     "3": [[67.83, 13.01]],
+     "4": [[67.99, 15.03]],
+     "5": [[68.13, 15.33], [68.43, 16.49]],
+     "11": [[68.01, 13.49], [68.19, 13.39], [68.15, 13.25]]
+    }
+   },
+   "havock": {
+    "hash": "741a2d25",
+    "via": {
+     "1": [[60.89, -0.99]],
+     "3": [[67.83, 13.01]],
+     "4": [[67.99, 15.03]],
+     "5": [[68.13, 15.33], [68.43, 16.49]],
+     "11": [[68.01, 13.49], [68.19, 13.39], [68.15, 13.25]]
+    }
+   },
+   "hostile": {
+    "hash": "741a2d25",
+    "via": {
+     "1": [[60.89, -0.99]],
+     "3": [[67.83, 13.01]],
+     "4": [[67.99, 15.03]],
+     "5": [[68.13, 15.33], [68.43, 16.49]],
+     "11": [[68.01, 13.49], [68.19, 13.39], [68.15, 13.25]]
+    }
+   },
+   "warspite": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "bedouin": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "cossack": {
+    "hash": "cd5dcdc6",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "9": [[68.41, 16.33], [68.11, 14.55], [68.03, 13.45], [68.17, 13.41], [68.17, 13.27]]
+    }
+   },
+   "eskimo": {
+    "hash": "4d8deba6",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "8": [[68.41, 16.33], [68.17, 14.91], [68.03, 13.45], [68.17, 13.41], [68.17, 13.27]]
+    }
+   },
+   "punjabi": {
+    "hash": "6592ca01",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "8": [[68.41, 16.33], [68.11, 14.55], [68.03, 13.45], [68.17, 13.41], [68.17, 13.27]]
+    }
+   },
+   "kimberley": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "hero": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "icarus": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "forester": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   },
+   "foxhound": {
+    "hash": "f478cf6c",
+    "via": {
+     "4": [[68.43, 16.57]],
+     "7": [[68.43, 17.61]],
+     "8": [[68.43, 17.59]],
+     "10": [[68.41, 16.33], [68.35, 16.19]]
+    }
+   }
+  }
+ },
+ "id": "narvik",
+ "title": "The Battles of Narvik",
+ "subtitle": "Norway · 7–14 April 1940",
+ "base": [1940, 3],
+ "start": "07 00:00",
+ "end": "14 12:00",
+ "tz": "Norwegian / British time · UTC+1",
+ "utcOffset": 1,
+ "majorDays": [10, 13],
+ "view": {
+  "center": [66.5, 10],
+  "zoom": 5,
+  "min": 4,
+  "max": 13
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["heidkamp", "thiele", "hardy", "warspite", "eskimo", "cossack", "renown", "glowworm", "hipper", "eidsvold", "u64"],
+ "scenes": [
+  ["Overview", "10 05:00", [66.5, 10], 5],
+  ["Glowworm", "08 10:15", [64.2, 6.5], 8],
+  ["Renown off Lofoten", "09 04:05", [67.4, 9.7], 7],
+  ["Narvik seized", "09 04:40", [68.43, 17.37], 11],
+  ["First battle — the harbour", "10 04:40", [68.43, 17.35], 12],
+  ["First battle — the retreat", "10 06:10", [68.41, 17.05], 11],
+  ["Warspite enters", "13 12:30", [68.4, 16.5], 9],
+  ["Second battle", "13 14:00", [68.44, 17.3], 10],
+  ["Rombaksfjord", "13 16:30", [68.43, 17.75], 11]
+ ],
+ "defaultTime": "10 04:40",
+ "footnote": "Norwegian and British time (UTC+1; German war diaries run an hour ahead). Wreck positions from the Narvik dive-site surveys and the London Gazette despatches (Hardy's beaching point, Rauenfels, U-64); the fjord fighting between them is reconstructed minute by minute from the despatches. Tracks across the Norwegian Sea are schematic. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "group1": { "name": "KM Group 1 — Narvik destroyers (Bonte)", "color": "#e5484d", "nation": "KM" },
+  "lutjens": { "name": "KM Covering Force (Lütjens)", "color": "#f97316", "nation": "KM" },
+  "hipper": { "name": "KM Group 2 — Trondheim (Heye)", "color": "#eab308", "nation": "KM" },
+  "ubootwaffe": { "name": "KM U-boats (Operation Hartmut)", "color": "#9ca3af", "nation": "KM" },
+  "supply": { "name": "KM Supply ships", "color": "#a3a3a3", "nation": "KM" },
+  "rnn": { "name": "RNoN 3rd Naval District (Askim)", "color": "#b91c1c", "nation": "RNN" },
+  "2df": { "name": "RN 2nd Destroyer Flotilla (Warburton-Lee)", "color": "#3b82f6", "nation": "RN" },
+  "whitworth": { "name": "RN Battle Cruiser Squadron (Whitworth)", "color": "#06b6d4", "nation": "RN" },
+  "forceb": { "name": "RN Force B — Warspite (Whitworth)", "color": "#22c55e", "nation": "RN" },
+  "glowworm": { "name": "RN HMS Glowworm (Roope)", "color": "#a855f7", "nation": "RN" }
+ },
+ "schema": 1,
+ "routes": {
+  "group1": [["07 00:00", 53.9, 7.9, "Ten destroyers with 2,000 mountain troops embarked, sailed from the Weser overnight with Group 2 and the battleships", "R"], ["07 13:25", 56.8, 5.5, "Twelve Blenheims attack — no hits", "R"], ["08 08:00", 64.2, 6.5, "Bernd von Arnim and Hans Lüdemann brush with Glowworm in the gale", "R"], ["08 12:00", 65.5, 7.5, "The groups part; Group 1 heads for Vestfjord", "R"], ["08 22:00", 67.6, 12.5, "Vestfjord entrance", "R"], ["09 02:00", 68.19, 15.61, "Tranøy; Norwegian patrol boats captured", "R"], ["09 03:00", 68.36, 16.2, "Enters Ofotfjord at Barøy in driving snow; Roeder left as picket, Lüdemann and Schmitt land troops at Ramnes", "R"], ["09 04:15", 68.43, 17.37, "Off Narvik; Eidsvold challenges — a parley, then Heidkamp's torpedoes", "S"]],
+  "lutjens": [["07 00:00", 53.9, 7.9, "Scharnhorst and Gneisenau cover the northern groups", "R"], ["08 12:00", 65.5, 7.5], ["09 03:37", 67.4, 9.8, "Renown sighted in the murk", "R"], ["09 04:05", 67.367, 9.7, "Action off Lofoten: Gneisenau's fire control knocked out", "S"], ["09 06:15", 67.8, 8.8, "Breaks off north-west at 28 knots into the storm", "R"], ["10 12:00", 70.5, 3, "Far out in the Norwegian Sea", "R"], ["12 20:00", 53.55, 8.1, "Back at Wilhelmshaven", "R"], ["14 12:00", 53.55, 8.1]],
+  "hipper": [["07 00:00", 53.9, 7.9, "Hipper and four destroyers for Trondheim", "R"], ["08 09:58", 64.217, 6.467, "Sights Glowworm; opens fire at 8,400 m", "S"], ["08 10:24", 64.22, 6.5, "Rammed abaft the starboard anchor — 500 tons of flooding", "S"], ["08 12:00", 64.5, 7.5], ["09 03:00", 63.65, 9.45, "Trondheimsfjord entrance", "R"], ["09 05:00", 63.43, 10.4, "Bluffs past the forts into Trondheim with British recognition signals", "R"], ["10 12:00", 63.43, 10.4, "Sails for Germany", "R"], ["10 15:00", 63.65, 9.45], ["12 12:00", 53.52, 8.13, "Wilhelmshaven", "R"], ["14 12:00", 53.52, 8.13]],
+  "glowworm": [["07 00:00", 60.9, 0.5, "Escorting Renown", "R"], ["07 12:00", 61.5, 1.5, "Detached to search for a man overboard", "R"], ["08 07:15", 64.1, 6.3, "Meets Hans Lüdemann, then Bernd von Arnim", "R"], ["08 10:24", 64.217, 6.467, "Rams Hipper and blows up — 109 lost. Roope's VC is recommended by Hipper's captain", "S"]],
+  "2df": [["07 04:00", 60.46, -1.28, "Hardy, Hunter, Havock, Hotspur sail from Sullom Voe with the minelayers", "S"], ["08 05:00", 67.6, 14, "Minefield laid in Vestfjord off Hovden, 04:32–05:29", "R"], ["09 04:05", 67.5, 10, "Falls behind Renown in the gale; ordered to guard the Vestfjord entrance", "R"], ["09 16:00", 68.19, 15.61, "Hostile joins; the Tranøy pilots report 'six destroyers and a submarine' at Narvik", "S"], ["09 21:00", 67.95, 15, "Steams west to time a dawn arrival — U-51 takes it for a withdrawal", "R"], ["10 04:15", 68.42, 17.25, "Off Narvik after fifty miles of blinding snow; visibility two cables", "R"], ["10 04:30", 68.43, 17.37, "Hardy fires seven torpedoes into the harbour: Heidkamp's stern blown off, Bonte killed", "S"], ["10 05:40", 68.42, 17.2, "Third pass complete; withdrawing at 30 knots — three destroyers sighted from Herjangsfjord", "R"], ["10 05:58", 68.4, 17.05, "Thiele and Arnim cross ahead from Ballangen at 4,000 m", "R"], ["10 07:00", 68.39, 16.7, "Hotspur conned from aft, Hostile covering", "R"], ["10 08:00", 68.408, 16.467, "The ammunition ship Rauenfels stopped and blown up by Havock", "S"], ["10 16:40", 68.05, 13.27, "Skjelfjord anchorage; Penelope's repair base", "S"], ["14 12:00", 68.05, 13.27]],
+  "whitworth": [["07 04:00", 60.5, -1.2, "Renown covering the minelayers", "R"], ["08 17:15", 67.41, 11.87, "Rendezvous off Skomvær light", "S"], ["09 04:05", 67.367, 9.7, "Opens fire at 04:05 in a snowstorm; three hits on Gneisenau, two unexploded 11-inch on Renown", "S"], ["09 06:15", 67.6, 9, "Action broken off", "R"], ["10 12:00", 67.9, 13.5, "Patrols the Vestfjord approaches", "R"], ["13 07:30", 67.733, 13.367, "Whitworth shifts his flag to Warspite", "S"], ["14 12:00", 67.7, 13]],
+  "forceb": [["12 07:30", 66.45, 6, "Warspite detached from the Home Fleet with nine destroyers", "S"], ["13 07:30", 67.733, 13.367, "Rendezvous 67°44′N 13°22′E; Whitworth embarks", "S"], ["13 10:45", 68.19, 15.61, "Eskimo joins; a U-boat sighted and driven down", "R"], ["13 11:52", 68.33, 16.05, "Swordfish catapulted five miles west of Barøy", "R"], ["13 12:59", 68.4, 16.75, "Opens fire on Koellner at Djupvik", "R"], ["13 14:00", 68.42, 17.15, "Running fight in the wide fjord; Roeder's shells hit Cossack", "R"], ["13 15:00", 68.44, 17.5, "Into Rombaksfjord behind the destroyers", "R"], ["13 15:30", 68.45, 17.62], ["13 18:32", 68.42, 17, "Withdraws down the fjord — 'All German destroyers sunk'", "R"], ["14 02:50", 68.43, 17.35, "Returns to Narvik overnight to embark the wounded", "R"], ["14 12:00", 68.3, 16.2]],
+  "eidsvold": [["07 00:00", 68.43, 17.37, "Coast-defence ship Eidsvold guards Narvik", "S"]],
+  "norge": [["07 00:00", 68.43, 17.39, "Coast-defence ship Norge in the harbour", "S"]],
+  "u64": [["11 12:00", 68.3, 16.1, "Arrives in Vestfjord for Operation Hartmut", "R"], ["13 09:00", 68.5, 17.48, "Into Herjangsfjord", "R"], ["13 12:05", 68.483, 17.5, "Bombed by Warspite's Swordfish while hove-to off Bjerkvik — the first U-boat sunk by an aircraft", "S"]],
+  "u51": [["08 12:00", 67.8, 13.5, "Patrolling the Vestfjord approaches", "R"], ["09 20:22", 68.1, 15, "Sights the 2nd Flotilla steering west — reports a withdrawal", "R"], ["10 09:00", 68.2, 15.8, "Attacks the retiring flotilla; every torpedo fails", "R"], ["14 12:00", 67.9, 14]],
+  "janwellem": [["07 00:00", 71.2, 26, "Whaling tanker from 'Basis Nord' near Murmansk", "R"], ["08 12:00", 68.428, 17.385, "Narvik: the only tanker to arrive; seven hours to fuel two destroyers", "S"]],
+  "rauenfels": [["07 00:00", 61, 4, "Ammunition and artillery ship, late", "R"], ["10 08:00", 68.408, 16.467, "Stopped by Hostile, boarded and blown up by Havock at the fjord entrance", "S"]]
+ },
+ "groups": {
+  "group1": "Bonte",
+  "lutjens": "Lütjens",
+  "hipper": "Hipper",
+  "glowworm": "Glowworm",
+  "2df": "2nd Flotilla",
+  "whitworth": "Renown",
+  "forceb": "Warspite",
+  "eidsvold": "Eidsvold",
+  "norge": "Norge",
+  "u64": "U-64",
+  "u51": "U-51",
+  "janwellem": "Jan Wellem",
+  "rauenfels": "Rauenfels"
+ },
+ "commanders": {
+  "group1": { "name": "Kommodore Friedrich Bonte", "role": "Führer der Zerstörer — Group 1", "flagship": "Wilhelm Heidkamp", "bio": "Brought ten destroyers and 2,000 mountain troops 1,200 miles through a gale to take Narvik in a morning. Kept his flagship in the harbour that night at Dietl's request, trusting a picket that went home at dawn.", "fate": "Killed in Heidkamp by Hardy's torpedo, 10 April 1940; Erich Bey took over.", "wiki": "Friedrich_Bonte" },
+  "lutjens": { "name": "Vizeadmiral Günther Lütjens", "role": "Commander, Covering Force", "flagship": "Gneisenau", "bio": "Drew Renown off into the storm on 9 April with the two battleships — and thereby uncovered Vestfjord. A year later he would take Bismarck into the Atlantic.", "fate": "Lost with Bismarck, 27 May 1941.", "wiki": "Günther_Lütjens" },
+  "hipper": { "name": "Kapitän zur See Hellmuth Heye", "role": "Commanding Officer, Admiral Hipper — Group 2", "flagship": "Admiral Hipper", "bio": "Sank Glowworm after she rammed him, then wrote through the Red Cross recommending her captain for the Victoria Cross. Took Trondheim the next morning by bluff.", "fate": "Survived the war; later a Bundestag member and Wehrbeauftragter.", "wiki": "Hellmuth_Heye" },
+  "glowworm": { "name": "Lieutenant-Commander Gerard Roope", "role": "Commanding Officer, HMS Glowworm", "flagship": "HMS Glowworm", "bio": "Detached to look for a man overboard, met two German destroyers and then the Hipper; fired his torpedoes, laid smoke and rammed. 109 of his crew died with him.", "fate": "Victoria Cross, gazetted July 1945 — on the enemy's recommendation.", "wiki": "Gerard_Broadmead_Roope" },
+  "2df": { "name": "Captain Bernard Warburton-Lee", "role": "Captain (D), 2nd Destroyer Flotilla", "flagship": "HMS Hardy", "bio": "Told there were six destroyers and a submarine in Narvik, he signalled 'intend attacking at dawn' and went in with five ships through fifty miles of snow. Sank two destroyers and six merchantmen for the loss of Hardy and Hunter — and his own life.", "fate": "Mortally wounded on Hardy's bridge; the first Victoria Cross of the war.", "wiki": "Bernard_Warburton-Lee" },
+  "forceb": { "name": "Vice-Admiral William Whitworth", "role": "Vice-Admiral, Battle Cruiser Squadron", "flagship": "HMS Renown, then HMS Warspite", "bio": "Fought Scharnhorst and Gneisenau off Lofoten in Renown, then took Warspite up Ofotfjord on 13 April behind nine destroyers and her own Swordfish and destroyed every German ship left. Recommended an immediate landing — which came six weeks late.", "fate": "Second Sea Lord 1941–44; died 1973.", "wiki": "William_Whitworth_(Royal_Navy_officer)" },
+  "eidsvold": { "name": "Kaptein Odd Isaachsen Willoch", "role": "Commanding Officer, HNoMS Eidsvold", "flagship": "HNoMS Eidsvold", "bio": "Challenged the German flagship, received her emissary, and refused to surrender. Heidkamp's torpedoes were fired while the parley boat was still pulling away.", "fate": "Killed with 174 of his crew, 9 April 1940." },
+  "norge": { "name": "Kaptein Per Askim", "role": "Commanding Officer, HNoMS Norge — senior officer, Ofotfjord", "flagship": "HNoMS Norge", "bio": "Opened fire on Bernd von Arnim alongside the pier at 800 metres; in the snow and dark every salvo went over, and seven torpedoes answered.", "fate": "Survived; interned by Sweden, later in London with the Free Norwegian forces." },
+  "u64": { "name": "Kapitänleutnant Georg-Wilhelm Schulz", "role": "Commanding Officer, U-64", "flagship": "U-64", "bio": "Arrived in Vestfjord on 11 April and was caught on the surface off Bjerkvik by Warspite's Swordfish two days later — the first submarine ever sunk by an aircraft.", "fate": "Survived; later commanded U-124; died 1986." }
+ },
+ "ships": [
+  {
+   "id": "heidkamp",
+   "name": "Wilhelm Heidkamp",
+   "force": "group1",
+   "type": "Destroyer (Bonte flagship)",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z21_Wilhelm_Heidkamp",
+   "sunk": "11 06:00",
+   "sunkBy": "Hardy's torpedo; capsized next morning",
+   "lost": 81
+  },
+  {
+   "id": "schmitt",
+   "name": "Anton Schmitt",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z22_Anton_Schmitt",
+   "sunk": "10 04:35",
+   "sunkBy": "Two torpedoes from Hunter and Havock",
+   "lost": 50
+  },
+  {
+   "id": "roeder",
+   "name": "Diether von Roeder",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z17_Diether_von_Roeder",
+   "sunk": "13 15:20",
+   "sunkBy": "Disabled by Hostile 10 April; blown up at the pier as Foxhound closed",
+   "lost": 13
+  },
+  {
+   "id": "ludemann",
+   "name": "Hans Lüdemann",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z18_Hans_L%C3%BCdemann",
+   "until": "09 04:15",
+   "extra": [["13 14:30", 68.44, 17.5, "Into Rombaksfjord with Bey", "R"], ["13 17:00", 68.4146, 17.8935, "Boarded by Hero and Icarus at Rombaksbotn, then torpedoed", "S"]],
+   "sunk": "13 17:00",
+   "sunkBy": "Scuttled at Rombaksbotn; torpedoed by Hero",
+   "lost": 2
+  },
+  {
+   "id": "kunne",
+   "name": "Hermann Künne",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z19_Hermann_K%C3%BCnne",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.545, 17.59, "Lands mountain troops at Elvegårdsmoen", "R"], ["10 03:00", 68.428, 17.385, "Alongside Jan Wellem; turbines shaken loose by Schmitt's explosion", "R"], ["13 12:03", 68.42, 16.7, "Sighted steering west — the first contact of the day", "R"], ["13 14:13", 68.523, 17.423, "Missed the retreat signal; beached at Trollvika with her ammunition gone and torpedoed by Eskimo", "S"]],
+   "sunk": "13 14:13",
+   "sunkBy": "Beached; torpedoed by Eskimo",
+   "lost": 9
+  },
+  {
+   "id": "zenker",
+   "name": "Wolfgang Zenker",
+   "force": "group1",
+   "type": "Destroyer (Bey, 4th Flotilla)",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z9_Wolfgang_Zenker",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.545, 17.59, "Lands the Gebirgsjäger at Elvegårdsmoen", "R"], ["10 05:40", 68.47, 17.36, "Sorties from Herjangsfjord at the alarm", "R"], ["10 06:30", 68.41, 17, "Pursues the British flotilla", "R"], ["10 22:05", 68.19, 15.61, "Breakout attempt with Giese; turns back on sighting Penelope's force", "R"], ["11 06:00", 68.47, 17.36, "Propeller damaged on the rocks", "R"], ["13 14:00", 68.42, 17.2, "Running fight; torpedoes fired at Warspite miss", "R"], ["13 15:00", 68.45, 17.6, "Retreats into Rombaksfjord", "R"], ["13 17:00", 68.4168, 17.896, "Scuttled at Rombaksbotn", "S"]],
+   "sunk": "13 17:00",
+   "sunkBy": "Scuttled at Rombaksbotn",
+   "lost": 0
+  },
+  {
+   "id": "giese",
+   "name": "Erich Giese",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z12_Erich_Giese",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.545, 17.59], ["10 05:40", 68.47, 17.36], ["10 06:30", 68.41, 17], ["10 22:05", 68.19, 15.61], ["11 06:00", 68.47, 17.36], ["13 12:00", 68.43, 17.36, "In the harbour, short of fuel", "R"], ["13 14:05", 68.43, 17.35, "Sorties from the harbour mouth with steam for 20 knots; hit twenty times", "R"], ["13 23:30", 68.4307, 17.3479, "Burns out and sinks off Ankenes — 83 killed", "S"]],
+   "sunk": "13 23:30",
+   "sunkBy": "Bedouin, Punjabi and Warspite gunfire",
+   "lost": 83
+  },
+  {
+   "id": "koellner",
+   "name": "Erich Koellner",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z13_Erich_Koellner",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.545, 17.59], ["10 05:40", 68.47, 17.36], ["10 06:30", 68.41, 17], ["12 02:00", 68.35, 16.85, "Holed on the rocks moving to Ballangen", "R"], ["13 12:45", 68.4, 16.82, "Lying in ambush at Djupvik — reported by Warspite's Swordfish", "S"], ["13 13:10", 68.4, 16.82, "Torpedoed by Bedouin and Punjabi, then Warspite's 15-inch; scuttled — 31 killed", "S"]],
+   "sunk": "13 13:10",
+   "sunkBy": "Bedouin, Punjabi and Warspite",
+   "lost": 31
+  },
+  {
+   "id": "thiele",
+   "name": "Georg Thiele",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z2_Georg_Thiele",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.43, 17.37, "Off Narvik; Arnim sinks Norge", "R"], ["09 20:00", 68.36, 16.85, "Fuelled from Jan Wellem; anchors in Ballangen bay", "R"], ["10 05:58", 68.41, 17.05, "Crosses the T of the retiring British flotilla at 4,000 m", "R"], ["10 06:30", 68.4, 16.9], ["10 12:00", 68.428, 17.385, "Back to Narvik", "R"], ["13 14:30", 68.44, 17.5], ["13 14:50", 68.46, 17.66, "Torpedo blows Eskimo's bow off in the Straumen narrows", "R"], ["13 15:00", 68.408, 17.812, "Out of ammunition, driven aground at Sildvik; breaks in two — 14 killed", "S"]],
+   "sunk": "13 15:00",
+   "sunkBy": "Run aground at Sildvik under fire",
+   "lost": 14
+  },
+  {
+   "id": "arnim",
+   "name": "Bernd von Arnim",
+   "force": "group1",
+   "type": "Destroyer",
+   "route": "group1",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z11_Bernd_von_Arnim",
+   "until": "09 04:15",
+   "extra": [["09 06:00", 68.43, 17.37], ["09 20:00", 68.36, 16.85], ["10 05:58", 68.41, 17.05], ["10 06:30", 68.4, 16.9], ["10 12:00", 68.428, 17.385], ["13 14:30", 68.44, 17.5], ["13 15:30", 68.45, 17.75], ["13 17:00", 68.4161, 17.8946, "Scuttled at Rombaksbotn", "S"]],
+   "sunk": "13 17:00",
+   "sunkBy": "Scuttled at Rombaksbotn",
+   "lost": 0
+  },
+  { "id": "scharnhorst", "name": "Scharnhorst", "force": "lutjens", "type": "Battleship", "route": "lutjens", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Scharnhorst" },
+  { "id": "gneisenau", "name": "Gneisenau", "force": "lutjens", "type": "Battleship (Lütjens flagship)", "route": "lutjens", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Gneisenau" },
+  { "id": "hipper", "name": "Admiral Hipper", "force": "hipper", "type": "Heavy cruiser", "route": "hipper", "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Hipper" },
+  {
+   "id": "u64",
+   "name": "U-64",
+   "force": "ubootwaffe",
+   "type": "Type IXB U-boat",
+   "route": "u64",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-64_(1939)",
+   "sunk": "13 12:05",
+   "sunkBy": "Warspite's Swordfish — two 100-lb bombs",
+   "lost": 8
+  },
+  { "id": "u51", "name": "U-51", "force": "ubootwaffe", "type": "Type VIIB U-boat", "route": "u51", "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-51_(1938)" },
+  { "id": "janwellem", "name": "Jan Wellem", "force": "supply", "type": "Tanker (whaling ship)", "route": "janwellem", "wiki": "https://en.wikipedia.org/wiki/Jan_Wellem" },
+  { "id": "rauenfels", "name": "Rauenfels", "force": "supply", "type": "Merchant ship — ammunition and artillery", "route": "rauenfels", "sunk": "10 08:00", "sunkBy": "Havock", "lost": 0 },
+  {
+   "id": "eidsvold",
+   "name": "HNoMS Eidsvold",
+   "force": "rnn",
+   "type": "Coast-defence ship (Kaptein Willoch)",
+   "route": "eidsvold",
+   "wiki": "https://en.wikipedia.org/wiki/HNoMS_Eidsvold",
+   "sunk": "09 04:37",
+   "sunkBy": "Two torpedoes from Wilhelm Heidkamp during a parley",
+   "lost": 175
+  },
+  {
+   "id": "norge",
+   "name": "HNoMS Norge",
+   "force": "rnn",
+   "type": "Coast-defence ship (Kaptein Askim)",
+   "route": "norge",
+   "wiki": "https://en.wikipedia.org/wiki/HNoMS_Norge",
+   "sunk": "09 05:00",
+   "sunkBy": "Torpedoes from Bernd von Arnim after a one-minute gun duel",
+   "lost": 101
+  },
+  {
+   "id": "glowworm",
+   "name": "HMS Glowworm",
+   "force": "glowworm",
+   "type": "Destroyer (Lt Cdr Roope)",
+   "route": "glowworm",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Glowworm_(H92)",
+   "sunk": "08 10:24",
+   "sunkBy": "Admiral Hipper's gunfire after ramming her",
+   "lost": 109
+  },
+  { "id": "renown", "name": "HMS Renown", "force": "whitworth", "type": "Battlecruiser (Whitworth flagship)", "route": "whitworth", "wiki": "https://en.wikipedia.org/wiki/HMS_Renown_(1916)" },
+  {
+   "id": "hardy",
+   "name": "HMS Hardy",
+   "force": "2df",
+   "type": "Destroyer (Capt Warburton-Lee, D2)",
+   "route": "2df",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hardy_(H87)",
+   "until": "10 05:58",
+   "extra": [["10 06:15", 68.383, 17.1, "Bridge hit; Warburton-Lee mortally wounded — Paymaster Lt Stanning beaches her at Vidrek", "S"]],
+   "sunk": "10 06:15",
+   "sunkBy": "Gunfire from Thiele and Arnim; beached",
+   "lost": 19
+  },
+  {
+   "id": "hunter",
+   "name": "HMS Hunter",
+   "force": "2df",
+   "type": "Destroyer",
+   "route": "2df",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hunter_(H35)",
+   "until": "10 05:58",
+   "extra": [["10 06:20", 68.4147, 17.1728, "Torpedoed, then rammed by the steering-damaged Hotspur; capsizes", "S"]],
+   "sunk": "10 06:20",
+   "sunkBy": "Georg Thiele's torpedo and collision with Hotspur",
+   "lost": 112
+  },
+  { "id": "hotspur", "name": "HMS Hotspur", "force": "2df", "type": "Destroyer (Cdr Layman)", "route": "2df", "wiki": "https://en.wikipedia.org/wiki/HMS_Hotspur_(H01)" },
+  { "id": "havock", "name": "HMS Havock", "force": "2df", "type": "Destroyer", "route": "2df", "wiki": "https://en.wikipedia.org/wiki/HMS_Havock_(H43)" },
+  { "id": "hostile", "name": "HMS Hostile", "force": "2df", "type": "Destroyer", "route": "2df", "wiki": "https://en.wikipedia.org/wiki/HMS_Hostile_(H55)" },
+  { "id": "warspite", "name": "HMS Warspite", "force": "forceb", "type": "Battleship (Whitworth flagship from 13 April)", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)" },
+  { "id": "bedouin", "name": "HMS Bedouin", "force": "forceb", "type": "Tribal-class destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Bedouin_(F67)" },
+  {
+   "id": "cossack",
+   "name": "HMS Cossack",
+   "force": "forceb",
+   "type": "Tribal-class destroyer (Cdr Sherbrooke)",
+   "route": "forceb",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Cossack_(F03)",
+   "until": "13 14:15",
+   "extra": [["13 14:22", 68.42, 17.36, "Seven hits from Roeder in two minutes; steering gone, aground near Ankenes — 9 killed", "R"], ["14 03:26", 68.425, 17.35, "Refloated alongside Warspite", "R"], ["14 12:00", 68.05, 13.27, "To Skjelfjord stern first", "R"]]
+  },
+  {
+   "id": "eskimo",
+   "name": "HMS Eskimo",
+   "force": "forceb",
+   "type": "Tribal-class destroyer",
+   "route": "forceb",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Eskimo_(F75)",
+   "until": "13 14:50",
+   "extra": [["13 14:50", 68.46, 17.66, "Bow blown off forward of the bridge by Thiele's torpedo — 15 killed", "R"], ["14 12:00", 68.05, 13.27, "Towed stern-first to Skjelfjord", "R"]]
+  },
+  {
+   "id": "punjabi",
+   "name": "HMS Punjabi",
+   "force": "forceb",
+   "type": "Tribal-class destroyer",
+   "route": "forceb",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Punjabi_(F21)",
+   "until": "13 14:17",
+   "extra": [["13 14:30", 68.4, 17, "Seven hits from Giese; withdraws past Warspite with 7 killed", "R"], ["14 12:00", 68.05, 13.27]]
+  },
+  { "id": "kimberley", "name": "HMS Kimberley", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Kimberley_(F50)" },
+  { "id": "hero", "name": "HMS Hero", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Hero_(H99)" },
+  { "id": "icarus", "name": "HMS Icarus", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Icarus_(D03)" },
+  { "id": "forester", "name": "HMS Forester", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Forester_(H74)" },
+  { "id": "foxhound", "name": "HMS Foxhound", "force": "forceb", "type": "Destroyer", "route": "forceb", "wiki": "https://en.wikipedia.org/wiki/HMS_Foxhound_(H69)" }
+ ],
+ "strikes": [
+  {
+   "id": "b1",
+   "name": "RAF Blenheims attack Group 1",
+   "nation": "RN",
+   "from": { "lat": 57.7, "lon": -3.3 },
+   "target": { "ship": "heidkamp" },
+   "launch": "07 11:00",
+   "arrive": "07 13:25",
+   "leave": "07 13:35",
+   "recover": "07 16:00",
+   "count": 12,
+   "note": "Twelve Blenheims from Lossiemouth find the German fleet in the Bight — no hits, and the sighting is misread in London",
+   "land": true
+  },
+  {
+   "id": "f1",
+   "name": "Furious's Swordfish strike Narvik",
+   "nation": "RN",
+   "from": { "lat": 67.5, "lon": 12.5 },
+   "target": { "ship": "roeder" },
+   "launch": "13 07:47",
+   "arrive": "13 10:00",
+   "leave": "13 10:30",
+   "recover": "13 12:30",
+   "count": 10,
+   "note": "Ten Swordfish with 250-lb bombs from Furious, cruising off Lofoten; no hits, two lost"
+  },
+  {
+   "id": "f2",
+   "name": "Warspite's Swordfish",
+   "nation": "RN",
+   "from": { "route": "forceb" },
+   "target": { "ship": "u64" },
+   "launch": "13 11:52",
+   "arrive": "13 12:05",
+   "leave": "13 13:00",
+   "recover": "13 14:00",
+   "count": 1,
+   "note": "PO Rice, Lt Cdr Brown and L/A Pacey: sink U-64 with two 100-lb bombs off Bjerkvik and report Koellner waiting in ambush at Djupvik"
+  },
+  {
+   "id": "g1",
+   "name": "Luftwaffe attacks Force B",
+   "nation": "KM",
+   "from": { "lat": 63.46, "lon": 10.92 },
+   "target": { "ship": "warspite" },
+   "launch": "13 16:30",
+   "arrive": "13 18:00",
+   "leave": "13 18:20",
+   "recover": "13 20:00",
+   "count": 12,
+   "note": "Twelve aircraft from Værnes at 18:00 — no damage",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  { "from": "heidkamp", "to": "eidsvold", "t": "09 04:37", "n": 4, "run": 1, "hit": true, "note": "Fired at 700 m while Kapitän Willoch is still refusing to surrender; two hits — 175 of 183 die" },
+  { "from": "arnim", "to": "norge", "t": "09 04:55", "n": 7, "run": 1, "hit": true, "note": "Norge's 21-cm salvoes fly over Arnim alongside the pier; the last pair of seven torpedoes hit and she sinks in under a minute" },
+  { "from": "hardy", "to": "heidkamp", "t": "10 04:30", "n": 7, "run": 1, "hit": true, "note": "One blows off Heidkamp's stern above the after magazine; Kommodore Bonte killed" },
+  { "from": "hunter", "to": "schmitt", "t": "10 04:33", "n": 8, "run": 1, "hit": true, "note": "Schmitt hit twice, breaks in half" },
+  { "from": "havock", "to": "schmitt", "t": "10 04:35", "n": 5, "run": 1, "hit": true, "note": null },
+  { "from": "hotspur", "to": "janwellem", "t": "10 04:50", "n": 4, "run": 1, "hit": false, "note": "Four torpedoes into the harbour sink two merchantmen; the tanker survives" },
+  { "from": "thiele", "to": "hunter", "t": "10 06:10", "n": 4, "run": 1, "hit": true, "note": "Hunter torpedoed and lost way; Hotspur, steering hit, rams her" },
+  { "from": "u51", "to": "havock", "t": "10 09:00", "n": 2, "run": 1, "hit": false, "note": "Magnetic pistols fail — as they do for every U-boat in the fjords" },
+  { "from": "bedouin", "to": "koellner", "t": "13 13:05", "n": 4, "run": 1, "hit": true, "note": "Bedouin and Punjabi from 2,500 m; Warspite's 15-inch follow" },
+  { "from": "zenker", "to": "warspite", "t": "13 14:05", "n": 4, "run": 1, "hit": false, "note": "Five tracks pass Warspite" },
+  { "from": "eskimo", "to": "kunne", "t": "13 14:13", "n": 1, "run": 1, "hit": true, "note": "Blows the stern off the beached wreck" },
+  { "from": "thiele", "to": "eskimo", "t": "13 14:50", "n": 1, "run": 1, "hit": true, "note": "Thiele's last torpedo takes Eskimo's bow off in the Straumen narrows" },
+  { "from": "hero", "to": "ludemann", "t": "13 17:00", "n": 1, "run": 1, "hit": true, "note": "After boarding" }
+ ],
+ "engagements": [
+  {
+   "ships": ["hipper"],
+   "from": "08 09:58",
+   "to": "08 10:24",
+   "rate": 0.6,
+   "note": "8-inch guns at 8,400 m",
+   "targets": ["glowworm"]
+  },
+  {
+   "ships": ["glowworm"],
+   "from": "08 10:00",
+   "to": "08 10:24",
+   "rate": 0.5,
+   "note": "Fires torpedoes, then rams",
+   "targets": ["hipper"]
+  },
+  {
+   "ships": ["renown"],
+   "from": "09 04:05",
+   "to": "09 06:15",
+   "rate": 0.4,
+   "note": "230 rounds of 15-inch in a snowstorm; three hits on Gneisenau",
+   "targets": ["gneisenau", "scharnhorst"]
+  },
+  {
+   "ships": ["scharnhorst", "gneisenau"],
+   "from": "09 04:11",
+   "to": "09 06:15",
+   "rate": 0.4,
+   "note": "Two unexploded 11-inch hits on Renown",
+   "targets": ["renown"]
+  },
+  {
+   "ships": ["norge"],
+   "from": "09 04:45",
+   "to": "09 05:00",
+   "rate": 0.5,
+   "note": "Four 21-cm and seven 15-cm at 800 m — every salvo over",
+   "targets": ["arnim"]
+  },
+  {
+   "ships": ["arnim"],
+   "from": "09 04:45",
+   "to": "09 05:00",
+   "rate": 0.5,
+   "targets": ["norge"]
+  },
+  {
+   "ships": ["hardy", "hunter", "havock", "hotspur", "hostile"],
+   "from": "10 04:30",
+   "to": "10 05:35",
+   "rate": 0.55,
+   "note": "Three passes across the harbour mouth",
+   "targets": ["heidkamp", "schmitt", "roeder", "ludemann", "kunne"]
+  },
+  {
+   "ships": ["roeder", "ludemann", "kunne"],
+   "from": "10 04:35",
+   "to": "10 05:35",
+   "rate": 0.4,
+   "note": "Roeder duels Hostile until immobilised",
+   "targets": ["hostile", "hardy", "hotspur"]
+  },
+  {
+   "ships": ["zenker", "giese", "koellner"],
+   "from": "10 05:45",
+   "to": "10 06:30",
+   "rate": 0.45,
+   "note": "From Herjangsfjord, astern of the British",
+   "targets": ["hotspur", "hostile", "havock"]
+  },
+  {
+   "ships": ["thiele", "arnim"],
+   "from": "10 05:58",
+   "to": "10 06:30",
+   "rate": 0.6,
+   "note": "Cross the T at 4,000 m — Hardy's bridge wrecked, Hunter sunk",
+   "targets": ["hardy", "hunter", "hotspur"]
+  },
+  {
+   "ships": ["hardy", "hunter", "hotspur", "havock", "hostile"],
+   "from": "10 05:58",
+   "to": "10 06:30",
+   "rate": 0.5,
+   "targets": ["thiele", "arnim"]
+  },
+  {
+   "ships": ["warspite", "bedouin", "punjabi", "eskimo"],
+   "from": "13 12:59",
+   "to": "13 13:15",
+   "rate": 0.6,
+   "note": "Koellner ambushed in her own ambush",
+   "targets": ["koellner"]
+  },
+  {
+   "ships": ["zenker", "arnim", "ludemann", "kunne", "thiele"],
+   "from": "13 13:20",
+   "to": "13 14:30",
+   "rate": 0.45,
+   "note": "Bey's four, then five, destroyers fight a running action down the fjord",
+   "targets": ["bedouin", "punjabi", "eskimo", "cossack", "warspite"]
+  },
+  {
+   "ships": ["warspite", "bedouin", "punjabi", "eskimo", "cossack", "kimberley", "hero", "icarus", "forester", "foxhound"],
+   "from": "13 13:20",
+   "to": "13 14:30",
+   "rate": 0.5,
+   "targets": ["zenker", "arnim", "ludemann", "kunne", "thiele"]
+  },
+  {
+   "ships": ["roeder"],
+   "from": "13 14:10",
+   "to": "13 14:22",
+   "rate": 0.6,
+   "note": "Seven hits on Cossack in two minutes from the pier",
+   "targets": ["cossack"]
+  },
+  {
+   "ships": ["giese"],
+   "from": "13 14:05",
+   "to": "13 14:30",
+   "rate": 0.5,
+   "note": "Seven hits on Punjabi",
+   "targets": ["punjabi", "bedouin"]
+  },
+  {
+   "ships": ["bedouin", "punjabi", "warspite"],
+   "from": "13 14:05",
+   "to": "13 14:40",
+   "rate": 0.55,
+   "note": "Twenty hits on Giese",
+   "targets": ["giese"]
+  },
+  {
+   "ships": ["eskimo", "forester", "hero", "bedouin"],
+   "from": "13 14:45",
+   "to": "13 15:10",
+   "rate": 0.5,
+   "note": "Through the Straumen narrows into Thiele and Lüdemann's ambush",
+   "targets": ["thiele", "ludemann"]
+  },
+  {
+   "ships": ["thiele", "ludemann"],
+   "from": "13 14:45",
+   "to": "13 15:05",
+   "rate": 0.5,
+   "targets": ["eskimo", "forester", "hero"]
+  }
+ ],
+ "events": [["07 13:25", "RAF Blenheims attack the German fleet in the Bight — the sighting is not understood", 56.8, 5.5], ["08 10:24", "Glowworm rams Hipper and blows up", 64.217, 6.467], ["09 04:05", "Renown engages Scharnhorst and Gneisenau off Lofoten", 67.367, 9.7], ["09 04:37", "Eidsvold torpedoed during a parley — 175 dead", 68.43, 17.37], ["09 05:00", "Norge sunk after a one-minute gun duel — 101 dead", 68.43, 17.39], ["09 05:30", "Narvik surrenders without a fight; Dietl's Gebirgsjäger ashore", 68.43, 17.37], ["09 06:00", "Mountain troops land at Elvegårdsmoen depot", 68.545, 17.59], ["09 16:00", "Warburton-Lee at Tranøy: 'Intend attacking at dawn, high water'", 68.19, 15.61], ["10 04:30", "First Battle of Narvik: Hardy's torpedoes hit Heidkamp — Bonte killed", 68.43, 17.37], ["10 04:35", "Anton Schmitt blown in half", 68.428, 17.385], ["10 05:40", "Zenker, Giese and Koellner appear astern from Herjangsfjord", 68.42, 17.2], ["10 05:58", "Thiele and Arnim cross ahead from Ballangen", 68.4, 17.05], ["10 06:15", "Hardy beached at Vidrek; Warburton-Lee dies ashore — the war's first VC", 68.383, 17.1], ["10 06:20", "Hunter sunk", 68.4147, 17.1728], ["10 08:00", "Rauenfels blown up at the fjord entrance", 68.408, 16.467], ["10 22:05", "Zenker and Giese try to break out and turn back", 68.19, 15.61], ["11 06:00", "Heidkamp capsizes", 68.428, 17.385], ["12 07:30", "Warspite detached from the Home Fleet for Narvik", 66.45, 6], ["13 12:05", "Warspite's Swordfish sinks U-64", 68.483, 17.5], ["13 13:10", "Second Battle: Koellner destroyed at Djupvik", 68.4, 16.82], ["13 14:13", "Künne beached at Trollvika", 68.523, 17.423], ["13 14:22", "Cossack aground under Roeder's guns", 68.42, 17.36], ["13 14:50", "Eskimo's bow blown off in the Straumen narrows", 68.46, 17.66], ["13 15:00", "Thiele aground at Sildvik", 68.408, 17.812], ["13 15:20", "Roeder blows up at the pier as Foxhound closes to board", 68.432, 17.38], ["13 17:00", "Zenker, Arnim and Lüdemann scuttled at Rombaksbotn — eight destroyers gone", 68.4168, 17.896], ["13 22:10", "Whitworth: 'I recommend that the town be occupied without delay by the main landing force'", 68.42, 17], ["13 23:30", "Giese burns out and sinks", 68.4307, 17.3479], ["14 06:00", "Allied landings begin at Harstad; Narvik will not be retaken until 28 May", 68.8, 16.54]],
+ "ports": [
+  { "name": "Narvik", "lat": 68.43, "lon": 17.37, "control": "RNN", "kind": "port", "note": "Iron-ore port; taken by Dietl's mountain troops on 9 April, retaken 28 May, evacuated 8 June", "captured": "09 05:30", "capturedBy": "KM" },
+  { "name": "Elvegårdsmoen", "lat": 68.545, "lon": 17.59, "control": "RNN", "kind": "port", "note": "Army depot at the head of Herjangsfjord; its stores equipped Dietl's men", "captured": "09 06:00", "capturedBy": "KM" },
+  { "name": "Harstad", "lat": 68.8, "lon": 16.54, "control": "RNN", "kind": "port", "note": "Allied headquarters from 14 April" },
+  { "name": "Bodø", "lat": 67.28, "lon": 14.38, "control": "RNN", "kind": "port", "note": "Norwegian coastal base" },
+  { "name": "Tromsø", "lat": 69.65, "lon": 18.96, "control": "RNN", "kind": "port", "note": "Norway's northern capital; the government's refuge" },
+  { "name": "Trondheim", "lat": 63.43, "lon": 10.4, "control": "RNN", "kind": "port", "note": "Taken by Hipper's group on 9 April", "captured": "09 05:00", "capturedBy": "KM" },
+  { "name": "Værnes", "lat": 63.46, "lon": 10.92, "control": "RNN", "kind": "air", "note": "Luftwaffe base from 9 April; bombers reach Narvik from here", "captured": "09 12:00", "capturedBy": "KM" },
+  { "name": "Skjelfjord", "lat": 68.05, "lon": 13.27, "control": "RN", "kind": "port", "note": "Lofoten anchorage where Penelope, Hotspur, Eskimo and Cossack are patched up" },
+  { "name": "Scapa Flow", "lat": 58.9, "lon": -3.05, "control": "RN", "kind": "port", "note": "Home Fleet base" },
+  { "name": "Sullom Voe", "lat": 60.46, "lon": -1.28, "control": "RN", "kind": "port", "note": "Shetland; the 2nd Flotilla sails from here on 7 April" },
+  { "name": "Wesermünde", "lat": 53.55, "lon": 8.58, "control": "KM", "kind": "port", "note": "Group 1 embarks the Gebirgsjäger in the Weser" },
+  { "name": "Wilhelmshaven", "lat": 53.52, "lon": 8.13, "control": "KM", "kind": "port", "note": "Scharnhorst, Gneisenau and Hipper return here" },
+  { "name": "London — Admiralty", "lat": 51.505, "lon": -0.128, "control": "RN", "kind": "hq", "note": "Churchill and Pound order Warburton-Lee in: 'You alone can judge'", "hq": "Admiralty (Churchill · Pound)" },
+  { "name": "Berlin — Seekriegsleitung", "lat": 52.52, "lon": 13.4, "control": "KM", "kind": "hq", "note": "Weserübung: the whole surface fleet committed to Norway", "hq": "OKM (Raeder)" }
+ ],
+ "rescues": []
+}
