@@ -1,5 +1,24 @@
 # Changelog
 
+## v2.5 — 2026-09-09
+
+**Seven new campaigns — the war in European waters**
+- **Battle of the River Plate** (1–20 Dec 1939): Graf Spee's last three victims, Harwood's concentration and the action of 13 December from his despatch (Zone +2), the chase to Montevideo, Cumberland's dash from the Falklands, the scuttling. 9 ships, 20 events.
+- **The Battles of Narvik** (7–14 Apr 1940): Glowworm and Hipper, Renown off Lofoten, the seizure of Narvik and the sinking of Eidsvold and Norge, Warburton-Lee's dawn attack and retreat, Warspite's day — all ten German destroyers, U-64 and the Norwegian coast-defence ships with their wreck positions from the dive surveys. 36 ships, 13 torpedo attacks, 29 events. Norwegian naval ensign added.
+- **Battle of Cape Matapan** (26 Mar – 1 Apr 1941): Iachino's four divisions, Pridham-Wippell's cruisers, Formidable's three strikes, the night action at 3,800 yards, Pola's end and the Gradisca rescue. 33 ships. Regia Marina ensign and roundel added.
+- **The Royal Navy at Crete** (20 May – 1 Jun 1941): the Lupo and Sagittario convoys, the losses of 22–23 May, Formidable's Scarpanto strike, the Heraklion run and four nights off Sphakia, Calcutta's loss — nine ships sunk, 16 air operations, VIII Fliegerkorps' airfields as bases.
+- **The Channel Dash** (11–13 Feb 1942): Brest to the Elbe hour by hour, the failed patrols, Esmonde's Swordfish, the MTBs and Pizey's destroyers, three mine strikes; Donnerkeil as an air operation. Every position reconstructed — no source records a fix.
+- **Convoy PQ 17** (27 Jun – 13 Jul 1942): all 35 merchant ships as individual tracks (24 sinkings from uboat.net and the shipwreck lists, 11 survivors into Archangel or the Novaya Zemlya bays), the escort, Hamilton's cruisers, Tovey's Home Fleet, Rösselsprung with Tirpitz, Scheer and the grounded Lützow, K-21's attack, nine U-boats. Soviet naval ensign added. 74 ships.
+- **Battle of the North Cape** (22–27 Dec 1943): Fraser's despatch positions for every force at 04:00, Belfast's radar fixes, Scharnhorst's two brushes with Burnett and her end — 21 torpedo salvoes. 22 ships.
+
+**Engine**
+- Nations: Regia Marina (RM), Royal Norwegian Navy (RNN) and Soviet Navy (VMF) with ensigns, airfield roundels and casualty-counter columns.
+- Merchant / tanker / rescue-ship glyph (smaller, blunt-bowed); MTBs and coast-defence ships drawn small.
+- **Coastline fix in the route baker:** world-atlas draws rings that cross the antimeridian (Chukotka, Wrangel Island) as single rings with a seam edge spanning the world; the scanline fill read those edges as coastline and flooded the Norwegian Sea between 66° and 72°N with phantom land, driving every Narvik and PQ 17 waypoint "ashore". Rings are now unwrapped before rasterising. `routing.snap: false` lets a scenario keep its documented positions where the 1:10m coastline cannot resolve a fjord (Narvik).
+- Smoke test boots all eleven campaigns (14 runs).
+
+**Registry** — 351 ships; Warspite, Ajax and Hotspur now link three campaigns each, Scharnhorst appears in Narvik, the Channel Dash and North Cape; hand-edited fates added for some forty ships.
+
 ## v2.4 — 2026-09-08
 
 **Flag consolidation** — formation flags of the same nation whose anchors fall within ~46 px of each other on screen are drawn as a single flag: the largest group's name on top, the others listed beneath it (up to three, then "+n more"). Zooming in separates them again. Clicking a merged flag offers a pick-list of the formations (with their commanders) instead of one commander card. Cures the label pile-up in the Bismarck chase when Home Fleet, Wake-Walker, Vian and Rodney converge.

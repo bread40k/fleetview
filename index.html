@@ -480,7 +480,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.4';
+const APP_VERSION = '2.5';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -520,6 +520,9 @@ const NATIONS = {
   RN:  { name:'Royal Navy',         short:'Royal Navy', side:'allied', color:'#2563eb' },
   IJN: { name:'Imperial Japanese Navy', short:'IJN',  side:'axis',   color:'#c0262b' },
   KM:  { name:'Kriegsmarine',       short:'Kriegsmarine', side:'axis', color:'#4b5563' },
+  RM:  { name:'Regia Marina',       short:'Regia Marina', side:'axis', color:'#15803d' },
+  RNN: { name:'Royal Norwegian Navy', short:'RNoN',     side:'allied', color:'#b91c1c' },
+  VMF: { name:'Soviet Navy',        short:'Soviet Navy', side:'allied', color:'#dc2626' },
 };
 const { forces: FORCES, routes: ROUTES, ships: SHIPS, strikes: STRIKES, groups: GROUPS, events: EVENTS, ports: PORTS } = SC;
 const CAMPAIGNS = INDEX.campaigns, CAMPAIGN = CAMPAIGNS.find(c => c.id === SC.id) || null;
@@ -607,9 +610,10 @@ function buildRouteLines(s){ const solid = [], dash = []; for (let i = 1; i < s.
 const ARROW = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L12 13 L7 10 L2 13 Z"/></svg>';
 const CARRIER = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L11 5.5 L11 13 L3 13 L3 5.5 Z"/></svg>';
 const SUB = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1 L10 5 L10 10 L7 13 L4 10 L4 5 Z"/></svg>';
-function shipGlyph(type){ const t = type.toLowerCase(); if (/carrier/.test(t)) return CARRIER; if (/u-boat|submarine/.test(t)) return SUB; return ARROW; }
+const MERCHANT = '<svg class="arrow" viewBox="0 0 14 14"><path d="M7 1.5 L10.5 5 L10.5 12.5 L3.5 12.5 L3.5 5 Z"/></svg>';
+function shipGlyph(type){ const t = type.toLowerCase(); if (/carrier/.test(t)) return CARRIER; if (/u-boat|submarine/.test(t)) return SUB; if (/merchant|freighter|transport|tanker|oiler|rescue ship|hospital ship|supply/.test(t)) return MERCHANT; return ARROW; }
 // icon size (px) by ship class, largest to smallest
-function shipSize(type){ const t = type.toLowerCase(); if (/battleship|battlecruiser/.test(t)) return 20; if (/fleet carrier/.test(t)) return 19; if (/hybrid/.test(t)) return 17; if (/light carrier|escort carrier/.test(t)) return 15; if (/heavy cruiser/.test(t)) return 13; if (/light cruiser/.test(t)) return 11; if (/destroyer|escort/.test(t)) return 10; if (/u-boat|submarine/.test(t)) return 11; return 11; }
+function shipSize(type){ const t = type.toLowerCase(); if (/battleship|battlecruiser/.test(t)) return 20; if (/fleet carrier/.test(t)) return 19; if (/hybrid/.test(t)) return 17; if (/light carrier|escort carrier/.test(t)) return 15; if (/heavy cruiser/.test(t)) return 13; if (/light cruiser/.test(t)) return 11; if (/destroyer|escort/.test(t)) return 10; if (/u-boat|submarine/.test(t)) return 11; if (/merchant|freighter|transport|tanker|oiler|rescue ship|hospital ship|supply/.test(t)) return 9; if (/motor torpedo|mtb|coast-defence|coastal/.test(t)) return 8; return 11; }
 SHIPS.forEach(s => {
   s.visible = true;
   const icon = L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="shp" style="--c:${s.color};--sz:${shipSize(s.type)}px"><div class="hit"></div>${shipGlyph(s.type)}<div class="x">✕</div><div class="gun"></div><span class="lbl">${s.name}</span></div>` });
@@ -795,8 +799,22 @@ function kmEnsign(){ // Kriegsmarine war-ensign pattern: off-centre black cross 
   <g transform="translate(19 15) scale(1.45)"><path d="${ic}" fill="#000" stroke="#fff" stroke-width=".5"/></g>
   <g transform="translate(8.5 7)"><path d="${ic}" fill="#000" stroke="#fff" stroke-width=".7"/></g></svg>`;
 }
-const FLAG_SVG = { USN: usFlag48(), IJN: ijnEnsign(), RN: rnWhiteEnsign(), KM: kmEnsign() };
-const FLAG_LABEL = { USN: 'US Navy (48-star)', IJN: 'IJN ensign', RN: 'White Ensign', KM: 'Kriegsmarine ensign' };
+function rmEnsign(){ // Regia Marina ensign: tricolour with the crowned quartered arms of the Kingdom (drawn simplified)
+  return `<svg viewBox="0 0 45 30" xmlns="http://www.w3.org/2000/svg"><rect width="15" height="30" fill="#009246"/><rect x="15" width="15" height="30" fill="#fff"/><rect x="30" width="15" height="30" fill="#ce2b37"/>
+  <path d="M22.5 7.5c-2 1.4-3.5 1-4.5 2.4v2.8h9V9.9c-1-1.4-2.5-1-4.5-2.4z" fill="#f4c542" stroke="#8a6d1c" stroke-width=".4"/>
+  <path d="M18 12.7h9v6.3c0 2.6-2 4.4-4.5 5.2-2.5-.8-4.5-2.6-4.5-5.2z" fill="#c8102e" stroke="#000" stroke-width=".4"/>
+  <path d="M18 17.8h9M22.5 12.7v11.5" stroke="#fff" stroke-width="1.3"/></svg>`;
+}
+function rnnEnsign(){ // Royal Norwegian Navy ensign (swallow-tail omitted): red with a blue Scandinavian cross fimbriated white
+  return `<svg viewBox="0 0 44 32" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="32" fill="#ba0c2f"/><path d="M16 0V32M0 16H44" stroke="#fff" stroke-width="8"/><path d="M16 0V32M0 16H44" stroke="#00205b" stroke-width="4"/></svg>`;
+}
+function vmfEnsign(){ // Soviet naval ensign: white with a blue band, red star and hammer-and-sickle (drawn simplified)
+  return `<svg viewBox="0 0 45 30" xmlns="http://www.w3.org/2000/svg"><rect width="45" height="30" fill="#fff"/><rect y="24" width="45" height="6" fill="#0039a6"/>
+  <path d="${starPath(11, 12, 6)}" fill="#d52b1e"/>
+  <path d="M27.5 16.5c3.5 2.5 8-.3 7.4-4.2" fill="none" stroke="#d52b1e" stroke-width="1.3"/><path d="M29.5 8.5l6 6M32 7l3 3" stroke="#d52b1e" stroke-width="1.6"/></svg>`;
+}
+const FLAG_SVG = { USN: usFlag48(), IJN: ijnEnsign(), RN: rnWhiteEnsign(), KM: kmEnsign(), RM: rmEnsign(), RNN: rnnEnsign(), VMF: vmfEnsign() };
+const FLAG_LABEL = { USN: 'US Navy (48-star)', IJN: 'IJN ensign', RN: 'White Ensign', KM: 'Kriegsmarine ensign', RM: 'Regia Marina ensign', RNN: 'Norwegian naval ensign', VMF: 'Soviet naval ensign' };
 const NATIONS_USED = [...new Set(Object.values(FORCES).map(f => f.nation))].sort((a,b) => (NATIONS[a].side === 'axis' ? 0 : 1) - (NATIONS[b].side === 'axis' ? 0 : 1));
 $('legend').innerHTML = NATIONS_USED.map(n => `<span>${FLAG_SVG[n]} ${FLAG_LABEL[n]}</span>`).join('');
 (function(){ const g = (d, sz) => `<svg viewBox="0 0 14 14" style="width:${sz}px;height:${sz}px"><path d="${d}" fill="var(--fg2)"/></svg>`; const tri = sz => g('M7 1 L12 13 L7 10 L2 13 Z', sz), cv = sz => g('M7 1 L11 5.5 L11 13 L3 13 L3 5.5 Z', sz), sub = sz => g('M7 1 L10 5 L10 10 L7 13 L4 10 L4 5 Z', sz); const lg = document.createElement('div'); lg.className = 'legend sizes'; lg.innerHTML = `<b>Class</b>${tri(20)} BB ${cv(19)} CV ${cv(15)} CVL/CVE ${tri(13)} CA ${tri(11)} CL ${tri(10)} DD ${sub(11)} SS`; $('legend').parentNode.insertBefore(lg, $('legend').nextSibling); })();
@@ -978,11 +996,14 @@ document.querySelectorAll('.tick').forEach(el => { const s = SHIPS.find(s => s.s
 // ---- ports, airfields and headquarters: flag / roundel by controlling nation
 const ROUNDEL = {
   RN:  '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#1d3f9c"/><circle cx="7" cy="7" r="4.6" fill="#fff"/><circle cx="7" cy="7" r="2.2" fill="#c8102e"/></svg>',
+  RM:  '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#009246"/><circle cx="7" cy="7" r="4.6" fill="#fff"/><circle cx="7" cy="7" r="2.2" fill="#ce2b37"/></svg>',
+  RNN: '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#ba0c2f"/><circle cx="7" cy="7" r="4.6" fill="#fff"/><circle cx="7" cy="7" r="2.2" fill="#00205b"/></svg>',
+  VMF: '<svg viewBox="0 0 14 14"><path d="' + starPath(7, 7.4, 6.5) + '" fill="#d52b1e"/></svg>',
   USN: `<svg viewBox="0 0 24 14"><rect x="0.5" y="4.6" width="23" height="4.8" fill="#fff" stroke="#1d3f9c" stroke-width=".8"/><circle cx="12" cy="7" r="6.6" fill="#1d3f9c"/><path d="${starPath(12, 7.2, 5)}" fill="#fff"/></svg>`,
   IJN: '<svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#fff"/><circle cx="7" cy="7" r="4.8" fill="#bc002d"/></svg>',
   KM:  '<svg viewBox="0 0 14 14"><path d="M5 0h4v5h5v4h-5v5h-4v-5h-5v-4h5z" fill="#fff"/><path d="M5.9 1.1h2.2v4.8h4.8v2.2h-4.8v4.8h-2.2v-4.8h-4.8v-2.2h4.8z" fill="#111"/></svg>',
 };
-const AIR_ARM = { RN: 'RAF', USN: 'USAAF / USN', IJN: 'IJN / IJA air', KM: 'Luftwaffe' };
+const AIR_ARM = { RN: 'RAF', USN: 'USAAF / USN', IJN: 'IJN / IJA air', KM: 'Luftwaffe', RM: 'Regia Aeronautica', RNN: 'Norwegian', VMF: 'Soviet' };
 const portLayer = L.layerGroup().addTo(map);
 function portIcon(p, ctl){ if (p.kind === 'air') return ROUNDEL[ctl] || ROUNDEL.RN; return FLAG_SVG[ctl] || ''; }
 PORTS.forEach(p => {

@@ -10,15 +10,22 @@ Currently included:
 
 | Campaign | Dates | Ships | Air ops |
 |---|---|---|---|
+| Battle of the River Plate | 1–20 Dec 1939 | 9 | 2 |
+| The Battles of Narvik | 7–14 Apr 1940 | 36 | 4 |
+| Battle of Cape Matapan | 26 Mar – 1 Apr 1941 | 33 | 9 |
 | Operation Rheinübung — the Bismarck chase | 18–28 May 1941 | 25 | 13 |
+| The Royal Navy at Crete | 20 May – 1 Jun 1941 | 41 | 16 |
+| The Channel Dash — Operation Cerberus | 11–13 Feb 1942 | 17 | 5 |
 | Battle of Midway (with the Aleutians diversion) | 25 May – 7 Jun 1942 | 70 | 31 |
+| Convoy PQ 17 | 27 Jun – 13 Jul 1942 | 74 | 8 |
+| Battle of the North Cape | 22–27 Dec 1943 | 22 | 1 |
 | Battle of Leyte Gulf | 17–28 Oct 1944 | 61 | 24 |
 | Operation Ten-Go — the last sortie of Yamato | 5–8 Apr 1945 | 30 | 11 |
 
 ## Features
 
 - Minute-resolution timeline with playback from 10 min/s to 1 day/s; auto-slows around key events
-- Ships drawn by class (battleship / carrier / cruiser / destroyer / submarine glyphs), coloured by task force, with formation flags (48-star, IJN ensign, White Ensign, Kriegsmarine ensign drawn with an Iron Cross in place of the party emblem); flags of nearby formations merge into one at low zoom
+- Ships drawn by class (battleship / carrier / cruiser / destroyer / submarine glyphs), coloured by task force, with formation flags (48-star, IJN ensign, White Ensign, Kriegsmarine ensign drawn with an Iron Cross in place of the party emblem, Regia Marina, Norwegian and Soviet naval ensigns); flags of nearby formations merge into one at low zoom
 - Sea routing around coastlines (Natural Earth 1:10m, A* on a 2–3 km grid), pre-computed at build time — nothing to download at runtime
 - Carrier and land-based air strikes flying out, attacking and returning in formation; torpedo runs; gun tracers; sinking flashes
 - Day/night terminator computed from the actual date and time
@@ -90,6 +97,8 @@ Routing records are keyed by a hash of each ship's waypoints: if you edit a trac
 - Samuel Eliot Morison, *History of United States Naval Operations in World War II*, vols. IV, X, XII and XIV
 - Jonathan Parshall & Anthony Tully, *Shattered Sword*; Nagumo's action report (*The Japanese Story of the Battle of Midway*, ONI 1947); CINCPAC, Enterprise, Hornet and Yorktown action reports; ONI Combat Narrative *The Battle of Midway*
 - CTF 58 action report (Ten-Go); NHHC H-Gram 044; Tameichi Hara, *Japanese Destroyer Captain*
+- London Gazette despatches: Harwood (River Plate), Warburton-Lee / Whitworth (Narvik), Cunningham (Matapan, Crete), Fraser (North Cape); Bucknill enquiry extracts (Channel Dash)
+- combinedfleet.com, scharnhorst-class.dk, uboat.net (PQ 17 losses), warsailors.com, the Narvik dive-site surveys (dykkepedia.com), Italian and German Wikipedia for the Regia Marina and Kriegsmarine side
 - Anthony Tully, *Battle of Surigao Strait*; combinedfleet.com Tabular Records of Movement
 - Dictionary of American Naval Fighting Ships (DANFS); Naval History and Heritage Command H-Grams
 - Ludovic Kennedy, *Pursuit*; Iain Ballantyne, *Killing the Bismarck*; naval-history.net
@@ -101,7 +110,7 @@ Corrections and new scenarios are very welcome — open an issue, or edit `data/
 
 ## Status
 
-Four campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) and Phase 2 (the ingestion pipeline) are done; Phase 3 battle packs are under way — next Pearl Harbor, Java Sea, Coral Sea, Matapan, River Plate, Philippine Sea, Guadalcanal, PQ 17.
+Eleven campaigns so far; the goal is the whole war at sea, 1939–45. Phase 1 (data in `data/*.json`, ship registry, war / battle timeline, baked routing) and Phase 2 (the ingestion pipeline) are done; Phase 3 battle packs are under way — next Pearl Harbor, Java Sea, Coral Sea, Philippine Sea, Guadalcanal, Force Z, Pedestal, Taranto.
 
 ## Licence
 
