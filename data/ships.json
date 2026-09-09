@@ -1,8 +1,50 @@
 {
  "schema": 1,
- "generated": "2026-09-08T21:30:14.430Z",
+ "generated": "2026-09-09T03:31:39.433Z",
  "note": "Cross-campaign ship registry. name/nation/class/wiki/fate and any extra fields you add are preserved on rebuild; appearances are regenerated from data/scenarios/*.json by tools/build-data.mjs.",
  "ships": {
+  "abdiel": {
+   "id": "abdiel",
+   "name": "HMS Abdiel",
+   "nation": "RN",
+   "class": "Fast minelayer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Abdiel_(M39)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "abdiel",
+     "force": "sphakia",
+     "type": "Fast minelayer — 40 knots",
+     "from": "1941-05-31T08:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "abruzzi": {
+   "id": "abruzzi",
+   "name": "Duca degli Abruzzi",
+   "nation": "RM",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Luigi_di_Savoia_Duca_degli_Abruzzi",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "abruzzi",
+     "force": "legnani",
+     "type": "Light cruiser (Legnani flagship)",
+     "from": "1941-03-26T20:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "abukuma": {
    "id": "abukuma",
    "name": "Abukuma",
@@ -34,6 +76,70 @@
     }
    ],
    "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "achilles": {
+   "id": "achilles",
+   "name": "HMS Achilles",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Achilles_(70)",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "achilles",
+     "force": "forceg",
+     "type": "Light cruiser (New Zealand Division)",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-21T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "ajax": {
+   "id": "ajax",
+   "name": "HMS Ajax",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "ajax",
+     "force": "forceg",
+     "type": "Light cruiser (Harwood flagship)",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-21T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "matapan",
+     "shipId": "ajax",
+     "force": "forceb",
+     "type": "Light cruiser",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "ajax",
+     "force": "d",
+     "type": "Light cruiser",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-29T08:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; scrapped 1949"
   },
   "akagi": {
    "id": "akagi",
@@ -76,6 +182,90 @@
     }
    ],
    "fate": null
+  },
+  "alcoaranger": {
+   "id": "alcoaranger",
+   "name": "Alcoa Ranger",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "alcoaranger",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-07T12:00",
+     "sunk": "1942-07-07T12:00",
+     "sunkBy": "U-255",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 7 Jul 1942 — Convoy PQ 17"
+  },
+  "aldersdale": {
+   "id": "aldersdale",
+   "name": "RFA Aldersdale",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/RFA_Aldersdale",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "aldersdale",
+     "force": "convoy",
+     "type": "Merchant ship — fleet oiler (British)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-07T14:56",
+     "sunk": "1942-07-07T14:56",
+     "sunkBy": "Ju 88s; finished by U-457",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 7 Jul 1942 — Convoy PQ 17"
+  },
+  "alfieri": {
+   "id": "alfieri",
+   "name": "Vittorio Alfieri",
+   "nation": "RM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Vittorio_Alfieri",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "alfieri",
+     "force": "cattaneo",
+     "type": "Destroyer (Capt Toscano)",
+     "from": "1941-03-26T11:00",
+     "to": "1941-03-28T23:30",
+     "sunk": "1941-03-28T23:30",
+     "sunkBy": "Battleship gunfire and HMAS Stuart",
+     "lost": 211
+    }
+   ],
+   "fate": "sunk 28 Mar 1941 — Battle of Cape Matapan"
+  },
+  "altmark": {
+   "id": "altmark",
+   "name": "Altmark",
+   "nation": "KM",
+   "class": "Supply tanker",
+   "wiki": "https://en.wikipedia.org/wiki/German_tanker_Altmark",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "altmark",
+     "force": "altmark",
+     "type": "Supply tanker",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-21T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "as Uckermark, blew up at Yokohama, 30 Nov 1942"
   },
   "anderson": {
    "id": "anderson",
@@ -181,6 +371,27 @@
     }
    ],
    "fate": null
+  },
+  "arnim": {
+   "id": "arnim",
+   "name": "Bernd von Arnim",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z11_Bernd_von_Arnim",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "arnim",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T17:00",
+     "sunk": "1940-04-13T17:00",
+     "sunkBy": "Scuttled at Rombaksbotn",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
   },
   "asagumo": {
    "id": "asagumo",
@@ -340,6 +551,48 @@
    ],
    "fate": null
   },
+  "ayrshire": {
+   "id": "ayrshire",
+   "name": "HMT Ayrshire",
+   "nation": "RN",
+   "class": "Armed trawler",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ayrshire_(FY225)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "ayrshire",
+     "force": "escort",
+     "type": "Armed trawler (Lt Gradwell RNVR)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "azerbaidjan": {
+   "id": "azerbaidjan",
+   "name": "Azerbaidjan",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "azerbaidjan",
+     "force": "convoy",
+     "type": "Merchant ship — Soviet tanker — torpedoed 4 July, arrived",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "balch": {
    "id": "balch",
    "name": "USS Balch",
@@ -361,6 +614,38 @@
    ],
    "fate": null
   },
+  "barham": {
+   "id": "barham",
+   "name": "HMS Barham",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Barham_(04)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "barham",
+     "force": "forcea",
+     "type": "Battleship (Rawlings)",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "barham",
+     "force": "formidable",
+     "type": "Battleship",
+     "from": "1941-05-25T12:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 25 Nov 1941 by U-331"
+  },
   "bataan": {
    "id": "bataan",
    "name": "USS Bataan",
@@ -375,6 +660,69 @@
      "type": "Light carrier — TG 58.3",
      "from": "1945-04-05T00:00",
      "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "bedouin": {
+   "id": "bedouin",
+   "name": "HMS Bedouin",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Bedouin_(F67)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "bedouin",
+     "force": "forceb",
+     "type": "Tribal-class destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "beitzen": {
+   "id": "beitzen",
+   "name": "Richard Beitzen",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z4_Richard_Beitzen",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "beitzen",
+     "force": "cerberus",
+     "type": "Destroyer",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "belfast": {
+   "id": "belfast",
+   "name": "HMS Belfast",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Belfast",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "belfast",
+     "force": "force1",
+     "type": "Light cruiser (Burnett flagship)",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -403,6 +751,27 @@
    ],
    "fate": null
   },
+  "bellingham": {
+   "id": "bellingham",
+   "name": "Bellingham",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "bellingham",
+     "force": "convoyus",
+     "type": "Merchant ship — US — arrived",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "benham": {
    "id": "benham",
    "name": "USS Benham",
@@ -417,6 +786,27 @@
      "type": "Destroyer",
      "from": "1942-05-28T09:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "benjaminharrison": {
+   "id": "benjaminharrison",
+   "name": "Benjamin Harrison",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Benjamin_Harrison",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "benjaminharrison",
+     "force": "convoyus",
+     "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -466,6 +856,48 @@
    ],
    "fate": "sunk 27 May 1941 — Operation Rheinübung — the Bismarck Chase"
   },
+  "boltoncastle": {
+   "id": "boltoncastle",
+   "name": "Bolton Castle",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Bolton_Castle",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "boltoncastle",
+     "force": "convoy",
+     "type": "Merchant ship — British",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:00",
+     "sunk": "1942-07-05T17:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
+  "bolzano": {
+   "id": "bolzano",
+   "name": "Bolzano",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Bolzano",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "bolzano",
+     "force": "sansonetti",
+     "type": "Heavy cruiser",
+     "from": "1941-03-27T06:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "bunkerhill": {
    "id": "bunkerhill",
    "name": "USS Bunker Hill",
@@ -508,6 +940,27 @@
    ],
    "fate": null
   },
+  "calcutta": {
+   "id": "calcutta",
+   "name": "HMS Calcutta",
+   "nation": "RN",
+   "class": "Anti-aircraft cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Calcutta_(D82)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "calcutta",
+     "force": "c",
+     "type": "Anti-aircraft cruiser",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-01T09:22",
+     "sunk": "1941-06-01T09:22",
+     "sunkBy": "Two Ju 88s",
+     "lost": 118
+    }
+   ],
+   "fate": "sunk 1 Jun 1941 — The Royal Navy at Crete"
+  },
   "california": {
    "id": "california",
    "name": "USS California",
@@ -528,6 +981,90 @@
     }
    ],
    "fate": null
+  },
+  "campbell": {
+   "id": "campbell",
+   "name": "HMS Campbell",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Campbell_(D60)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "campbell",
+     "force": "harwich",
+     "type": "Destroyer (Capt Pizey, D21)",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-13T14:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "carducci": {
+   "id": "carducci",
+   "name": "Giosuè Carducci",
+   "nation": "RM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Giosu%C3%A8_Carducci",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "carducci",
+     "force": "cattaneo",
+     "type": "Destroyer",
+     "from": "1941-03-26T11:00",
+     "to": "1941-03-28T23:45",
+     "sunk": "1941-03-28T23:45",
+     "sunkBy": "Gunfire and HMS Havock",
+     "lost": 169
+    }
+   ],
+   "fate": "sunk 28 Mar 1941 — Battle of Cape Matapan"
+  },
+  "carlisle": {
+   "id": "carlisle",
+   "name": "HMS Carlisle",
+   "nation": "RN",
+   "class": "Anti-aircraft cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Carlisle_(D67)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "carlisle",
+     "force": "c",
+     "type": "Anti-aircraft cruiser",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "bombed at Scarpanto, 9 Oct 1943; hulk at Alexandria"
+  },
+  "carlton": {
+   "id": "carlton",
+   "name": "Carlton",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Carlton_(1920)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "carlton",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T10:15",
+     "sunk": "1942-07-05T10:15",
+     "sunkBy": "U-88",
+     "lost": 3
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
   },
   "chikuma": {
    "id": "chikuma",
@@ -635,6 +1172,27 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "christophernewport": {
+   "id": "christophernewport",
+   "name": "Christopher Newport",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Christopher_Newport",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "christophernewport",
+     "force": "convoyus",
+     "type": "Merchant ship — Liberty ship (US)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-04T08:08",
+     "sunk": "1942-07-04T08:08",
+     "sunkBy": "He 115 torpedo; finished by U-457",
+     "lost": 3
+    }
+   ],
+   "fate": "sunk 4 Jul 1942 — Convoy PQ 17"
+  },
   "cossack": {
    "id": "cossack",
    "name": "HMS Cossack",
@@ -643,12 +1201,76 @@
    "wiki": "https://en.wikipedia.org/wiki/HMS_Cossack_(F03)",
    "appearances": [
     {
+     "scenario": "narvik",
+     "shipId": "cossack",
+     "force": "forceb",
+     "type": "Tribal-class destroyer (Cdr Sherbrooke)",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
      "scenario": "bismarck",
      "shipId": "cossack",
      "force": "vian",
      "type": "Tribal-class destroyer (Vian)",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 23 Oct 1941 by U-563 west of Gibraltar"
+  },
+  "coventry": {
+   "id": "coventry",
+   "name": "HMS Coventry",
+   "nation": "RN",
+   "class": "Anti-aircraft cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Coventry_(D43)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "coventry",
+     "force": "sphakia",
+     "type": "Anti-aircraft cruiser",
+     "from": "1941-05-29T06:00",
+     "to": "1941-06-01T16:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "cumberland": {
+   "id": "cumberland",
+   "name": "HMS Cumberland",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Cumberland_(57)",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "cumberland",
+     "force": "forceg",
+     "type": "Heavy cruiser",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-21T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "cumberland",
+     "force": "homefleet",
+     "type": "Heavy cruiser",
+     "from": "1942-06-29T00:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -677,6 +1299,27 @@
    ],
    "fate": null
   },
+  "danielmorgan": {
+   "id": "danielmorgan",
+   "name": "Daniel Morgan",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Daniel_Morgan",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "danielmorgan",
+     "force": "convoyus",
+     "type": "Merchant ship — Liberty ship (US)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T22:52",
+     "sunk": "1942-07-05T22:52",
+     "sunkBy": "Ju 88s; finished by U-88",
+     "lost": 3
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
   "darter": {
    "id": "darter",
    "name": "USS Darter",
@@ -697,6 +1340,90 @@
     }
    ],
    "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "decoy": {
+   "id": "decoy",
+   "name": "HMS Decoy",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Decoy_(H75)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "decoy",
+     "force": "a1",
+     "type": "Destroyer — carries King George II of Greece out of Crete",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "dido": {
+   "id": "dido",
+   "name": "HMS Dido",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Dido_(37)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "dido",
+     "force": "d",
+     "type": "Light cruiser (Glennie flagship)",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-29T20:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "donbass": {
+   "id": "donbass",
+   "name": "Donbass",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "donbass",
+     "force": "convoy",
+     "type": "Merchant ship — Soviet tanker — arrived",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "doricstar": {
+   "id": "doricstar",
+   "name": "Doric Star",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Doric_Star",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "doricstar",
+     "force": "merchants",
+     "type": "Merchant ship — Blue Star Line",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-02T13:00",
+     "sunk": "1939-12-02T13:00",
+     "sunkBy": "Admiral Graf Spee",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 2 Dec 1939 — Battle of the River Plate"
   },
   "dorsetshire": {
    "id": "dorsetshire",
@@ -719,6 +1446,101 @@
    ],
    "fate": null
   },
+  "dukeofyork": {
+   "id": "dukeofyork",
+   "name": "HMS Duke of York",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Duke_of_York_(17)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "dukeofyork",
+     "force": "homefleet",
+     "type": "Battleship (Tovey flagship)",
+     "from": "1942-06-29T00:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "northcape",
+     "shipId": "dukeofyork",
+     "force": "force2",
+     "type": "Battleship (Fraser flagship)",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; scrapped 1957"
+  },
+  "earlston": {
+   "id": "earlston",
+   "name": "Earlston",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Earlston",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "earlston",
+     "force": "convoy",
+     "type": "Merchant ship — British",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:47",
+     "sunk": "1942-07-05T17:47",
+     "sunkBy": "Ju 88s; finished by U-334",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
+  "eidsvold": {
+   "id": "eidsvold",
+   "name": "HNoMS Eidsvold",
+   "nation": "RNN",
+   "class": "Coast-defence ship",
+   "wiki": "https://en.wikipedia.org/wiki/HNoMS_Eidsvold",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "eidsvold",
+     "force": "rnn",
+     "type": "Coast-defence ship (Kaptein Willoch)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-09T04:37",
+     "sunk": "1940-04-09T04:37",
+     "sunkBy": "Two torpedoes from Wilhelm Heidkamp during a parley",
+     "lost": 175
+    }
+   ],
+   "fate": "sunk 9 Apr 1940 — The Battles of Narvik"
+  },
+  "elcapitan": {
+   "id": "elcapitan",
+   "name": "El Capitan",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "elcapitan",
+     "force": "convoyus",
+     "type": "Merchant ship — Panamanian",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-10T00:45",
+     "sunk": "1942-07-10T00:45",
+     "sunkBy": "Ju 88s of II./KG 30; finished by U-251",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 10 Jul 1942 — Convoy PQ 17"
+  },
   "electra": {
    "id": "electra",
    "name": "HMS Electra",
@@ -733,6 +1555,48 @@
      "type": "E-class destroyer",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "empirebyron": {
+   "id": "empirebyron",
+   "name": "Empire Byron",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Empire_Byron",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "empirebyron",
+     "force": "convoy",
+     "type": "Merchant ship — British — 15 tanks and 41 vehicles",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T08:27",
+     "sunk": "1942-07-05T08:27",
+     "sunkBy": "U-703",
+     "lost": 10
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
+  "empiretide": {
+   "id": "empiretide",
+   "name": "Empire Tide",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Empire_Tide",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "empiretide",
+     "force": "convoy",
+     "type": "Merchant ship — CAM ship (British) — sheltered in Moller Bay until 24 July",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -765,6 +1629,27 @@
      "type": "Fleet carrier — TG 38.4",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "eskimo": {
+   "id": "eskimo",
+   "name": "HMS Eskimo",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Eskimo_(F75)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "eskimo",
+     "force": "forceb",
+     "type": "Tribal-class destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -821,9 +1706,62 @@
      "sunk": null,
      "sunkBy": null,
      "lost": null
+    },
+    {
+     "scenario": "channeldash",
+     "shipId": "eugen",
+     "force": "cerberus",
+     "type": "Heavy cruiser",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "surrendered 1945; expended in the Bikini atomic tests, 1946"
+  },
+  "exeter": {
+   "id": "exeter",
+   "name": "HMS Exeter",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Exeter_(68)",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "exeter",
+     "force": "forceg",
+     "type": "Heavy cruiser (Capt F. S. Bell)",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-21T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
     }
    ],
    "fate": null
+  },
+  "fairfieldcity": {
+   "id": "fairfieldcity",
+   "name": "Fairfield City",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "fairfieldcity",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:00",
+     "sunk": "1942-07-05T17:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 8
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
   },
   "fanshaw": {
    "id": "fanshaw",
@@ -839,6 +1777,143 @@
      "type": "Escort carrier (Sprague flagship)",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "fiji": {
+   "id": "fiji",
+   "name": "HMS Fiji",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Fiji_(58)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "fiji",
+     "force": "b",
+     "type": "Light cruiser",
+     "from": "1941-05-20T00:00",
+     "to": "1941-05-22T20:15",
+     "sunk": "1941-05-22T20:15",
+     "sunkBy": "Bf 109 fighter-bombers and Ju 88s",
+     "lost": 241
+    }
+   ],
+   "fate": "sunk 22 May 1941 — The Royal Navy at Crete"
+  },
+  "fiume": {
+   "id": "fiume",
+   "name": "Fiume",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Fiume",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "fiume",
+     "force": "cattaneo",
+     "type": "Heavy cruiser",
+     "from": "1941-03-26T11:00",
+     "to": "1941-03-28T23:15",
+     "sunk": "1941-03-28T23:15",
+     "sunkBy": "Warspite's and Valiant's 15-inch at 3,800 yards",
+     "lost": 812
+    }
+   ],
+   "fate": "sunk 28 Mar 1941 — Battle of Cape Matapan"
+  },
+  "forester": {
+   "id": "forester",
+   "name": "HMS Forester",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Forester_(H74)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "forester",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "formidable": {
+   "id": "formidable",
+   "name": "HMS Formidable",
+   "nation": "RN",
+   "class": "Fleet carrier",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Formidable_(67)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "formidable",
+     "force": "forcea",
+     "type": "Fleet carrier (Boyd)",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "formidable",
+     "force": "formidable",
+     "type": "Fleet carrier",
+     "from": "1941-05-25T12:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; scrapped 1953"
+  },
+  "fortkullyspell": {
+   "id": "fortkullyspell",
+   "name": "Fort Kullyspell",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "fortkullyspell",
+     "force": "convoy",
+     "type": "Merchant ship (Commodore Boucher)",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "foxhound": {
+   "id": "foxhound",
+   "name": "HMS Foxhound",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Foxhound_(H69)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "foxhound",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -866,6 +1941,27 @@
     }
    ],
    "fate": "sunk 27 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "fury": {
+   "id": "fury",
+   "name": "HMS Fury",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Fury_(H76)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "fury",
+     "force": "escort",
+     "type": "Destroyer",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "fuso": {
    "id": "fuso",
@@ -951,6 +2047,260 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "garibaldi": {
+   "id": "garibaldi",
+   "name": "Giuseppe Garibaldi",
+   "nation": "RM",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Giuseppe_Garibaldi_(1936)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "garibaldi",
+     "force": "legnani",
+     "type": "Light cruiser",
+     "from": "1941-03-26T20:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "giese": {
+   "id": "giese",
+   "name": "Erich Giese",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z12_Erich_Giese",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "giese",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T23:30",
+     "sunk": "1940-04-13T23:30",
+     "sunkBy": "Bedouin, Punjabi and Warspite gunfire",
+     "lost": 83
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
+  "gioberti": {
+   "id": "gioberti",
+   "name": "Vincenzo Gioberti",
+   "nation": "RM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Vincenzo_Gioberti",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "gioberti",
+     "force": "cattaneo",
+     "type": "Destroyer",
+     "from": "1941-03-26T11:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "glengyle": {
+   "id": "glengyle",
+   "name": "HMS Glengyle",
+   "nation": "RN",
+   "class": "Landing ship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Glengyle",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "glengyle",
+     "force": "sphakia",
+     "type": "Landing ship — 3,000 men in one lift",
+     "from": "1941-05-29T06:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war"
+  },
+  "gloucester": {
+   "id": "gloucester",
+   "name": "HMS Gloucester",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Gloucester_(62)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "gloucester",
+     "force": "forceb",
+     "type": "Light cruiser — 24 knots on a damaged shaft bracket",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "gloucester",
+     "force": "b",
+     "type": "Light cruiser (Capt Rowley)",
+     "from": "1941-05-20T00:00",
+     "to": "1941-05-22T17:15",
+     "sunk": "1941-05-22T17:15",
+     "sunkBy": "Ju 87s and Ju 88s of VIII Fliegerkorps",
+     "lost": 722
+    }
+   ],
+   "fate": "sunk 22 May 1941 — The Royal Navy at Crete"
+  },
+  "glowworm": {
+   "id": "glowworm",
+   "name": "HMS Glowworm",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Glowworm_(H92)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "glowworm",
+     "force": "glowworm",
+     "type": "Destroyer (Lt Cdr Roope)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-08T10:24",
+     "sunk": "1940-04-08T10:24",
+     "sunkBy": "Admiral Hipper's gunfire after ramming her",
+     "lost": 109
+    }
+   ],
+   "fate": "sunk 8 Apr 1940 — The Battles of Narvik"
+  },
+  "gneisenau": {
+   "id": "gneisenau",
+   "name": "Gneisenau",
+   "nation": "KM",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Gneisenau",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "gneisenau",
+     "force": "lutjens",
+     "type": "Battleship (Lütjens flagship)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "channeldash",
+     "shipId": "gneisenau",
+     "force": "cerberus",
+     "type": "Battleship",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "never sailed again after Kiel, Feb 1942; scuttled as a blockship at Gotenhafen, 27 Mar 1945"
+  },
+  "gradisca": {
+   "id": "gradisca",
+   "name": "Gradisca",
+   "nation": "RM",
+   "class": "Hospital ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Gradisca",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "gradisca",
+     "force": "gradisca",
+     "type": "Hospital ship",
+     "from": "1941-03-30T12:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "greyhound": {
+   "id": "greyhound",
+   "name": "HMS Greyhound",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Greyhound_(H05)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "greyhound",
+     "force": "forcea",
+     "type": "Destroyer — her searchlight opened the night action",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "greyhound",
+     "force": "b",
+     "type": "Destroyer",
+     "from": "1941-05-20T00:00",
+     "to": "1941-05-22T14:06",
+     "sunk": "1941-05-22T14:06",
+     "sunkBy": "Ju 87s",
+     "lost": 76
+    }
+   ],
+   "fate": "sunk 22 May 1941 — The Royal Navy at Crete"
+  },
+  "griffin": {
+   "id": "griffin",
+   "name": "HMS Griffin",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Griffin_(H31)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "griffin",
+     "force": "forcea",
+     "type": "Destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "griffin",
+     "force": "a1",
+     "type": "Destroyer",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "hackleback": {
    "id": "hackleback",
    "name": "USS Hackleback",
@@ -1018,6 +2368,27 @@
      "type": "Heavy cruiser",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "haida": {
+   "id": "haida",
+   "name": "HMCS Haida",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMCS_Haida",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "haida",
+     "force": "convoy",
+     "type": "Destroyer (Royal Canadian Navy)",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1099,6 +2470,48 @@
    ],
    "fate": null
   },
+  "hardy": {
+   "id": "hardy",
+   "name": "HMS Hardy",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hardy_(H87)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hardy",
+     "force": "2df",
+     "type": "Destroyer (Capt Warburton-Lee, D2)",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-10T06:15",
+     "sunk": "1940-04-10T06:15",
+     "sunkBy": "Gunfire from Thiele and Arnim; beached",
+     "lost": 19
+    }
+   ],
+   "fate": "sunk 10 Apr 1940 — The Battles of Narvik"
+  },
+  "hartlebury": {
+   "id": "hartlebury",
+   "name": "Hartlebury",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Hartlebury",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "hartlebury",
+     "force": "convoy",
+     "type": "Merchant ship — British",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-07T18:45",
+     "sunk": "1942-07-07T18:45",
+     "sunkBy": "U-355",
+     "lost": 38
+    }
+   ],
+   "fate": "sunk 7 Jul 1942 — Convoy PQ 17"
+  },
   "haruna": {
    "id": "haruna",
    "name": "Haruna",
@@ -1131,6 +2544,38 @@
    ],
    "fate": null
   },
+  "hasty": {
+   "id": "hasty",
+   "name": "HMS Hasty",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hasty_(H24)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "hasty",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "hasty",
+     "force": "d",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-23T20:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "hatsushimo": {
    "id": "hatsushimo",
    "name": "Hatsushimo",
@@ -1152,6 +2597,38 @@
    ],
    "fate": null
   },
+  "havock": {
+   "id": "havock",
+   "name": "HMS Havock",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Havock_(H43)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "havock",
+     "force": "2df",
+     "type": "Destroyer",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "matapan",
+     "shipId": "havock",
+     "force": "forcea",
+     "type": "Destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "wrecked off Kelibia, 6 Apr 1942"
+  },
   "heermann": {
    "id": "heermann",
    "name": "USS Heermann",
@@ -1166,6 +2643,80 @@
      "type": "Destroyer",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "heidkamp": {
+   "id": "heidkamp",
+   "name": "Wilhelm Heidkamp",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z21_Wilhelm_Heidkamp",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "heidkamp",
+     "force": "group1",
+     "type": "Destroyer (Bonte flagship)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-11T06:00",
+     "sunk": "1940-04-11T06:00",
+     "sunkBy": "Hardy's torpedo; capsized next morning",
+     "lost": 81
+    }
+   ],
+   "fate": "sunk 11 Apr 1940 — The Battles of Narvik"
+  },
+  "hereward": {
+   "id": "hereward",
+   "name": "HMS Hereward",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hereward_(H93)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "hereward",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "hereward",
+     "force": "d",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-29T06:25",
+     "sunk": "1941-05-29T06:25",
+     "sunkBy": "Ju 87s in the Kaso Strait; her 450 troops and 89 crew taken prisoner by Italian MAS boats",
+     "lost": 76
+    }
+   ],
+   "fate": "sunk 29 May 1941 — The Royal Navy at Crete"
+  },
+  "hero": {
+   "id": "hero",
+   "name": "HMS Hero",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hero_(H99)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hero",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1193,6 +2744,38 @@
     }
    ],
    "fate": null
+  },
+  "hipper": {
+   "id": "hipper",
+   "name": "Admiral Hipper",
+   "nation": "KM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Hipper",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hipper",
+     "force": "hipper",
+     "type": "Heavy cruiser",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "hipper",
+     "force": "tirpitz",
+     "type": "Heavy cruiser",
+     "from": "1942-07-02T20:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "scuttled at Kiel, 3 May 1945"
   },
   "hiryu": {
    "id": "hiryu",
@@ -1236,6 +2819,27 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "honomu": {
+   "id": "honomu",
+   "name": "Honomu",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Honomu",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "honomu",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T14:31",
+     "sunk": "1942-07-05T14:31",
+     "sunkBy": "U-456",
+     "lost": 13
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
   "hood": {
    "id": "hood",
    "name": "HMS Hood",
@@ -1256,6 +2860,27 @@
     }
    ],
    "fate": "sunk 24 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "hoosier": {
+   "id": "hoosier",
+   "name": "Hoosier",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "hoosier",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-10T03:00",
+     "sunk": "1942-07-10T03:00",
+     "sunkBy": "Ju 88s of II./KG 30; finished by U-376",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 10 Jul 1942 — Convoy PQ 17"
   },
   "hornet": {
    "id": "hornet",
@@ -1332,6 +2957,70 @@
    ],
    "fate": null
   },
+  "hostile": {
+   "id": "hostile",
+   "name": "HMS Hostile",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hostile_(H55)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hostile",
+     "force": "2df",
+     "type": "Destroyer",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "hotspur": {
+   "id": "hotspur",
+   "name": "HMS Hotspur",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hotspur_(H01)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hotspur",
+     "force": "2df",
+     "type": "Destroyer (Cdr Layman)",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "matapan",
+     "shipId": "hotspur",
+     "force": "forcea",
+     "type": "Destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "hotspur",
+     "force": "a1",
+     "type": "Destroyer",
+     "from": "1941-05-20T05:00",
+     "to": "1941-05-29T20:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; sold to the Dominican Republic 1948"
+  },
   "hughes": {
    "id": "hughes",
    "name": "USS Hughes",
@@ -1352,6 +3041,27 @@
     }
    ],
    "fate": null
+  },
+  "hunter": {
+   "id": "hunter",
+   "name": "HMS Hunter",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Hunter_(H35)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "hunter",
+     "force": "2df",
+     "type": "Destroyer",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-10T06:20",
+     "sunk": "1940-04-10T06:20",
+     "sunkBy": "Georg Thiele's torpedo and collision with Hotspur",
+     "lost": 112
+    }
+   ],
+   "fate": "sunk 10 Apr 1940 — The Battles of Narvik"
   },
   "hyuga": {
    "id": "hyuga",
@@ -1395,6 +3105,27 @@
    ],
    "fate": null
   },
+  "icarus": {
+   "id": "icarus",
+   "name": "HMS Icarus",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Icarus_(D03)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "icarus",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "idaho": {
    "id": "idaho",
    "name": "USS Idaho",
@@ -1415,6 +3146,59 @@
     }
    ],
    "fate": null
+  },
+  "ihn": {
+   "id": "ihn",
+   "name": "Friedrich Ihn",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z14_Friedrich_Ihn",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "ihn",
+     "force": "cerberus",
+     "type": "Destroyer",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "ihn",
+     "force": "tirpitz",
+     "type": "Destroyer",
+     "from": "1942-07-02T20:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "imperial": {
+   "id": "imperial",
+   "name": "HMS Imperial",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Imperial_(D09)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "imperial",
+     "force": "a1",
+     "type": "Destroyer",
+     "from": "1941-05-20T05:00",
+     "to": "1941-05-29T04:45",
+     "sunk": "1941-05-29T04:45",
+     "sunkBy": "Steering failure after a near-miss; scuttled by Hotspur",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 29 May 1941 — The Royal Navy at Crete"
   },
   "indianapolis": {
    "id": "indianapolis",
@@ -1490,6 +3274,27 @@
    ],
    "fate": null
   },
+  "ironclad": {
+   "id": "ironclad",
+   "name": "Ironclad",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "ironclad",
+     "force": "convoyus",
+     "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "ise": {
    "id": "ise",
    "name": "Ise",
@@ -1543,6 +3348,154 @@
    ],
    "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
   },
+  "jackal": {
+   "id": "jackal",
+   "name": "HMS Jackal",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Jackal_(F22)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "jackal",
+     "force": "5df",
+     "type": "Destroyer",
+     "from": "1941-05-21T21:30",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "scuttled 12 May 1942 after bombing off Crete"
+  },
+  "jacobi": {
+   "id": "jacobi",
+   "name": "Paul Jacobi",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z5_Paul_Jacobi",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "jacobi",
+     "force": "cerberus",
+     "type": "Destroyer",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "jamaica": {
+   "id": "jamaica",
+   "name": "HMS Jamaica",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Jamaica_(44)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "jamaica",
+     "force": "force2",
+     "type": "Light cruiser",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "janus": {
+   "id": "janus",
+   "name": "HMS Janus",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Janus_(F53)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "janus",
+     "force": "forcea",
+     "type": "Destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "janus",
+     "force": "d",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-23T20:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "janwellem": {
+   "id": "janwellem",
+   "name": "Jan Wellem",
+   "nation": "KM",
+   "class": "Tanker",
+   "wiki": "https://en.wikipedia.org/wiki/Jan_Wellem",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "janwellem",
+     "force": "supply",
+     "type": "Tanker (whaling ship)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "jervis": {
+   "id": "jervis",
+   "name": "HMS Jervis",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Jervis",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "jervis",
+     "force": "forcea",
+     "type": "Destroyer (Capt Mack, D14)",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "jervis",
+     "force": "sphakia",
+     "type": "Destroyer (Capt Mack, D14)",
+     "from": "1941-05-29T06:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war — no crew member killed by enemy action in six years"
+  },
   "jintsu": {
    "id": "jintsu",
    "name": "Jintsū",
@@ -1585,6 +3538,48 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "johnwitherspoon": {
+   "id": "johnwitherspoon",
+   "name": "John Witherspoon",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_John_Witherspoon",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "johnwitherspoon",
+     "force": "convoyus",
+     "type": "Merchant ship — Liberty ship (US)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-06T16:55",
+     "sunk": "1942-07-06T16:55",
+     "sunkBy": "U-255",
+     "lost": 1
+    }
+   ],
+   "fate": "sunk 6 Jul 1942 — Convoy PQ 17"
+  },
+  "juno": {
+   "id": "juno",
+   "name": "HMS Juno",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Juno_(F46)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "juno",
+     "force": "c",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-21T12:49",
+     "sunk": "1941-05-21T12:49",
+     "sunkBy": "Three bombs from Italian CANT Z.1007s",
+     "lost": 116
+    }
+   ],
+   "fate": "sunk 21 May 1941 — The Royal Navy at Crete"
+  },
   "junyo": {
    "id": "junyo",
    "name": "Jun'yō",
@@ -1599,6 +3594,27 @@
      "type": "Fleet carrier",
      "from": "1942-05-25T03:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "k21": {
+   "id": "k21",
+   "name": "K-21",
+   "nation": "VMF",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/Soviet_submarine_K-21",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "k21",
+     "force": "k21",
+     "type": "Submarine (Capt Lunin)",
+     "from": "1942-06-27T00:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1648,6 +3664,48 @@
    ],
    "fate": null
   },
+  "kandahar": {
+   "id": "kandahar",
+   "name": "HMS Kandahar",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kandahar_(F28)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kandahar",
+     "force": "c",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "mined off Tripoli, 19 Dec 1941"
+  },
+  "kashmir": {
+   "id": "kashmir",
+   "name": "HMS Kashmir",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kashmir_(F12)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kashmir",
+     "force": "5df",
+     "type": "Destroyer",
+     "from": "1941-05-21T21:30",
+     "to": "1941-05-23T07:57",
+     "sunk": "1941-05-23T07:57",
+     "sunkBy": "Ju 87s — sank in two minutes",
+     "lost": 79
+    }
+   ],
+   "fate": "sunk 23 May 1941 — The Royal Navy at Crete"
+  },
   "kasumi": {
    "id": "kasumi",
    "name": "Kasumi",
@@ -1669,6 +3727,69 @@
    ],
    "fate": "sunk 7 Apr 1945 — Operation Ten-Go — the last sortie of Yamato"
   },
+  "kelly": {
+   "id": "kelly",
+   "name": "HMS Kelly",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kelly_(F01)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kelly",
+     "force": "5df",
+     "type": "Destroyer (Capt Lord Louis Mountbatten, D5)",
+     "from": "1941-05-21T21:30",
+     "to": "1941-05-23T08:25",
+     "sunk": "1941-05-23T08:25",
+     "sunkBy": "Ju 87s of I./StG 2 — capsized at 30 knots",
+     "lost": 128
+    }
+   ],
+   "fate": "sunk 23 May 1941 — The Royal Navy at Crete"
+  },
+  "kelvin": {
+   "id": "kelvin",
+   "name": "HMS Kelvin",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kelvin_(F37)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kelvin",
+     "force": "5df",
+     "type": "Destroyer",
+     "from": "1941-05-21T21:30",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war"
+  },
+  "keppel": {
+   "id": "keppel",
+   "name": "HMS Keppel",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Keppel_(D84)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "keppel",
+     "force": "escort",
+     "type": "Destroyer (Cdr Broome, SOE)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "kgv": {
    "id": "kgv",
    "name": "HMS King George V",
@@ -1689,6 +3810,80 @@
     }
    ],
    "fate": null
+  },
+  "kimberley": {
+   "id": "kimberley",
+   "name": "HMS Kimberley",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kimberley_(F50)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "kimberley",
+     "force": "forceb",
+     "type": "Destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "kimberley",
+     "force": "a1",
+     "type": "Destroyer",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kingston": {
+   "id": "kingston",
+   "name": "HMS Kingston",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kingston_(F64)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kingston",
+     "force": "c",
+     "type": "Destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "kipling": {
+   "id": "kipling",
+   "name": "HMS Kipling",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Kipling_(F91)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "kipling",
+     "force": "5df",
+     "type": "Destroyer",
+     "from": "1941-05-21T21:30",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 11 May 1942 by Ju 88s off Crete"
   },
   "kirishima": {
    "id": "kirishima",
@@ -1753,6 +3948,27 @@
    ],
    "fate": null
   },
+  "koellner": {
+   "id": "koellner",
+   "name": "Erich Koellner",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z13_Erich_Koellner",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "koellner",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T13:10",
+     "sunk": "1940-04-13T13:10",
+     "sunkBy": "Bedouin, Punjabi and Warspite",
+     "lost": 31
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
   "kongo": {
    "id": "kongo",
    "name": "Kongō",
@@ -1783,7 +3999,7 @@
      "lost": null
     }
    ],
-   "fate": null
+   "fate": "sunk 21 Nov 1944 by USS Sealion off Formosa"
   },
   "kumano": {
    "id": "kumano",
@@ -1817,6 +4033,27 @@
    ],
    "fate": null
   },
+  "kunne": {
+   "id": "kunne",
+   "name": "Hermann Künne",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z19_Hermann_K%C3%BCnne",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "kunne",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T14:13",
+     "sunk": "1940-04-13T14:13",
+     "sunkBy": "Beached; torpedoed by Eskimo",
+     "lost": 9
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
   "langley": {
    "id": "langley",
    "name": "USS Langley",
@@ -1831,6 +4068,48 @@
      "type": "Light carrier — TG 58.4",
      "from": "1945-04-05T00:00",
      "to": "1945-04-08T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "leamington": {
+   "id": "leamington",
+   "name": "HMS Leamington",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Leamington_(G19)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "leamington",
+     "force": "escort",
+     "type": "Destroyer",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "ledbury": {
+   "id": "ledbury",
+   "name": "HMS Ledbury",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ledbury_(L90)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "ledbury",
+     "force": "escort",
+     "type": "Destroyer",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1859,6 +4138,48 @@
    ],
    "fate": null
   },
+  "london": {
+   "id": "london",
+   "name": "HMS London",
+   "nation": "RN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_London_(69)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "london",
+     "force": "cs1",
+     "type": "Heavy cruiser (Hamilton flagship)",
+     "from": "1942-06-30T18:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "lotus": {
+   "id": "lotus",
+   "name": "HMS Lotus",
+   "nation": "RN",
+   "class": "Corvette",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Lotus_(K130)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "lotus",
+     "force": "escort",
+     "type": "Corvette — turned back for River Afton's survivors",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "louisville": {
    "id": "louisville",
    "name": "USS Louisville",
@@ -1873,6 +4194,90 @@
      "type": "Heavy cruiser (Oldendorf flagship)",
      "from": "1944-10-17T00:00",
      "to": "1944-10-29T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "ludemann": {
+   "id": "ludemann",
+   "name": "Hans Lüdemann",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z18_Hans_L%C3%BCdemann",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "ludemann",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T17:00",
+     "sunk": "1940-04-13T17:00",
+     "sunkBy": "Scuttled at Rombaksbotn; torpedoed by Hero",
+     "lost": 2
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
+  "lupo": {
+   "id": "lupo",
+   "name": "Lupo",
+   "nation": "RM",
+   "class": "Torpedo boat",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_torpedo_boat_Lupo",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "lupo",
+     "force": "rm",
+     "type": "Torpedo boat (TV Mimbelli)",
+     "from": "1941-05-21T12:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "lutzow": {
+   "id": "lutzow",
+   "name": "Lützow",
+   "nation": "KM",
+   "class": "Panzerschiff",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Deutschland",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "lutzow",
+     "force": "kummetz",
+     "type": "Panzerschiff",
+     "from": "1942-07-03T12:30",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk by RAF bombs at Swinemünde, 16 Apr 1945; scuttled 4 May"
+  },
+  "mackay": {
+   "id": "mackay",
+   "name": "HMS Mackay",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Mackay_(D70)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "mackay",
+     "force": "harwich",
+     "type": "Destroyer (Capt Wright, D16)",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-13T14:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -1984,6 +4389,27 @@
     }
    ],
    "fate": "sunk 28 May 1941 — Operation Rheinübung — the Bismarck Chase"
+  },
+  "matchless": {
+   "id": "matchless",
+   "name": "HMS Matchless",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Matchless_(G52)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "matchless",
+     "force": "convoy",
+     "type": "Destroyer — 36th Division",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "maya": {
    "id": "maya",
@@ -2154,6 +4580,27 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "mohawk": {
+   "id": "mohawk",
+   "name": "HMS Mohawk",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Mohawk_(F31)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "mohawk",
+     "force": "forcea",
+     "type": "Tribal-class destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "monaghan": {
    "id": "monaghan",
    "name": "USS Monaghan",
@@ -2168,6 +4615,27 @@
      "type": "Destroyer",
      "from": "1942-05-28T09:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "mtb221": {
+   "id": "mtb221",
+   "name": "MTB 221",
+   "nation": "RN",
+   "class": "Motor torpedo boat",
+   "wiki": "https://en.wikipedia.org/wiki/Nigel_Pumphrey",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "mtb221",
+     "force": "dover",
+     "type": "Motor torpedo boat (Lt Cdr Pumphrey)",
+     "from": "1942-02-12T11:55",
+     "to": "1942-02-13T14:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -2195,6 +4663,27 @@
     }
    ],
    "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "musketeer": {
+   "id": "musketeer",
+   "name": "HMS Musketeer",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Musketeer_(G86)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "musketeer",
+     "force": "convoy",
+     "type": "Destroyer — 36th Division",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "mutsu": {
    "id": "mutsu",
@@ -2334,6 +4823,48 @@
    ],
    "fate": null
   },
+  "naiad": {
+   "id": "naiad",
+   "name": "HMS Naiad",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Naiad_(93)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "naiad",
+     "force": "c",
+     "type": "Light cruiser (King flagship)",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 11 Mar 1942 by U-565"
+  },
+  "napier": {
+   "id": "napier",
+   "name": "HMAS Napier",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Napier_(G97)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "napier",
+     "force": "a1",
+     "type": "Destroyer (Capt Arliss, D7)",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "nashville": {
    "id": "nashville",
    "name": "USS Nashville",
@@ -2375,6 +4906,27 @@
     }
    ],
    "fate": null
+  },
+  "navarino": {
+   "id": "navarino",
+   "name": "Navarino",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "navarino",
+     "force": "convoy",
+     "type": "Merchant ship — British",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-04T20:30",
+     "sunk": "1942-07-04T20:30",
+     "sunkBy": "He 111 of I./KG 26",
+     "lost": 15
+    }
+   ],
+   "fate": "sunk 4 Jul 1942 — Convoy PQ 17"
   },
   "newjersey": {
    "id": "newjersey",
@@ -2429,6 +4981,48 @@
    ],
    "fate": null
   },
+  "nigeria": {
+   "id": "nigeria",
+   "name": "HMS Nigeria",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Nigeria_(60)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "nigeria",
+     "force": "homefleet",
+     "type": "Light cruiser",
+     "from": "1942-06-29T00:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "nizam": {
+   "id": "nizam",
+   "name": "HMAS Nizam",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Nizam_(G38)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "nizam",
+     "force": "sphakia",
+     "type": "Destroyer",
+     "from": "1941-05-28T08:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "norfolk": {
    "id": "norfolk",
    "name": "HMS Norfolk",
@@ -2446,9 +5040,52 @@
      "sunk": null,
      "sunkBy": null,
      "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "norfolk",
+     "force": "cs1",
+     "type": "Heavy cruiser",
+     "from": "1942-06-30T18:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "northcape",
+     "shipId": "norfolk",
+     "force": "force1",
+     "type": "Heavy cruiser",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
     }
    ],
-   "fate": null
+   "fate": "survived the war; scrapped 1950"
+  },
+  "norge": {
+   "id": "norge",
+   "name": "HNoMS Norge",
+   "nation": "RNN",
+   "class": "Coast-defence ship",
+   "wiki": "https://en.wikipedia.org/wiki/HNoMS_Norge",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "norge",
+     "force": "rnn",
+     "type": "Coast-defence ship (Kaptein Askim)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-09T05:00",
+     "sunk": "1940-04-09T05:00",
+     "sunkBy": "Torpedoes from Bernd von Arnim after a one-minute gun duel",
+     "lost": 101
+    }
+   ],
+   "fate": "sunk 9 Apr 1940 — The Battles of Narvik"
   },
   "northampton": {
    "id": "northampton",
@@ -2524,6 +5161,196 @@
    ],
    "fate": "sunk 26 Oct 1944 — Battle of Leyte Gulf"
   },
+  "nubian": {
+   "id": "nubian",
+   "name": "HMS Nubian",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Nubian_(F36)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "nubian",
+     "force": "forcea",
+     "type": "Tribal-class destroyer",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "nubian",
+     "force": "c",
+     "type": "Tribal-class destroyer",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war"
+  },
+  "oceanfreedom": {
+   "id": "oceanfreedom",
+   "name": "Ocean Freedom",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "oceanfreedom",
+     "force": "convoy",
+     "type": "Merchant ship — British — arrived",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "offa": {
+   "id": "offa",
+   "name": "HMS Offa",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Offa_(G29)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "offa",
+     "force": "escort",
+     "type": "Destroyer",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "olopana": {
+   "id": "olopana",
+   "name": "Olopana",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Olopana",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "olopana",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-08T01:16",
+     "sunk": "1942-07-08T01:16",
+     "sunkBy": "U-255",
+     "lost": 7
+    }
+   ],
+   "fate": "sunk 8 Jul 1942 — Convoy PQ 17"
+  },
+  "onslow": {
+   "id": "onslow",
+   "name": "HMS Onslow",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Onslow_(G17)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "onslow",
+     "force": "convoy",
+     "type": "Destroyer (Capt McCoy, D17)",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "opportune": {
+   "id": "opportune",
+   "name": "HMS Opportune",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Opportune_(G80)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "opportune",
+     "force": "convoy",
+     "type": "Destroyer — 36th Division",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "oriani": {
+   "id": "oriani",
+   "name": "Alfredo Oriani",
+   "nation": "RM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Alfredo_Oriani",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "oriani",
+     "force": "cattaneo",
+     "type": "Destroyer",
+     "from": "1941-03-26T11:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "orion": {
+   "id": "orion",
+   "name": "HMS Orion",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Orion_(85)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "orion",
+     "force": "forceb",
+     "type": "Light cruiser (Pridham-Wippell flagship)",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "orion",
+     "force": "d",
+     "type": "Light cruiser (Rawlings' flagship 28–29 May)",
+     "from": "1941-05-20T22:00",
+     "to": "1941-05-29T20:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "oyodo": {
    "id": "oyodo",
    "name": "Ōyodo",
@@ -2544,6 +5371,111 @@
     }
    ],
    "fate": null
+  },
+  "p614": {
+   "id": "p614",
+   "name": "HMS P614",
+   "nation": "RN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_P614",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "p614",
+     "force": "escort",
+     "type": "Submarine",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "palomares": {
+   "id": "palomares",
+   "name": "HMS Palomares",
+   "nation": "RN",
+   "class": "Anti-aircraft ship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Palomares",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "palomares",
+     "force": "escort",
+     "type": "Anti-aircraft ship",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "panatlantic": {
+   "id": "panatlantic",
+   "name": "Pan Atlantic",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "panatlantic",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-06T12:00",
+     "sunk": "1942-07-06T12:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 26
+    }
+   ],
+   "fate": "sunk 6 Jul 1942 — Convoy PQ 17"
+  },
+  "pankraft": {
+   "id": "pankraft",
+   "name": "Pan Kraft",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/Pan_Kraft",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "pankraft",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-07T06:00",
+     "sunk": "1942-07-07T06:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 2
+    }
+   ],
+   "fate": "sunk 7 Jul 1942 — Convoy PQ 17"
+  },
+  "pauluspotter": {
+   "id": "pauluspotter",
+   "name": "Paulus Potter",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Paulus_Potter",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "pauluspotter",
+     "force": "convoy",
+     "type": "Merchant ship — Dutch",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T08:25",
+     "sunk": "1942-07-13T08:25",
+     "sunkBy": "Ju 88s; sunk by U-255",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 13 Jul 1942 — Convoy PQ 17"
   },
   "pensacola": {
    "id": "pensacola",
@@ -2566,6 +5498,59 @@
    ],
    "fate": null
   },
+  "perth": {
+   "id": "perth",
+   "name": "HMAS Perth",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Perth_(D29)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "perth",
+     "force": "forceb",
+     "type": "Light cruiser",
+     "from": "1941-03-27T13:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "perth",
+     "force": "c",
+     "type": "Light cruiser",
+     "from": "1941-05-20T22:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 1 Mar 1942 — Battle of Sunda Strait"
+  },
+  "peterkerr": {
+   "id": "peterkerr",
+   "name": "Peter Kerr",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "peterkerr",
+     "force": "convoyus",
+     "type": "Merchant ship — US",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:00",
+     "sunk": "1942-07-05T17:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
   "phelps": {
    "id": "phelps",
    "name": "USS Phelps",
@@ -2580,6 +5565,27 @@
      "type": "Destroyer",
      "from": "1942-05-28T09:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "phoebe": {
+   "id": "phoebe",
+   "name": "HMS Phoebe",
+   "nation": "RN",
+   "class": "Light cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Phoebe_(43)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "phoebe",
+     "force": "sphakia",
+     "type": "Light cruiser (King's flag for the Sphakia lifts)",
+     "from": "1941-05-29T06:00",
+     "to": "1941-06-02T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -2607,6 +5613,27 @@
     }
    ],
    "fate": null
+  },
+  "pola": {
+   "id": "pola",
+   "name": "Pola",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Pola",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "pola",
+     "force": "cattaneo",
+     "type": "Heavy cruiser",
+     "from": "1941-03-26T11:00",
+     "to": "1941-03-29T04:03",
+     "sunk": "1941-03-29T04:03",
+     "sunkBy": "Aerial torpedo; finished by Jervis and Nubian",
+     "lost": 328
+    }
+   ],
+   "fate": "sunk 29 Mar 1941 — Battle of Cape Matapan"
   },
   "portland": {
    "id": "portland",
@@ -2650,6 +5677,27 @@
    ],
    "fate": null
   },
+  "pozarica": {
+   "id": "pozarica",
+   "name": "HMS Pozarica",
+   "nation": "RN",
+   "class": "Anti-aircraft ship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Pozarica",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "pozarica",
+     "force": "escort",
+     "type": "Anti-aircraft ship",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "princeton": {
    "id": "princeton",
    "name": "USS Princeton",
@@ -2671,6 +5719,90 @@
    ],
    "fate": "sunk 24 Oct 1944 — Battle of Leyte Gulf"
   },
+  "punjabi": {
+   "id": "punjabi",
+   "name": "HMS Punjabi",
+   "nation": "RN",
+   "class": "Tribal-class destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Punjabi_(F21)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "punjabi",
+     "force": "forceb",
+     "type": "Tribal-class destroyer",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "qe": {
+   "id": "qe",
+   "name": "HMS Queen Elizabeth",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Queen_Elizabeth_(1913)",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "qe",
+     "force": "formidable",
+     "type": "Battleship (Pridham-Wippell flagship)",
+     "from": "1941-05-25T12:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; scrapped 1948"
+  },
+  "rathlin": {
+   "id": "rathlin",
+   "name": "Rathlin",
+   "nation": "RN",
+   "class": "Rescue ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Rathlin",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "rathlin",
+     "force": "escort",
+     "type": "Rescue ship",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "rauenfels": {
+   "id": "rauenfels",
+   "name": "Rauenfels",
+   "nation": "KM",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "rauenfels",
+     "force": "supply",
+     "type": "Merchant ship — ammunition and artillery",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-10T08:00",
+     "sunk": "1940-04-10T08:00",
+     "sunkBy": "Havock",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 10 Apr 1940 — The Battles of Narvik"
+  },
   "renown": {
    "id": "renown",
    "name": "HMS Renown",
@@ -2678,6 +5810,17 @@
    "class": "Battlecruiser",
    "wiki": "https://en.wikipedia.org/wiki/HMS_Renown_(1916)",
    "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "renown",
+     "force": "whitworth",
+     "type": "Battlecruiser (Whitworth flagship)",
+     "from": "1940-04-07T04:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
     {
      "scenario": "bismarck",
      "shipId": "renown",
@@ -2690,7 +5833,7 @@
      "lost": null
     }
    ],
-   "fate": null
+   "fate": "survived the war; scrapped 1948"
   },
   "repulse": {
    "id": "repulse",
@@ -2713,6 +5856,27 @@
    ],
    "fate": null
   },
+  "riverafton": {
+   "id": "riverafton",
+   "name": "River Afton",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_River_Afton",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "riverafton",
+     "force": "convoy",
+     "type": "Merchant ship — Commodore Dowding's ship (British)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T21:22",
+     "sunk": "1942-07-05T21:22",
+     "sunkBy": "U-703",
+     "lost": 23
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
   "rodney": {
    "id": "rodney",
    "name": "HMS Rodney",
@@ -2734,6 +5898,27 @@
    ],
    "fate": null
   },
+  "roeder": {
+   "id": "roeder",
+   "name": "Diether von Roeder",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z17_Diether_von_Roeder",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "roeder",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T15:20",
+     "sunk": "1940-04-13T15:20",
+     "sunkBy": "Disabled by Hostile 10 April; blown up at the pier as Foxhound closed",
+     "lost": 13
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
   "ryujo": {
    "id": "ryujo",
    "name": "Ryūjō",
@@ -2748,6 +5933,48 @@
      "type": "Light carrier (Kakuta flagship)",
      "from": "1942-05-25T03:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "sagittario": {
+   "id": "sagittario",
+   "name": "Sagittario",
+   "nation": "RM",
+   "class": "Torpedo boat",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_torpedo_boat_Sagittario",
+   "appearances": [
+    {
+     "scenario": "crete",
+     "shipId": "sagittario",
+     "force": "rm",
+     "type": "Torpedo boat (TV Cigala Fulgosi)",
+     "from": "1941-05-22T04:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "samuelchase": {
+   "id": "samuelchase",
+   "name": "Samuel Chase",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "samuelchase",
+     "force": "convoyus",
+     "type": "Merchant ship — Liberty ship (US) — bombed 10 July, arrived",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -2776,6 +6003,48 @@
    ],
    "fate": null
   },
+  "saumarez": {
+   "id": "saumarez",
+   "name": "HMS Saumarez",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Saumarez_(G12)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "saumarez",
+     "force": "force2",
+     "type": "Destroyer",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "savage": {
+   "id": "savage",
+   "name": "HMS Savage",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Savage_(G20)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "savage",
+     "force": "force2",
+     "type": "Destroyer",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "sbr": {
    "id": "sbr",
    "name": "USS Samuel B. Roberts",
@@ -2797,6 +6066,154 @@
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
   },
+  "scharnhorst": {
+   "id": "scharnhorst",
+   "name": "Scharnhorst",
+   "nation": "KM",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Scharnhorst",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "scharnhorst",
+     "force": "lutjens",
+     "type": "Battleship",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "channeldash",
+     "shipId": "scharnhorst",
+     "force": "cerberus",
+     "type": "Battleship (Ciliax flagship)",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T14:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "northcape",
+     "shipId": "scharnhorst",
+     "force": "scharnhorst",
+     "type": "Battleship (Bey flagship)",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-26T19:45",
+     "sunk": "1943-12-26T19:45",
+     "sunkBy": "Duke of York's 14-inch gunfire and 11 destroyer and cruiser torpedoes",
+     "lost": 1932
+    }
+   ],
+   "fate": "sunk 26 Dec 1943 — Battle of the North Cape"
+  },
+  "scheer": {
+   "id": "scheer",
+   "name": "Admiral Scheer",
+   "nation": "KM",
+   "class": "Panzerschiff",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Scheer",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "scheer",
+     "force": "kummetz",
+     "type": "Panzerschiff (Kummetz flag from 4 July)",
+     "from": "1942-07-03T12:30",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "capsized after RAF bombing at Kiel, 9 Apr 1945"
+  },
+  "schmitt": {
+   "id": "schmitt",
+   "name": "Anton Schmitt",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z22_Anton_Schmitt",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "schmitt",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-10T04:35",
+     "sunk": "1940-04-10T04:35",
+     "sunkBy": "Two torpedoes from Hunter and Havock",
+     "lost": 50
+    }
+   ],
+   "fate": "sunk 10 Apr 1940 — The Battles of Narvik"
+  },
+  "schoemann": {
+   "id": "schoemann",
+   "name": "Hermann Schoemann",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z7_Hermann_Schoemann",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "schoemann",
+     "force": "cerberus",
+     "type": "Destroyer",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "scorpion": {
+   "id": "scorpion",
+   "name": "HMS Scorpion",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Scorpion_(G72)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "scorpion",
+     "force": "force2",
+     "type": "Destroyer",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "sealion": {
+   "id": "sealion",
+   "name": "HMS Sealion",
+   "nation": "RN",
+   "class": "Submarine",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Sealion_(72S)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "sealion",
+     "force": "subs",
+     "type": "Submarine",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T14:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "sheffield": {
    "id": "sheffield",
    "name": "HMS Sheffield",
@@ -2811,6 +6228,17 @@
      "type": "Light cruiser",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "northcape",
+     "shipId": "sheffield",
+     "force": "force1",
+     "type": "Light cruiser",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -2881,6 +6309,27 @@
    ],
    "fate": null
   },
+  "silversword": {
+   "id": "silversword",
+   "name": "Silver Sword",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "silversword",
+     "force": "convoyus",
+     "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "soryu": {
    "id": "soryu",
    "name": "Sōryū",
@@ -2902,6 +6351,48 @@
    ],
    "fate": "sunk 4 Jun 1942 — Battle of Midway"
   },
+  "spee": {
+   "id": "spee",
+   "name": "Admiral Graf Spee",
+   "nation": "KM",
+   "class": "Panzerschiff",
+   "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Graf_Spee",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "spee",
+     "force": "spee",
+     "type": "Panzerschiff (Langsdorff flagship)",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-17T20:54",
+     "sunk": "1939-12-17T20:54",
+     "sunkBy": "Scuttled by her own crew off Montevideo",
+     "lost": 36
+    }
+   ],
+   "fate": "sunk 17 Dec 1939 — Battle of the River Plate"
+  },
+  "sswashington": {
+   "id": "sswashington",
+   "name": "Washington",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "sswashington",
+     "force": "convoyus",
+     "type": "Merchant ship — US — bombed at the ice edge with Bolton Castle and Paulus Potter",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:00",
+     "sunk": "1942-07-05T17:00",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
   "stlo": {
    "id": "stlo",
    "name": "USS St. Lo",
@@ -2922,6 +6413,69 @@
     }
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "stord": {
+   "id": "stord",
+   "name": "HNoMS Stord",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HNoMS_Stord_(G26)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "stord",
+     "force": "force2",
+     "type": "Destroyer (Royal Norwegian Navy)",
+     "from": "1943-12-23T23:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "streonshalh": {
+   "id": "streonshalh",
+   "name": "Streonshalh",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "streonshalh",
+     "force": "merchants",
+     "type": "Merchant ship",
+     "from": "1939-12-04T00:00",
+     "to": "1939-12-07T19:00",
+     "sunk": "1939-12-07T19:00",
+     "sunkBy": "Admiral Graf Spee",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 7 Dec 1939 — Battle of the River Plate"
+  },
+  "stuart": {
+   "id": "stuart",
+   "name": "HMAS Stuart",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMAS_Stuart_(D00)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "stuart",
+     "force": "forcea",
+     "type": "Destroyer (Capt Waller, D10)",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
   },
   "suffolk": {
    "id": "suffolk",
@@ -2996,6 +6550,27 @@
     }
    ],
    "fate": "sunk 25 Oct 1944 — Battle of Leyte Gulf"
+  },
+  "tairoa": {
+   "id": "tairoa",
+   "name": "Tairoa",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Tairoa",
+   "appearances": [
+    {
+     "scenario": "riverplate",
+     "shipId": "tairoa",
+     "force": "merchants",
+     "type": "Merchant ship — Shaw Savill",
+     "from": "1939-12-01T00:00",
+     "to": "1939-12-03T06:00",
+     "sunk": "1939-12-03T06:00",
+     "sunkBy": "Admiral Graf Spee",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 3 Dec 1939 — Battle of the River Plate"
   },
   "takao": {
    "id": "takao",
@@ -3145,6 +6720,27 @@
    ],
    "fate": null
   },
+  "thiele": {
+   "id": "thiele",
+   "name": "Georg Thiele",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z2_Georg_Thiele",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "thiele",
+     "force": "group1",
+     "type": "Destroyer",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T15:00",
+     "sunk": "1940-04-13T15:00",
+     "sunkBy": "Run aground at Sildvik under fire",
+     "lost": 14
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
   "threadfin": {
    "id": "threadfin",
    "name": "USS Threadfin",
@@ -3165,6 +6761,27 @@
     }
    ],
    "fate": null
+  },
+  "tirpitz": {
+   "id": "tirpitz",
+   "name": "Tirpitz",
+   "nation": "KM",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Tirpitz",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "tirpitz",
+     "force": "tirpitz",
+     "type": "Battleship (Schniewind flagship)",
+     "from": "1942-07-02T20:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "sunk 12 Nov 1944 by RAF Lancasters off Tromsø"
   },
   "tone": {
    "id": "tone",
@@ -3198,6 +6815,258 @@
    ],
    "fate": null
   },
+  "trento": {
+   "id": "trento",
+   "name": "Trento",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trento",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "trento",
+     "force": "sansonetti",
+     "type": "Heavy cruiser",
+     "from": "1941-03-27T06:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "trieste": {
+   "id": "trieste",
+   "name": "Trieste",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trieste",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "trieste",
+     "force": "sansonetti",
+     "type": "Heavy cruiser (Sansonetti flagship)",
+     "from": "1941-03-27T06:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "troubador": {
+   "id": "troubador",
+   "name": "Troubador",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "troubador",
+     "force": "convoy",
+     "type": "Merchant ship — hid in the ice with Ayrshire — arrived 24 July",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "tuscaloosa": {
+   "id": "tuscaloosa",
+   "name": "USS Tuscaloosa",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Tuscaloosa_(CA-37)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "tuscaloosa",
+     "force": "cs1us",
+     "type": "Heavy cruiser",
+     "from": "1942-06-30T18:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u251": {
+   "id": "u251",
+   "name": "U-251",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-251",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u251",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Timm)",
+     "from": "1942-07-09T12:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u255": {
+   "id": "u255",
+   "name": "U-255",
+   "nation": "KM",
+   "class": "Type VIIC U-boat (Reche)",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-255",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u255",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Reche) — four ships",
+     "from": "1942-07-01T12:00",
+     "to": "1942-07-13T08:25",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u334": {
+   "id": "u334",
+   "name": "U-334",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-334",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u334",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Siemon)",
+     "from": "1942-07-04T12:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u355": {
+   "id": "u355",
+   "name": "U-355",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-355",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u355",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (La Baume)",
+     "from": "1942-07-07T00:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u376": {
+   "id": "u376",
+   "name": "U-376",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-376",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u376",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Marks)",
+     "from": "1942-07-09T12:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u456": {
+   "id": "u456",
+   "name": "U-456",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-456",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u456",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Teichert)",
+     "from": "1942-07-04T12:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u457": {
+   "id": "u457",
+   "name": "U-457",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-457",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u457",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Brandenburg)",
+     "from": "1942-07-04T08:08",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u51": {
+   "id": "u51",
+   "name": "U-51",
+   "nation": "KM",
+   "class": "Type VIIB U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-51_(1938)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "u51",
+     "force": "ubootwaffe",
+     "type": "Type VIIB U-boat",
+     "from": "1940-04-08T12:00",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "u556": {
    "id": "u556",
    "name": "U-556",
@@ -3212,6 +7081,48 @@
      "type": "Type VIIC U-boat (Wohlfarth)",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "u64": {
+   "id": "u64",
+   "name": "U-64",
+   "nation": "KM",
+   "class": "Type IXB U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-64_(1939)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "u64",
+     "force": "ubootwaffe",
+     "type": "Type IXB U-boat",
+     "from": "1940-04-11T12:00",
+     "to": "1940-04-13T12:05",
+     "sunk": "1940-04-13T12:05",
+     "sunkBy": "Warspite's Swordfish — two 100-lb bombs",
+     "lost": 8
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
+  },
+  "u703": {
+   "id": "u703",
+   "name": "U-703",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-703",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u703",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Bielfeld)",
+     "from": "1942-07-04T12:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -3240,6 +7151,59 @@
    ],
    "fate": null
   },
+  "u88": {
+   "id": "u88",
+   "name": "U-88",
+   "nation": "KM",
+   "class": "Type VIIC U-boat",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-88",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "u88",
+     "force": "uboats",
+     "type": "Type VIIC U-boat (Bohmann)",
+     "from": "1942-07-04T12:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "valiant": {
+   "id": "valiant",
+   "name": "HMS Valiant",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Valiant_(1914)",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "valiant",
+     "force": "forcea",
+     "type": "Battleship — the only one with radar",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "valiant",
+     "force": "a1",
+     "type": "Battleship",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; scrapped 1948"
+  },
   "victorious": {
    "id": "victorious",
    "name": "HMS Victorious",
@@ -3254,6 +7218,17 @@
      "type": "Fleet carrier — 9 Swordfish, 6 Fulmars, first operation",
      "from": "1941-05-18T00:00",
      "to": "1941-05-28T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "victorious",
+     "force": "homefleet",
+     "type": "Fleet carrier",
+     "from": "1942-06-29T00:00",
+     "to": "1942-07-13T12:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -3282,6 +7257,27 @@
    ],
    "fate": null
   },
+  "virago": {
+   "id": "virago",
+   "name": "HMS Virago",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Virago_(R75)",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "virago",
+     "force": "convoy",
+     "type": "Destroyer — 36th Division",
+     "from": "1943-12-22T00:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
   "vireo": {
    "id": "vireo",
    "name": "USS Vireo",
@@ -3296,6 +7292,280 @@
      "type": "Fleet tug (ex-minesweeper)",
      "from": "1942-06-04T12:00",
      "to": "1942-06-08T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "vittorioveneto": {
+   "id": "vittorioveneto",
+   "name": "Vittorio Veneto",
+   "nation": "RM",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_battleship_Vittorio_Veneto",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "vittorioveneto",
+     "force": "iachino",
+     "type": "Battleship (Iachino flagship)",
+     "from": "1941-03-26T21:30",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "surrendered at Malta, Sep 1943; scrapped 1948"
+  },
+  "vivacious": {
+   "id": "vivacious",
+   "name": "HMS Vivacious",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Vivacious_(D36)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "vivacious",
+     "force": "harwich",
+     "type": "Destroyer",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-13T14:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "wainwright": {
+   "id": "wainwright",
+   "name": "USS Wainwright",
+   "nation": "USN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Wainwright_(DD-419)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "wainwright",
+     "force": "cs1us",
+     "type": "Destroyer — broke up the 4 July attack",
+     "from": "1942-06-30T18:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "walpole": {
+   "id": "walpole",
+   "name": "HMS Walpole",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Walpole_(D41)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "walpole",
+     "force": "harwich",
+     "type": "Destroyer",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-12T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "warspite": {
+   "id": "warspite",
+   "name": "HMS Warspite",
+   "nation": "RN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "warspite",
+     "force": "forceb",
+     "type": "Battleship (Whitworth flagship from 13 April)",
+     "from": "1940-04-12T07:30",
+     "to": "1940-04-14T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "matapan",
+     "shipId": "warspite",
+     "force": "forcea",
+     "type": "Battleship (Cunningham flagship)",
+     "from": "1941-03-27T19:00",
+     "to": "1941-04-01T18:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "crete",
+     "shipId": "warspite",
+     "force": "a1",
+     "type": "Battleship (Rawlings flagship)",
+     "from": "1941-05-20T05:00",
+     "to": "1941-06-02T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "survived the war; ran aground in Prussia Cove on her way to the breakers, 1947"
+  },
+  "washington": {
+   "id": "washington",
+   "name": "USS Washington",
+   "nation": "USN",
+   "class": "Battleship",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Washington_(BB-56)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "washington",
+     "force": "tf99",
+     "type": "Battleship (Giffen flagship)",
+     "from": "1942-06-29T00:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "whitshed": {
+   "id": "whitshed",
+   "name": "HMS Whitshed",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Whitshed_(D77)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "whitshed",
+     "force": "harwich",
+     "type": "Destroyer",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-13T14:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "wichita": {
+   "id": "wichita",
+   "name": "USS Wichita",
+   "nation": "USN",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Wichita_(CA-45)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "wichita",
+     "force": "cs1us",
+     "type": "Heavy cruiser",
+     "from": "1942-06-30T18:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "williamhooper": {
+   "id": "williamhooper",
+   "name": "William Hooper",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_William_Hooper",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "williamhooper",
+     "force": "convoyus",
+     "type": "Merchant ship — Liberty ship (US)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-04T23:03",
+     "sunk": "1942-07-04T23:03",
+     "sunkBy": "He 111 torpedo; finished by U-334",
+     "lost": 3
+    }
+   ],
+   "fate": "sunk 4 Jul 1942 — Convoy PQ 17"
+  },
+  "wilton": {
+   "id": "wilton",
+   "name": "HMS Wilton",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Wilton_(L128)",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "wilton",
+     "force": "escort",
+     "type": "Destroyer",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "winstonsalem": {
+   "id": "winstonsalem",
+   "name": "Winston-Salem",
+   "nation": "USN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "winstonsalem",
+     "force": "convoyus",
+     "type": "Merchant ship — US — ran herself aground on Novaya Zemlya",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "worcester": {
+   "id": "worcester",
+   "name": "HMS Worcester",
+   "nation": "RN",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Worcester_(D96)",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "worcester",
+     "force": "harwich",
+     "type": "Destroyer",
+     "from": "1942-02-12T11:56",
+     "to": "1942-02-13T18:00",
      "sunk": null,
      "sunkBy": null,
      "lost": null
@@ -3536,6 +7806,238 @@
     }
    ],
    "fate": null
+  },
+  "z25": {
+   "id": "z25",
+   "name": "Z25",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z25",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "z25",
+     "force": "cerberus",
+     "type": "Destroyer",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "z29": {
+   "id": "z29",
+   "name": "Z29",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z29",
+   "appearances": [
+    {
+     "scenario": "channeldash",
+     "shipId": "z29",
+     "force": "cerberus",
+     "type": "Destroyer (Bey; Ciliax's flag from 14:31)",
+     "from": "1942-02-11T12:00",
+     "to": "1942-02-13T09:30",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "pq17",
+     "shipId": "z29",
+     "force": "kummetz",
+     "type": "Destroyer",
+     "from": "1942-07-03T12:30",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    },
+    {
+     "scenario": "northcape",
+     "shipId": "z29",
+     "force": "zflot",
+     "type": "Destroyer (Johannesson flag)",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": "scuttled in the Skagerrak, Dec 1946"
+  },
+  "z30": {
+   "id": "z30",
+   "name": "Z30",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z30",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "z30",
+     "force": "zflot",
+     "type": "Destroyer",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "z33": {
+   "id": "z33",
+   "name": "Z33",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z33",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "z33",
+     "force": "zflot",
+     "type": "Destroyer",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "z34": {
+   "id": "z34",
+   "name": "Z34",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z34",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "z34",
+     "force": "zflot",
+     "type": "Destroyer",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "z38": {
+   "id": "z38",
+   "name": "Z38",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z38",
+   "appearances": [
+    {
+     "scenario": "northcape",
+     "shipId": "z38",
+     "force": "zflot",
+     "type": "Destroyer",
+     "from": "1943-12-25T19:00",
+     "to": "1943-12-28T00:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "zaafaran": {
+   "id": "zaafaran",
+   "name": "Zaafaran",
+   "nation": "RN",
+   "class": "Merchant ship",
+   "wiki": null,
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "zaafaran",
+     "force": "convoy",
+     "type": "Merchant ship — rescue ship (British)",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-05T17:30",
+     "sunk": "1942-07-05T17:30",
+     "sunkBy": "Ju 88s of KG 30",
+     "lost": 1
+    }
+   ],
+   "fate": "sunk 5 Jul 1942 — Convoy PQ 17"
+  },
+  "zamalek": {
+   "id": "zamalek",
+   "name": "Zamalek",
+   "nation": "RN",
+   "class": "Rescue ship",
+   "wiki": "https://en.wikipedia.org/wiki/SS_Zamalek",
+   "appearances": [
+    {
+     "scenario": "pq17",
+     "shipId": "zamalek",
+     "force": "escort",
+     "type": "Rescue ship",
+     "from": "1942-06-27T16:00",
+     "to": "1942-07-13T12:00",
+     "sunk": null,
+     "sunkBy": null,
+     "lost": null
+    }
+   ],
+   "fate": null
+  },
+  "zara": {
+   "id": "zara",
+   "name": "Zara",
+   "nation": "RM",
+   "class": "Heavy cruiser",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Zara",
+   "appearances": [
+    {
+     "scenario": "matapan",
+     "shipId": "zara",
+     "force": "cattaneo",
+     "type": "Heavy cruiser (Cattaneo flagship)",
+     "from": "1941-03-26T11:00",
+     "to": "1941-03-29T02:40",
+     "sunk": "1941-03-29T02:40",
+     "sunkBy": "Warspite, Valiant and Barham; torpedoed by Jervis",
+     "lost": 783
+    }
+   ],
+   "fate": "sunk 29 Mar 1941 — Battle of Cape Matapan"
+  },
+  "zenker": {
+   "id": "zenker",
+   "name": "Wolfgang Zenker",
+   "nation": "KM",
+   "class": "Destroyer",
+   "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z9_Wolfgang_Zenker",
+   "appearances": [
+    {
+     "scenario": "narvik",
+     "shipId": "zenker",
+     "force": "group1",
+     "type": "Destroyer (Bey, 4th Flotilla)",
+     "from": "1940-04-07T00:00",
+     "to": "1940-04-13T17:00",
+     "sunk": "1940-04-13T17:00",
+     "sunkBy": "Scuttled at Rombaksbotn",
+     "lost": 0
+    }
+   ],
+   "fate": "sunk 13 Apr 1940 — The Battles of Narvik"
   },
   "zuiho": {
    "id": "zuiho",
