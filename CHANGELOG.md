@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.7.1 — 2026-09-09
+
+- **Slower playback**: 1 min/s and 3 min/s added to the speed menu. A scenario can set `defaultSpeed` (ms of battle time per second); Pearl Harbor now opens at 3 min/s — the whole attack lasted under two hours. "Slow down for key events" now drops to 3 min/s (was 10) and also engages at 10 min/s.
+- **Satellite detail when zoomed in**: from zoom 11 Esri World Imagery is laid over the ocean chart, which has no detail beyond zoom 10 — Battleship Row, Ofotfjord and Kåfjord now resolve. Present-day imagery; a panel toggle turns it off.
+
 ## v2.7 — 2026-09-09
 
 **Guided camera** — a 🎬 option in the panel. The camera picks its own subject and hands over as the battle unfolds: the biggest carrier strike in the air (land-based raids second), otherwise the key ship with the next documented moment — Hornet across the Pacific, then Doolittle's B-25s to Tokyo, then Nagumo's carriers. Switching flies the map to the new subject; Esc, dragging the map or the ✕ on the chip stops it. Playback starts automatically.

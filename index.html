@@ -381,6 +381,7 @@
     <label><input type="checkbox" id="optFlags" checked> Flags</label>
     <label><input type="checkbox" id="optPorts" checked> Bases</label>
     <label><input type="checkbox" id="optNight" checked> Day/night</label>
+    <label title="Esri satellite imagery under the chart from zoom 11 — present-day, but it shows the harbours and fjords the ocean basemap cannot"><input type="checkbox" id="optSat" checked> Satellite detail when zoomed in</label>
     <label><input type="checkbox" id="optAutoSlow" checked> Slow down for key events</label>
     <label title="Hands the camera from one subject to the next: the biggest air strike in the air, otherwise the key ship with the next documented moment"><input type="checkbox" id="optTour"> 🎬 Guided camera</label>
   </div>
@@ -481,7 +482,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.7';
+const APP_VERSION = '2.7.1';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -605,6 +606,12 @@ const map = L.map('map', { zoomControl: true, worldCopyJump: !SC.view.dateline, 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Basemap © Esri, GEBCO, NOAA, National Geographic, DeLorme, NAVTEQ · Data: Wikipedia, DANFS, combinedfleet.com, naval-history.net', maxNativeZoom: 10 }).addTo(map);
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 10, opacity: .85 }).addTo(map);
+// The ocean basemap has no detail past zoom 10. From zoom 11 up, satellite imagery is laid over it so harbours and
+// fjords (Pearl Harbor, Narvik, Kåfjord) resolve; toggle in the panel. Modern imagery — today's piers, not 1941's.
+const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom: 17, opacity: .8, attribution: 'Imagery © Esri, Maxar, Earthstar Geographics' });
+const SAT_ZOOM = 11; let satOn = true;
+function renderSat(){ const want = satOn && map.getZoom() >= SAT_ZOOM; if (want && !satLayer._map) satLayer.addTo(map); else if (!want && satLayer._map) map.removeLayer(satLayer); }
+map.on('zoomend', renderSat); renderSat();
 const routeLayer = L.layerGroup().addTo(map), trailLayer = L.layerGroup().addTo(map), shipLayer = L.layerGroup().addTo(map);
 
 function buildRouteLines(s){ const solid = [], dash = []; for (let i = 1; i < s.wp.length; i++){ const a = s.wp[i-1], b = s.wp[i]; const seg = [[a.lat, a.lon], [b.lat, b.lon]]; (a.src && b.src && (b.t - a.t) <= 6*HOUR && !a.via && !b.via ? solid : dash).push(seg); } s.routeSolid.setLatLngs(solid); s.routeDash.setLatLngs(dash); }
@@ -631,7 +638,7 @@ SHIPS.forEach(s => {
 });
 
 // ====================== STATE & RENDER ======================
-const state = { t: T(SC.defaultTime), playing: false, speed: HOUR, trails: true, trailHours: 24, autoSlow: true, slowed: false, follow: null, night: true, routes: false, labels: true, lastEvIdx: -1 };
+const state = { t: T(SC.defaultTime), playing: false, speed: SC.defaultSpeed || HOUR, trails: true, trailHours: 24, autoSlow: true, slowed: false, follow: null, night: true, routes: false, labels: true, lastEvIdx: -1 };
 const slider = $('slider'); slider.min = T0; slider.max = T1; slider.step = 60e3;
 
 function render(){
@@ -661,12 +668,12 @@ function setTime(t, quiet){ state.t = Math.min(T1, Math.max(T0, t)); render(); i
 let raf = null, lastTs = 0;
 function tick(ts){
   if (!state.playing) return;
-  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed > 600e3 ? EV.filter(e => e.key && Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? 600e3 : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
+  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed >= 600e3 ? EV.filter(e => e.key && Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? Math.min(180e3, state.speed) : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
   lastTs = ts; raf = requestAnimationFrame(tick);
 }
 function togglePlay(on){ state.playing = on === undefined ? !state.playing : on; if (!state.playing){ state.slowed = false; state.slowEvent = null; } $('play').textContent = state.playing ? '❚❚ Pause' : '▶ Play'; lastTs = 0; if (state.playing) raf = requestAnimationFrame(tick); else cancelAnimationFrame(raf); }
 
-const SPEEDS = [['10 min / s', 600e3], ['1 h / s', HOUR], ['3 h / s', 3*HOUR], ['12 h / s', 12*HOUR], ['1 day / s', DAY]];
+const SPEEDS = [['1 min / s', 60e3], ['3 min / s', 180e3], ['10 min / s', 600e3], ['1 h / s', HOUR], ['3 h / s', 3*HOUR], ['12 h / s', 12*HOUR], ['1 day / s', DAY]];
 SPEEDS.forEach(([l, v], i) => { const o = document.createElement('option'); o.value = v; o.textContent = l; if (v === state.speed) o.selected = true; $('speed').appendChild(o); });
 $('speed').onchange = e => state.speed = +e.target.value;
 $('play').onclick = () => togglePlay();
@@ -1137,6 +1144,7 @@ function tourStep(){
 }
 function startTour(){ state.tour = true; state.tourFrom = Infinity; state.tourUntil = -Infinity; $('optTour').checked = true; tourStep(); if (!state.playing && typeof togglePlay === 'function') togglePlay(true); render(); }
 function stopTour(keepFollow){ if (!state.tour) return; state.tour = false; $('optTour').checked = false; if (!keepFollow){ state.follow = null; $('followchip').style.display = 'none'; } else if (state.follow) setFollow(state.follow, true); }
+$('optSat').onchange = e => { satOn = e.target.checked; renderSat(); };
 $('optTour').onchange = e => { if (e.target.checked) startTour(); else stopTour(false); };
 $('followchip').title = 'Esc to stop · Guided camera hands the view from one subject to the next';
 
