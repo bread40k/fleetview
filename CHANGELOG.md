@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.8 — 2026-09-09
+
+**Major damage** — ships can now carry `damage: [[time, hours, note]]`. A hit that mattered historically draws a smaller smoke plume that travels with the ship for the given hours (or until she sinks) and is a slow-down point for playback. 91 entries added across all fifteen campaigns: Tirpitz in Kåfjord, the four Midway carriers between their hits and their sinkings, Yorktown twice, Shōkaku, Vittorio Veneto, Warspite and Formidable off Crete, Exeter, Musashi, Bismarck's Prince of Wales hits, Nevada and the harbour at Pearl…
+
+**Slow-down points** — "Slow down for key events" now also engages as every air strike of six or more aircraft reaches its target (Tokyo, Kåfjord, Battleship Row, Midway's carriers, Shōhō) and at every major-damage moment, whether or not a timeline entry exists.
+
+**Hand-painted tracks** — `routing.manual: [ids]` in a scenario tells the route baker to leave those ships' or routes' waypoints exactly as written, so a track drawn by hand through a harbour or fjord is never re-routed. Pearl Harbor's channel is the first: Nevada's run down the channel, the midget submarine's approach, and the carriers' passage in and out of the harbour entrance are now painted point by point.
+
 ## v2.7.2 — 2026-09-09
 
 - **Smoke plumes** — a wreck now smokes for ten hours of battle time after sinking, the plume thinning as it goes (drawn from zoom 6 up, in the same layer as the sinking flash).

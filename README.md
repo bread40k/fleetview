@@ -75,10 +75,10 @@ A scenario file is a plain JSON object:
 id, title, subtitle, base:[year, monthIndex], start, end, tz, utcOffset, defaultTime, view, scenes, keyShips, footnote
 forces       { forceId: { name, color, nation } }
 routes       named base tracks: [ 'DD HH:MM', lat, lon, note?, 'S'|'R'? ]
-ships        [ { id, name, force, type, route, until?, extra?, sunk?, sunkBy?, lost?, wiki?, ref? } ]
+ships        [ { id, name, force, type, route, until?, extra?, sunk?, sunkBy?, lost?, wiki?, ref?, damage?:[[time, hours, note]] } ]
 strikes      [ { id, name, nation, from:{route}|{lat,lon}, target:{ship}|{lat,lon}, launch, arrive, leave, recover, count, land?, oneway?, recoverAt?, note } ]
 torpedoes, engagements (gun targets), events, ports (bases / airfields / HQ), rescues, commanders, groups
-routing      { res, bbox, margin, source, bakedAt, ships:{ shipId:{ hash, snap, via } } }   ← written by the baker, don't edit by hand
+routing      { res, bbox, margin, snap?, manual?:[ids], source, bakedAt, ships:{ shipId:{ hash, snap, via } } }   ← `ships` written by the baker, don't edit by hand; `manual` lists hand-painted tracks it must not re-route
 ```
 
 Times are `'DD HH:MM'` in the scenario's zone time (`base` gives the year and month; Tokyo UTC+9 for Leyte and Ten-Go, ~UTC+2 for the Bismarck chase, Midway local UTC−12 for Midway), or `'YYYY-MM-DD HH:MM'` when a campaign spans two months. A scenario that straddles the 180th meridian sets `view.dateline: true` and writes its longitudes continuously (177°W as 183), so tracks never wrap; the app normalises them for display. A ship follows its `route` until `until`, then its own `extra` track. Positions of battles and sinkings are taken from published records; transit legs between documented fixes are reconstructions and are drawn dotted — mark a waypoint `'S'` (sourced) or `'R'` (reconstructed) to override the default (a note ⇒ sourced).
