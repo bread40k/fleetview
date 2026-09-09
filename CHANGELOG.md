@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.6.1 — 2026-09-09
+
+**Campaign selector** — each entry now begins with its month and year (`Dec 1939 · Battle of the River Plate`), taken from the campaign's default time, so the dates line up down the list. The list was already in chronological order.
+
 ## v2.6 — 2026-09-09
 
 **Four new campaigns**

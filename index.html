@@ -480,7 +480,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.6';
+const APP_VERSION = '2.6.1';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -543,7 +543,7 @@ document.title = 'FleetView — ' + SC.title;
 document.querySelector('#side .sub').textContent = SC.subtitle;
 document.querySelector('#clock small').textContent = SC.tz;
 $('foot').textContent = SC.footnote;
-(function(){ const sel = $('scenario'); CAMPAIGNS.forEach(c => { const o = document.createElement('option'); o.value = c.id; o.textContent = c.title; if (c.id === SC.id) o.selected = true; sel.appendChild(o); }); sel.onchange = e => fvGoto(e.target.value); })();
+(function(){ const sel = $('scenario'); CAMPAIGNS.forEach(c => { const o = document.createElement('option'); o.value = c.id; const d = new Date(c.defaultTime + 'Z'); o.textContent = `${MON[d.getUTCMonth()]} ${d.getUTCFullYear()} · ${c.title}`; if (c.id === SC.id) o.selected = true; sel.appendChild(o); }); sel.onchange = e => fvGoto(e.target.value); })();
 
 // Interpolate along a raw route ([time,lat,lon,note]) at absolute time t
 const interpRaw = (route, t) => FV.interpRaw(route, t, T);
