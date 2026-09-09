@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-09-09T03:31:39.433Z",
+ "generated": "2026-09-09T09:49:57.450Z",
  "war": {
   "start": "1939-09-01T00:00",
   "end": "1945-09-02T12:00",
@@ -101,6 +101,24 @@
    "bytes": 45127
   },
   {
+   "id": "pearlharbor",
+   "title": "The Attack on Pearl Harbor",
+   "subtitle": "Hawaii · 25 November – 8 December 1941",
+   "theatre": "Hawaii",
+   "file": "scenarios/pearlharbor.json",
+   "start": "1941-11-25T00:00",
+   "end": "1941-12-08T18:00",
+   "defaultTime": "1941-12-07T07:55",
+   "tz": "Hawaii time · UTC−10:30 (Tokyo is 19½ hours ahead)",
+   "utcOffset": -10.5,
+   "ships": 51,
+   "losses": 9,
+   "airOps": 5,
+   "events": 30,
+   "routed": true,
+   "bytes": 37180
+  },
+  {
    "id": "channeldash",
    "title": "The Channel Dash — Operation Cerberus",
    "subtitle": "English Channel · 11–13 February 1942",
@@ -117,6 +135,42 @@
    "events": 20,
    "routed": true,
    "bytes": 20692
+  },
+  {
+   "id": "doolittle",
+   "title": "The Doolittle Raid",
+   "subtitle": "North Pacific · 2–25 April 1942",
+   "theatre": "North Pacific",
+   "file": "scenarios/doolittle.json",
+   "start": "1942-04-02T00:00",
+   "end": "1942-04-26T00:00",
+   "defaultTime": "1942-04-18T08:40",
+   "tz": "Task Force 16 time · UTC+10 (Tokyo one hour behind)",
+   "utcOffset": 10,
+   "ships": 19,
+   "losses": 2,
+   "airOps": 5,
+   "events": 19,
+   "routed": true,
+   "bytes": 19597
+  },
+  {
+   "id": "coralsea",
+   "title": "Battle of the Coral Sea",
+   "subtitle": "South-West Pacific · 1–12 May 1942",
+   "theatre": "South-West Pacific",
+   "file": "scenarios/coralsea.json",
+   "start": "1942-05-01T00:00",
+   "end": "1942-05-12T12:00",
+   "defaultTime": "1942-05-08T11:15",
+   "tz": "Zone −11 · UTC+11",
+   "utcOffset": 11,
+   "ships": 46,
+   "losses": 6,
+   "airOps": 12,
+   "events": 28,
+   "routed": true,
+   "bytes": 43029
   },
   {
    "id": "midway",
@@ -171,6 +225,24 @@
    "events": 19,
    "routed": true,
    "bytes": 26626
+  },
+  {
+   "id": "tungsten",
+   "title": "Operation Tungsten — the Fleet Air Arm strikes Tirpitz",
+   "subtitle": "Arctic Norway · 27 March – 7 April 1944",
+   "theatre": "Arctic Norway",
+   "file": "scenarios/tungsten.json",
+   "start": "1944-03-27T00:00",
+   "end": "1944-04-07T12:00",
+   "defaultTime": "1944-04-03T05:29",
+   "tz": "Zone −1 · UTC+1",
+   "utcOffset": 1,
+   "ships": 33,
+   "losses": 3,
+   "airOps": 5,
+   "events": 14,
+   "routed": true,
+   "bytes": 25965
   },
   {
    "id": "leyte",
