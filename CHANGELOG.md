@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.7 — 2026-09-09
+
+**Guided camera** — a 🎬 option in the panel. The camera picks its own subject and hands over as the battle unfolds: the biggest carrier strike in the air (land-based raids second), otherwise the key ship with the next documented moment — Hornet across the Pacific, then Doolittle's B-25s to Tokyo, then Nagumo's carriers. Switching flies the map to the new subject; Esc, dragging the map or the ✕ on the chip stops it. Playback starts automatically.
+
+**Follow air groups** — clicking an aircraft formation now offers ◎ Follow; the view tracks the strike until it recovers, then releases. The follow chip shows ✈ for air groups.
+
+**Popup controls during playback** — the ship popup is now patched in place each frame instead of being rebuilt, so Follow and Wikipedia can be clicked while the clock is running.
+
+Smoke test drives the guided camera through every campaign and checks strike following.
+
 ## v2.6.1 — 2026-09-09
 
 **Campaign selector** — each entry now begins with its month and year (`Dec 1939 · Battle of the River Plate`), taken from the campaign's default time, so the dates line up down the list. The list was already in chronological order.

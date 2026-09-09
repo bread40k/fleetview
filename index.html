@@ -382,6 +382,7 @@
     <label><input type="checkbox" id="optPorts" checked> Bases</label>
     <label><input type="checkbox" id="optNight" checked> Day/night</label>
     <label><input type="checkbox" id="optAutoSlow" checked> Slow down for key events</label>
+    <label title="Hands the camera from one subject to the next: the biggest air strike in the air, otherwise the key ship with the next documented moment"><input type="checkbox" id="optTour"> 🎬 Guided camera</label>
   </div>
   <div class="legend" id="legend"></div>
   <div id="foot">Times are Tokyo time (UTC+9). Battle and sinking positions from published records; transits between ports are reconstructed and schematic. Formation members are spread slightly so they don't overlap.</div>
@@ -480,7 +481,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.6.1';
+const APP_VERSION = '2.7';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -749,7 +750,7 @@ function toastMsg(m){ const el = $('toast'); el.innerHTML = m; el.classList.add(
 // ---- popup
 let popupShip = null;
 const popup = L.popup({ closeButton: true, autoPan: false, offset: [0, -6] });
-popup.on('remove', () => popupShip = null);
+popup.on('remove', () => { popupShip = null; popup._fvShip = null; });
 function openPopup(s){ popupShip = s; fillPopup(s); }
 function fillPopup(s){
   const p = posAt(s, state.t); if (!p){ map.closePopup(popup); return; }
@@ -765,8 +766,22 @@ function fillPopup(s){
   // cross-campaign registry: other campaigns this ship appears in (deep links), and her eventual fate if not lost here
   const reg = s.reg || {}; const also = (reg.appearances || []).filter(a => a.scenario !== SC.id).map(a => { const c = CAMPAIGNS.find(c => c.id === a.scenario); return c ? `<a href="#s=${c.id}&t=${a.from}" onclick="fvGoto('${c.id}','${a.from}');return false" title="${c.subtitle || ''}">${c.title}</a>${a.sunk ? ' ✕' : ''}` : null; }).filter(Boolean);
   const regHtml = (also.length ? `<div class="k also">Also in: ${also.join(' · ')}</div>` : '') + (reg.fate && !s.sunk ? `<div class="k also">Fate: ${reg.fate}</div>` : '');
-  popup.setLatLng([p.lat, p.lon]).setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div>${regHtml}<div class="status ${cls}">${status}</div><div class="k" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div>${s.lost != null && p.state === 'sunk' ? `<div class="k">~${s.lost.toLocaleString()} men lost</div>` : ''}${p.note ? `<div class="note">${p.note}</div>` : ''}<div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
-  if (!popup.isOpen()) popup.openOn(map);
+  const lost = s.lost != null && p.state === 'sunk' ? `~${s.lost.toLocaleString()} men lost` : '';
+  popup.setLatLng([p.lat, p.lon]);
+  // Rebuild the popup only when it opens or changes ship; otherwise patch the live fields so the Follow / Wikipedia
+  // controls are not re-created under the pointer every frame during playback.
+  const el = popup.getElement && popup.getElement(); const live = popup.isOpen() && popup._fvShip === s && el && el.querySelector('.pp');
+  if (!live){
+    popup._fvShip = s;
+    popup.setContent(`<div class="pp"><h3 style="color:${s.color}">${s.name}</h3><div class="k">${s.type}</div><div class="k">${f.name}</div>${regHtml}<div class="status ${cls}">${status}</div><div class="k pos" style="font-family:var(--mono)">${fmtLL(p.lat, p.lon)} ${conf}</div><div class="k lost">${lost}</div><div class="note">${p.note || ''}</div><div class="wk"><button class="btn mini ${following ? 'on' : ''}" onclick="toggleFollow('${s.id}')">${following ? '■ Stop following' : '◎ Follow'}</button>${s.wiki ? `<a href="${s.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : ''}</div></div>`);
+    if (!popup.isOpen()) popup.openOn(map);
+  } else {
+    const q = sel => el.querySelector(sel); const st = q('.status'); if (st && (st.textContent !== status || !st.classList.contains(cls || 'x'))){ st.textContent = status; st.className = 'status ' + cls; }
+    const pos = q('.pos'); const posHtml = `${fmtLL(p.lat, p.lon)} ${conf}`; if (pos && pos.innerHTML !== posHtml) pos.innerHTML = posHtml;
+    const lo = q('.lost'); if (lo && lo.textContent !== lost) lo.textContent = lost;
+    const nt = q('.note'); if (nt && nt.textContent !== (p.note || '')){ nt.textContent = p.note || ''; nt.style.display = p.note ? '' : 'none'; }
+    const b = q('.wk .btn'); const label = following ? '■ Stop following' : '◎ Follow'; if (b && b.textContent !== label){ b.textContent = label; b.classList.toggle('on', following); }
+  }
 }
 
 // ====================== FLAGS ======================
@@ -898,7 +913,7 @@ STRIKES.forEach(k => {
   k.color = NATIONS[k.nation].side === 'allied' ? '#7dd3fc' : '#fb7185';
   const icon = L.divIcon({ className: 'fv', iconSize: [0,0], html: `<div class="ac" style="--c:${k.color}">${planeHTML(k)}<div class="gun"></div><span class="lbl"><b>${k.name}</b> · ${k.count} a/c${k.land ? ' · land-based' : ''}</span></div>` });
   k.marker = L.marker([0,0], { icon, keyboard: false, zIndexOffset: 700 });
-  k.marker.on('click', () => { const el = $('toast'); el.innerHTML = `<b>${fmtShort(k.tLaunch)}–${fmtTime(k.tRecover)}</b>${k.name}: ${k.note}`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 6000); });
+  k.marker.on('click', () => { const el = $('toast'); el.innerHTML = `<b>${fmtShort(k.tLaunch)}–${fmtTime(k.tRecover)}</b>${k.name}: ${k.note} <button class="btn mini" onclick="followStrike('${k.id}')">${state.follow === k ? '■ Stop following' : '◎ Follow'}</button>`; el.classList.add('show'); clearTimeout(toast._h); toast._h = setTimeout(() => el.classList.remove('show'), 6000); });
   k.line = L.polyline([], { color: k.color, weight: 1.2, opacity: .55, dashArray: '2 6', interactive: false });
   k.onMap = false;
 });
@@ -1088,11 +1103,42 @@ setInterval(flicker, 120);
 // ====================== FOLLOW, DAY/NIGHT, SEARCH, COMMANDERS, LOSSES, TORPEDOES & TRACERS ======================
 
 // ---- follow a ship
-function toggleFollow(id){ const s = id ? shipById[id] : (state.follow || popupShip); if (!s) return; if (state.follow === s) stopFollow(); else { state.follow = s; $('followchip').style.display = ''; $('followchip').querySelector('b').textContent = s.name; render(); if (popupShip) fillPopup(popupShip); } }
-function stopFollow(){ if (!state.follow) return; state.follow = null; $('followchip').style.display = 'none'; if (popupShip) fillPopup(popupShip); }
+// state.follow may be a ship or an air operation (strike); strikes are followed until they recover
+const strikeById = Object.fromEntries(STRIKES.map(k => [k.id, k]));
+const isStrike = s => s && s.tLaunch !== undefined;
+function followPos(s, t){ return isStrike(s) ? strikeAt(s, t) : posAt(s, t); }
+function setFollow(s, quiet){ state.follow = s; $('followchip').style.display = ''; $('followchip').querySelector('b').textContent = (state.tour ? '🎬 ' : '') + (isStrike(s) ? '✈ ' : '') + s.name; if (!quiet) render(); if (popupShip) fillPopup(popupShip); }
+function toggleFollow(id){ const s = id ? (shipById[id] || strikeById[id]) : (state.follow || popupShip); if (!s) return; if (state.follow === s) stopFollow(); else { if (state.tour) stopTour(true); setFollow(s); } }
+function followStrike(id){ const k = strikeById[id]; if (!k) return; if (state.tour) stopTour(true); if (state.follow === k) stopFollow(); else { setFollow(k); const p = strikeAt(k, state.t); if (p && map.getZoom() < 7) map.flyTo([p.lat, p.lon], 7, { duration: .6 }); } }
+function stopFollow(){ if (state.tour) stopTour(true); if (!state.follow) return; state.follow = null; $('followchip').style.display = 'none'; if (popupShip) fillPopup(popupShip); }
 $('followchip').onclick = () => stopFollow();
 map.on('dragstart', () => stopFollow());
-function renderFollow(){ const s = state.follow; if (!s) return; const p = posAt(s, state.t); if (p) map.setView([p.lat, p.lon], map.getZoom(), { animate: false }); }
+function renderFollow(){ if (state.tour) tourStep(); const s = state.follow; if (!s) return; const p = followPos(s, state.t); if (p){ if (!state._flying) map.setView([p.lat, p.lon], map.getZoom(), { animate: false }); } else if (isStrike(s) && !state.tour) stopFollow(); }
+
+// ---- guided camera: pick a subject automatically — the biggest carrier / land strike in the air, else the key ship
+// with the next documented moment — and hand the camera from one to the next as the battle unfolds.
+function tourSubject(t){
+  const live = STRIKES.filter(k => t >= k.tLaunch && t <= k.tRecover && k.count >= 3);
+  if (live.length){ live.sort((a, b) => (b.land ? 0 : 1) - (a.land ? 0 : 1) || b.count - a.count || a.tLaunch - b.tLaunch); return { s: live[0], until: live[0].tRecover }; }
+  const keys = (SC.keyShips || []).map(id => shipById[id]).filter(Boolean).concat(SHIPS.filter(s => !KEY_SHIPS.has(s.id)));
+  let best = null;
+  for (const s of keys){ if (t < s.wp[0].t || t >= s.sunkT) continue; const nxt = s.wp.find(w => w.t > t && (w.note || w.src)); const dt = nxt ? nxt.t - t : (s.sunkT > t && s.sunkT < Infinity ? s.sunkT - t : Infinity); if (!best || dt < best.dt) best = { s, dt, until: nxt ? nxt.t : t + 6*HOUR }; if (KEY_SHIPS.has(s.id) && dt < 12*HOUR) break; }
+  if (best) return { s: best.s, until: Math.max(best.until, t + 20*60e3) };
+  return null;
+}
+function tourStep(){
+  const t = state.t, s = state.follow;
+  const liveStrike = STRIKES.find(k => !k.land && k.count >= 3 && t >= k.tLaunch && t <= k.tRecover && (!isStrike(s) || s.land));
+  const stale = !s || t < state.tourFrom || t > state.tourUntil || !followPos(s, t) || (!isStrike(s) && liveStrike);
+  if (!stale) return;
+  const pick = tourSubject(t); if (!pick){ return; }
+  state.tourFrom = t; state.tourUntil = pick.until;
+  if (pick.s !== s){ setFollow(pick.s, true); const p = followPos(pick.s, t); if (p){ const z = Math.max(map.getZoom(), isStrike(pick.s) ? 7 : 6); state._flying = true; map.flyTo([p.lat, p.lon], z, { duration: 1.1 }); setTimeout(() => state._flying = false, 1200); } }
+}
+function startTour(){ state.tour = true; state.tourFrom = Infinity; state.tourUntil = -Infinity; $('optTour').checked = true; tourStep(); if (!state.playing && typeof togglePlay === 'function') togglePlay(true); render(); }
+function stopTour(keepFollow){ if (!state.tour) return; state.tour = false; $('optTour').checked = false; if (!keepFollow){ state.follow = null; $('followchip').style.display = 'none'; } else if (state.follow) setFollow(state.follow, true); }
+$('optTour').onchange = e => { if (e.target.checked) startTour(); else stopTour(false); };
+$('followchip').title = 'Esc to stop · Guided camera hands the view from one subject to the next';
 
 // ---- day / night terminator
 map.createPane('night').style.zIndex = 380;
@@ -1286,8 +1332,8 @@ const _render6 = render; render = function(){ _render6(); renderWar(); };
   render();
 })();
 // inline handlers in popup HTML need these on window
-window.toggleFollow = toggleFollow; window.stopFollow = stopFollow;
-return { SC, INDEX, REGISTRY, state, setTime, togglePlay, SHIPS, EV, T, T0, T1, posAt, render, openPopup, STRIKES, strikeAt, FLAGS, fmtDate, fmtShort, flicker, applyRouting, clearRouting, layoutWar, WARC };
+window.toggleFollow = toggleFollow; window.stopFollow = stopFollow; window.followStrike = followStrike;
+return { SC, INDEX, REGISTRY, state, setTime, togglePlay, startTour, stopTour, followStrike, SHIPS, EV, T, T0, T1, posAt, render, openPopup, STRIKES, strikeAt, FLAGS, fmtDate, fmtShort, flicker, applyRouting, clearRouting, layoutWar, WARC };
 } // end runApp
 </script>
 </body>

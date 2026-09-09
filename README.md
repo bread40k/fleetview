@@ -38,7 +38,8 @@ Currently included:
 - Documented vs reconstructed positions distinguished (solid vs dotted routes, popup confidence note)
 - Two-level timeline: the whole war at sea (1939–45) with every campaign as a block, plus the minute-resolution battle slider
 - Cross-campaign ship registry — a ship's popup links to her other campaigns and gives her eventual fate
-- Follow-a-ship, search, keyboard shortcuts, four UI themes (modern / wartime chart × light / dark)
+- Follow a ship or an air group; a guided-camera mode that hands the view from one subject to the next as the battle unfolds
+- Search, keyboard shortcuts, four UI themes (modern / wartime chart × light / dark)
 
 Deep links: `https://bread40k.github.io/fleetview/#s=bismarck&t=1941-05-27T10:30`
 
