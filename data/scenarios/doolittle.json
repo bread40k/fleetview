@@ -1,0 +1,241 @@
+{
+ "id": "doolittle",
+ "title": "The Doolittle Raid",
+ "subtitle": "North Pacific · 2–25 April 1942",
+ "base": [1942, 3],
+ "start": "02 00:00",
+ "end": "26 00:00",
+ "tz": "Task Force 16 time · UTC+10 (Tokyo one hour behind)",
+ "utcOffset": 10,
+ "majorDays": [18],
+ "view": {
+  "center": [36, 190],
+  "zoom": 3,
+  "min": 3,
+  "max": 11,
+  "dateline": true
+ },
+ "alliedNavy": "USN",
+ "keyShips": ["hornet", "enterprise", "nashville", "nittomaru", "akagi", "trout"],
+ "scenes": [
+  ["Overview", "18 08:20", [36, 190], 3],
+  ["Alameda", "03 03:00", [37.8, 237.6], 8],
+  ["Rendezvous", "13 06:00", [38, 180], 5],
+  ["Nitto Maru", "18 07:44", [35.5, 153.5], 8],
+  ["Launch", "18 08:40", [35.7, 153.4], 8],
+  ["Over Tokyo", "18 13:30", [35.5, 139.8], 7],
+  ["China", "18 21:30", [29.5, 120], 6],
+  ["Nagumo's chase", "19 12:00", [26, 125], 5],
+  ["Home", "25 09:00", [21.4, 202], 7]
+ ],
+ "defaultTime": "18 08:40",
+ "footnote": "Task Force 16's clocks on 18 April (Zone −10, UTC+10; Tokyo one hour behind). The rendezvous at 38°N 180°, Hornet's 08:00 fix and Doolittle's launch point are from the Hornet, Enterprise and Doolittle reports; the passage from Alameda and Pearl, the refuelling position and the pickets' stations are reconstructed. The bombers are drawn as one flight to Tokyo and on to Chuchow. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "tf16": { "name": "USN Task Force 16 (Halsey) — Enterprise", "color": "#3b82f6", "nation": "USN" },
+  "tf18": { "name": "USN Task Force 18 (Mitscher) — Hornet and the B-25s", "color": "#06b6d4", "nation": "USN" },
+  "train": { "name": "USN Oilers and destroyers (detached 17 April)", "color": "#94a3b8", "nation": "USN" },
+  "ussubs": { "name": "USN Submarines Trout & Thresher", "color": "#a3a3a3", "nation": "USN" },
+  "pickets": { "name": "IJN Picket boats — No. 7 Patrol Division", "color": "#f97316", "nation": "IJN" },
+  "nagumo": { "name": "IJN First Air Fleet (Nagumo) — recalled from the Indian Ocean", "color": "#e5484d", "nation": "IJN" }
+ },
+ "schema": 1,
+ "routes": {
+  "tf18": [["03 03:00", 37.79, 237.68, "Hornet sails from Alameda with sixteen B-25s lashed to her flight deck (10:00 2 April, Pacific time)", "S"], ["03 05:00", 37.8, 237.4, "Under the Golden Gate; the crews are told where they are going", "R"], ["13 06:00", 38, 180, "Rendezvous with Halsey at 38°N 180° — Task Force 16", "S"], ["17 14:39", 38.6, 160, "Fuelling completed about 1,000 miles from Tokyo; oilers and destroyers detached; carriers and cruisers on at 20 knots into a gale", "R"], ["18 03:10", 36.3, 154.5, "Radar contact on two surface craft; Halsey turns away for an hour", "R"], ["18 07:38", 35.5, 153.5, "Picket boat Nitto Maru sighted at 20,000 yards — and she has already radioed 'three enemy carriers'", "R"], ["18 08:00", 35.433, 153.45, "Hornet's 08:00 fix: 35°26′N 153°27′E", "S"], ["18 08:45", 35.717, 153.417, "Doolittle's launch point, 35°43′N 153°25′E — he took off first at 08:20 — 650 miles from Tokyo, 170 farther than planned, ten hours early", "S"], ["18 09:20", 35.75, 153.3, "The sixteenth B-25 is off in 59 minutes; Hornet's own aircraft come up from the hangar", "R"], ["18 09:27", 35.74, 153.32, "Task Force 16 turns for Pearl Harbor at 25 knots", "R"], ["18 14:00", 35.5, 155.5, "Enterprise's aircraft and Nashville sink or damage the picket boats", "R"], ["19 12:00", 35, 164, "Destroyers rejoin", "R"], ["21 12:00", 33, 180, "Oilers rejoin", "R"], ["25 09:00", 21.35, 202.05, "Pearl Harbor", "S"], ["26 00:00", 21.35, 202.05]],
+  "tf16": [["09 09:00", 21.35, 202.05, "Enterprise sails from Pearl Harbor with Northampton, Salt Lake City, Sabine and four destroyers", "S"], ["11 12:00", 30, 190], ["13 06:00", 38, 180, "Rendezvous with Halsey at 38°N 180° — Task Force 16", "S"], ["17 14:39", 38.6, 160, "Fuelling completed about 1,000 miles from Tokyo; oilers and destroyers detached; carriers and cruisers on at 20 knots into a gale", "R"], ["18 03:10", 36.3, 154.5, "Radar contact on two surface craft; Halsey turns away for an hour", "R"], ["18 07:38", 35.5, 153.5, "Picket boat Nitto Maru sighted at 20,000 yards — and she has already radioed 'three enemy carriers'", "R"], ["18 08:00", 35.433, 153.45, "Hornet's 08:00 fix: 35°26′N 153°27′E", "S"], ["18 08:45", 35.717, 153.417, "Doolittle's launch point, 35°43′N 153°25′E — he took off first at 08:20 — 650 miles from Tokyo, 170 farther than planned, ten hours early", "S"], ["18 09:20", 35.75, 153.3, "The sixteenth B-25 is off in 59 minutes; Hornet's own aircraft come up from the hangar", "R"], ["18 09:27", 35.74, 153.32, "Task Force 16 turns for Pearl Harbor at 25 knots", "R"], ["18 14:00", 35.5, 155.5, "Enterprise's aircraft and Nashville sink or damage the picket boats", "R"], ["19 12:00", 35, 164, "Destroyers rejoin", "R"], ["21 12:00", 33, 180, "Oilers rejoin", "R"], ["25 09:00", 21.35, 202.05, "Pearl Harbor", "S"], ["26 00:00", 21.35, 202.05]],
+  "train": [["03 03:00", 37.79, 237.68, "Hornet sails from Alameda with sixteen B-25s lashed to her flight deck (10:00 2 April, Pacific time)", "S"], ["03 05:00", 37.8, 237.4, "Under the Golden Gate; the crews are told where they are going", "R"], ["13 06:00", 38, 180, "Rendezvous with Halsey at 38°N 180° — Task Force 16", "S"], ["17 14:39", 38.6, 160, "Fuelling completed about 1,000 miles from Tokyo; oilers and destroyers detached; carriers and cruisers on at 20 knots into a gale", "R"], ["18 12:00", 38.6, 160.5, "Cimarron, Sabine and eight destroyers wait at the fuelling position", "R"], ["19 12:00", 35, 164, "Destroyers rejoin the carriers", "R"], ["21 12:00", 33, 180], ["25 09:00", 21.35, 202.05, null, "S"], ["26 00:00", 21.35, 202.05]],
+  "nitto": [["12 00:00", 35.3, 153.6, "No. 23 Nitto Maru, a 90-ton fishing boat with a radio and a machine gun, 650 miles off Japan", "R"], ["18 07:38", 35.45, 153.55, "Sights the carriers and reports them to Tokyo", "S"], ["18 08:23", 35.4, 153.4, "Sunk by Nashville after 915 rounds of 6-inch; five of eleven saved, the skipper shoots himself", "S"]],
+  "nagato": [["12 00:00", 35.6, 155.7, "Picket boat Nagato Maru", "R"], ["18 14:30", 35.5, 155.5, "Bombed by Enterprise's Dauntlesses and sunk by Nashville's guns; five prisoners", "S"]],
+  "trout": [["02 00:00", 31.2, 143.5, "Trout patrols 300 miles south-east of Tokyo Bay to report weather and shipping", "R"], ["26 00:00", 31.2, 143.5]],
+  "thresher": [["02 00:00", 34.6, 143.5, "Thresher off Honshu; fired on by a Japanese submarine", "R"], ["26 00:00", 34.6, 143.5]],
+  "nagumo": [["18 12:00", 21.5, 121, "Akagi, Sōryū and Hiryū in the Bashi Channel, homeward from the Indian Ocean raid", "R"], ["19 12:00", 23.5, 124, "Ordered east through the Luzon Strait after Halsey — 2,000 miles too late", "R"], ["20 12:00", 27.5, 129.5, "The chase is abandoned", "R"], ["22 12:00", 33.9, 132.4, "Hashirajima", "R"], ["26 00:00", 33.9, 132.4]]
+ },
+ "groups": { "tf18": "Hornet", "tf16": "Enterprise", "train": "Oilers", "nitto": "Nitto Maru", "nagato": "Nagato Maru", "trout": "Trout", "thresher": "Thresher", "nagumo": "Nagumo" },
+ "commanders": {
+  "tf18": { "name": "Lieutenant Colonel James H. Doolittle", "role": "Commander, Army Air Forces special project — Hornet under Captain Marc Mitscher", "flagship": "USS Hornet · B-25 40-2344", "bio": "A racing pilot and aeronautical engineer who trained 24 crews to lift a medium bomber off 467 feet of deck. Took off first, ten hours early and 170 miles farther out than planned, bombed Tokyo at noon and bailed out over China in the dark. Sixteen bombers for the loss of seven men and the Japanese Navy's peace of mind.", "fate": "Medal of Honor; general; died 1993 aged 96.", "wiki": "Jimmy_Doolittle" },
+  "tf16": { "name": "Vice Admiral William F. Halsey", "role": "Commander, Task Force 16", "flagship": "USS Enterprise", "bio": "Took two of the Pacific Fleet's four carriers to within 650 miles of Japan. When Nitto Maru's report went out he launched the bombers at once and ran — 'Launch planes. To Col. Doolittle and gallant command, good luck and God bless you'.", "fate": "Fleet Admiral; died 1959.", "wiki": "William_Halsey_Jr." },
+  "nagumo": { "name": "Vice Admiral Chūichi Nagumo", "role": "Commander, First Air Fleet", "flagship": "Akagi", "bio": "Homeward from Ceylon with three carriers when the raid came; ordered east through the Luzon Strait and never within a thousand miles of Halsey.", "fate": "Killed himself on Saipan, 6 July 1944.", "wiki": "Chūichi_Nagumo" }
+ },
+ "ships": [
+  { "id": "hornet", "name": "USS Hornet", "force": "tf18", "type": "Fleet carrier (Mitscher) — sixteen B-25s on deck", "route": "tf18", "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-8)", "ref": "hornet_cv8" },
+  { "id": "vincennes", "name": "USS Vincennes", "force": "tf18", "type": "Heavy cruiser", "route": "tf18", "wiki": "https://en.wikipedia.org/wiki/USS_Vincennes_(CA-44)" },
+  { "id": "nashville", "name": "USS Nashville", "force": "tf18", "type": "Light cruiser — sank the pickets", "route": "tf18", "wiki": "https://en.wikipedia.org/wiki/USS_Nashville_(CL-43)" },
+  { "id": "enterprise", "name": "USS Enterprise", "force": "tf16", "type": "Fleet carrier (Halsey flagship)", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)" },
+  { "id": "northampton", "name": "USS Northampton", "force": "tf16", "type": "Heavy cruiser (Spruance)", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Northampton_(CA-26)" },
+  { "id": "saltlakecity", "name": "USS Salt Lake City", "force": "tf16", "type": "Heavy cruiser", "route": "tf16", "wiki": "https://en.wikipedia.org/wiki/USS_Salt_Lake_City_(CA-25)" },
+  { "id": "cimarron", "name": "USS Cimarron", "force": "train", "type": "Fleet oiler", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Cimarron_(AO-22)" },
+  { "id": "sabine", "name": "USS Sabine", "force": "train", "type": "Fleet oiler", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Sabine_(AO-25)" },
+  { "id": "gwin", "name": "USS Gwin", "force": "train", "type": "Destroyer", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Gwin_(DD-433)" },
+  { "id": "meredith", "name": "USS Meredith", "force": "train", "type": "Destroyer", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Meredith_(DD-434)" },
+  { "id": "balch", "name": "USS Balch", "force": "train", "type": "Destroyer", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Balch_(DD-363)" },
+  { "id": "fanning", "name": "USS Fanning", "force": "train", "type": "Destroyer", "route": "train", "wiki": "https://en.wikipedia.org/wiki/USS_Fanning_(DD-385)" },
+  { "id": "trout", "name": "USS Trout", "force": "ussubs", "type": "Submarine", "route": "trout", "wiki": "https://en.wikipedia.org/wiki/USS_Trout_(SS-202)" },
+  { "id": "thresher", "name": "USS Thresher", "force": "ussubs", "type": "Submarine", "route": "thresher", "wiki": "https://en.wikipedia.org/wiki/USS_Thresher_(SS-200)" },
+  {
+   "id": "nittomaru",
+   "name": "No. 23 Nitto Maru",
+   "force": "pickets",
+   "type": "Picket boat (converted fishing vessel)",
+   "route": "nitto",
+   "wiki": "https://en.wikipedia.org/wiki/Nitto_Maru_(1935)",
+   "sunk": "18 08:23",
+   "sunkBy": "USS Nashville's 6-inch guns",
+   "lost": 6
+  },
+  { "id": "nagatomaru", "name": "Nagato Maru", "force": "pickets", "type": "Picket boat", "route": "nagato", "sunk": "18 14:30", "sunkBy": "Enterprise SBDs and Nashville" },
+  { "id": "akagi", "name": "Akagi", "force": "nagumo", "type": "Fleet carrier (Nagumo flagship)", "route": "nagumo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Akagi" },
+  { "id": "soryu", "name": "Sōryū", "force": "nagumo", "type": "Fleet carrier", "route": "nagumo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_S%C5%8Dry%C5%AB" },
+  { "id": "hiryu", "name": "Hiryū", "force": "nagumo", "type": "Fleet carrier", "route": "nagumo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Hiry%C5%AB" }
+ ],
+ "strikes": [
+  {
+   "id": "d1",
+   "name": "Doolittle's sixteen B-25s",
+   "nation": "USN",
+   "from": { "route": "tf18" },
+   "target": { "lat": 35.68, "lon": 139.77 },
+   "launch": "18 08:20",
+   "arrive": "18 13:15",
+   "leave": "18 14:30",
+   "recover": "18 22:00",
+   "count": 16,
+   "note": "Ten aircraft for Tokyo, two for Yokohama, one each for Yokosuka, Nagoya, Kobe and Osaka; bombs from 1,500 feet at noon, Tokyo time. Then 1,200 miles to China at dusk in rain: fifteen crews bail out or crash-land in Zhejiang; three men killed, eight captured (three executed, one dead in captivity)",
+   "oneway": true,
+   "recoverAt": { "lat": 28.97, "lon": 118.87 }
+  },
+  {
+   "id": "d2",
+   "name": "York's aircraft to Vladivostok",
+   "nation": "USN",
+   "from": { "route": "tf18" },
+   "target": { "lat": 35.68, "lon": 139.77 },
+   "launch": "18 08:46",
+   "arrive": "18 13:20",
+   "leave": "18 13:30",
+   "recover": "18 18:30",
+   "count": 1,
+   "note": "Captain Edward York, short of fuel, lands at Vozdvizhenka north of Vladivostok; his crew is interned for a year before 'escaping' into Iran",
+   "oneway": true,
+   "recoverAt": { "lat": 43.9, "lon": 131.95 }
+  },
+  {
+   "id": "e1",
+   "name": "Enterprise dawn search",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "nittomaru" },
+   "launch": "18 05:00",
+   "arrive": "18 05:58",
+   "leave": "18 06:10",
+   "recover": "18 07:30",
+   "count": 4,
+   "note": "An SBD sights a patrol boat at 05:58 and drops a message on Enterprise's deck: 'believed seen by enemy'"
+  },
+  {
+   "id": "e2",
+   "name": "Enterprise strikes the picket line",
+   "nation": "USN",
+   "from": { "route": "tf16" },
+   "target": { "ship": "nagatomaru" },
+   "launch": "18 13:00",
+   "arrive": "18 14:00",
+   "leave": "18 14:30",
+   "recover": "18 15:30",
+   "count": 20,
+   "note": "Dauntlesses and Wildcats bomb and strafe the picket boats through the afternoon; one SBD ditches, its crew picked up by Nashville"
+  },
+  {
+   "id": "k1",
+   "name": "Kisarazu's search",
+   "nation": "IJN",
+   "from": { "lat": 35.38, "lon": 139.92 },
+   "target": { "route": "tf18" },
+   "launch": "18 10:00",
+   "arrive": "18 13:00",
+   "leave": "18 15:00",
+   "recover": "18 18:00",
+   "count": 53,
+   "note": "29 torpedo bombers and 24 fighters of the 26th Air Flotilla search 200 miles out for carriers that are 650 miles away and already running east",
+   "land": true
+  }
+ ],
+ "torpedoes": [],
+ "engagements": [
+  {
+   "ships": ["nashville"],
+   "from": "18 07:55",
+   "to": "18 08:23",
+   "rate": 0.7,
+   "note": "915 rounds of 6-inch at a 90-ton boat pitching in the swell",
+   "targets": ["nittomaru"]
+  },
+  {
+   "ships": ["nashville"],
+   "from": "18 14:10",
+   "to": "18 14:30",
+   "rate": 0.6,
+   "targets": ["nagatomaru"]
+  }
+ ],
+ "events": [["03 03:00", "Hornet sails from Alameda", 37.79, 237.68], ["09 09:00", "Enterprise sails from Pearl Harbor", 21.35, 202.05], ["13 06:00", "Task Forces 16 and 18 join at 38°N 180°", 38, 180], ["17 14:39", "Refuelling done; oilers and destroyers left behind", 38.6, 160], ["18 03:10", "Radar contact — two picket boats", 36.3, 154.5], ["18 07:38", "Nitto Maru sights the task force and gets her report away", 35.45, 153.55], ["18 08:20", "Doolittle takes off — 467 feet of deck", 35.717, 153.417], ["18 08:23", "Nashville sinks Nitto Maru", 35.4, 153.4], ["18 09:20", "Last B-25 airborne; Halsey turns for home", 35.75, 153.3], ["18 13:15", "Bombs on Tokyo at noon", 35.68, 139.77], ["18 13:30", "Yokosuka: McElroy's bomb hits the carrier Ryūhō in dock", 35.28, 139.67], ["18 13:35", "Nagoya, Kobe and Osaka bombed", 35.18, 136.91], ["18 14:45", "Radio Tokyo confirms the raid", 35.68, 139.77], ["18 21:15", "Doolittle bails out near Tien Mu Shan, 70 miles north of Chuchow", 30.25, 119], ["18 22:00", "Fifteen crews down in Zhejiang; Hallmark's and Farrow's crews will be captured", 28.97, 118.87], ["18 18:30", "York lands in the Soviet Union", 43.9, 131.95], ["19 12:00", "Nagumo's carriers sent east from the Luzon Strait — too late", 23.5, 124], ["21 12:00", "Roosevelt: the bombers flew from 'Shangri-La'", 38.9, 282.97], ["25 09:00", "Task Force 16 enters Pearl Harbor", 21.35, 202.05]],
+ "ports": [
+  { "name": "Alameda NAS", "lat": 37.79, "lon": 237.68, "control": "USN", "kind": "air", "note": "Sixteen B-25s hoisted aboard Hornet, 1 April" },
+  { "name": "Pearl Harbor", "lat": 21.35, "lon": 202.05, "control": "USN", "kind": "port", "note": "Enterprise's base; the task force returns 25 April" },
+  { "name": "Midway", "lat": 28.21, "lon": 182.62, "control": "USN", "kind": "port", "note": "600 miles south of the rendezvous" },
+  { "name": "Chuchow (Quzhou)", "lat": 28.97, "lon": 118.87, "control": "USN", "kind": "air", "note": "The Chinese airfield the raiders were to land at — none reached it; the Japanese destroyed it in the Zhejiang–Jiangxi campaign" },
+  { "name": "Vladivostok", "lat": 43.12, "lon": 131.89, "control": "VMF", "kind": "port", "note": "York's crew interned by the neutral Soviet Union" },
+  { "name": "Tokyo", "lat": 35.68, "lon": 139.77, "control": "IJN", "kind": "port", "note": "Ten bombers' target; 87 killed, some 460 injured across all six cities" },
+  { "name": "Yokosuka", "lat": 35.28, "lon": 139.67, "control": "IJN", "kind": "port", "note": "Naval base; the carrier Ryūhō hit in dock" },
+  { "name": "Kisarazu", "lat": 35.38, "lon": 139.92, "control": "IJN", "kind": "air", "note": "26th Air Flotilla: the search that found nothing" },
+  { "name": "Ōminato", "lat": 41.25, "lon": 141.15, "control": "IJN", "kind": "port", "note": "Base of the 5th Fleet's picket-boat line, 116 converted fishing boats" },
+  { "name": "Hashirajima", "lat": 33.9, "lon": 132.4, "control": "IJN", "kind": "port", "note": "Yamamoto and the Combined Fleet — the raid seals his decision to attack Midway" },
+  { "name": "Tokyo — Imperial GHQ", "lat": 35.68, "lon": 139.69, "control": "IJN", "kind": "hq", "note": "The humiliation of the raid pushed the Naval General Staff into approving Operation MI", "hq": "Naval General Staff" },
+  { "name": "Washington — Navy Department", "lat": 38.9, "lon": 282.97, "control": "USN", "kind": "hq", "note": "King and Arnold's joint plan; Roosevelt's 'Shangri-La'", "hq": "Admiral King · General Arnold" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [20.35, 120, 39.6, 238.68],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "hornet": { "hash": "e81a862a" },
+   "vincennes": { "hash": "e81a862a" },
+   "nashville": { "hash": "e81a862a" },
+   "enterprise": { "hash": "62592963" },
+   "northampton": { "hash": "62592963" },
+   "saltlakecity": { "hash": "62592963" },
+   "cimarron": { "hash": "9be894b5" },
+   "sabine": { "hash": "9be894b5" },
+   "gwin": { "hash": "9be894b5" },
+   "meredith": { "hash": "9be894b5" },
+   "balch": { "hash": "9be894b5" },
+   "fanning": { "hash": "9be894b5" },
+   "trout": { "hash": "ea9a1c55" },
+   "thresher": { "hash": "53f95f2f" },
+   "nittomaru": { "hash": "fdc3902f" },
+   "nagatomaru": { "hash": "9cd2b88e" },
+   "akagi": {
+    "hash": "48e44ddd",
+    "via": {
+     "2": [[26.985, 128.235], [27.075, 128.685]],
+     "3": [[31.815, 131.715]]
+    }
+   },
+   "soryu": {
+    "hash": "48e44ddd",
+    "via": {
+     "2": [[26.985, 128.235], [27.075, 128.685]],
+     "3": [[31.815, 131.715]]
+    }
+   },
+   "hiryu": {
+    "hash": "48e44ddd",
+    "via": {
+     "2": [[26.985, 128.235], [27.075, 128.685]],
+     "3": [[31.815, 131.715]]
+    }
+   }
+  }
+ }
+}

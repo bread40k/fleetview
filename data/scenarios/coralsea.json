@@ -1,0 +1,759 @@
+{
+ "id": "coralsea",
+ "title": "Battle of the Coral Sea",
+ "subtitle": "South-West Pacific · 1–12 May 1942",
+ "base": [1942, 4],
+ "start": "01 00:00",
+ "end": "12 12:00",
+ "tz": "Zone −11 · UTC+11",
+ "utcOffset": 11,
+ "majorDays": [7, 8],
+ "view": {
+  "center": [-12.5, 156],
+  "zoom": 5,
+  "min": 4,
+  "max": 11
+ },
+ "alliedNavy": "USN",
+ "keyShips": ["yorktown", "lexington", "shokaku", "zuikaku", "shoho", "neosho", "sims", "australia", "kikuzuki", "yubari"],
+ "scenes": [
+  ["Overview", "07 11:00", [-12.5, 156], 5],
+  ["Point Buttercup", "01 06:15", [-16, 162], 6],
+  ["Tulagi strike", "04 08:00", [-10, 159.5], 7],
+  ["Ships in the night", "06 20:00", [-14, 158], 6],
+  ["Neosho and Sims", "07 11:30", [-16, 158], 7],
+  ["Scratch one flattop", "07 11:00", [-10.5, 153], 7],
+  ["Crace off Jomard", "07 14:30", [-11.7, 152.9], 7],
+  ["Dusk strike", "07 18:00", [-14, 154.5], 7],
+  ["8 May — the exchange", "08 11:15", [-13, 155], 6],
+  ["Lexington's end", "08 19:52", [-15.1, 155.3], 8],
+  ["Neosho found", "11 12:00", [-15.6, 155.6], 8]
+ ],
+ "defaultTime": "08 11:15",
+ "footnote": "Zone −11 (UTC+11; Japanese records run two hours behind). Point Buttercup, the 5 May rendezvous, Shōhō's and Lexington's sinking positions and TF 17's 08:00 and 12:00 fixes on 8 May are from the TF 17 and Yorktown action reports; the Japanese carriers' movements are reconstructed from the TROMs and US contact reports. Neosho's true position was 30 miles from the one she signalled. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "tf17": { "name": "USN Task Force 17 — Yorktown (Fletcher)", "color": "#3b82f6", "nation": "USN" },
+  "tf11": { "name": "USN Task Force 11 — Lexington (Fitch)", "color": "#06b6d4", "nation": "USN" },
+  "tg173": { "name": "Task Group 17.3 — Support Group (Crace)", "color": "#22c55e", "nation": "RN" },
+  "tg173us": { "name": "USN Ships with Crace", "color": "#4ade80", "nation": "USN" },
+  "fuel": { "name": "USN Fueling Group — Neosho & Sims", "color": "#94a3b8", "nation": "USN" },
+  "mo": { "name": "IJN MO Carrier Striking Force (Takagi / Hara)", "color": "#e5484d", "nation": "IJN" },
+  "goto": { "name": "IJN MO Main Force — Shōhō (Gotō)", "color": "#f97316", "nation": "IJN" },
+  "invasion": { "name": "IJN Port Moresby Invasion Force (Kajioka / Abe)", "color": "#eab308", "nation": "IJN" },
+  "tulagi": { "name": "IJN Tulagi Invasion Force (Shima)", "color": "#d946ef", "nation": "IJN" },
+  "support": { "name": "IJN Support Group — seaplanes (Marumo)", "color": "#a855f7", "nation": "IJN" }
+ },
+ "schema": 1,
+ "routes": {
+  "tf17": [["01 06:15", -16.267, 162.333, "Point Buttercup, 16°16′S 162°20′E: Yorktown's TF 17 meets Lexington's TF 11", "S"], ["02 12:00", -16, 161.5, "Fuelling from Neosho", "R"], ["03 20:30", -15.5, 160.5, "Turns north at 27 knots on the Tulagi report", "R"], ["04 07:01", -11.167, 158.817, "100 miles south of Guadalcanal: three strikes on Tulagi through the day", "S"], ["04 17:00", -11.4, 158.9, "Last aircraft recovered; retires south", "R"], ["05 08:30", -15, 160, "Rendezvous with Fitch and Crace 320 miles south of Guadalcanal; Yorktown's Wildcats shoot down a flying boat", "S"], ["06 18:00", -14.9, 159, "Fuelling stops; Neosho and Sims sent south; all forces now TF 17", "R"], ["07 06:25", -13.333, 154.35, "115 miles south of Rossel Island: Crace detached toward Jomard Passage", "S"], ["07 09:26", -13.4, 154.3, "93 aircraft launched at Nielsen's 'two carriers' — actually Gotō", "R"], ["07 13:38", -13.6, 154.5, "Strike recovered: Shōhō sunk", "R"], ["07 18:30", -14, 154.4, "Hara's dusk strike blunders into the CAP; Japanese aircraft try to land on Yorktown", "R"], ["08 01:16", -14.4, 154.3, "Course west; Fletcher awaits the dawn search", "R"], ["08 08:00", -14.417, 154.517, "14°25′S 154°31′E — the carriers found each other within two minutes", "S"], ["08 09:00", -14.5, 154.6, "75 aircraft launched; Fitch takes tactical command of the air", "R"], ["08 11:20", -14.7, 155, "Lexington torpedoed twice, Yorktown bombed", "R"], ["08 12:00", -14.783, 155.15, "Noon fix 14°47′S 155°09′E", "S"], ["08 16:01", -14.9, 155.3, "Yorktown group departs south; Lexington burning", "R"], ["09 12:00", -17.5, 157], ["11 12:00", -22.5, 165], ["12 12:00", -23.5, 167.5, "For Tongatabu — and Pearl Harbor, where Yorktown will be repaired in 48 hours", "R"]],
+  "tf11": [["01 06:15", -16.3, 162.4, null, "S"], ["02 12:00", -16, 161.75, "Fuelling from Tippecanoe with Chicago and Perkins", "R"], ["04 12:00", -15.5, 160.8, "Fuelling complete — only 60 miles east of Fletcher, in radio silence", "R"], ["05 08:30", -15, 160.05, "Joins TF 17", "S"], ["06 18:00", -14.9, 159, "Fuelling stops; Neosho and Sims sent south; all forces now TF 17", "R"], ["07 06:25", -13.333, 154.35, "115 miles south of Rossel Island: Crace detached toward Jomard Passage", "S"], ["07 09:26", -13.4, 154.3, "93 aircraft launched at Nielsen's 'two carriers' — actually Gotō", "R"], ["07 13:38", -13.6, 154.5, "Strike recovered: Shōhō sunk", "R"], ["07 18:30", -14, 154.4, "Hara's dusk strike blunders into the CAP; Japanese aircraft try to land on Yorktown", "R"], ["08 01:16", -14.4, 154.3, "Course west; Fletcher awaits the dawn search", "R"], ["08 08:00", -14.417, 154.517, "14°25′S 154°31′E — the carriers found each other within two minutes", "S"], ["08 09:00", -14.5, 154.6, "75 aircraft launched; Fitch takes tactical command of the air", "R"], ["08 11:20", -14.7, 155, "Lexington torpedoed twice, Yorktown bombed", "R"], ["08 12:00", -14.783, 155.15, "Noon fix 14°47′S 155°09′E", "S"], ["08 16:01", -14.9, 155.3, "Yorktown group departs south; Lexington burning", "R"], ["09 12:00", -17.5, 157], ["11 12:00", -22.5, 165], ["12 12:00", -23.5, 167.5, "For Tongatabu — and Pearl Harbor, where Yorktown will be repaired in 48 hours", "R"]],
+  "tg173": [["01 00:00", -22.27, 166.45, "Australia, Chicago, Hobart sail from Nouméa", "R"], ["04 08:00", -15, 157, "Rendezvous with Fitch", "S"], ["05 08:30", -15.05, 160, null, "S"], ["06 18:00", -14.9, 159, "Fuelling stops; Neosho and Sims sent south; all forces now TF 17", "R"], ["07 06:25", -13.333, 154.35, "115 miles south of Rossel Island: Crace detached toward Jomard Passage", "S"], ["07 14:30", -11.7, 152.9, "Off Jomard Passage: 12 torpedo bombers and 19 level bombers from Rabaul — no hits — then three B-17s by mistake", "R"], ["07 16:00", -12, 152.8, "Crace retires: 'I cannot continue without air cover'", "R"], ["08 12:00", -13.5, 150.5, "220 miles south-east of Port Moresby, still blocking the passage", "R"], ["10 01:00", -15, 149.5, "Turns for Australia", "R"], ["11 12:00", -20.25, 148.93, "Cid Harbour, Whitsundays", "R"], ["12 12:00", -20.25, 148.93]],
+  "fuel": [["01 06:15", -16.267, 162.333, "Point Buttercup, 16°16′S 162°20′E: Yorktown's TF 17 meets Lexington's TF 11", "S"], ["02 12:00", -16, 161.5, "Fuelling from Neosho", "R"], ["03 20:30", -15.5, 160.5, "Turns north at 27 knots on the Tulagi report", "R"], ["04 07:01", -11.167, 158.817, "100 miles south of Guadalcanal: three strikes on Tulagi through the day", "S"], ["04 17:00", -11.4, 158.9, "Last aircraft recovered; retires south", "R"], ["05 08:30", -15, 160, "Rendezvous with Fitch and Crace 320 miles south of Guadalcanal; Yorktown's Wildcats shoot down a flying boat", "S"], ["06 18:00", -14.9, 159, "Fuelling stops; Neosho and Sims sent south; all forces now TF 17", "R"], ["07 06:00", -16, 158, "At the fuelling rendezvous 16°S 158°E — reported as 'a carrier and a cruiser'", "S"], ["07 09:30", -16.05, 158.05, "Fifteen level bombers miss", "R"], ["07 11:26", -16.15, 158.05, "36 Vals: Sims hit three times and sinks; Neosho hit seven times", "S"]],
+  "mo": [["01 06:00", 7.42, 151.78, "Shōkaku, Zuikaku, Myōkō, Haguro and six destroyers sail from Truk", "S"], ["02 12:00", 2.5, 154.5], ["03 12:00", -3, 157.5, "Attempt to fly nine Zeros to Rabaul fails in the weather", "R"], ["04 07:00", -5.5, 161.5, "Refuelling 350 miles north of Tulagi as Yorktown's strike goes in", "R"], ["05 12:00", -9.5, 162.5, "Turns west south of San Cristobal", "R"], ["06 06:00", -10.5, 159.8, "Enters the Coral Sea between Guadalcanal and Rennell", "R"], ["06 20:00", -13.333, 157.667, "Hara 70 miles from Fletcher; neither knows. Turns back to rejoin Takagi", "S"], ["07 06:00", -13.2, 158.083, "Twelve Kates launched to search; 07:22 'one carrier, one cruiser' 163 miles south — Neosho and Sims", "S"], ["07 08:00", -13.1, 158, "78 aircraft launched at the oiler", "R"], ["07 15:00", -12.8, 157.5, "Turns west; the American carriers are found 430 miles away", "R"], ["07 16:15", -12.6, 157.2, "Dusk strike of 27 launched without fighters", "R"], ["07 22:00", -12, 156.5, "Searchlights burning to recover the survivors — 21 of 27 lost", "R"], ["08 06:15", -10.417, 154.083, "100 miles east of Rossel Island; seven Kates search", "S"], ["08 08:22", -11, 154.5, "Kanno's Kate finds Fletcher two minutes after Fletcher's scout finds Hara", "R"], ["08 09:15", -11.2, 154.8, "69 aircraft launched", "R"], ["08 10:57", -11.6, 155.2, "Yorktown's Dauntlesses hit Shōkaku twice; Zuikaku hides in a squall", "R"], ["08 12:10", -11.9, 155.4, "Shōkaku, burning, retires; Zuikaku recovers 46 aircraft, jettisons 12 more", "R"], ["09 12:00", -9, 156.5, "Refuels from Tōhō Maru", "R"], ["10 13:00", -11.5, 155, "Ordered to pursue; searches south-west and gives up", "R"], ["12 12:00", -5, 155.5, "For Truk", "R"]],
+  "goto": [["01 00:00", 3.5, 153.5, "Shōhō and Cruiser Division 6 from Truk", "R"], ["02 12:00", -2.5, 154.5], ["03 06:00", -5.05, 154.57, "Queen Carola anchorage, Buka: launches six aircraft to cover Tulagi", "S"], ["04 12:00", -7.5, 157, "Moves toward Guadalcanal after Yorktown's raid", "R"], ["05 12:00", -7.2, 155.7, "Cruiser Division 6 refuels at Shortland", "R"], ["06 08:30", -8.5, 153.5, "Three B-17s attack Shōhō — no hits — and report 'a carrier'", "R"], ["07 10:40", -10.45, 152.95, "Sighted north-east of Misima with six fighters aloft", "R"], ["07 11:35", -10.483, 152.917, "Shōhō sinks — thirteen bombs and seven torpedoes in 23 minutes", "S"], ["07 14:00", -10.2, 152.6, "Gotō retires north to cover the convoy", "R"], ["08 12:00", -9.5, 152], ["09 12:00", -7.5, 153], ["12 12:00", -5, 153.5]],
+  "invasion": [["04 16:00", -4.2, 152.17, "Eleven transports with 5,500 troops sail; Yūbari and six destroyers escort", "S"], ["05 12:00", -6, 152.5], ["06 12:00", -8, 152.8, "Eight knots toward Jomard Passage; landing set for 10 May", "R"], ["07 12:00", -9.6, 152.9, "Bombed by B-17s; Inoue turns the convoy back north", "R"], ["08 12:00", -8.5, 152.5, "Waits 40 miles east of Woodlark", "R"], ["09 12:00", -7, 152.3], ["10 12:00", -4.2, 152.17, "Back at Rabaul: Operation MO postponed to July, then abandoned", "S"], ["12 12:00", -4.2, 152.17]],
+  "tulagi": [["01 00:00", -5.5, 155.5, "Okinoshima, Kikuzuki, Yūzuki and the Kure 3rd SNLF, from Rabaul on 30 April", "R"], ["03 04:00", -9.1, 160.15, "Lands unopposed at Tulagi and Gavutu", "S"], ["04 07:30", -9.1, 160.17, "Yorktown's three strikes: Kikuzuki, three minesweepers, four seaplanes", "S"], ["05 12:00", -8, 158, "Shima withdraws to Rabaul", "R"], ["11 20:00", -5.1, 153.8, "Torpedoed by USS S-42 off New Ireland", "R"], ["12 06:00", -5.1, 153.8, "Okinoshima sinks under tow", "S"]],
+  "support": [["02 12:00", -8.1, 159.6, "Kamikawa Maru's seaplanes at Thousand Ships Bay, Santa Isabel", "R"], ["06 22:00", -10.72, 152.37, "Seaplane base set up at Deboyne — its floatplanes shadow Crace", "S"], ["10 12:00", -8.5, 152, "Evacuated after USAAF bombing", "R"], ["12 12:00", -6, 152]],
+  "henley": [["10 12:00", -22.27, 166.45, "Henley sails on the PBY report of a drifting oiler", "R"], ["11 12:00", -15.583, 155.6, "Finds Neosho, rescues 123 and scuttles her by gunfire", "S"], ["12 12:00", -18.5, 158, "For Brisbane", "R"]]
+ },
+ "groups": {
+  "tf17": "Task Force 17",
+  "tf11": "Task Force 11",
+  "tg173": "Crace",
+  "fuel": "Neosho",
+  "henley": "Henley",
+  "mo": "Takagi",
+  "goto": "Gotō",
+  "invasion": "Invasion convoy",
+  "tulagi": "Shima",
+  "support": "Marumo"
+ },
+ "commanders": {
+  "tf17": { "name": "Rear Admiral Frank Jack Fletcher", "role": "Commander, Task Force 17", "flagship": "USS Yorktown", "bio": "Fought the first carrier battle in history on the strength of Nimitz's codebreakers, spent his whole strike on a light carrier on 7 May, and traded blows evenly on the 8th. Lost Lexington — but Port Moresby was never invaded.", "fate": "Commanded again at Midway a month later; died 1973.", "wiki": "Frank_Jack_Fletcher" },
+  "tf11": { "name": "Rear Admiral Aubrey Fitch", "role": "Commander, Task Force 11 — tactical command of the air on 8 May", "flagship": "USS Lexington", "bio": "The aviator among Fletcher's admirals; given the air battle at 09:08 on the 8th. Watched Lexington burn under him all afternoon after a leaking gasoline system did what the Japanese could not.", "fate": "Commander Aircraft South Pacific; Superintendent of the Naval Academy; died 1978.", "wiki": "Aubrey_Fitch" },
+  "tg173": { "name": "Rear Admiral John Crace", "role": "Commander, Task Group 17.3 (Support Group)", "flagship": "HMAS Australia", "bio": "Sent without air cover to block Jomard Passage, was attacked by 31 land-based bombers and three friendly B-17s in half an hour and lost nothing — then held his station for another two days.", "fate": "Admiral; Superintendent of Chatham Dockyard; died 1968.", "wiki": "John_Gregory_Crace" },
+  "mo": { "name": "Vice Admiral Takeo Takagi", "role": "Commander, MO Carrier Striking Force (air command: Rear Admiral Chūichi Hara)", "flagship": "Myōkō · Zuikaku", "bio": "Came round the Solomons unseen, passed within 70 miles of Fletcher in the dark, sank an oiler with 78 aircraft and lost 21 more at dusk. On the 8th Hara's aviators sank Lexington — and Shōkaku and Zuikaku's air groups were so depleted that neither carrier sailed for Midway.", "fate": "Takagi killed on Saipan, July 1944; Hara survived the war.", "wiki": "Takeo_Takagi" },
+  "goto": { "name": "Rear Admiral Aritomo Gotō", "role": "Commander, MO Main Force", "flagship": "Aoba", "bio": "Covering the convoy with Shōhō and four heavy cruisers when 93 American aircraft arrived; the light carrier lasted 23 minutes.", "fate": "Mortally wounded at Cape Esperance, October 1942.", "wiki": "Aritomo_Got%C5%8D" },
+  "invasion": { "name": "Rear Admiral Sadamichi Kajioka", "role": "Commander, Port Moresby Attack Force", "flagship": "Yūbari", "bio": "The conqueror of Wake, escorting eleven transports to Port Moresby at eight knots; turned back on 7 May and never got there.", "fate": "Killed when Shikinami was torpedoed, September 1944.", "wiki": "Sadamichi_Kajioka" },
+  "tulagi": { "name": "Rear Admiral Kiyohide Shima", "role": "Commander, Tulagi Invasion Force", "flagship": "Okinoshima", "bio": "Took Tulagi without a shot on 3 May and lost a destroyer and three minesweepers to Yorktown the next morning; his flagship was torpedoed on the way home.", "fate": "Led the 2nd Striking Force at Surigao Strait; died 1973.", "wiki": "Kiyohide_Shima" }
+ },
+ "ships": [
+  { "id": "yorktown", "name": "USS Yorktown", "force": "tf17", "type": "Fleet carrier (Fletcher flagship)", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5)" },
+  { "id": "astoria", "name": "USS Astoria", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Astoria_(CA-34)" },
+  { "id": "portland", "name": "USS Portland", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Portland_(CA-33)" },
+  { "id": "chester", "name": "USS Chester", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Chester_(CA-27)" },
+  { "id": "morris", "name": "USS Morris", "force": "tf17", "type": "Destroyer", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Morris_(DD-417)" },
+  { "id": "anderson", "name": "USS Anderson", "force": "tf17", "type": "Destroyer", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Anderson_(DD-411)" },
+  { "id": "hammann", "name": "USS Hammann", "force": "tf17", "type": "Destroyer", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Hammann_(DD-412)" },
+  { "id": "russell", "name": "USS Russell", "force": "tf17", "type": "Destroyer", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Russell_(DD-414)" },
+  {
+   "id": "lexington",
+   "name": "USS Lexington",
+   "force": "tf11",
+   "type": "Fleet carrier (Fitch flagship)",
+   "route": "tf11",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Lexington_(CV-2)",
+   "ref": "lexington_cv2",
+   "until": "08 11:20",
+   "extra": [["08 12:47", -14.85, 155.2, "Gasoline vapour explodes below — 25 killed; the fires spread", "R"], ["08 14:42", -14.95, 155.25, "Second explosion; 17:07 abandon ship", "R"], ["08 19:52", -15.083, 155.267, "Five torpedoes from Phelps; sinks in 2,400 fathoms — 216 of 2,951 lost, 36 aircraft with her", "S"]],
+   "sunk": "08 19:52",
+   "sunkBy": "Two aerial torpedoes and two bombs; internal explosions; scuttled by Phelps",
+   "lost": 216
+  },
+  { "id": "minneapolis", "name": "USS Minneapolis", "force": "tf11", "type": "Heavy cruiser (Kinkaid)", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Minneapolis_(CA-36)" },
+  { "id": "neworleans", "name": "USS New Orleans", "force": "tf11", "type": "Heavy cruiser", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_New_Orleans_(CA-32)" },
+  { "id": "phelps", "name": "USS Phelps", "force": "tf11", "type": "Destroyer", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Phelps_(DD-360)" },
+  { "id": "dewey", "name": "USS Dewey", "force": "tf11", "type": "Destroyer", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Dewey_(DD-349)" },
+  { "id": "monaghan", "name": "USS Monaghan", "force": "tf11", "type": "Destroyer", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Monaghan_(DD-354)" },
+  { "id": "aylwin", "name": "USS Aylwin", "force": "tf11", "type": "Destroyer", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Aylwin_(DD-355)" },
+  { "id": "australia", "name": "HMAS Australia", "force": "tg173", "type": "Heavy cruiser (Crace flagship)", "route": "tg173", "wiki": "https://en.wikipedia.org/wiki/HMAS_Australia_(D84)" },
+  { "id": "hobart", "name": "HMAS Hobart", "force": "tg173", "type": "Light cruiser", "route": "tg173", "wiki": "https://en.wikipedia.org/wiki/HMAS_Hobart_(D63)" },
+  { "id": "chicago", "name": "USS Chicago", "force": "tg173us", "type": "Heavy cruiser (US Navy)", "route": "tg173", "wiki": "https://en.wikipedia.org/wiki/USS_Chicago_(CA-29)" },
+  { "id": "perkins", "name": "USS Perkins", "force": "tg173us", "type": "Destroyer (US Navy)", "route": "tg173", "wiki": "https://en.wikipedia.org/wiki/USS_Perkins_(DD-377)" },
+  { "id": "walke", "name": "USS Walke", "force": "tg173us", "type": "Destroyer (US Navy)", "route": "tg173", "wiki": "https://en.wikipedia.org/wiki/USS_Walke_(DD-416)" },
+  {
+   "id": "neosho",
+   "name": "USS Neosho",
+   "force": "fuel",
+   "type": "Fleet oiler",
+   "route": "fuel",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Neosho_(AO-23)",
+   "until": "07 11:26",
+   "extra": [["08 12:00", -15.9, 157.3, "Drifting, 20 dead aboard; 158 men who left in rafts are mostly never seen again", "R"], ["11 12:00", -15.583, 155.6, "Found by a Nouméa PBY; Henley takes off 109 and 14 of Sims' men and sinks her", "S"]],
+   "sunk": "11 13:00",
+   "sunkBy": "Seven bombs and a crashing Val; scuttled by Henley",
+   "lost": 176
+  },
+  {
+   "id": "sims",
+   "name": "USS Sims",
+   "force": "fuel",
+   "type": "Destroyer",
+   "route": "fuel",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Sims_(DD-409)",
+   "sunk": "07 11:40",
+   "sunkBy": "Three 250-kg bombs; broke in half",
+   "lost": 178
+  },
+  { "id": "henley", "name": "USS Henley", "force": "fuel", "type": "Destroyer — rescued Neosho's survivors", "route": "henley", "wiki": "https://en.wikipedia.org/wiki/USS_Henley_(DD-391)" },
+  {
+   "id": "shokaku",
+   "name": "Shōkaku",
+   "force": "mo",
+   "type": "Fleet carrier",
+   "route": "mo",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Sh%C5%8Dkaku",
+   "until": "08 12:10",
+   "extra": [["09 12:00", -8, 156, "Retires north-east with Kinugasa, Furutaka and two destroyers — 108 killed, nearly capsizes in a storm", "R"], ["12 12:00", 0, 152, "For Truk and Kure", "R"]]
+  },
+  { "id": "zuikaku", "name": "Zuikaku", "force": "mo", "type": "Fleet carrier (Hara flagship)", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku" },
+  { "id": "myoko", "name": "Myōkō", "force": "mo", "type": "Heavy cruiser (Takagi flagship)", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_My%C5%8Dk%C5%8D" },
+  { "id": "haguro", "name": "Haguro", "force": "mo", "type": "Heavy cruiser", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Haguro" },
+  { "id": "ariake", "name": "Ariake", "force": "mo", "type": "Destroyer", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Ariake_(1934)" },
+  { "id": "yugure", "name": "Yūgure", "force": "mo", "type": "Destroyer", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABgure_(1934)" },
+  { "id": "shigure", "name": "Shigure", "force": "mo", "type": "Destroyer", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shigure_(1935)" },
+  { "id": "ushio", "name": "Ushio", "force": "mo", "type": "Destroyer", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Ushio_(1930)" },
+  {
+   "id": "shoho",
+   "name": "Shōhō",
+   "force": "goto",
+   "type": "Light carrier",
+   "route": "goto",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Sh%C5%8Dh%C5%8D",
+   "sunk": "07 11:35",
+   "sunkBy": "93 aircraft from Lexington and Yorktown — 13 bombs and 7 torpedoes",
+   "lost": 631
+  },
+  { "id": "aoba", "name": "Aoba", "force": "goto", "type": "Heavy cruiser (Gotō flagship)", "route": "goto", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Aoba" },
+  { "id": "kako", "name": "Kako", "force": "goto", "type": "Heavy cruiser", "route": "goto", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kako" },
+  { "id": "kinugasa", "name": "Kinugasa", "force": "goto", "type": "Heavy cruiser", "route": "goto", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Kinugasa" },
+  { "id": "furutaka", "name": "Furutaka", "force": "goto", "type": "Heavy cruiser", "route": "goto", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Furutaka" },
+  { "id": "sazanami", "name": "Sazanami", "force": "goto", "type": "Destroyer — rescued 203 of Shōhō's crew", "route": "goto", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Sazanami_(1931)" },
+  { "id": "yubari", "name": "Yūbari", "force": "invasion", "type": "Light cruiser (Kajioka flagship)", "route": "invasion", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Y%C5%ABbari" },
+  { "id": "tsugaru", "name": "Tsugaru", "force": "invasion", "type": "Minelayer", "route": "invasion", "wiki": "https://en.wikipedia.org/wiki/Japanese_minelayer_Tsugaru" },
+  { "id": "mogamigawamaru", "name": "Mogamigawa Maru", "force": "invasion", "type": "Transport — Kure 3rd SNLF", "route": "invasion" },
+  { "id": "asakasanmaru", "name": "Asakasan Maru", "force": "invasion", "type": "Transport — South Seas Detachment", "route": "invasion" },
+  { "id": "okinoshima", "name": "Okinoshima", "force": "tulagi", "type": "Minelayer (Shima flagship)", "route": "tulagi", "wiki": "https://en.wikipedia.org/wiki/Japanese_minelayer_Okinoshima", "sunk": "12 06:00", "sunkBy": "USS S-42, off New Ireland" },
+  {
+   "id": "kikuzuki",
+   "name": "Kikuzuki",
+   "force": "tulagi",
+   "type": "Destroyer",
+   "route": "tulagi",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kikuzuki_(1926)",
+   "until": "04 07:30",
+   "extra": [["04 08:00", -9.117, 160.2, "Torpedoed in Tulagi harbour by Yorktown's Devastators; beached at Gavutu", "S"], ["05 06:00", -9.117, 160.2, "Slides off the beach and sinks", "S"]],
+   "sunk": "05 06:00",
+   "sunkBy": "Yorktown TBDs, 4 May",
+   "lost": 12
+  },
+  { "id": "yuzuki", "name": "Yūzuki", "force": "tulagi", "type": "Destroyer", "route": "tulagi", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Y%C5%ABzuki" },
+  { "id": "kamikawamaru", "name": "Kamikawa Maru", "force": "support", "type": "Seaplane tender", "route": "support", "wiki": "https://en.wikipedia.org/wiki/Japanese_seaplane_carrier_Kamikawa_Maru" },
+  { "id": "tenryu", "name": "Tenryū", "force": "support", "type": "Light cruiser (Marumo flagship)", "route": "support", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tenry%C5%AB" }
+ ],
+ "strikes": [
+  {
+   "id": "y1",
+   "name": "Yorktown's first Tulagi strike",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "kikuzuki" },
+   "launch": "04 07:01",
+   "arrive": "04 08:20",
+   "leave": "04 08:40",
+   "recover": "04 09:30",
+   "count": 28,
+   "note": "12 TBDs and 28 SBDs (the fighters stay home): Kikuzuki torpedoed, a minesweeper sunk"
+  },
+  {
+   "id": "y2",
+   "name": "Second Tulagi strike",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "okinoshima" },
+   "launch": "04 10:36",
+   "arrive": "04 12:10",
+   "leave": "04 12:30",
+   "recover": "04 13:30",
+   "count": 38,
+   "note": "27 SBDs and 11 TBDs; two more minesweepers; two Wildcats strafe Yūzuki and kill her captain"
+  },
+  {
+   "id": "y3",
+   "name": "Third Tulagi strike",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "yuzuki" },
+   "launch": "04 14:00",
+   "arrive": "04 15:15",
+   "leave": "04 15:35",
+   "recover": "04 17:00",
+   "count": 21,
+   "note": "21 SBDs; 22 bombs and 12 torpedoes expended for the day's results — Fletcher is 'disappointed'"
+  },
+  {
+   "id": "j1",
+   "name": "Takahashi's strike — the oiler",
+   "nation": "IJN",
+   "from": { "route": "mo" },
+   "target": { "ship": "neosho" },
+   "launch": "07 08:00",
+   "arrive": "07 11:15",
+   "leave": "07 11:45",
+   "recover": "07 13:30",
+   "count": 78,
+   "note": "18 Zeros, 36 Vals, 24 Kates sent 163 miles to sink 'a carrier' — Neosho and Sims. Sims sunk, Neosho wrecked, one Val lost"
+  },
+  {
+   "id": "u1",
+   "name": "TF 17 strike — Shōhō",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "shoho" },
+   "launch": "07 09:26",
+   "arrive": "07 11:00",
+   "leave": "07 11:35",
+   "recover": "07 13:38",
+   "count": 93,
+   "note": "Lexington's 50 and Yorktown's 43 find Gotō north-east of Misima: 13 bombs and 7 torpedoes. 'Scratch one flattop!' Three SBDs lost"
+  },
+  {
+   "id": "r1",
+   "name": "Rabaul bombers attack Crace",
+   "nation": "IJN",
+   "from": { "lat": -4.2, "lon": 152.17 },
+   "target": { "ship": "australia" },
+   "launch": "07 11:30",
+   "arrive": "07 14:30",
+   "leave": "07 15:00",
+   "recover": "07 18:00",
+   "count": 31,
+   "note": "Twelve torpedo-armed G4Ms of the 4th Air Group, then 19 G3Ms of the Genzan Group at height; Australia combs the torpedoes — no hits, four bombers down. Then three B-17s bomb Crace by mistake",
+   "land": true
+  },
+  {
+   "id": "b1",
+   "name": "B-17s over the convoy",
+   "nation": "USN",
+   "from": { "lat": -9.45, "lon": 147.18 },
+   "target": { "ship": "yubari" },
+   "launch": "07 09:00",
+   "arrive": "07 12:00",
+   "leave": "07 12:30",
+   "recover": "07 16:00",
+   "count": 8,
+   "note": "19th Bomb Group Fortresses staging through Port Moresby; no hits, but a fright for Inoue",
+   "land": true
+  },
+  {
+   "id": "j2",
+   "name": "Hara's dusk strike",
+   "nation": "IJN",
+   "from": { "route": "mo" },
+   "target": { "ship": "lexington" },
+   "launch": "07 16:15",
+   "arrive": "07 18:00",
+   "leave": "07 18:30",
+   "recover": "07 22:00",
+   "count": 27,
+   "note": "12 Vals and 15 Kates without fighters, 280 miles into the sunset: Yorktown's CAP destroys nine; the rest jettison, and three try to land on Yorktown. Eleven more crash on landing — 21 of 27 lost"
+  },
+  {
+   "id": "u2",
+   "name": "Yorktown's strike — Shōkaku",
+   "nation": "USN",
+   "from": { "route": "tf17" },
+   "target": { "ship": "shokaku" },
+   "launch": "08 09:00",
+   "arrive": "08 10:57",
+   "leave": "08 11:10",
+   "recover": "08 13:00",
+   "count": 39,
+   "note": "24 SBDs, 9 TBDs, 6 F4Fs: two 1,000-lb hits on Shōkaku's flight deck; all nine torpedoes miss"
+  },
+  {
+   "id": "u3",
+   "name": "Lexington's strike — Shōkaku",
+   "nation": "USN",
+   "from": { "route": "tf11" },
+   "target": { "ship": "shokaku" },
+   "launch": "08 09:08",
+   "arrive": "08 11:30",
+   "leave": "08 11:40",
+   "recover": "08 13:30",
+   "count": 36,
+   "note": "One more bomb hit; eleven torpedoes miss; Cdr Ault, the air group commander, is lost. Shōkaku cannot land aircraft and retires"
+  },
+  {
+   "id": "j3",
+   "name": "Takahashi's strike — the carriers",
+   "nation": "IJN",
+   "from": { "route": "mo" },
+   "target": { "ship": "lexington" },
+   "launch": "08 09:15",
+   "arrive": "08 11:13",
+   "leave": "08 11:40",
+   "recover": "08 13:30",
+   "count": 69,
+   "note": "18 Zeros, 33 Vals, 18 Kates: Lexington takes two torpedoes and two bombs, Yorktown one bomb through four decks. Takahashi and Kanno are killed; 46 aircraft return"
+  },
+  {
+   "id": "p1",
+   "name": "Nouméa PBY finds Neosho",
+   "nation": "USN",
+   "from": { "lat": -22.27, "lon": 166.45 },
+   "target": { "ship": "neosho" },
+   "launch": "11 06:00",
+   "arrive": "11 11:30",
+   "leave": "11 12:00",
+   "recover": "11 17:00",
+   "count": 1,
+   "note": "Four days adrift; Henley is directed in",
+   "land": true
+  }
+ ],
+ "torpedoes": [
+  {
+   "from": { "lat": -10.45, "lon": 152.95, "label": "VT-2 and VT-5 Devastators" },
+   "to": "shoho",
+   "t": "07 11:15",
+   "n": 12,
+   "run": 1,
+   "hit": true,
+   "note": "Seven hits"
+  },
+  {
+   "from": { "lat": -14.65, "lon": 155, "label": "Shōkaku's Kates" },
+   "to": "lexington",
+   "t": "08 11:20",
+   "n": 14,
+   "run": 1,
+   "hit": true,
+   "note": "Two hits port side; the big ship's flight deck stays open"
+  },
+  {
+   "from": { "lat": -14.7, "lon": 155.05, "label": "Zuikaku's Kates" },
+   "to": "yorktown",
+   "t": "08 11:18",
+   "n": 4,
+   "run": 1,
+   "hit": false,
+   "note": "Buckmaster combs all four"
+  },
+  {
+   "from": { "lat": -11.55, "lon": 155.15, "label": "VT-5 Devastators" },
+   "to": "shokaku",
+   "t": "08 10:57",
+   "n": 9,
+   "run": 1,
+   "hit": false,
+   "note": "Dropped too far out; the slow Mark 13s are all avoided"
+  },
+  {
+   "from": { "lat": -11.7, "lon": 155.25, "label": "VT-2 Devastators" },
+   "to": "shokaku",
+   "t": "08 11:30",
+   "n": 11,
+   "run": 1,
+   "hit": false,
+   "note": null
+  },
+  { "from": "phelps", "to": "lexington", "t": "08 19:15", "n": 5, "run": 1, "hit": true, "note": "Scuttling; she sinks at 19:52" },
+  {
+   "from": { "lat": -5.1, "lon": 153.75, "label": "USS S-42" },
+   "to": "okinoshima",
+   "t": "11 20:00",
+   "n": 4,
+   "run": 1,
+   "hit": true,
+   "note": "Shima's flagship torpedoed off New Ireland; sinks under tow next morning"
+  }
+ ],
+ "engagements": [
+  {
+   "ships": ["shoho", "aoba", "kako", "kinugasa", "furutaka", "sazanami"],
+   "from": "07 10:50",
+   "to": "07 11:35",
+   "rate": 0.5
+  },
+  {
+   "ships": ["neosho", "sims"],
+   "from": "07 11:26",
+   "to": "07 11:40",
+   "rate": 0.5,
+   "note": "Sims's guns fire to the end"
+  },
+  {
+   "ships": ["australia", "hobart", "chicago", "perkins", "walke"],
+   "from": "07 14:30",
+   "to": "07 15:00",
+   "rate": 0.6,
+   "note": "Crace's ships under torpedo and level-bombing attack; four bombers shot down"
+  },
+  {
+   "ships": ["yorktown", "lexington", "astoria", "portland", "chester", "minneapolis", "neworleans", "morris", "anderson", "hammann", "russell", "phelps", "dewey", "monaghan", "aylwin"],
+   "from": "07 18:00",
+   "to": "07 19:15",
+   "rate": 0.35,
+   "note": "Dusk: AA fire at Japanese aircraft trying to join the landing circle"
+  },
+  {
+   "ships": ["shokaku", "zuikaku", "myoko", "haguro", "ariake", "yugure", "shigure", "ushio"],
+   "from": "08 10:57",
+   "to": "08 11:40",
+   "rate": 0.5
+  },
+  {
+   "ships": ["yorktown", "lexington", "astoria", "portland", "chester", "minneapolis", "neworleans", "morris", "anderson", "hammann", "russell", "phelps", "dewey", "monaghan", "aylwin"],
+   "from": "08 11:13",
+   "to": "08 11:40",
+   "rate": 0.6,
+   "note": "Twenty-seven minutes; four Kates shot down by the screen"
+  }
+ ],
+ "events": [["01 06:15", "TF 17 and TF 11 meet at Point Buttercup", -16.267, 162.333], ["01 06:00", "Takagi's carriers sail from Truk", 7.42, 151.78], ["03 04:00", "Japanese land at Tulagi", -9.1, 160.15], ["03 20:30", "Fletcher turns north at 27 knots", -15.5, 160.5], ["04 07:01", "Yorktown's first Tulagi strike launched", -11.167, 158.817], ["04 16:00", "Kajioka's invasion convoy sails from Rabaul", -4.2, 152.17], ["05 08:30", "Fletcher, Fitch and Crace concentrate", -15, 160], ["06 20:00", "Carriers 70 miles apart in the dark — neither side knows", -13.333, 157.667], ["07 06:25", "Crace detached to block Jomard Passage", -13.333, 154.35], ["07 07:22", "Shōkaku's scout: 'one carrier, one cruiser' — Neosho and Sims", -13.2, 158.083], ["07 08:15", "Yorktown scout reports 'two carriers' — a coding error; Fletcher launches everything", -10.05, 152.45], ["07 11:35", "Shōhō sinks — the first Japanese carrier lost", -10.483, 152.917], ["07 11:40", "Sims sunk", -16.15, 158.05], ["07 12:10", "'Scratch one flattop! Signed Bob'", -12.5, 153.5], ["07 14:30", "Crace attacked off Jomard Passage", -11.7, 152.9], ["07 18:00", "Hara's dusk strike destroyed by the CAP", -14, 154.4], ["07 19:00", "Japanese aircraft try to land on Yorktown", -14, 154.4], ["07 22:00", "Inoue postpones the landing; Takagi turns north", -12, 156.5], ["08 08:22", "Both carrier forces sighted within two minutes", -12.9, 155.2], ["08 10:57", "Shōkaku hit", -11.6, 155.2], ["08 11:20", "Lexington torpedoed twice", -14.7, 155], ["08 11:27", "Yorktown hit — 66 killed", -14.7, 155], ["08 12:47", "Lexington's first internal explosion", -14.85, 155.2], ["08 15:00", "Inoue recalls the convoy — Operation MO abandoned", -4.2, 152.17], ["08 17:07", "Lexington abandoned", -15, 155.3], ["08 19:52", "Lexington sinks", -15.083, 155.267], ["11 12:00", "Neosho found and scuttled", -15.583, 155.6], ["12 06:00", "Okinoshima sinks — Shima's flagship", -5.1, 153.8]],
+ "ports": [
+  { "name": "Truk", "lat": 7.42, "lon": 151.78, "control": "IJN", "kind": "port", "note": "Combined Fleet's forward base; Takagi's carriers and Gotō's cruisers sail from here" },
+  { "name": "Rabaul", "lat": -4.2, "lon": 152.17, "control": "IJN", "kind": "port", "note": "Inoue's 4th Fleet and the 25th Air Flotilla; the invasion convoy sails 4 May" },
+  { "name": "Shortland", "lat": -7.05, "lon": 155.85, "control": "IJN", "kind": "port", "note": "Flying-boat base and Gotō's fuelling anchorage" },
+  { "name": "Queen Carola Harbour, Buka", "lat": -5.05, "lon": 154.57, "control": "IJN", "kind": "port", "note": "Shōhō's anchorage 3 May" },
+  { "name": "Tulagi", "lat": -9.1, "lon": 160.15, "control": "RN", "kind": "port", "note": "Australian seaplane base, evacuated 1 May; Japanese from 3 May — the Guadalcanal campaign starts here", "captured": "03 04:00", "capturedBy": "IJN" },
+  { "name": "Deboyne", "lat": -10.72, "lon": 152.37, "control": "IJN", "kind": "port", "note": "Kamikawa Maru's seaplane base, 6–10 May; its floatplanes shadowed Crace" },
+  { "name": "Lae", "lat": -6.73, "lon": 147, "control": "IJN", "kind": "air", "note": "Tainan Air Group Zeros" },
+  { "name": "Port Moresby", "lat": -9.45, "lon": 147.18, "control": "RN", "kind": "air", "note": "The objective: 5,000 Australian troops, RAAF Catalinas, Hudsons and P-40s; B-17 staging base" },
+  { "name": "Townsville", "lat": -19.25, "lon": 146.77, "control": "RN", "kind": "air", "note": "19th Bomb Group's B-17s" },
+  { "name": "Nouméa", "lat": -22.27, "lon": 166.45, "control": "USN", "kind": "port", "note": "Crace's cruisers sail from here; the PBY that found Neosho flew from here" },
+  { "name": "Efate", "lat": -17.7, "lon": 168.3, "control": "USN", "kind": "port", "note": "Tippecanoe's destination" },
+  { "name": "Rabaul — 4th Fleet HQ", "lat": -4.15, "lon": 152.2, "control": "IJN", "kind": "hq", "note": "Vice Admiral Inoue directs Operation MO; postpones the landing on 7 May and cancels it on the 8th", "hq": "Vice Admiral Inoue" }
+ ],
+ "rescues": [
+  { "by": "sazanami", "of": "shoho", "from": "07 11:35", "to": "07 14:00", "saved": 203, "note": "Sazanami picks up 203 of Shōhō's 834" },
+  { "by": "phelps", "of": "lexington", "from": "08 17:07", "to": "08 19:15", "saved": 2735, "note": "Phelps, Morris, Anderson, Hammann, Minneapolis and New Orleans take off 2,735 men in orderly fashion — Sherman last" },
+  { "by": "henley", "of": "neosho", "from": "11 12:00", "to": "11 13:00", "saved": 123, "note": "109 from Neosho and 14 of Sims' survivors, after four days" }
+ ],
+ "routing": {
+  "res": 0.03,
+  "bbox": [-24.5, 147.93, 8.42, 168.5],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "yorktown": { "hash": "3591b7c7" },
+   "astoria": { "hash": "3591b7c7" },
+   "portland": { "hash": "3591b7c7" },
+   "chester": { "hash": "3591b7c7" },
+   "morris": { "hash": "3591b7c7" },
+   "anderson": { "hash": "3591b7c7" },
+   "hammann": { "hash": "3591b7c7" },
+   "russell": { "hash": "3591b7c7" },
+   "lexington": { "hash": "8c0f6ed1" },
+   "minneapolis": { "hash": "2ba010a4" },
+   "neworleans": { "hash": "2ba010a4" },
+   "phelps": { "hash": "2ba010a4" },
+   "dewey": { "hash": "2ba010a4" },
+   "monaghan": { "hash": "2ba010a4" },
+   "aylwin": { "hash": "2ba010a4" },
+   "australia": {
+    "hash": "a45beb50",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]],
+     "9": [[-20.215, 148.875]]
+    }
+   },
+   "hobart": {
+    "hash": "a45beb50",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]],
+     "9": [[-20.215, 148.875]]
+    }
+   },
+   "chicago": {
+    "hash": "a45beb50",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]],
+     "9": [[-20.215, 148.875]]
+    }
+   },
+   "perkins": {
+    "hash": "a45beb50",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]],
+     "9": [[-20.215, 148.875]]
+    }
+   },
+   "walke": {
+    "hash": "a45beb50",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]],
+     "9": [[-20.215, 148.875]]
+    }
+   },
+   "neosho": { "hash": "fc0516d6" },
+   "sims": { "hash": "1276917f" },
+   "henley": {
+    "hash": "861255a3",
+    "snap": {
+     "0": [-22.255, 166.425]
+    },
+    "via": {
+     "1": [[-21.655, 165.285]]
+    }
+   },
+   "shokaku": {
+    "hash": "15c3a587",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "18": [[-5.035, 153.765], [-0.085, 151.995]]
+    }
+   },
+   "zuikaku": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "myoko": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "haguro": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "ariake": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "yugure": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "shigure": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "ushio": {
+    "hash": "f9f44689",
+    "via": {
+     "5": [[-10.165, 160.605]],
+     "19": [[-6.595, 156.015]]
+    }
+   },
+   "shoho": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "aoba": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "kako": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "kinugasa": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "furutaka": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "sazanami": {
+    "hash": "2417ca0c",
+    "snap": {
+     "2": [-5.035, 154.545]
+    },
+    "via": {
+     "3": [[-4.975, 154.695]]
+    }
+   },
+   "yubari": {
+    "hash": "d0504e5a",
+    "snap": {
+     "0": [-4.165, 152.145],
+     "6": [-4.165, 152.145],
+     "7": [-4.165, 152.145]
+    },
+    "via": {
+     "1": [[-4.105, 152.235], [-4.375, 152.475]],
+     "3": [[-9.205, 153.045]],
+     "4": [[-8.935, 152.385]],
+     "6": [[-4.285, 152.445], [-4.105, 152.145]]
+    }
+   },
+   "tsugaru": {
+    "hash": "d0504e5a",
+    "snap": {
+     "0": [-4.165, 152.145],
+     "6": [-4.165, 152.145],
+     "7": [-4.165, 152.145]
+    },
+    "via": {
+     "1": [[-4.105, 152.235], [-4.375, 152.475]],
+     "3": [[-9.205, 153.045]],
+     "4": [[-8.935, 152.385]],
+     "6": [[-4.285, 152.445], [-4.105, 152.145]]
+    }
+   },
+   "mogamigawamaru": {
+    "hash": "d0504e5a",
+    "snap": {
+     "0": [-4.165, 152.145],
+     "6": [-4.165, 152.145],
+     "7": [-4.165, 152.145]
+    },
+    "via": {
+     "1": [[-4.105, 152.235], [-4.375, 152.475]],
+     "3": [[-9.205, 153.045]],
+     "4": [[-8.935, 152.385]],
+     "6": [[-4.285, 152.445], [-4.105, 152.145]]
+    }
+   },
+   "asakasanmaru": {
+    "hash": "d0504e5a",
+    "snap": {
+     "0": [-4.165, 152.145],
+     "6": [-4.165, 152.145],
+     "7": [-4.165, 152.145]
+    },
+    "via": {
+     "1": [[-4.105, 152.235], [-4.375, 152.475]],
+     "3": [[-9.205, 153.045]],
+     "4": [[-8.935, 152.385]],
+     "6": [[-4.285, 152.445], [-4.105, 152.145]]
+    }
+   },
+   "okinoshima": {
+    "hash": "cee6865f",
+    "via": {
+     "1": [[-9.145, 160.155]],
+     "3": [[-9.055, 159.975]],
+     "4": [[-6.745, 155.295]]
+    }
+   },
+   "kikuzuki": {
+    "hash": "d732c110",
+    "via": {
+     "1": [[-9.145, 160.155]]
+    }
+   },
+   "yuzuki": {
+    "hash": "cee6865f",
+    "via": {
+     "1": [[-9.145, 160.155]],
+     "3": [[-9.055, 159.975]],
+     "4": [[-6.745, 155.295]]
+    }
+   },
+   "kamikawamaru": {
+    "hash": "6c4fbe82",
+    "via": {
+     "1": [[-7.525, 158.655], [-7.345, 158.175], [-7.525, 157.695], [-7.555, 156.345]]
+    }
+   },
+   "tenryu": {
+    "hash": "6c4fbe82",
+    "via": {
+     "1": [[-7.525, 158.655], [-7.345, 158.175], [-7.525, 157.695], [-7.555, 156.345]]
+    }
+   }
+  }
+ }
+}

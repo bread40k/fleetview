@@ -1,0 +1,601 @@
+{
+ "id": "pearlharbor",
+ "title": "The Attack on Pearl Harbor",
+ "subtitle": "Hawaii · 25 November – 8 December 1941",
+ "base": [1941, 11],
+ "start": "1941-11-25 00:00",
+ "end": "08 18:00",
+ "tz": "Hawaii time · UTC−10:30 (Tokyo is 19½ hours ahead)",
+ "utcOffset": -10.5,
+ "majorDays": [7],
+ "view": {
+  "center": [33, 175],
+  "zoom": 4,
+  "min": 3,
+  "max": 14,
+  "dateline": true
+ },
+ "alliedNavy": "USN",
+ "keyShips": ["akagi", "arizona", "oklahoma", "nevada", "wv", "utah", "enterprise", "ward", "ha19", "i16"],
+ "scenes": [
+  ["Overview", "07 07:55", [33, 175], 4],
+  ["Hitokappu Bay", "1941-11-25 10:30", [45, 148], 6],
+  ["The northern route", "1941-11-30 12:00", [42, 180], 4],
+  ["Turn south", "06 08:10", [28, 202], 6],
+  ["Launch", "07 06:00", [26, 202], 7],
+  ["Midget submarines", "07 06:45", [21.27, 202.03], 12],
+  ["First wave", "07 07:55", [21.36, 202.04], 13],
+  ["Nevada's run", "07 09:10", [21.355, 202.045], 14],
+  ["Second wave", "07 09:00", [21.36, 202.04], 13],
+  ["Enterprise", "07 08:20", [21.4, 199.5], 6],
+  ["Withdrawal", "07 13:30", [26, 201.5], 6]
+ ],
+ "defaultTime": "07 07:55",
+ "footnote": "Hawaii time (UTC−10:30). The Kido Butai's track is reconstructed from its operation orders and the TROMs' distance statements — no daily fixes were published; the launch point is 'about 230 miles north of Oahu'. Berths on Battleship Row are placed from the harbour chart; Ward's midget from the 2002 wreck survey. The loss counter counts only the ships sunk in the harbour (1,870 men); 2,403 Americans died in all, 55 Japanese airmen and nine submariners. Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "kdb": { "name": "IJN First Air Fleet — Kido Butai (Nagumo)", "color": "#e5484d", "nation": "IJN" },
+  "supply": { "name": "IJN Supply Groups", "color": "#a3a3a3", "nation": "IJN" },
+  "subs": { "name": "IJN Special Attack Unit — midget carriers (Sasaki)", "color": "#9ca3af", "nation": "IJN" },
+  "midgets": { "name": "IJN Type A midget submarines", "color": "#f97316", "nation": "IJN" },
+  "row": { "name": "USN Pacific Fleet in harbour (Kimmel)", "color": "#3b82f6", "nation": "USN" },
+  "patrol": { "name": "USN Inshore patrol (Ward)", "color": "#22c55e", "nation": "USN" },
+  "tf8": { "name": "USN Task Force 8 — Enterprise (Halsey)", "color": "#06b6d4", "nation": "USN" },
+  "tf12": { "name": "USN Task Force 12 — Lexington (Newton)", "color": "#0ea5e9", "nation": "USN" },
+  "tf3": { "name": "USN Task Force 3 — Indianapolis (Brown)", "color": "#38bdf8", "nation": "USN" }
+ },
+ "schema": 1,
+ "routes": {
+  "kdb": [["1941-11-25 10:30", 44.965, 147.672, "The Kido Butai weighs from Hitokappu Bay, Etorofu (06:00 JST 26 November): six carriers, two battleships, three cruisers, nine destroyers, eight tankers", "S"], ["1941-11-30 12:00", 42, 180, "Along the 42nd parallel through fog and gales, refuelling when the sea allows; radio silence", "R"], ["02 12:00", 43.9, 183, "'Niitakayama nobore 1208' — climb Mount Niitaka: the attack is on for 8 December, Tokyo time", "R"], ["03 18:00", 42, 190, "Standby point 42°N 170°W", "R"], ["05 11:30", 31.5, 202, "600 miles north of Oahu: last refuelling; the 2nd Supply Group detached", "R"], ["06 08:10", 28.2, 202, "400 miles north: the 1st Supply Group detached; 24 knots, course due south", "R"], ["07 06:00", 26, 202, "About 230 miles north of Oahu: 183 aircraft launched into a pitching sea", "R"], ["07 10:00", 24.8, 202, "Closes to 190 miles; first wave recovering", "R"], ["07 12:15", 25.2, 201.8, "Last aircraft aboard. Fuchida argues for a third strike; Nagumo declines", "R"], ["07 13:30", 25.8, 201.4, "Withdraws north-west at 24 knots", "R"], ["08 18:00", 31.5, 197]],
+  "supply1": [["1941-11-25 10:30", 44.965, 147.672, "The Kido Butai weighs from Hitokappu Bay, Etorofu (06:00 JST 26 November): six carriers, two battleships, three cruisers, nine destroyers, eight tankers", "S"], ["1941-11-30 12:00", 42, 180, "Along the 42nd parallel through fog and gales, refuelling when the sea allows; radio silence", "R"], ["02 12:00", 43.9, 183, "'Niitakayama nobore 1208' — climb Mount Niitaka: the attack is on for 8 December, Tokyo time", "R"], ["03 18:00", 42, 190, "Standby point 42°N 170°W", "R"], ["05 11:30", 31.5, 202, "600 miles north of Oahu: last refuelling; the 2nd Supply Group detached", "R"], ["06 08:10", 28.2, 202, "400 miles north: the 1st Supply Group detached; 24 knots, course due south", "R"], ["07 12:00", 30, 202.5, "Waits at the fuelling rendezvous", "R"], ["08 18:00", 31.5, 199]],
+  "subs": [["1941-11-25 00:00", 28, 175, "Five I-boats with midgets clamped to their after casings, sailed from Kure on 18–19 November", "R"], ["05 12:00", 22.5, 199.5], ["06 20:00", 21.15, 202.05, "Ten miles off the harbour entrance", "R"], ["07 00:42", 21.14, 202.02, "I-16 launches the first midget; I-22 at 01:16, I-18, I-20, I-24 (03:30) follow", "R"], ["07 06:00", 21.05, 202, "Submerged, waiting for midgets that will never return", "R"], ["08 18:00", 20.7, 201, "Rendezvous west of Lanai — empty", "R"]],
+  "ha19": [["07 03:30", 21.15, 202, "Ensign Sakamaki's HA-19 launched from I-24 with a broken gyro-compass", "R"], ["07 08:00", 21.25, 202.02, "Aground on the reef off the entrance; fired on by Helm", "R"], ["07 22:00", 21.37, 202.29, "Drifts round the island and grounds off Bellows Field; Sakamaki is the first prisoner of war", "S"]],
+  "no15": [["07 01:16", 21.16, 202.03, "Lt Iwasa's midget launched from I-22", "R"], ["07 08:30", 21.37, 202.034, "Inside the harbour — fires at Curtiss and misses", "R"], ["07 08:43", 21.372, 202.033, "Rammed and depth-charged by Monaghan north-west of Ford Island", "S"]],
+  "wardmidget": [["07 01:30", 21.17, 202.025, "One of I-18's or I-20's midgets", "R"], ["07 06:37", 21.265, 202.015, "Sighted trailing Antares into the channel", "R"], ["07 06:45", 21.26, 202.02, "Hit on the conning tower by Ward's No. 3 gun — the first shot of the Pacific war. Wreck found in 2002", "S"]],
+  "ward": [["06 18:00", 21.25, 202, "Inshore patrol off the entrance", "R"], ["07 03:57", 21.23, 202.01, "Condor reports a periscope; Ward searches", "R"], ["07 06:45", 21.262, 202.017, "Sinks the midget submarine; 06:53 'attacked, fired upon, depth-bombed and sunk submarine'", "S"], ["07 12:00", 21.2, 202], ["08 18:00", 21.2, 202]],
+  "tf8": [["1941-11-28 09:00", 21.35, 202.05, "Enterprise sails to deliver VMF-211's Wildcats to Wake", "S"], ["1941-11-30 12:00", 21.8, 196], ["04 09:00", 20.5, 168.5, "Launches the Marine fighters 200 miles from Wake", "R"], ["06 12:00", 21.3, 191, "Delayed by heavy weather; the Sunday arrival at Pearl becomes Monday", "R"], ["07 06:00", 21.4, 198.15, "215 miles west of Oahu: eighteen SBDs launched for Ford Island — into the attack", "R"], ["07 17:00", 21.4, 200, "Strike launched against a phantom carrier report; six Wildcats sent to Hickam, three shot down by friendly fire", "R"], ["08 18:00", 21.35, 202.05, "Enters Pearl to refuel among the wrecks", "S"]],
+  "tf12": [["05 09:00", 21.35, 202.05, "Lexington sails to ferry VMSB-231 to Midway", "S"], ["07 06:00", 22.3, 189.2, "500 miles south-east of Midway; the ferry mission is cancelled", "R"], ["07 12:00", 22, 190.5, "Ordered to join Brown west of Niihau and hunt for the Japanese", "R"], ["08 18:00", 21, 195]],
+  "tf3": [["05 09:00", 21.35, 202.05, "Indianapolis and five minesweepers sail for Johnston", "S"], ["07 06:00", 16.73, 190.47, "Mock bombardment exercise at Johnston Atoll", "R"], ["08 18:00", 18.5, 195, "Absorbed into Task Force 12", "R"]],
+  "arizona": [["1941-11-25 00:00", 21.365, 202.05, null, "S"]],
+  "oklahoma": [["1941-11-25 00:00", 21.361, 202.047, null, "S"]],
+  "wv": [["1941-11-25 00:00", 21.363, 202.048, null, "S"]],
+  "tennessee": [["1941-11-25 00:00", 21.3635, 202.049, null, "S"]],
+  "maryland": [["1941-11-25 00:00", 21.361, 202.048, null, "S"]],
+  "california": [["1941-11-25 00:00", 21.357, 202.045, null, "S"]],
+  "nevada": [["1941-11-25 00:00", 21.367, 202.052, "Berth F-8, astern of Arizona", "S"], ["07 08:55", 21.367, 202.052, "Gets under way — the only battleship to move", "S"], ["07 09:05", 21.356, 202.045, "Down the channel past the burning Row, targeted by the second wave", "R"], ["07 09:10", 21.349, 202.04, "Six bombs and a torpedo: beached at Hospital Point rather than sunk in the channel", "S"], ["08 18:00", 21.349, 202.04]],
+  "utah": [["1941-11-25 00:00", 21.369, 202.036, null, "S"]],
+  "raleigh": [["1941-11-25 00:00", 21.37, 202.036, null, "S"]],
+  "pennsylvania": [["1941-11-25 00:00", 21.352, 202.043, null, "S"]],
+  "helena": [["1941-11-25 00:00", 21.352, 202.04, null, "S"]],
+  "oglala": [["1941-11-25 00:00", 21.352, 202.03959999999998, null, "S"]],
+  "curtiss": [["1941-11-25 00:00", 21.375, 202.035, null, "S"]],
+  "monaghan": [["1941-11-25 00:00", 21.372, 202.038, "Ready-duty destroyer in East Loch", "S"], ["07 08:27", 21.372, 202.038, "Under way", "S"], ["07 08:43", 21.372, 202.033, "Rams and depth-charges the midget submarine", "S"], ["08 18:00", 21.3, 202.03]]
+ },
+ "groups": {
+  "kdb": "Kido Butai",
+  "supply1": "Supply Group",
+  "subs": "Special Attack Unit",
+  "ha19": "HA-19",
+  "no15": "Midget No. 15",
+  "wardmidget": "Midget",
+  "ward": "Ward",
+  "tf8": "Task Force 8",
+  "tf12": "Task Force 12",
+  "tf3": "Task Force 3",
+  "arizona": "Battleship Row",
+  "nevada": "Nevada",
+  "utah": "Utah",
+  "pennsylvania": "Dry Dock",
+  "curtiss": "Curtiss",
+  "monaghan": "Monaghan"
+ },
+ "commanders": {
+  "kdb": { "name": "Vice Admiral Chūichi Nagumo", "role": "Commander, First Air Fleet", "flagship": "Akagi", "bio": "Sceptical of the plan he was given, he brought six carriers 3,500 miles across the empty North Pacific undetected and launched 350 aircraft on schedule. Then, with the American carriers unlocated and his fuel low, he declined the third strike that Fuchida and Yamaguchi urged on him — and left the oil tanks, the dockyard and the submarine base untouched.", "fate": "Killed himself on Saipan, 6 July 1944.", "wiki": "Chūichi_Nagumo" },
+  "subs": { "name": "Captain Hanku Sasaki", "role": "Commander, Special Attack Unit", "flagship": "I-22", "bio": "Five fleet submarines each carrying a two-man midget: launched ten miles off the harbour between midnight and 03:30. None of the five midgets returned; their one certain result was to give Ward the first shot of the war an hour before the aircraft arrived.", "fate": "Survived the war." },
+  "arizona": { "name": "Admiral Husband E. Kimmel", "role": "Commander-in-Chief, Pacific Fleet", "flagship": "USS Pennsylvania (in dock)", "bio": "Had the fleet at its Sunday moorings, no long-range air search to the north and his carriers safely at sea by chance. Watched from his quarters as Arizona blew up; a spent bullet through the window struck his chest — 'it would have been merciful had it killed me'.", "fate": "Relieved 17 December 1941; reduced to rear admiral; died 1968 still contesting the verdict.", "wiki": "Husband_E._Kimmel" },
+  "ward": { "name": "Lieutenant William Outerbridge", "role": "Commanding Officer, USS Ward", "flagship": "USS Ward", "bio": "Two days in command of a 1918 destroyer. Sank a midget submarine at 06:45 and reported it in plain terms — the message reached Kimmel at 07:40, fifteen minutes before the bombs.", "fate": "Commanded O'Brien at Normandy and Leyte; Ward was sunk under him — by kamikaze, three years to the day later — and O'Brien scuttled her.", "wiki": "William_W._Outerbridge" },
+  "tf8": { "name": "Vice Admiral William F. Halsey", "role": "Commander, Aircraft Battle Force — Task Force 8", "flagship": "USS Enterprise", "bio": "Sailed under war orders on 28 November — 'sink any shipping sighted, shoot down any plane encountered' — and was due back in Pearl on the 6th; the weather kept him out. His scouts flew into the raid; his afternoon strike chased a phantom.", "fate": "Fleet Admiral; died 1959.", "wiki": "William_Halsey_Jr." },
+  "tf12": { "name": "Rear Admiral John H. Newton", "role": "Commander, Task Force 12", "flagship": "USS Lexington", "bio": "Ferrying Marine dive bombers to Midway; recalled to hunt for the Japanese carriers in the wrong direction.", "fate": "Survived the war.", "wiki": "John_H._Newton" }
+ },
+ "ships": [
+  { "id": "akagi", "name": "Akagi", "force": "kdb", "type": "Fleet carrier (Nagumo flagship)", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Akagi" },
+  { "id": "kaga", "name": "Kaga", "force": "kdb", "type": "Fleet carrier", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Kaga" },
+  { "id": "soryu", "name": "Sōryū", "force": "kdb", "type": "Fleet carrier", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_S%C5%8Dry%C5%AB" },
+  { "id": "hiryu", "name": "Hiryū", "force": "kdb", "type": "Fleet carrier", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Hiry%C5%AB" },
+  { "id": "shokaku", "name": "Shōkaku", "force": "kdb", "type": "Fleet carrier", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Sh%C5%8Dkaku" },
+  { "id": "zuikaku", "name": "Zuikaku", "force": "kdb", "type": "Fleet carrier", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku" },
+  { "id": "hiei", "name": "Hiei", "force": "kdb", "type": "Battleship (Mikawa)", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Hiei" },
+  { "id": "kirishima", "name": "Kirishima", "force": "kdb", "type": "Battleship", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kirishima" },
+  { "id": "tone", "name": "Tone", "force": "kdb", "type": "Heavy cruiser (Abe)", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Tone_(1937)" },
+  { "id": "chikuma", "name": "Chikuma", "force": "kdb", "type": "Heavy cruiser", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Chikuma_(1938)" },
+  { "id": "abukuma", "name": "Abukuma", "force": "kdb", "type": "Light cruiser (Ōmori, DesRon 1)", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Abukuma" },
+  { "id": "isokaze", "name": "Isokaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Isokaze_(1939)" },
+  { "id": "urakaze", "name": "Urakaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Urakaze_(1940)" },
+  { "id": "tanikaze", "name": "Tanikaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Tanikaze_(1940)" },
+  { "id": "hamakaze", "name": "Hamakaze", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Hamakaze_(1940)" },
+  { "id": "kagero", "name": "Kagerō", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kager%C5%8D" },
+  { "id": "shiranui", "name": "Shiranui", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Shiranui_(1938)" },
+  { "id": "akigumo", "name": "Akigumo", "force": "kdb", "type": "Destroyer", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Akigumo_(1941)" },
+  {
+   "id": "arare",
+   "name": "Arare",
+   "force": "kdb",
+   "type": "Destroyer — escorts the 2nd Supply Group",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arare_(1937)",
+   "until": "05 11:30",
+   "extra": [["07 12:00", 30.2, 202.5], ["08 18:00", 31.6, 199]]
+  },
+  {
+   "id": "kasumi",
+   "name": "Kasumi",
+   "force": "kdb",
+   "type": "Destroyer — escorts the 1st Supply Group",
+   "route": "kdb",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Kasumi_(1937)",
+   "until": "06 08:10",
+   "extra": [["07 12:00", 30, 202.6], ["08 18:00", 31.5, 199.1]]
+  },
+  { "id": "kyokutomaru", "name": "Kyokutō Maru", "force": "supply", "type": "Fleet oiler — 1st Supply Group", "route": "supply1" },
+  { "id": "shinkokumaru", "name": "Shinkoku Maru", "force": "supply", "type": "Fleet oiler", "route": "supply1" },
+  { "id": "i16", "name": "I-16", "force": "subs", "type": "Submarine — midget carrier", "route": "subs", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-16" },
+  { "id": "i18", "name": "I-18", "force": "subs", "type": "Submarine — midget carrier", "route": "subs", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-18" },
+  { "id": "i20", "name": "I-20", "force": "subs", "type": "Submarine — midget carrier", "route": "subs", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-20" },
+  { "id": "i22", "name": "I-22", "force": "subs", "type": "Submarine — midget carrier (Sasaki)", "route": "subs", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-22" },
+  { "id": "i24", "name": "I-24", "force": "subs", "type": "Submarine — midget carrier", "route": "subs", "wiki": "https://en.wikipedia.org/wiki/Japanese_submarine_I-24" },
+  {
+   "id": "ha19",
+   "name": "HA-19",
+   "force": "midgets",
+   "type": "Type A midget submarine (Ensign Sakamaki)",
+   "route": "ha19",
+   "wiki": "https://en.wikipedia.org/wiki/HA._19_(Japanese_Midget_Submarine)",
+   "sunk": "07 22:00",
+   "sunkBy": "Grounded off Bellows Field; captured",
+   "lost": 1
+  },
+  { "id": "no15", "name": "Midget No. 15", "force": "midgets", "type": "Type A midget submarine (Lt Iwasa)", "route": "no15", "sunk": "07 08:43", "sunkBy": "Rammed and depth-charged by USS Monaghan", "lost": 2 },
+  { "id": "wardmidget", "name": "Midget submarine", "force": "midgets", "type": "Type A midget submarine", "route": "wardmidget", "sunk": "07 06:45", "sunkBy": "USS Ward's No. 3 gun and depth charges", "lost": 2 },
+  {
+   "id": "arizona",
+   "name": "USS Arizona",
+   "force": "row",
+   "type": "Battleship (Rear Admiral Kidd, BatDiv 1)",
+   "route": "arizona",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Arizona",
+   "sunk": "07 08:06",
+   "sunkBy": "800-kg armour-piercing bomb in the forward magazine",
+   "lost": 1177
+  },
+  {
+   "id": "oklahoma",
+   "name": "USS Oklahoma",
+   "force": "row",
+   "type": "Battleship",
+   "route": "oklahoma",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Oklahoma",
+   "sunk": "07 08:08",
+   "sunkBy": "Five torpedoes; capsized in twelve minutes",
+   "lost": 429
+  },
+  {
+   "id": "wv",
+   "name": "USS West Virginia",
+   "force": "row",
+   "type": "Battleship (Capt Bennion, killed)",
+   "route": "wv",
+   "wiki": "https://en.wikipedia.org/wiki/USS_West_Virginia_(BB-48)",
+   "sunk": "07 09:00",
+   "sunkBy": "Seven torpedoes and two bombs; settled on the bottom upright (raised 1942)",
+   "lost": 106
+  },
+  { "id": "tennessee", "name": "USS Tennessee", "force": "row", "type": "Battleship — inboard of West Virginia", "route": "tennessee", "wiki": "https://en.wikipedia.org/wiki/USS_Tennessee_(BB-43)" },
+  { "id": "maryland", "name": "USS Maryland", "force": "row", "type": "Battleship — inboard of Oklahoma", "route": "maryland", "wiki": "https://en.wikipedia.org/wiki/USS_Maryland_(BB-46)" },
+  {
+   "id": "california",
+   "name": "USS California",
+   "force": "row",
+   "type": "Battleship (Vice Admiral Pye flagship)",
+   "route": "california",
+   "wiki": "https://en.wikipedia.org/wiki/USS_California_(BB-44)",
+   "sunk": "07 10:30",
+   "sunkBy": "Two torpedoes and a bomb; settles into the mud over three days (raised 1942)",
+   "lost": 100
+  },
+  { "id": "nevada", "name": "USS Nevada", "force": "row", "type": "Battleship — the one that got under way", "route": "nevada", "wiki": "https://en.wikipedia.org/wiki/USS_Nevada_(BB-36)" },
+  {
+   "id": "utah",
+   "name": "USS Utah",
+   "force": "row",
+   "type": "Target ship (ex-battleship)",
+   "route": "utah",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Utah_(BB-31)",
+   "sunk": "07 08:12",
+   "sunkBy": "Two torpedoes meant for a carrier; capsized",
+   "lost": 58
+  },
+  { "id": "raleigh", "name": "USS Raleigh", "force": "row", "type": "Light cruiser — torpedoed, kept afloat", "route": "raleigh", "wiki": "https://en.wikipedia.org/wiki/USS_Raleigh_(CL-7)" },
+  { "id": "pennsylvania", "name": "USS Pennsylvania", "force": "row", "type": "Battleship (Kimmel flagship) — in Dry Dock No. 1", "route": "pennsylvania", "wiki": "https://en.wikipedia.org/wiki/USS_Pennsylvania_(BB-38)" },
+  { "id": "helena", "name": "USS Helena", "force": "row", "type": "Light cruiser — 1010 Dock", "route": "helena", "wiki": "https://en.wikipedia.org/wiki/USS_Helena_(CL-50)" },
+  {
+   "id": "oglala",
+   "name": "USS Oglala",
+   "force": "row",
+   "type": "Minelayer — capsized alongside 1010 Dock",
+   "route": "oglala",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Oglala",
+   "sunk": "07 10:00",
+   "sunkBy": "Torpedo that passed under her into Helena; capsized two hours later",
+   "lost": 0
+  },
+  { "id": "curtiss", "name": "USS Curtiss", "force": "row", "type": "Seaplane tender — hit by a bomb and a crashing Val", "route": "curtiss", "wiki": "https://en.wikipedia.org/wiki/USS_Curtiss_(AV-4)" },
+  { "id": "monaghan", "name": "USS Monaghan", "force": "row", "type": "Destroyer — rammed the midget in the harbour", "route": "monaghan", "wiki": "https://en.wikipedia.org/wiki/USS_Monaghan_(DD-354)" },
+  { "id": "ward", "name": "USS Ward", "force": "patrol", "type": "Destroyer (Lt Outerbridge) — fired the first shot", "route": "ward", "wiki": "https://en.wikipedia.org/wiki/USS_Ward_(DD-139)" },
+  { "id": "enterprise", "name": "USS Enterprise", "force": "tf8", "type": "Fleet carrier (Halsey flagship)", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)" },
+  { "id": "northampton", "name": "USS Northampton", "force": "tf8", "type": "Heavy cruiser", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Northampton_(CA-26)" },
+  { "id": "saltlakecity", "name": "USS Salt Lake City", "force": "tf8", "type": "Heavy cruiser", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Salt_Lake_City_(CA-25)" },
+  { "id": "lexington", "name": "USS Lexington", "force": "tf12", "type": "Fleet carrier (Newton flagship)", "route": "tf12", "wiki": "https://en.wikipedia.org/wiki/USS_Lexington_(CV-2)", "ref": "lexington_cv2" },
+  { "id": "chicago", "name": "USS Chicago", "force": "tf12", "type": "Heavy cruiser", "route": "tf12", "wiki": "https://en.wikipedia.org/wiki/USS_Chicago_(CA-29)" },
+  { "id": "indianapolis", "name": "USS Indianapolis", "force": "tf3", "type": "Heavy cruiser (Brown flagship)", "route": "tf3", "wiki": "https://en.wikipedia.org/wiki/USS_Indianapolis_(CA-35)" }
+ ],
+ "strikes": [
+  {
+   "id": "j0",
+   "name": "Tone and Chikuma's floatplanes",
+   "nation": "IJN",
+   "from": { "route": "kdb" },
+   "target": { "lat": 20.87, "lon": 203.32 },
+   "launch": "07 05:00",
+   "arrive": "07 06:30",
+   "leave": "07 07:00",
+   "recover": "07 07:30",
+   "count": 2,
+   "note": "Two Jakes scout Lahaina Roads (empty) and Pearl Harbor ahead of the strike; the American carriers are not there"
+  },
+  {
+   "id": "j1",
+   "name": "First wave — Fuchida",
+   "nation": "IJN",
+   "from": { "route": "kdb" },
+   "target": { "lat": 21.364, "lon": 202.04 },
+   "launch": "07 06:00",
+   "arrive": "07 07:48",
+   "leave": "07 08:35",
+   "recover": "07 10:00",
+   "count": 183,
+   "note": "49 Kates with 800-kg armour-piercing bombs, 40 torpedo Kates, 51 Vals, 43 Zeros. 'Tora! Tora! Tora!' at 07:53; Arizona, Oklahoma, West Virginia, California and Utah hit within fifteen minutes. Nine aircraft lost"
+  },
+  {
+   "id": "j2",
+   "name": "Second wave — Shimazaki",
+   "nation": "IJN",
+   "from": { "route": "kdb" },
+   "target": { "lat": 21.364, "lon": 202.04 },
+   "launch": "07 07:15",
+   "arrive": "07 08:54",
+   "leave": "07 09:45",
+   "recover": "07 12:15",
+   "count": 167,
+   "note": "54 Kates, 78 Vals, 35 Zeros against the airfields and the ships still fighting: Nevada, Pennsylvania in dock, Shaw, Curtiss. Twenty aircraft lost to the awakened AA"
+  },
+  {
+   "id": "u1",
+   "name": "Enterprise's morning scouts",
+   "nation": "USN",
+   "from": { "route": "tf8" },
+   "target": { "lat": 21.364, "lon": 202.04 },
+   "launch": "07 06:15",
+   "arrive": "07 08:20",
+   "leave": "07 08:35",
+   "recover": "07 08:35",
+   "count": 18,
+   "note": "Eighteen Dauntlesses flying ahead to Ford Island arrive in the middle of the attack; seven shot down by Zeros and by American gunners, eight airmen killed",
+   "oneway": true,
+   "recoverAt": { "lat": 21.364, "lon": 202.04 }
+  },
+  {
+   "id": "u2",
+   "name": "Enterprise's phantom strike",
+   "nation": "USN",
+   "from": { "route": "tf8" },
+   "target": { "lat": 20.3, "lon": 200.3 },
+   "launch": "07 17:00",
+   "arrive": "07 18:00",
+   "leave": "07 18:30",
+   "recover": "07 19:30",
+   "count": 27,
+   "note": "Launched against a reported carrier south of Oahu — nothing there. Six Wildcats diverted to Hickam after dark; three are shot down by friendly fire"
+  }
+ ],
+ "torpedoes": [
+  {
+   "from": { "lat": 21.36, "lon": 202.055, "label": "Kates of the first wave" },
+   "to": "oklahoma",
+   "t": "07 07:57",
+   "n": 5,
+   "run": 1,
+   "hit": true,
+   "note": "Three hits in the first minutes, two more as she rolls; capsizes at 08:08 with 429 men"
+  },
+  {
+   "from": { "lat": 21.36, "lon": 202.055, "label": "Kates of the first wave" },
+   "to": "wv",
+   "t": "07 07:58",
+   "n": 7,
+   "run": 1,
+   "hit": true,
+   "note": "Seven torpedoes; counter-flooding keeps her upright as she settles"
+  },
+  {
+   "from": { "lat": 21.36, "lon": 202.055, "label": "Kates of the first wave" },
+   "to": "california",
+   "t": "07 08:05",
+   "n": 2,
+   "run": 1,
+   "hit": true,
+   "note": "Two hits with her manholes open for inspection"
+  },
+  {
+   "from": { "lat": 21.372, "lon": 202.03, "label": "Kates over the north side" },
+   "to": "utah",
+   "t": "07 07:56",
+   "n": 2,
+   "run": 1,
+   "hit": true,
+   "note": "The target ship, mistaken for a carrier — capsizes at 08:12"
+  },
+  {
+   "from": { "lat": 21.372, "lon": 202.03, "label": "Kates over the north side" },
+   "to": "raleigh",
+   "t": "07 07:57",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "Kept afloat by a lighter and counter-flooding"
+  },
+  {
+   "from": { "lat": 21.355, "lon": 202.037, "label": "Kate — 1010 Dock" },
+   "to": "helena",
+   "t": "07 07:57",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "Passes under Oglala into Helena; Oglala capsizes two hours later"
+  },
+  {
+   "from": { "lat": 21.36, "lon": 202.055, "label": "Kates of the first wave" },
+   "to": "nevada",
+   "t": "07 08:03",
+   "n": 1,
+   "run": 1,
+   "hit": true,
+   "note": "One hit forward — she still gets under way"
+  },
+  { "from": "no15", "to": "curtiss", "t": "07 08:36", "n": 2, "run": 1, "hit": false, "note": "Both torpedoes miss Curtiss and explode ashore; Monaghan rams her seven minutes later" }
+ ],
+ "engagements": [
+  {
+   "ships": ["ward"],
+   "from": "07 06:45",
+   "to": "07 06:46",
+   "rate": 0.8,
+   "note": "Two rounds from No. 3 gun at 50 yards; the second hits the conning tower",
+   "targets": ["wardmidget"]
+  },
+  {
+   "ships": ["arizona", "oklahoma", "wv", "tennessee", "maryland", "california", "nevada", "utah", "raleigh", "pennsylvania", "helena", "curtiss", "monaghan"],
+   "from": "07 07:55",
+   "to": "07 09:45",
+   "rate": 0.5,
+   "note": "The fleet's AA guns — manned within minutes, they shoot down 29 aircraft over the morning"
+  },
+  {
+   "ships": ["monaghan", "curtiss"],
+   "from": "07 08:36",
+   "to": "07 08:43",
+   "rate": 0.6,
+   "note": "Curtiss and Monaghan fire on the midget's conning tower inside the harbour",
+   "targets": ["no15"]
+  },
+  {
+   "ships": ["nevada"],
+   "from": "07 08:55",
+   "to": "07 09:10",
+   "rate": 0.6,
+   "note": "Under way with every gun firing, the target of the second wave's dive bombers"
+  }
+ ],
+ "events": [["1941-11-25 10:30", "The Kido Butai sails from Hitokappu Bay", 44.965, 147.672], ["1941-11-26 12:00", "Washington: the Hull note is delivered to Nomura and Kurusu", 38.9, 282.97], ["1941-11-27 12:00", "'This dispatch is to be considered a war warning' — Stark to Kimmel", 21.35, 202.05], ["1941-11-28 09:00", "Enterprise sails for Wake with Marine fighters", 21.35, 202.05], ["02 12:00", "'Niitakayama nobore 1208' — the attack date is confirmed", 43.9, 183], ["05 09:00", "Lexington sails for Midway", 21.35, 202.05], ["06 08:10", "Nagumo turns south at 24 knots, 400 miles north of Oahu", 28.2, 202], ["06 12:00", "'Z' flag hoisted in Akagi — Tōgō's flag from Tsushima", 27.5, 202], ["07 00:42", "I-16 launches the first midget submarine", 21.14, 202.02], ["07 03:42", "Condor sights a periscope off the entrance", 21.23, 202.01], ["07 06:00", "First wave launched", 26, 202], ["07 06:45", "Ward sinks a midget submarine — the first shots", 21.26, 202.02], ["07 07:02", "Opana radar plots the first wave at 132 miles; 'don't worry about it'", 21.686, 201.99], ["07 07:48", "Kaneohe strafed — the attack begins", 21.45, 202.23], ["07 07:53", "'Tora! Tora! Tora!' — surprise achieved", 21.5, 202.05], ["07 07:55", "Battleship Row torpedoed; 'Air raid Pearl Harbor. This is not drill'", 21.364, 202.04], ["07 08:06", "Arizona's forward magazine explodes — 1,177 killed", 21.365, 202.05], ["07 08:08", "Oklahoma capsizes", 21.361, 202.047], ["07 08:12", "Utah capsizes", 21.369, 202.036], ["07 08:20", "Enterprise's scouts fly into the battle", 21.364, 202.04], ["07 08:43", "Monaghan rams a midget submarine inside the harbour", 21.372, 202.033], ["07 08:54", "Second wave attacks", 21.364, 202.04], ["07 08:55", "Nevada gets under way", 21.367, 202.052], ["07 09:10", "Nevada beached at Hospital Point", 21.349, 202.04], ["07 09:30", "Shaw's magazine explodes in the floating dock", 21.352, 202.042], ["07 09:45", "The last aircraft leave; 2,403 Americans dead, 188 aircraft destroyed", 21.364, 202.04], ["07 12:15", "Nagumo recovers his aircraft and declines a third strike", 25.2, 201.8], ["07 22:00", "Sakamaki's midget grounds at Waimanalo — the first prisoner of war", 21.37, 202.29], ["08 07:00", "Roosevelt: 'a date which will live in infamy' — Congress declares war", 38.9, 282.97], ["08 18:00", "Enterprise enters Pearl Harbor: 'Before we're through with 'em, the Japanese language will be spoken only in hell'", 21.35, 202.05]],
+ "ports": [
+  { "name": "Hitokappu Bay", "lat": 44.965, "lon": 147.672, "control": "IJN", "kind": "port", "note": "Kurile anchorage where the Kido Butai assembled in secret" },
+  { "name": "Hashirajima", "lat": 33.9, "lon": 132.42, "control": "IJN", "kind": "port", "note": "Yamamoto follows the attack from Nagato's flag plot here" },
+  { "name": "Kure", "lat": 34.24, "lon": 132.57, "control": "IJN", "kind": "port", "note": "The midget carriers sail from Kamegakubi, 18–19 November" },
+  { "name": "Kwajalein", "lat": 8.72, "lon": 167.73, "control": "IJN", "kind": "port", "note": "6th Fleet — 23 fleet submarines deployed around Hawaii" },
+  { "name": "Wake", "lat": 19.29, "lon": 166.63, "control": "USN", "kind": "port", "note": "Enterprise delivers VMF-211 on 4 December; attacked 8 December, falls 23 December", "captured": "08 12:00", "capturedBy": "IJN" },
+  { "name": "Midway", "lat": 28.21, "lon": 182.62, "control": "USN", "kind": "port", "note": "Lexington's ferry destination; shelled by two destroyers on the night of 7 December" },
+  { "name": "Johnston Atoll", "lat": 16.73, "lon": 190.47, "control": "USN", "kind": "port", "note": "Indianapolis exercising here" },
+  { "name": "Pearl Harbor", "lat": 21.35, "lon": 202.05, "control": "USN", "kind": "port", "note": "Pacific Fleet base — 96 ships in harbour, no carriers" },
+  { "name": "Ford Island NAS", "lat": 21.364, "lon": 202.04, "control": "USN", "kind": "air", "note": "Patrol Wing 2; 'Air raid Pearl Harbor. This is not drill'" },
+  { "name": "Hickam Field", "lat": 21.335, "lon": 202.052, "control": "USN", "kind": "air", "note": "Army bombers parked wingtip to wingtip against sabotage; 189 killed" },
+  { "name": "Wheeler Field", "lat": 21.482, "lon": 201.96, "control": "USN", "kind": "air", "note": "Army fighters; 33 killed" },
+  { "name": "Kaneohe NAS", "lat": 21.45, "lon": 202.23, "control": "USN", "kind": "air", "note": "Strafed at 07:48 — the first target hit" },
+  { "name": "Ewa", "lat": 21.322, "lon": 201.951, "control": "USN", "kind": "air", "note": "Marine Corps Air Station; 48 aircraft destroyed on the ground" },
+  { "name": "Bellows Field", "lat": 21.369, "lon": 202.289, "control": "USN", "kind": "air", "note": "Sakamaki's midget grounds offshore" },
+  { "name": "Haleiwa", "lat": 21.59, "lon": 201.89, "control": "USN", "kind": "air", "note": "Welch and Taylor take off from here to fight back" },
+  { "name": "Lahaina Roads", "lat": 20.87, "lon": 203.32, "control": "USN", "kind": "port", "note": "The fleet's alternative anchorage — scouted and found empty" },
+  { "name": "Opana Point — radar", "lat": 21.686, "lon": 201.99, "control": "USN", "kind": "hq", "note": "The SCR-270 plot at 07:02 that Lt Tyler dismissed", "hq": "Army radar station" },
+  { "name": "Pearl Harbor — CINCPAC", "lat": 21.34, "lon": 202.06, "control": "USN", "kind": "hq", "note": "Admiral Kimmel watches from his quarters as Arizona explodes; relieved 17 December", "hq": "Admiral Kimmel" },
+  { "name": "Tokyo — Naval General Staff", "lat": 35.68, "lon": 139.69, "control": "IJN", "kind": "hq", "note": "Nagano's staff had opposed Yamamoto's plan until he threatened to resign", "hq": "Admiral Nagano" },
+  { "name": "Washington — Navy Department", "lat": 38.9, "lon": 282.97, "control": "USN", "kind": "hq", "note": "The 'war warning' of 27 November; the Purple decrypts that never became a warning to Hawaii", "hq": "Admiral Stark" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [15.73, 146.67, 45.97, 203.6],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "akagi": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "kaga": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "soryu": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "hiryu": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "shokaku": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "zuikaku": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "hiei": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "kirishima": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "tone": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "chikuma": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "abukuma": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "isokaze": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "urakaze": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "tanikaze": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "hamakaze": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "kagero": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "shiranui": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "akigumo": {
+    "hash": "757f2068",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "arare": {
+    "hash": "2335d338",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "kasumi": {
+    "hash": "d7c5ee75",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "kyokutomaru": {
+    "hash": "b3a61e03",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "shinkokumaru": {
+    "hash": "b3a61e03",
+    "via": {
+     "1": [[41.995, 165.465]]
+    }
+   },
+   "i16": { "hash": "dc698879" },
+   "i18": { "hash": "dc698879" },
+   "i20": { "hash": "dc698879" },
+   "i22": { "hash": "dc698879" },
+   "i24": { "hash": "dc698879" },
+   "ha19": { "hash": "83e37fd6" },
+   "no15": { "hash": "22cea2ad" },
+   "wardmidget": { "hash": "323f9188" },
+   "arizona": { "hash": "57e5e613" },
+   "oklahoma": { "hash": "8811ea91" },
+   "wv": { "hash": "94868962" },
+   "tennessee": { "hash": "b9fdc382" },
+   "maryland": { "hash": "8111df8c" },
+   "california": { "hash": "01764e2a" },
+   "nevada": { "hash": "935cf255" },
+   "utah": { "hash": "d933f285" },
+   "raleigh": { "hash": "e006b67b" },
+   "pennsylvania": { "hash": "81b4f1cb" },
+   "helena": { "hash": "f77c51da" },
+   "oglala": { "hash": "d50f3730" },
+   "curtiss": { "hash": "99c1bb01" },
+   "monaghan": { "hash": "18318e41" },
+   "ward": { "hash": "3758f031" },
+   "enterprise": { "hash": "23effdf1" },
+   "northampton": { "hash": "23effdf1" },
+   "saltlakecity": { "hash": "23effdf1" },
+   "lexington": { "hash": "a4ce0fe3" },
+   "chicago": { "hash": "a4ce0fe3" },
+   "indianapolis": { "hash": "0b2d4bed" }
+  }
+ }
+}

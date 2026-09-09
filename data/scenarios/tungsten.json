@@ -1,0 +1,492 @@
+{
+ "id": "tungsten",
+ "title": "Operation Tungsten — the Fleet Air Arm strikes Tirpitz",
+ "subtitle": "Arctic Norway · 27 March – 7 April 1944",
+ "base": [1944, 3],
+ "start": "1944-03-27 00:00",
+ "end": "07 12:00",
+ "tz": "Zone −1 · UTC+1",
+ "utcOffset": 1,
+ "majorDays": [3],
+ "view": {
+  "center": [68, 10],
+  "zoom": 4,
+  "min": 3,
+  "max": 12
+ },
+ "alliedNavy": "RN",
+ "keyShips": ["tirpitz", "victorious", "furious", "anson", "dukeofyork", "emperor", "activity", "u288"],
+ "scenes": [
+  ["Overview", "03 05:30", [68, 10], 4],
+  ["JW 58 sails", "1944-03-27 14:00", [58.5, -5], 6],
+  ["Home Fleet sails", "1944-03-30 12:00", [59.5, -4], 6],
+  ["U-boats on the convoy", "02 12:00", [73.3, 12], 6],
+  ["Flying-off position", "03 04:15", [71.3, 19.5], 7],
+  ["First strike", "03 05:29", [69.95, 23.05], 11],
+  ["Second strike", "03 06:36", [69.95, 23.05], 11],
+  ["Kola", "04 18:00", [69.5, 33], 7],
+  ["Home", "06 14:00", [59, -3], 6]
+ ],
+ "defaultTime": "03 05:29",
+ "footnote": "Zone −1 (UTC+1). The flying-off position is '120 miles north-west of Kåfjord' at 04:00 — no source gives a fix, and the point is derived; the forces' tracks are reconstructed from the Admiralty War Diary. U-boat sinking positions from uboat.net. Tirpitz's 122 dead are not counted by the loss counter, which counts only ships sunk (the three U-boats). Formation members are spread slightly so they don't overlap.",
+ "forces": {
+  "force1": { "name": "RN Force 1 — Home Fleet (Moore in Anson)", "color": "#3b82f6", "nation": "RN" },
+  "dukeofyork": { "name": "RN Fleet flagship — Duke of York (Fraser)", "color": "#0ea5e9", "nation": "RN" },
+  "force2": { "name": "RN Force 2 — escort carriers (Bisset)", "color": "#06b6d4", "nation": "RN" },
+  "oilers": { "name": "RN Force 8 — oilers", "color": "#94a3b8", "nation": "RN" },
+  "jw58": { "name": "Convoy JW 58 and escort (Dalrymple-Hamilton)", "color": "#22c55e", "nation": "RN" },
+  "tirpitz": { "name": "KM Tirpitz (Meyer)", "color": "#e5484d", "nation": "KM" },
+  "uboats": { "name": "KM U-boats — Gruppe Thor / Blitz", "color": "#9ca3af", "nation": "KM" }
+ },
+ "schema": 1,
+ "routes": {
+  "force1": [["1944-03-30 09:00", 58.9, -3.05, "Force 1 sails: Duke of York, Anson, Victorious, Belfast and destroyers, ostensibly to cover JW 58", "S"], ["1944-03-31 12:00", 62.1, -6.75, "Screen changed off the Faroes", "R"], ["01 12:00", 69, 2, "Covering position south-west of Bear Island; Fraser brings the attack forward a day on the weather forecast and Enigma", "R"], ["02 16:20", 71, 15, "Anson, Victorious and Belfast join Force 2; Duke of York turns back", "R"], ["03 04:00", 71.5, 19, "Flying-off position, 120 miles north-west of Kåfjord; wind from the north-east, clear", "R"], ["03 04:15", 71.48, 19.1, "First strike launched — 21 Barracudas and 40 fighters", "R"], ["03 07:58", 71.6, 18.8, "Second strike recovered", "R"], ["03 12:00", 71.8, 17, "Moore decides against a second day: the crews are tired and the defences awake", "R"], ["05 12:00", 65, 3], ["06 04:00", 60.2, -0.3, "East of Shetland", "R"], ["06 11:00", 58.75, -2.6, "Pentland Firth", "R"], ["06 14:00", 58.9, -3.05, "Scapa Flow", "S"], ["07 12:00", 58.9, -3.05]],
+  "dukeofyork": [["1944-03-30 09:00", 58.9, -3.05, "Force 1 sails: Duke of York, Anson, Victorious, Belfast and destroyers, ostensibly to cover JW 58", "S"], ["1944-03-31 12:00", 62.1, -6.75, "Screen changed off the Faroes", "R"], ["01 12:00", 69, 2, "Covering position south-west of Bear Island; Fraser brings the attack forward a day on the weather forecast and Enigma", "R"], ["02 16:20", 71, 15, "Anson, Victorious and Belfast join Force 2; Duke of York turns back", "R"], ["04 12:00", 62.5, -5, "Fraser cruises toward the Faroes as an interception guard should Tirpitz sail", "R"], ["06 07:00", 58.75, -2.6], ["06 10:00", 58.9, -3.05], ["07 12:00", 58.9, -3.05]],
+  "force2": [["1944-03-30 14:00", 58.9, -3.05, "Force 2 sails: Furious, Emperor, Searcher, Pursuer, Fencer, Royalist, Sheffield, Jamaica, two oilers", "S"], ["1944-03-31 12:00", 60.5, -8, "West of the Orkneys and Shetland", "R"], ["01 12:00", 66, -2, "Oilers and two destroyers detached to the fuelling position", "R"], ["02 16:20", 71, 15, "Anson, Victorious and Belfast join Force 2; Duke of York turns back", "R"], ["03 04:00", 71.5, 19, "Flying-off position, 120 miles north-west of Kåfjord; wind from the north-east, clear", "R"], ["03 04:15", 71.48, 19.1, "First strike launched — 21 Barracudas and 40 fighters", "R"], ["03 07:58", 71.6, 18.8, "Second strike recovered", "R"], ["03 12:00", 71.8, 17, "Moore decides against a second day: the crews are tired and the defences awake", "R"], ["05 12:00", 65, 3], ["06 04:00", 60.2, -0.3, "East of Shetland", "R"], ["06 11:00", 58.75, -2.6, "Pentland Firth", "R"], ["06 14:00", 58.9, -3.05, "Scapa Flow", "S"], ["07 12:00", 58.9, -3.05]],
+  "oilers": [["1944-03-30 14:00", 58.9, -3.05, null, "S"], ["1944-03-31 12:00", 60.5, -8], ["01 12:00", 66, -2, "Blue Ranger and Brown Ranger detached with Javelin and Piorun", "R"], ["02 12:00", 73.5, 11.7, "Fuelling position 300 miles north-west of Kåfjord", "R"], ["04 12:00", 73.5, 11.7], ["06 20:00", 60.2, -0.4], ["07 05:00", 58.75, -2.7], ["07 08:00", 58.9, -3.05], ["07 12:00", 58.9, -3.05]],
+  "jw58": [["1944-03-27 14:00", 57.837, -5.612, "JW 58: 47 merchant ships, USS Milwaukee for the Soviet Navy, escort carriers Activity and Tracker, seventeen destroyers", "S"], ["1944-03-29 12:00", 63.5, -8, "U-961, on passage, sunk by Starling and Magpie", "R"], ["1944-03-31 12:00", 70, 0, "Shadowed by Luftwaffe aircraft — six shot down over four days", "R"], ["01 12:00", 73.117, 10.35, "U-355 sunk by Beagle and a Tracker Avenger", "S"], ["02 12:00", 73.467, 13.067, "U-360 sunk by Keppel's Hedgehog", "S"], ["03 12:00", 73.733, 22.483, "U-288 sunk by Swordfish, Avenger and Wildcat from Activity and Tracker", "S"], ["04 08:00", 71.2, 31.5, "North of Vardø", "R"], ["04 18:00", 69.3, 33.5, "Kola Inlet — not a ship lost", "S"], ["07 12:00", 69.3, 33.5]],
+  "tirpitz": [["1944-03-27 00:00", 69.935, 23.045, "Tirpitz in Kåfjord: six months' repair after the X-craft attack complete; trials ordered for 3 April", "S"]],
+  "u355": [["1944-03-31 12:00", 72.5, 8, "Gruppe Thor on the convoy's line", "R"], ["01 12:00", 73.117, 10.35, "Depth-charged by Beagle and rocketed by a Tracker Avenger — lost with all 52", "S"]],
+  "u360": [["1944-03-31 12:00", 72.8, 10.5], ["02 12:00", 73.467, 13.067, "Keppel's Hedgehog — 51 lost", "S"]],
+  "u288": [["01 12:00", 73.2, 18], ["03 12:00", 73.733, 22.483, "Caught on the surface by Activity's Swordfish and Tracker's Avenger and Wildcat — 49 lost", "S"]]
+ },
+ "groups": {
+  "force1": "Force 1",
+  "dukeofyork": "Duke of York",
+  "force2": "Force 2",
+  "oilers": "Oilers",
+  "jw58": "JW 58",
+  "tirpitz": "Tirpitz",
+  "u355": "U-355",
+  "u360": "U-360",
+  "u288": "U-288"
+ },
+ "commanders": {
+  "force1": { "name": "Vice-Admiral Sir Henry Moore", "role": "Second-in-Command, Home Fleet — commanding the strike", "flagship": "HMS Anson", "bio": "Planned Tungsten and led it from Anson when Fraser turned back. Forty Barracudas in two waves put fifteen bombs into Tirpitz for four aircraft; he declined to go back the next morning with tired crews against defences now awake — a decision the Admiralty regretted.", "fate": "Commander-in-Chief Home Fleet 1944–45; died 1978.", "wiki": "Henry_Ruthven_Moore" },
+  "dukeofyork": { "name": "Admiral Sir Bruce Fraser", "role": "Commander-in-Chief, Home Fleet", "flagship": "HMS Duke of York", "bio": "Sailed with the convoy cover, brought the attack forward a day on the weather and the Enigma decrypts, then took his flagship west as a guard against Tirpitz sortieing — and left the strike to Moore.", "fate": "First Sea Lord 1948–51.", "wiki": "Bruce_Fraser,_1st_Baron_Fraser_of_North_Cape" },
+  "force2": { "name": "Rear-Admiral Arthur Bisset", "role": "Rear-Admiral Escort Carriers — Force 2", "flagship": "HMS Royalist", "bio": "Five carriers including four escort carriers on their first fleet operation, carrying the fighter wings that swept Kåfjord's flak.", "fate": "Retired 1945; died 1956.", "wiki": "Arthur_La_Touche_Bisset" },
+  "jw58": { "name": "Rear-Admiral Frederick Dalrymple-Hamilton", "role": "Commander, ocean escort JW 58", "flagship": "HMS Diadem", "bio": "Forty-seven ships against seventeen U-boats and the Luftwaffe: three U-boats and six aircraft destroyed, not a merchantman touched — while the convoy also served as the cover story for Tungsten.", "fate": "Admiral; died 1974.", "wiki": "Frederick_Dalrymple-Hamilton" },
+  "tirpitz": { "name": "Kapitän zur See Hans Meyer", "role": "Commanding Officer, Tirpitz", "flagship": "Tirpitz", "bio": "Had his ship ready for sea after six months' repair when the Barracudas came over the hill at 05:29, with the anchor coming in and the watertight doors open. Wounded in the first minute; 122 of his crew killed.", "fate": "Relieved 1 May 1944; Bundesmarine flotilla admiral; died 1989.", "wiki": "Hans_Karl_Meyer" }
+ },
+ "ships": [
+  { "id": "anson", "name": "HMS Anson", "force": "force1", "type": "Battleship (Vice-Admiral Moore flagship)", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Anson_(79)" },
+  { "id": "victorious", "name": "HMS Victorious", "force": "force1", "type": "Fleet carrier — 827 and 829 Barracudas, 1834/1836 Corsairs", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Victorious_(R38)" },
+  { "id": "belfast", "name": "HMS Belfast", "force": "force1", "type": "Light cruiser", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Belfast" },
+  { "id": "milne", "name": "HMS Milne", "force": "force1", "type": "Destroyer", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Milne_(G14)" },
+  { "id": "meteor", "name": "HMS Meteor", "force": "force1", "type": "Destroyer", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Meteor_(G73)" },
+  { "id": "algonquin", "name": "HMCS Algonquin", "force": "force1", "type": "Destroyer (Royal Canadian Navy)", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMCS_Algonquin_(R17)" },
+  { "id": "sioux", "name": "HMCS Sioux", "force": "force1", "type": "Destroyer (Royal Canadian Navy)", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMCS_Sioux_(R64)" },
+  { "id": "dukeofyork", "name": "HMS Duke of York", "force": "dukeofyork", "type": "Battleship (Fraser flagship)", "route": "dukeofyork", "wiki": "https://en.wikipedia.org/wiki/HMS_Duke_of_York_(17)" },
+  { "id": "matchless", "name": "HMS Matchless", "force": "dukeofyork", "type": "Destroyer", "route": "dukeofyork", "wiki": "https://en.wikipedia.org/wiki/HMS_Matchless_(G52)" },
+  { "id": "royalist", "name": "HMS Royalist", "force": "force2", "type": "Light cruiser (Bisset flagship)", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Royalist_(89)" },
+  { "id": "furious", "name": "HMS Furious", "force": "force2", "type": "Fleet carrier — 830 and 831 Barracudas, Seafires", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Furious_(47)" },
+  { "id": "emperor", "name": "HMS Emperor", "force": "force2", "type": "Escort carrier — 800 and 804 Hellcats", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Emperor_(D98)" },
+  {
+   "id": "searcher",
+   "name": "HMS Searcher",
+   "force": "force2",
+   "type": "Escort carrier — 882 and 898 Wildcats",
+   "route": "force2",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Searcher_(D40)",
+   "until": "03 12:00",
+   "extra": [["04 12:00", 68, 8, "Engine defects; drops astern with Jamaica and two destroyers", "R"], ["06 20:00", 60.2, -0.3], ["07 05:00", 58.75, -2.6], ["07 08:00", 58.9, -3.05, "Scapa a day behind the fleet", "R"], ["07 12:00", 58.9, -3.05]]
+  },
+  { "id": "pursuer", "name": "HMS Pursuer", "force": "force2", "type": "Escort carrier — 881 and 896 Wildcats", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Pursuer_(D73)" },
+  { "id": "fencer", "name": "HMS Fencer", "force": "force2", "type": "Escort carrier — 842 Swordfish and Wildcats for anti-submarine patrol", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Fencer_(D64)" },
+  { "id": "sheffield", "name": "HMS Sheffield", "force": "force2", "type": "Light cruiser", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Sheffield_(C24)" },
+  {
+   "id": "jamaica",
+   "name": "HMS Jamaica",
+   "force": "force2",
+   "type": "Light cruiser",
+   "route": "force2",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Jamaica_(44)",
+   "until": "03 12:00",
+   "extra": [["04 12:00", 68, 8.1, "Escorts the lame Searcher", "R"], ["06 20:00", 60.2, -0.35], ["07 05:00", 58.75, -2.65], ["07 08:00", 58.9, -3.05], ["07 12:00", 58.9, -3.05]]
+  },
+  { "id": "blueranger", "name": "RFA Blue Ranger", "force": "oilers", "type": "Fleet oiler", "route": "oilers", "wiki": "https://en.wikipedia.org/wiki/RFA_Blue_Ranger" },
+  { "id": "brownranger", "name": "RFA Brown Ranger", "force": "oilers", "type": "Fleet oiler", "route": "oilers", "wiki": "https://en.wikipedia.org/wiki/RFA_Brown_Ranger" },
+  { "id": "piorun", "name": "ORP Piorun", "force": "oilers", "type": "Destroyer (Polish Navy)", "route": "oilers", "wiki": "https://en.wikipedia.org/wiki/ORP_Piorun_(G65)" },
+  { "id": "diadem", "name": "HMS Diadem", "force": "jw58", "type": "Light cruiser (Dalrymple-Hamilton flagship)", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Diadem_(84)" },
+  { "id": "activity", "name": "HMS Activity", "force": "jw58", "type": "Escort carrier — 819 Squadron Swordfish and Wildcats", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Activity_(D94)" },
+  { "id": "tracker", "name": "HMS Tracker", "force": "jw58", "type": "Escort carrier — 846 Squadron Avengers and Wildcats", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Tracker_(D24)" },
+  { "id": "milwaukee", "name": "USS Milwaukee", "force": "jw58", "type": "Light cruiser (US Navy) — to become the Soviet Murmansk", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/USS_Milwaukee_(CL-5)" },
+  { "id": "keppel", "name": "HMS Keppel", "force": "jw58", "type": "Destroyer — sank U-360 with Hedgehog", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Keppel_(D84)" },
+  { "id": "beagle", "name": "HMS Beagle", "force": "jw58", "type": "Destroyer — sank U-355 with Tracker's Avenger", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Beagle_(H30)" },
+  { "id": "starling", "name": "HMS Starling", "force": "jw58", "type": "Sloop (Capt Walker, 2nd Support Group)", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Starling_(U66)" },
+  { "id": "westcott", "name": "HMS Westcott", "force": "jw58", "type": "Destroyer (close escort commander)", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Westcott_(D47)" },
+  { "id": "fortyukon", "name": "Fort Yukon", "force": "jw58", "type": "Merchant ship — one of 47", "route": "jw58" },
+  { "id": "tirpitz", "name": "Tirpitz", "force": "tirpitz", "type": "Battleship (Capt Meyer)", "route": "tirpitz", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Tirpitz" },
+  {
+   "id": "u355",
+   "name": "U-355",
+   "force": "uboats",
+   "type": "Type VIIC U-boat (La Baume)",
+   "route": "u355",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-355",
+   "sunk": "01 12:00",
+   "sunkBy": "HMS Beagle and a Tracker Avenger",
+   "lost": 52
+  },
+  {
+   "id": "u360",
+   "name": "U-360",
+   "force": "uboats",
+   "type": "Type VIIC U-boat (Becker)",
+   "route": "u360",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-360",
+   "sunk": "02 12:00",
+   "sunkBy": "HMS Keppel — Hedgehog",
+   "lost": 51
+  },
+  {
+   "id": "u288",
+   "name": "U-288",
+   "force": "uboats",
+   "type": "Type VIIC U-boat (Meyer)",
+   "route": "u288",
+   "wiki": "https://en.wikipedia.org/wiki/German_submarine_U-288",
+   "sunk": "03 12:00",
+   "sunkBy": "Aircraft from Activity and Tracker",
+   "lost": 49
+  }
+ ],
+ "strikes": [
+  {
+   "id": "s1",
+   "name": "First strike — Baker-Falkner",
+   "nation": "RN",
+   "from": { "route": "force1" },
+   "target": { "ship": "tirpitz" },
+   "launch": "03 04:15",
+   "arrive": "03 05:29",
+   "leave": "03 05:32",
+   "recover": "03 06:42",
+   "count": 61,
+   "note": "21 Barracudas of 827 and 830 Squadrons (No. 8 TBR Wing) with 40 Corsairs, Hellcats and Wildcats. In at 50 feet, up to 7,000 over Langfjord, down over the hills from the south: ten hits in sixty seconds as Tirpitz's crew are singling up for trials. One Barracuda lost"
+  },
+  {
+   "id": "s2",
+   "name": "Second strike",
+   "nation": "RN",
+   "from": { "route": "force1" },
+   "target": { "ship": "tirpitz" },
+   "launch": "03 05:25",
+   "arrive": "03 06:36",
+   "leave": "03 06:40",
+   "recover": "03 07:58",
+   "count": 59,
+   "note": "19 Barracudas of 829 and 831 Squadrons (No. 52 Wing) with 40 fighters; the smoke screen is half made. Five more hits; one Barracuda shot down, one crashed on take-off, a Hellcat ditches by Algonquin"
+  },
+  {
+   "id": "a1",
+   "name": "Tracker's Avenger and Beagle — U-355",
+   "nation": "RN",
+   "from": { "route": "jw58" },
+   "target": { "ship": "u355" },
+   "launch": "01 09:00",
+   "arrive": "01 11:30",
+   "leave": "01 12:00",
+   "recover": "01 13:00",
+   "count": 1,
+   "note": "Rockets from 846 Squadron, depth charges from Beagle"
+  },
+  {
+   "id": "a2",
+   "name": "Activity and Tracker aircraft — U-288",
+   "nation": "RN",
+   "from": { "route": "jw58" },
+   "target": { "ship": "u288" },
+   "launch": "03 10:00",
+   "arrive": "03 12:00",
+   "leave": "03 12:30",
+   "recover": "03 13:30",
+   "count": 3,
+   "note": "A Swordfish from Activity with an Avenger and a Wildcat from Tracker catch U-288 on the surface — rockets and depth charges"
+  },
+  {
+   "id": "l1",
+   "name": "Luftwaffe shadowers",
+   "nation": "KM",
+   "from": { "lat": 69.056, "lon": 18.54 },
+   "target": { "route": "jw58" },
+   "launch": "01 08:00",
+   "arrive": "01 11:00",
+   "leave": "01 16:00",
+   "recover": "01 19:00",
+   "count": 3,
+   "note": "Six shadowing aircraft shot down by the escort carriers' Wildcats over the passage — Bardufoss never learns the Home Fleet is at sea",
+   "land": true
+  }
+ ],
+ "torpedoes": [],
+ "engagements": [
+  {
+   "ships": ["tirpitz"],
+   "from": "03 05:29",
+   "to": "03 05:33",
+   "rate": 0.7,
+   "note": "Sixty-eight AA guns and eleven shore batteries — too late for the first strike"
+  },
+  {
+   "ships": ["tirpitz"],
+   "from": "03 06:36",
+   "to": "03 06:42",
+   "rate": 0.6,
+   "note": "Every gun firing through the smoke; one Barracuda shot down"
+  },
+  {
+   "ships": ["keppel"],
+   "from": "02 11:50",
+   "to": "02 12:00",
+   "rate": 0.6,
+   "note": "Hedgehog salvo",
+   "targets": ["u360"]
+  },
+  {
+   "ships": ["beagle"],
+   "from": "01 11:30",
+   "to": "01 12:00",
+   "rate": 0.5,
+   "targets": ["u355"]
+  }
+ ],
+ "events": [["1944-03-27 14:00", "JW 58 sails from Loch Ewe — 47 ships", 57.837, -5.612], ["1944-03-28 12:00", "Full rehearsal over the Tirpitz mock-up in Loch Eriboll", 58.505, -4.67], ["1944-03-29 12:00", "U-961 sunk by Walker's sloops", 63.5, -8], ["1944-03-30 09:00", "Force 1 sails from Scapa", 58.9, -3.05], ["01 12:00", "Fraser brings the attack forward to 3 April; U-355 sunk", 73.117, 10.35], ["02 12:00", "U-360 sunk by Keppel", 73.467, 13.067], ["02 16:20", "Forces 1 and 2 join; Duke of York detached", 71, 15], ["03 04:15", "First strike launched, 120 miles from Kåfjord", 71.5, 19], ["03 05:29", "Tirpitz hit ten times in a minute — 122 killed", 69.935, 23.045], ["03 06:36", "Second strike: five more hits through the smoke", 69.935, 23.045], ["03 07:58", "All aircraft recovered; four lost, nine airmen killed", 71.6, 18.8], ["03 12:00", "U-288 sunk; Moore declines a second day's attack", 73.733, 22.483], ["04 18:00", "JW 58 reaches Kola without loss", 69.3, 33.5], ["06 14:00", "The fleet returns to Scapa; Tirpitz will be out of action until July", 58.9, -3.05]],
+ "ports": [
+  { "name": "Scapa Flow", "lat": 58.9, "lon": -3.05, "control": "RN", "kind": "port", "note": "Home Fleet base" },
+  { "name": "Loch Ewe", "lat": 57.837, "lon": -5.612, "control": "RN", "kind": "port", "note": "JW 58 sails 27 March" },
+  { "name": "Loch Eriboll", "lat": 58.505, "lon": -4.67, "control": "RN", "kind": "port", "note": "Eilean Choraidh laid out as Tirpitz for the rehearsals" },
+  { "name": "Hatston", "lat": 58.98, "lon": -2.97, "control": "RN", "kind": "air", "note": "The Barracuda wings trained here through March" },
+  { "name": "Skálafjørður", "lat": 62.1, "lon": -6.75, "control": "RN", "kind": "port", "note": "Faroes anchorage; destroyer screens changed here" },
+  { "name": "Kola Inlet — Murmansk", "lat": 69.3, "lon": 33.5, "control": "VMF", "kind": "port", "note": "JW 58's destination" },
+  { "name": "Kåfjord", "lat": 69.935, "lon": 23.045, "control": "KM", "kind": "port", "note": "Tirpitz's berth since March 1943; X-craft in September, Barracudas in April, Lancasters to come" },
+  { "name": "Hammerfest", "lat": 70.66, "lon": 23.68, "control": "KM", "kind": "port", "note": "Kriegsmarine anchorage" },
+  { "name": "Bardufoss", "lat": 69.056, "lon": 18.54, "control": "KM", "kind": "air", "note": "Luftwaffe fighters — none took off" },
+  { "name": "London — Admiralty", "lat": 51.505, "lon": -0.128, "control": "RN", "kind": "hq", "note": "Enigma decrypts give Tirpitz's trials date: 3 April", "hq": "Admiralty (Cunningham)" },
+  { "name": "Kiel — Marinegruppe Nord", "lat": 54.32, "lon": 10.14, "control": "KM", "kind": "hq", "note": "Dönitz orders Tirpitz repaired again — she never sails against a convoy", "hq": "Gruppe Nord" }
+ ],
+ "rescues": [],
+ "routing": {
+  "res": 0.03,
+  "bbox": [56.84, -9, 74.73, 34.5],
+  "margin": 3,
+  "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
+  "bakedAt": "2026-09-09",
+  "ships": {
+   "anson": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "victorious": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "belfast": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "milne": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "meteor": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "algonquin": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "sioux": {
+    "hash": "af5c91d8",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]]
+    }
+   },
+   "dukeofyork": {
+    "hash": "85e38503",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]],
+     "5": [[59.235, -3.015], [58.935, -2.655]]
+    }
+   },
+   "matchless": {
+    "hash": "85e38503",
+    "via": {
+     "1": [[58.725, -3.225], [58.905, -3.525]],
+     "2": [[62.025, -6.525]],
+     "5": [[59.235, -3.015], [58.935, -2.655]]
+    }
+   },
+   "royalist": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "furious": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "emperor": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "searcher": {
+    "hash": "499ef45f",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "pursuer": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "fencer": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "sheffield": {
+    "hash": "86328d4d",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "jamaica": {
+    "hash": "fb012020",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "blueranger": {
+    "hash": "0018f51a",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "brownranger": {
+    "hash": "0018f51a",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "piorun": {
+    "hash": "0018f51a",
+    "via": {
+     "1": [[58.725, -3.225]],
+     "2": [[61.515, -6.465]]
+    }
+   },
+   "diadem": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "activity": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "tracker": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "milwaukee": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "keppel": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "beagle": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "starling": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "westcott": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "fortyukon": {
+    "hash": "55485256",
+    "via": {
+     "1": [[62.925, -7.785]],
+     "7": [[69.375, 33.555]]
+    }
+   },
+   "tirpitz": {
+    "hash": "5de9787c",
+    "snap": {
+     "0": [70.035, 23.025]
+    }
+   },
+   "u355": { "hash": "0283d0aa" },
+   "u360": { "hash": "36db98ec" },
+   "u288": { "hash": "18034db5" }
+  }
+ }
+}
