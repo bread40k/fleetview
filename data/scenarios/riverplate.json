@@ -60,10 +60,19 @@
    "wiki": "https://en.wikipedia.org/wiki/German_cruiser_Admiral_Graf_Spee",
    "sunk": "17 20:54",
    "sunkBy": "Scuttled by her own crew off Montevideo",
-   "lost": 36
+   "lost": 36,
+   "damage": [["13 07:20", 30, "Some seventy hits; galley and fuel system damaged"]]
   },
   { "id": "altmark", "name": "Altmark", "force": "altmark", "type": "Supply tanker", "route": "altmark", "wiki": "https://en.wikipedia.org/wiki/German_tanker_Altmark" },
-  { "id": "ajax", "name": "HMS Ajax", "force": "forceg", "type": "Light cruiser (Harwood flagship)", "route": "forceg", "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)" },
+  {
+   "id": "ajax",
+   "name": "HMS Ajax",
+   "force": "forceg",
+   "type": "Light cruiser (Harwood flagship)",
+   "route": "forceg",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Ajax_(22)",
+   "damage": [["13 07:25", 6, "X and Y turrets disabled"]]
+  },
   { "id": "achilles", "name": "HMS Achilles", "force": "forceg", "type": "Light cruiser (New Zealand Division)", "route": "forceg", "wiki": "https://en.wikipedia.org/wiki/HMS_Achilles_(70)" },
   {
    "id": "exeter",
@@ -73,7 +82,8 @@
    "route": "forceg",
    "wiki": "https://en.wikipedia.org/wiki/HMS_Exeter_(68)",
    "until": "13 07:40",
-   "extra": [["13 07:40", -34.65, -49.5, "All three turrets out, 61 dead, 7° list — hauls off south-east at 18 knots", "R"], ["13 18:00", -36.4, -51], ["16 12:00", -51.69, -57.86, "Emergency repairs at Port Stanley; a 13-month refit at Devonport follows", "R"], ["21 00:00", -51.69, -57.86]]
+   "extra": [["13 07:40", -34.65, -49.5, "All three turrets out, 61 dead, 7° list — hauls off south-east at 18 knots", "R"], ["13 18:00", -36.4, -51], ["16 12:00", -51.69, -57.86, "Emergency repairs at Port Stanley; a 13-month refit at Devonport follows", "R"], ["21 00:00", -51.69, -57.86]],
+   "damage": [["13 06:24", 24, "B turret wrecked; bridge swept"]]
   },
   { "id": "cumberland", "name": "HMS Cumberland", "force": "forceg", "type": "Heavy cruiser", "route": "cumberland", "wiki": "https://en.wikipedia.org/wiki/HMS_Cumberland_(57)" },
   {

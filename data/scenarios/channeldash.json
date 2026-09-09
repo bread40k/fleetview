@@ -77,7 +77,8 @@
    "route": "harwich",
    "wiki": "https://en.wikipedia.org/wiki/HMS_Worcester_(D96)",
    "until": "12 15:43",
-   "extra": [["12 16:30", 51.8, 3.45, "Six 11-inch and 8-inch hits, both boiler rooms out, 27 dead", "R"], ["13 18:00", 51.95, 1.25, "Reaches Harwich under her own steam", "R"]]
+   "extra": [["12 16:30", 51.8, 3.45, "Six 11-inch and 8-inch hits, both boiler rooms out, 27 dead", "R"], ["13 18:00", 51.95, 1.25, "Reaches Harwich under her own steam", "R"]],
+   "damage": [["12 15:43", 24, "Six heavy-calibre hits; 27 dead"]]
   },
   { "id": "mackay", "name": "HMS Mackay", "force": "harwich", "type": "Destroyer (Capt Wright, D16)", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Mackay_(D70)" },
   { "id": "whitshed", "name": "HMS Whitshed", "force": "harwich", "type": "Destroyer", "route": "harwich", "wiki": "https://en.wikipedia.org/wiki/HMS_Whitshed_(D77)" },

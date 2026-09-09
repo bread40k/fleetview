@@ -49,19 +49,19 @@
   "supply1": [["1941-11-25 10:30", 44.965, 147.672, "The Kido Butai weighs from Hitokappu Bay, Etorofu (06:00 JST 26 November): six carriers, two battleships, three cruisers, nine destroyers, eight tankers", "S"], ["1941-11-30 12:00", 42, 180, "Along the 42nd parallel through fog and gales, refuelling when the sea allows; radio silence", "R"], ["02 12:00", 43.9, 183, "'Niitakayama nobore 1208' — climb Mount Niitaka: the attack is on for 8 December, Tokyo time", "R"], ["03 18:00", 42, 190, "Standby point 42°N 170°W", "R"], ["05 11:30", 31.5, 202, "600 miles north of Oahu: last refuelling; the 2nd Supply Group detached", "R"], ["06 08:10", 28.2, 202, "400 miles north: the 1st Supply Group detached; 24 knots, course due south", "R"], ["07 12:00", 30, 202.5, "Waits at the fuelling rendezvous", "R"], ["08 18:00", 31.5, 199]],
   "subs": [["1941-11-25 00:00", 28, 175, "Five I-boats with midgets clamped to their after casings, sailed from Kure on 18–19 November", "R"], ["05 12:00", 22.5, 199.5], ["06 20:00", 21.15, 202.05, "Ten miles off the harbour entrance", "R"], ["07 00:42", 21.14, 202.02, "I-16 launches the first midget; I-22 at 01:16, I-18, I-20, I-24 (03:30) follow", "R"], ["07 06:00", 21.05, 202, "Submerged, waiting for midgets that will never return", "R"], ["08 18:00", 20.7, 201, "Rendezvous west of Lanai — empty", "R"]],
   "ha19": [["07 03:30", 21.15, 202, "Ensign Sakamaki's HA-19 launched from I-24 with a broken gyro-compass", "R"], ["07 08:00", 21.25, 202.02, "Aground on the reef off the entrance; fired on by Helm", "R"], ["07 22:00", 21.37, 202.29, "Drifts round the island and grounds off Bellows Field; Sakamaki is the first prisoner of war", "S"]],
-  "no15": [["07 01:16", 21.16, 202.03, "Lt Iwasa's midget launched from I-22", "R"], ["07 08:30", 21.37, 202.034, "Inside the harbour — fires at Curtiss and misses", "R"], ["07 08:43", 21.372, 202.033, "Rammed and depth-charged by Monaghan north-west of Ford Island", "S"]],
+  "no15": [["07 01:16", 21.16, 202.03, "Lt Iwasa's midget launched from I-22", "R"], ["07 06:30", 21.29, 202.035, "Through the harbour entrance behind the morning traffic", "R"], ["07 07:30", 21.33, 202.035, "Up the channel", "R"], ["07 08:20", 21.355, 202.034, null, "R"], ["07 08:30", 21.37, 202.034, "Inside the harbour — fires at Curtiss and misses", "R"], ["07 08:43", 21.372, 202.033, "Rammed and depth-charged by Monaghan north-west of Ford Island", "S"]],
   "wardmidget": [["07 01:30", 21.17, 202.025, "One of I-18's or I-20's midgets", "R"], ["07 06:37", 21.265, 202.015, "Sighted trailing Antares into the channel", "R"], ["07 06:45", 21.26, 202.02, "Hit on the conning tower by Ward's No. 3 gun — the first shot of the Pacific war. Wreck found in 2002", "S"]],
   "ward": [["06 18:00", 21.25, 202, "Inshore patrol off the entrance", "R"], ["07 03:57", 21.23, 202.01, "Condor reports a periscope; Ward searches", "R"], ["07 06:45", 21.262, 202.017, "Sinks the midget submarine; 06:53 'attacked, fired upon, depth-bombed and sunk submarine'", "S"], ["07 12:00", 21.2, 202], ["08 18:00", 21.2, 202]],
-  "tf8": [["1941-11-28 09:00", 21.35, 202.05, "Enterprise sails to deliver VMF-211's Wildcats to Wake", "S"], ["1941-11-30 12:00", 21.8, 196], ["04 09:00", 20.5, 168.5, "Launches the Marine fighters 200 miles from Wake", "R"], ["06 12:00", 21.3, 191, "Delayed by heavy weather; the Sunday arrival at Pearl becomes Monday", "R"], ["07 06:00", 21.4, 198.15, "215 miles west of Oahu: eighteen SBDs launched for Ford Island — into the attack", "R"], ["07 17:00", 21.4, 200, "Strike launched against a phantom carrier report; six Wildcats sent to Hickam, three shot down by friendly fire", "R"], ["08 18:00", 21.35, 202.05, "Enters Pearl to refuel among the wrecks", "S"]],
-  "tf12": [["05 09:00", 21.35, 202.05, "Lexington sails to ferry VMSB-231 to Midway", "S"], ["07 06:00", 22.3, 189.2, "500 miles south-east of Midway; the ferry mission is cancelled", "R"], ["07 12:00", 22, 190.5, "Ordered to join Brown west of Niihau and hunt for the Japanese", "R"], ["08 18:00", 21, 195]],
-  "tf3": [["05 09:00", 21.35, 202.05, "Indianapolis and five minesweepers sail for Johnston", "S"], ["07 06:00", 16.73, 190.47, "Mock bombardment exercise at Johnston Atoll", "R"], ["08 18:00", 18.5, 195, "Absorbed into Task Force 12", "R"]],
+  "tf8": [["1941-11-28 09:00", 21.35, 202.05, "Enterprise sails to deliver VMF-211's Wildcats to Wake", "S"], ["1941-11-28 09:08", 21.345, 202.04], ["1941-11-28 09:16", 21.32, 202.035], ["1941-11-28 09:24", 21.29, 202.035], ["1941-11-30 12:00", 21.8, 196], ["04 09:00", 20.5, 168.5, "Launches the Marine fighters 200 miles from Wake", "R"], ["06 12:00", 21.3, 191, "Delayed by heavy weather; the Sunday arrival at Pearl becomes Monday", "R"], ["07 06:00", 21.4, 198.15, "215 miles west of Oahu: eighteen SBDs launched for Ford Island — into the attack", "R"], ["07 17:00", 21.4, 200, "Strike launched against a phantom carrier report; six Wildcats sent to Hickam, three shot down by friendly fire", "R"], ["08 17:00", 21.29, 202.035, "Enters the channel"], ["08 17:30", 21.32, 202.035], ["08 18:00", 21.35, 202.05, "Enters Pearl to refuel among the wrecks", "S"]],
+  "tf12": [["05 09:00", 21.35, 202.05, "Lexington sails to ferry VMSB-231 to Midway", "S"], ["05 09:08", 21.345, 202.04], ["05 09:16", 21.32, 202.035], ["05 09:24", 21.29, 202.035], ["07 06:00", 22.3, 189.2, "500 miles south-east of Midway; the ferry mission is cancelled", "R"], ["07 12:00", 22, 190.5, "Ordered to join Brown west of Niihau and hunt for the Japanese", "R"], ["08 18:00", 21, 195]],
+  "tf3": [["05 09:00", 21.35, 202.05, "Indianapolis and five minesweepers sail for Johnston", "S"], ["05 09:08", 21.345, 202.04], ["05 09:16", 21.32, 202.035], ["05 09:24", 21.29, 202.035], ["07 06:00", 16.73, 190.47, "Mock bombardment exercise at Johnston Atoll", "R"], ["08 18:00", 18.5, 195, "Absorbed into Task Force 12", "R"]],
   "arizona": [["1941-11-25 00:00", 21.365, 202.05, null, "S"]],
   "oklahoma": [["1941-11-25 00:00", 21.361, 202.047, null, "S"]],
   "wv": [["1941-11-25 00:00", 21.363, 202.048, null, "S"]],
   "tennessee": [["1941-11-25 00:00", 21.3635, 202.049, null, "S"]],
   "maryland": [["1941-11-25 00:00", 21.361, 202.048, null, "S"]],
   "california": [["1941-11-25 00:00", 21.357, 202.045, null, "S"]],
-  "nevada": [["1941-11-25 00:00", 21.367, 202.052, "Berth F-8, astern of Arizona", "S"], ["07 08:55", 21.367, 202.052, "Gets under way — the only battleship to move", "S"], ["07 09:05", 21.356, 202.045, "Down the channel past the burning Row, targeted by the second wave", "R"], ["07 09:10", 21.349, 202.04, "Six bombs and a torpedo: beached at Hospital Point rather than sunk in the channel", "S"], ["08 18:00", 21.349, 202.04]],
+  "nevada": [["1941-11-25 00:00", 21.367, 202.052, "Berth F-8, astern of Arizona", "S"], ["07 08:55", 21.367, 202.052, "Gets under way — the only battleship to move", "S"], ["07 09:00", 21.361, 202.056, "Down the channel east of Ford Island under the second wave's dive bombers", "R"], ["07 09:05", 21.354, 202.049, null, "R"], ["07 09:08", 21.351, 202.044, null, "R"], ["07 09:10", 21.349, 202.04, "Six bombs and a torpedo: beached at Hospital Point rather than sunk in the channel", "S"], ["08 18:00", 21.349, 202.04]],
   "utah": [["1941-11-25 00:00", 21.369, 202.036, null, "S"]],
   "raleigh": [["1941-11-25 00:00", 21.37, 202.036, null, "S"]],
   "pennsylvania": [["1941-11-25 00:00", 21.352, 202.043, null, "S"]],
@@ -188,8 +188,24 @@
    "sunkBy": "Seven torpedoes and two bombs; settled on the bottom upright (raised 1942)",
    "lost": 106
   },
-  { "id": "tennessee", "name": "USS Tennessee", "force": "row", "type": "Battleship — inboard of West Virginia", "route": "tennessee", "wiki": "https://en.wikipedia.org/wiki/USS_Tennessee_(BB-43)" },
-  { "id": "maryland", "name": "USS Maryland", "force": "row", "type": "Battleship — inboard of Oklahoma", "route": "maryland", "wiki": "https://en.wikipedia.org/wiki/USS_Maryland_(BB-46)" },
+  {
+   "id": "tennessee",
+   "name": "USS Tennessee",
+   "force": "row",
+   "type": "Battleship — inboard of West Virginia",
+   "route": "tennessee",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Tennessee_(BB-43)",
+   "damage": [["07 08:10", 12, "Two bombs; burning oil from Arizona"]]
+  },
+  {
+   "id": "maryland",
+   "name": "USS Maryland",
+   "force": "row",
+   "type": "Battleship — inboard of Oklahoma",
+   "route": "maryland",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Maryland_(BB-46)",
+   "damage": [["07 08:05", 6, "Two bombs"]]
+  },
   {
    "id": "california",
    "name": "USS California",
@@ -201,7 +217,15 @@
    "sunkBy": "Two torpedoes and a bomb; settles into the mud over three days (raised 1942)",
    "lost": 100
   },
-  { "id": "nevada", "name": "USS Nevada", "force": "row", "type": "Battleship — the one that got under way", "route": "nevada", "wiki": "https://en.wikipedia.org/wiki/USS_Nevada_(BB-36)" },
+  {
+   "id": "nevada",
+   "name": "USS Nevada",
+   "force": "row",
+   "type": "Battleship — the one that got under way",
+   "route": "nevada",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Nevada_(BB-36)",
+   "damage": [["07 08:03", 10, "Torpedo hit forward; six bombs at 09:10"]]
+  },
   {
    "id": "utah",
    "name": "USS Utah",
@@ -213,9 +237,33 @@
    "sunkBy": "Two torpedoes meant for a carrier; capsized",
    "lost": 58
   },
-  { "id": "raleigh", "name": "USS Raleigh", "force": "row", "type": "Light cruiser — torpedoed, kept afloat", "route": "raleigh", "wiki": "https://en.wikipedia.org/wiki/USS_Raleigh_(CL-7)" },
-  { "id": "pennsylvania", "name": "USS Pennsylvania", "force": "row", "type": "Battleship (Kimmel flagship) — in Dry Dock No. 1", "route": "pennsylvania", "wiki": "https://en.wikipedia.org/wiki/USS_Pennsylvania_(BB-38)" },
-  { "id": "helena", "name": "USS Helena", "force": "row", "type": "Light cruiser — 1010 Dock", "route": "helena", "wiki": "https://en.wikipedia.org/wiki/USS_Helena_(CL-50)" },
+  {
+   "id": "raleigh",
+   "name": "USS Raleigh",
+   "force": "row",
+   "type": "Light cruiser — torpedoed, kept afloat",
+   "route": "raleigh",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Raleigh_(CL-7)",
+   "damage": [["07 07:57", 10, "Torpedoed; kept afloat by counter-flooding"]]
+  },
+  {
+   "id": "pennsylvania",
+   "name": "USS Pennsylvania",
+   "force": "row",
+   "type": "Battleship (Kimmel flagship) — in Dry Dock No. 1",
+   "route": "pennsylvania",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Pennsylvania_(BB-38)",
+   "damage": [["07 09:06", 8, "Bomb hit in Dry Dock No. 1; Cassin and Downes burn alongside"]]
+  },
+  {
+   "id": "helena",
+   "name": "USS Helena",
+   "force": "row",
+   "type": "Light cruiser — 1010 Dock",
+   "route": "helena",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Helena_(CL-50)",
+   "damage": [["07 07:57", 8, "Torpedo hit"]]
+  },
   {
    "id": "oglala",
    "name": "USS Oglala",
@@ -227,7 +275,15 @@
    "sunkBy": "Torpedo that passed under her into Helena; capsized two hours later",
    "lost": 0
   },
-  { "id": "curtiss", "name": "USS Curtiss", "force": "row", "type": "Seaplane tender — hit by a bomb and a crashing Val", "route": "curtiss", "wiki": "https://en.wikipedia.org/wiki/USS_Curtiss_(AV-4)" },
+  {
+   "id": "curtiss",
+   "name": "USS Curtiss",
+   "force": "row",
+   "type": "Seaplane tender — hit by a bomb and a crashing Val",
+   "route": "curtiss",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Curtiss_(AV-4)",
+   "damage": [["07 09:12", 8, "Bomb and a crashing Val"]]
+  },
   { "id": "monaghan", "name": "USS Monaghan", "force": "row", "type": "Destroyer — rammed the midget in the harbour", "route": "monaghan", "wiki": "https://en.wikipedia.org/wiki/USS_Monaghan_(DD-354)" },
   { "id": "ward", "name": "USS Ward", "force": "patrol", "type": "Destroyer (Lt Outerbridge) — fired the first shot", "route": "ward", "wiki": "https://en.wikipedia.org/wiki/USS_Ward_(DD-139)" },
   { "id": "enterprise", "name": "USS Enterprise", "force": "tf8", "type": "Fleet carrier (Halsey flagship)", "route": "tf8", "wiki": "https://en.wikipedia.org/wiki/USS_Enterprise_(CV-6)" },
@@ -573,7 +629,7 @@
    "i22": { "hash": "dc698879" },
    "i24": { "hash": "dc698879" },
    "ha19": { "hash": "83e37fd6" },
-   "no15": { "hash": "22cea2ad" },
+   "no15": { "hash": "9786960d" },
    "wardmidget": { "hash": "323f9188" },
    "arizona": { "hash": "57e5e613" },
    "oklahoma": { "hash": "8811ea91" },
@@ -581,7 +637,7 @@
    "tennessee": { "hash": "b9fdc382" },
    "maryland": { "hash": "8111df8c" },
    "california": { "hash": "01764e2a" },
-   "nevada": { "hash": "935cf255" },
+   "nevada": { "hash": "5f390100" },
    "utah": { "hash": "d933f285" },
    "raleigh": { "hash": "e006b67b" },
    "pennsylvania": { "hash": "81b4f1cb" },
@@ -590,13 +646,14 @@
    "curtiss": { "hash": "99c1bb01" },
    "monaghan": { "hash": "18318e41" },
    "ward": { "hash": "3758f031" },
-   "enterprise": { "hash": "23effdf1" },
-   "northampton": { "hash": "23effdf1" },
-   "saltlakecity": { "hash": "23effdf1" },
-   "lexington": { "hash": "a4ce0fe3" },
-   "chicago": { "hash": "a4ce0fe3" },
-   "indianapolis": { "hash": "0b2d4bed" }
-  }
+   "enterprise": { "hash": "a6b6186c" },
+   "northampton": { "hash": "a6b6186c" },
+   "saltlakecity": { "hash": "a6b6186c" },
+   "lexington": { "hash": "8324be7a" },
+   "chicago": { "hash": "8324be7a" },
+   "indianapolis": { "hash": "42cd5a7a" }
+  },
+  "manual": ["nevada", "no15", "tf8", "tf12", "tf3"]
  },
  "defaultSpeed": 180000
 }

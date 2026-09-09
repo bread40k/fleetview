@@ -77,7 +77,8 @@
    "extra": [["04 10:26", 30.083, 181.167, "One 1,000-lb bomb from Lt Richard Best detonates among fuelled and armed aircraft", "S"], ["04 18:00", 30.45, 181.25, "Dead in the water, burning end to end; Capt Aoki orders abandon ship", "R"], ["05 05:20", 30.5, 181.333, "Scuttled by four destroyer torpedoes on Yamamoto's order — 30°30′N 178°40′W", "S"]],
    "sunk": "05 05:20",
    "sunkBy": "Bomb hit by USS Enterprise SBD, scuttled by destroyers",
-   "lost": 267
+   "lost": 267,
+   "damage": [["04 10:26", 24, "Best's 1,000-lb bomb among fuelled aircraft"]]
   },
   {
    "id": "kaga",
@@ -90,7 +91,8 @@
    "extra": [["04 10:22", 30.15, 181.05, "At least four 500- and 1,000-lb bombs; Capt Okada killed on the bridge", "R"], ["04 14:00", 30.333, 180.717, "A dud torpedo from Nautilus breaks in half against her side", "S"], ["04 19:25", 30.388, 180.713, "Two internal explosions and she sinks — 30°20′N 179°17′W", "S"]],
    "sunk": "04 19:25",
    "sunkBy": "USS Enterprise SBDs (McClusky)",
-   "lost": 811
+   "lost": 811,
+   "damage": [["04 10:22", 12, "Four bombs; hangar fires"]]
   },
   {
    "id": "soryu",
@@ -103,7 +105,8 @@
    "extra": [["04 10:25", 30.25, 181.1, "Three 1,000-lb bombs from Leslie's VB-3 in three minutes; abandoned by 10:45", "R"], ["04 19:13", 30.633, 180.783, "Sinks after Isokaze's torpedoes; Capt Yanagimoto refuses to leave", "S"]],
    "sunk": "04 19:13",
    "sunkBy": "USS Yorktown SBDs (Leslie), scuttled by Isokaze",
-   "lost": 711
+   "lost": 711,
+   "damage": [["04 10:25", 12, "Three bombs in three minutes"]]
   },
   {
    "id": "hiryu",
@@ -116,7 +119,8 @@
    "extra": [["04 21:23", 31.65, 180.95, "Engines stop", "R"], ["05 03:15", 31.64, 181.05, "Abandon ship; Yamaguchi and Capt Kaku stay aboard", "R"], ["05 05:10", 31.635, 181.1, "Torpedoed by Makigumo", "R"], ["05 09:12", 31.633, 181.15, "Sinks; 39 engineers still aboard escape in a boat and are found by USS Ballard 14 days later", "S"]],
    "sunk": "05 09:12",
    "sunkBy": "USS Enterprise SBDs, scuttled by Makigumo",
-   "lost": 389
+   "lost": 389,
+   "damage": [["04 17:03", 20, "Four 1,000-lb hits"]]
   },
   { "id": "haruna", "name": "Haruna", "force": "kdb", "type": "Battleship", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Haruna" },
   { "id": "kirishima", "name": "Kirishima", "force": "kdb", "type": "Battleship", "route": "kdb", "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Kirishima" },
@@ -172,7 +176,15 @@
    "until": "05 02:38",
    "extra": [["05 12:00", 29, 177.5], ["06 12:00", 30.5, 172], ["08 00:00", 29, 163]]
   },
-  { "id": "mogami", "name": "Mogami", "force": "crudiv7", "type": "Heavy cruiser — bow crushed in the collision", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)" },
+  {
+   "id": "mogami",
+   "name": "Mogami",
+   "force": "crudiv7",
+   "type": "Heavy cruiser — bow crushed in the collision",
+   "route": "crudiv7",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Mogami_(1934)",
+   "damage": [["06 09:50", 24, "Turret hit; catapult deck bomb at 15:00"]]
+  },
   {
    "id": "mikuma",
    "name": "Mikuma",
@@ -184,12 +196,28 @@
    "extra": [["06 13:58", 29.48, 173.3, "Her own torpedoes explode; the ship is gutted", "R"], ["06 19:30", 29.467, 173.183, "Capsizes to port — 29°28′N 173°11′E, photographed by Enterprise SBDs at 17:15", "S"]],
    "sunk": "06 19:30",
    "sunkBy": "USS Enterprise and Hornet SBDs",
-   "lost": 700
+   "lost": 700,
+   "damage": [["06 12:45", 8, "Five bombs; torpedoes explode at 13:58"]]
   },
-  { "id": "arashio", "name": "Arashio", "force": "crudiv7", "type": "Destroyer", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashio" },
+  {
+   "id": "arashio",
+   "name": "Arashio",
+   "force": "crudiv7",
+   "type": "Destroyer",
+   "route": "crudiv7",
+   "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Arashio",
+   "damage": [["06 15:00", 6, "Bomb hit aft"]]
+  },
   { "id": "asashio", "name": "Asashio", "force": "crudiv7", "type": "Destroyer", "route": "crudiv7", "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Asashio_(1936)" },
   { "id": "jintsu", "name": "Jintsū", "force": "transports", "type": "Light cruiser (Tanaka flagship)", "route": "transports", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Jints%C5%AB" },
-  { "id": "akebonomaru", "name": "Akebono Maru", "force": "transports", "type": "Fleet oiler", "route": "transports" },
+  {
+   "id": "akebonomaru",
+   "name": "Akebono Maru",
+   "force": "transports",
+   "type": "Fleet oiler",
+   "route": "transports",
+   "damage": [["04 01:15", 6, "Aerial torpedo in the bow"]]
+  },
   { "id": "argentinamaru", "name": "Argentina Maru", "force": "transports", "type": "Transport — Ichiki Detachment", "route": "transports", "wiki": "https://en.wikipedia.org/wiki/Argentina_Maru" },
   { "id": "ryujo", "name": "Ryūjō", "force": "northern", "type": "Light carrier (Kakuta flagship)", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Ry%C5%ABj%C5%8D" },
   { "id": "junyo", "name": "Jun'yō", "force": "northern", "type": "Fleet carrier", "route": "kakuta", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Jun%27y%C5%8D" },
@@ -223,7 +251,8 @@
    "extra": [["05 14:36", 30.55, 183.55, "Vireo takes the listing hulk in tow", "R"], ["06 13:36", 30.6, 183.433, "Two torpedoes from I-168 open the starboard side", "S"], ["07 05:01", 30.6, 183.433, "Rolls over and sinks — 30°36′N 176°34′W", "S"]],
    "sunk": "07 05:01",
    "sunkBy": "Hiryū's aircraft and submarine I-168",
-   "lost": 141
+   "lost": 141,
+   "damage": [["04 12:08", 30, "Three bombs; two torpedoes at 14:45"]]
   },
   { "id": "astoria", "name": "USS Astoria", "force": "tf17", "type": "Heavy cruiser (Fletcher's flagship from 13:00, 4 June)", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Astoria_(CA-34)" },
   { "id": "portland", "name": "USS Portland", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Portland_(CA-33)" },
@@ -832,7 +861,7 @@
   "bbox": [30, 129, 43, 146],
   "margin": 3,
   "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
-  "bakedAt": "2026-09-08",
+  "bakedAt": "2026-09-09",
   "ships": {
    "akagi": {
     "hash": "2325ccfa",

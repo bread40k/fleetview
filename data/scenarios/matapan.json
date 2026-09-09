@@ -59,7 +59,15 @@
   "forceb": { "name": "Vice-Admiral Henry Pridham-Wippell", "role": "Vice-Admiral, Light Forces", "flagship": "HMS Orion", "bio": "Led four cruisers on a running fight with Sansonetti's 8-inch ships, then found himself under Vittorio Veneto's 15-inch guns at 16 miles. Twenty minutes of straddles, no hits; the Albacores got him out.", "fate": "Commander-in-Chief Dover 1942–45; died 1952.", "wiki": "Henry_Pridham-Wippell" }
  },
  "ships": [
-  { "id": "vittorioveneto", "name": "Vittorio Veneto", "force": "iachino", "type": "Battleship (Iachino flagship)", "route": "iachino", "wiki": "https://en.wikipedia.org/wiki/Italian_battleship_Vittorio_Veneto" },
+  {
+   "id": "vittorioveneto",
+   "name": "Vittorio Veneto",
+   "force": "iachino",
+   "type": "Battleship (Iachino flagship)",
+   "route": "iachino",
+   "wiki": "https://en.wikipedia.org/wiki/Italian_battleship_Vittorio_Veneto",
+   "damage": [["28 15:19", 24, "Torpedo aft; 4,000 tons of water"]]
+  },
   { "id": "trieste", "name": "Trieste", "force": "sansonetti", "type": "Heavy cruiser (Sansonetti flagship)", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trieste" },
   { "id": "trento", "name": "Trento", "force": "sansonetti", "type": "Heavy cruiser", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Trento" },
   { "id": "bolzano", "name": "Bolzano", "force": "sansonetti", "type": "Heavy cruiser", "route": "sansonetti", "wiki": "https://en.wikipedia.org/wiki/Italian_cruiser_Bolzano" },
@@ -74,7 +82,8 @@
    "extra": [["29 02:40", 35.35, 20.95, "Wrecked by 15-inch fire, scuttling charges lit; torpedoed by Jervis and blows up — Cattaneo lost", "S"]],
    "sunk": "29 02:40",
    "sunkBy": "Warspite, Valiant and Barham; torpedoed by Jervis",
-   "lost": 783
+   "lost": 783,
+   "damage": [["28 22:27", 4, "Wrecked by 15-inch fire"]]
   },
   {
    "id": "fiume",
@@ -87,7 +96,8 @@
    "extra": [["28 23:15", 35.36, 20.93, "Five of Warspite's first six shells hit; capsizes stern first", "S"]],
    "sunk": "28 23:15",
    "sunkBy": "Warspite's and Valiant's 15-inch at 3,800 yards",
-   "lost": 812
+   "lost": 812,
+   "damage": [["28 22:27", 1, "Five hits from Warspite"]]
   },
   {
    "id": "pola",
@@ -100,7 +110,8 @@
    "extra": [["29 03:14", 35.25, 21, "Found by Havock; Jervis goes alongside and takes off 258 men", "S"], ["29 04:03", 35.25, 21, "Torpedoed by Jervis and Nubian", "S"]],
    "sunk": "29 04:03",
    "sunkBy": "Aerial torpedo; finished by Jervis and Nubian",
-   "lost": 328
+   "lost": 328,
+   "damage": [["28 19:50", 8, "Torpedo; without power"]]
   },
   {
    "id": "alfieri",
@@ -113,7 +124,8 @@
    "extra": [["28 23:30", 35.33, 20.97, "Fires four salvoes and three torpedoes before Stuart's torpedo finishes her", "R"]],
    "sunk": "28 23:30",
    "sunkBy": "Battleship gunfire and HMAS Stuart",
-   "lost": 211
+   "lost": 211,
+   "damage": [["28 22:30", 1, "Gunfire"]]
   },
   {
    "id": "carducci",
@@ -126,7 +138,8 @@
    "extra": [["28 23:45", 35.33, 21, "Torpedoed by Havock", "R"]],
    "sunk": "28 23:45",
    "sunkBy": "Gunfire and HMS Havock",
-   "lost": 169
+   "lost": 169,
+   "damage": [["28 22:30", 1, "Gunfire"]]
   },
   { "id": "oriani", "name": "Alfredo Oriani", "force": "cattaneo", "type": "Destroyer", "route": "cattaneo", "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Alfredo_Oriani" },
   { "id": "gioberti", "name": "Vincenzo Gioberti", "force": "cattaneo", "type": "Destroyer", "route": "cattaneo", "wiki": "https://en.wikipedia.org/wiki/Italian_destroyer_Vincenzo_Gioberti" },

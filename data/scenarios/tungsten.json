@@ -116,7 +116,15 @@
   { "id": "starling", "name": "HMS Starling", "force": "jw58", "type": "Sloop (Capt Walker, 2nd Support Group)", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Starling_(U66)" },
   { "id": "westcott", "name": "HMS Westcott", "force": "jw58", "type": "Destroyer (close escort commander)", "route": "jw58", "wiki": "https://en.wikipedia.org/wiki/HMS_Westcott_(D47)" },
   { "id": "fortyukon", "name": "Fort Yukon", "force": "jw58", "type": "Merchant ship — one of 47", "route": "jw58" },
-  { "id": "tirpitz", "name": "Tirpitz", "force": "tirpitz", "type": "Battleship (Capt Meyer)", "route": "tirpitz", "wiki": "https://en.wikipedia.org/wiki/German_battleship_Tirpitz" },
+  {
+   "id": "tirpitz",
+   "name": "Tirpitz",
+   "force": "tirpitz",
+   "type": "Battleship (Capt Meyer)",
+   "route": "tirpitz",
+   "wiki": "https://en.wikipedia.org/wiki/German_battleship_Tirpitz",
+   "damage": [["03 05:29", 36, "Fifteen bombs; 122 killed"]]
+  },
   {
    "id": "u355",
    "name": "U-355",

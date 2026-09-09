@@ -78,7 +78,15 @@
   "tulagi": { "name": "Rear Admiral Kiyohide Shima", "role": "Commander, Tulagi Invasion Force", "flagship": "Okinoshima", "bio": "Took Tulagi without a shot on 3 May and lost a destroyer and three minesweepers to Yorktown the next morning; his flagship was torpedoed on the way home.", "fate": "Led the 2nd Striking Force at Surigao Strait; died 1973.", "wiki": "Kiyohide_Shima" }
  },
  "ships": [
-  { "id": "yorktown", "name": "USS Yorktown", "force": "tf17", "type": "Fleet carrier (Fletcher flagship)", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5)" },
+  {
+   "id": "yorktown",
+   "name": "USS Yorktown",
+   "force": "tf17",
+   "type": "Fleet carrier (Fletcher flagship)",
+   "route": "tf17",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Yorktown_(CV-5)",
+   "damage": [["08 11:27", 12, "250-kg bomb through four decks"]]
+  },
   { "id": "astoria", "name": "USS Astoria", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Astoria_(CA-34)" },
   { "id": "portland", "name": "USS Portland", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Portland_(CA-33)" },
   { "id": "chester", "name": "USS Chester", "force": "tf17", "type": "Heavy cruiser", "route": "tf17", "wiki": "https://en.wikipedia.org/wiki/USS_Chester_(CA-27)" },
@@ -98,7 +106,8 @@
    "extra": [["08 12:47", -14.85, 155.2, "Gasoline vapour explodes below — 25 killed; the fires spread", "R"], ["08 14:42", -14.95, 155.25, "Second explosion; 17:07 abandon ship", "R"], ["08 19:52", -15.083, 155.267, "Five torpedoes from Phelps; sinks in 2,400 fathoms — 216 of 2,951 lost, 36 aircraft with her", "S"]],
    "sunk": "08 19:52",
    "sunkBy": "Two aerial torpedoes and two bombs; internal explosions; scuttled by Phelps",
-   "lost": 216
+   "lost": 216,
+   "damage": [["08 11:20", 9, "Two torpedoes and two bombs; gasoline explosions from 12:47"]]
   },
   { "id": "minneapolis", "name": "USS Minneapolis", "force": "tf11", "type": "Heavy cruiser (Kinkaid)", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_Minneapolis_(CA-36)" },
   { "id": "neworleans", "name": "USS New Orleans", "force": "tf11", "type": "Heavy cruiser", "route": "tf11", "wiki": "https://en.wikipedia.org/wiki/USS_New_Orleans_(CA-32)" },
@@ -122,7 +131,8 @@
    "extra": [["08 12:00", -15.9, 157.3, "Drifting, 20 dead aboard; 158 men who left in rafts are mostly never seen again", "R"], ["11 12:00", -15.583, 155.6, "Found by a Nouméa PBY; Henley takes off 109 and 14 of Sims' men and sinks her", "S"]],
    "sunk": "11 13:00",
    "sunkBy": "Seven bombs and a crashing Val; scuttled by Henley",
-   "lost": 176
+   "lost": 176,
+   "damage": [["07 11:26", 96, "Seven bombs and a crashing Val"]]
   },
   {
    "id": "sims",
@@ -144,7 +154,8 @@
    "route": "mo",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Sh%C5%8Dkaku",
    "until": "08 12:10",
-   "extra": [["09 12:00", -8, 156, "Retires north-east with Kinugasa, Furutaka and two destroyers — 108 killed, nearly capsizes in a storm", "R"], ["12 12:00", 0, 152, "For Truk and Kure", "R"]]
+   "extra": [["09 12:00", -8, 156, "Retires north-east with Kinugasa, Furutaka and two destroyers — 108 killed, nearly capsizes in a storm", "R"], ["12 12:00", 0, 152, "For Truk and Kure", "R"]],
+   "damage": [["08 10:57", 24, "Three bombs; flight deck wrecked, 108 killed"]]
   },
   { "id": "zuikaku", "name": "Zuikaku", "force": "mo", "type": "Fleet carrier (Hara flagship)", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_aircraft_carrier_Zuikaku" },
   { "id": "myoko", "name": "Myōkō", "force": "mo", "type": "Heavy cruiser (Takagi flagship)", "route": "mo", "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_My%C5%8Dk%C5%8D" },

@@ -61,7 +61,8 @@
    "wiki": "https://en.wikipedia.org/wiki/German_battleship_Scharnhorst",
    "sunk": "26 19:45",
    "sunkBy": "Duke of York's 14-inch gunfire and 11 destroyer and cruiser torpedoes",
-   "lost": 1932
+   "lost": 1932,
+   "damage": [["26 09:30", 3, "Norfolk's hit wrecks the forward radar"], ["26 16:50", 3, "Duke of York's 14-inch hits"]]
   },
   { "id": "z29", "name": "Z29", "force": "zflot", "type": "Destroyer (Johannesson flag)", "route": "zflot", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z29" },
   { "id": "z30", "name": "Z30", "force": "zflot", "type": "Destroyer", "route": "zflot", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z30" },
@@ -69,12 +70,28 @@
   { "id": "z34", "name": "Z34", "force": "zflot", "type": "Destroyer", "route": "zflot", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z34" },
   { "id": "z38", "name": "Z38", "force": "zflot", "type": "Destroyer", "route": "zflot", "wiki": "https://en.wikipedia.org/wiki/German_destroyer_Z38" },
   { "id": "belfast", "name": "HMS Belfast", "force": "force1", "type": "Light cruiser (Burnett flagship)", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Belfast" },
-  { "id": "norfolk", "name": "HMS Norfolk", "force": "force1", "type": "Heavy cruiser", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)" },
+  {
+   "id": "norfolk",
+   "name": "HMS Norfolk",
+   "force": "force1",
+   "type": "Heavy cruiser",
+   "route": "force1",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)",
+   "damage": [["26 12:33", 8, "X turret and amidships hit; seven killed"]]
+  },
   { "id": "sheffield", "name": "HMS Sheffield", "force": "force1", "type": "Light cruiser", "route": "force1", "wiki": "https://en.wikipedia.org/wiki/HMS_Sheffield_(C24)" },
   { "id": "dukeofyork", "name": "HMS Duke of York", "force": "force2", "type": "Battleship (Fraser flagship)", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Duke_of_York_(17)" },
   { "id": "jamaica", "name": "HMS Jamaica", "force": "force2", "type": "Light cruiser", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Jamaica_(44)" },
   { "id": "savage", "name": "HMS Savage", "force": "force2", "type": "Destroyer", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Savage_(G20)" },
-  { "id": "saumarez", "name": "HMS Saumarez", "force": "force2", "type": "Destroyer", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Saumarez_(G12)" },
+  {
+   "id": "saumarez",
+   "name": "HMS Saumarez",
+   "force": "force2",
+   "type": "Destroyer",
+   "route": "force2",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Saumarez_(G12)",
+   "damage": [["26 18:55", 6, "Splinter damage; eleven killed"]]
+  },
   { "id": "scorpion", "name": "HMS Scorpion", "force": "force2", "type": "Destroyer", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HMS_Scorpion_(G72)" },
   { "id": "stord", "name": "HNoMS Stord", "force": "force2", "type": "Destroyer (Royal Norwegian Navy)", "route": "force2", "wiki": "https://en.wikipedia.org/wiki/HNoMS_Stord_(G26)" },
   { "id": "fortkullyspell", "name": "Fort Kullyspell", "force": "convoy", "type": "Merchant ship (Commodore Boucher)", "route": "convoy" },

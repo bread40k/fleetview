@@ -219,7 +219,8 @@
    "extra": [["04 08:08", 75.817, 22.417, "Torpedoed by an He 115 at 03:15; P614 fails to scuttle her; U-457 does", "S"]],
    "sunk": "04 08:08",
    "sunkBy": "He 115 torpedo; finished by U-457",
-   "lost": 3
+   "lost": 3,
+   "damage": [["04 03:15", 5, "Aerial torpedo"]]
   },
   {
    "id": "navarino",
@@ -296,7 +297,8 @@
    "extra": [["05 16:00", 75, 37.5, "Bombed by Ju 88s of III./KG 30", "R"], ["05 17:47", 74.9, 37.667, "Finished by U-334; her master a prisoner", "S"]],
    "sunk": "05 17:47",
    "sunkBy": "Ju 88s; finished by U-334",
-   "lost": 0
+   "lost": 0,
+   "damage": [["05 16:00", 2, "Bombed"]]
   },
   {
    "id": "danielmorgan",
@@ -309,7 +311,8 @@
    "extra": [["05 20:00", 75.133, 44.167, "Bombed after shooting down two Ju 88s", "S"], ["05 22:52", 75.133, 45.1, "Finished by U-88", "S"]],
    "sunk": "05 22:52",
    "sunkBy": "Ju 88s; finished by U-88",
-   "lost": 3
+   "lost": 3,
+   "damage": [["05 20:00", 3, "Bombed"]]
   },
   {
    "id": "sswashington",
@@ -347,7 +350,8 @@
    "extra": [["05 17:30", 77.067, 34.5, "Bombed and abandoned at the ice edge", "S"], ["13 08:25", 75.95, 40.167, "Drifting derelict for eight days; boarded by U-255, her papers taken, and sunk", "S"]],
    "sunk": "13 08:25",
    "sunkBy": "Ju 88s; sunk by U-255",
-   "lost": 0
+   "lost": 0,
+   "damage": [["05 17:30", 12, "Bombed and abandoned"]]
   },
   {
    "id": "pankraft",
@@ -360,7 +364,8 @@
    "extra": [["05 17:00", 76.833, 38, "Bombed and abandoned (Wikipedia's 78°50′N is evidently 76°50′)", "S"], ["07 06:00", 76.833, 38, "Sinks after Lotus's attempt to scuttle her", "S"]],
    "sunk": "07 06:00",
    "sunkBy": "Ju 88s of KG 30",
-   "lost": 2
+   "lost": 2,
+   "damage": [["05 17:00", 36, "Bombed and abandoned"]]
   },
   {
    "id": "fairfieldcity",
@@ -409,7 +414,8 @@
    "extra": [["05 17:30", 75, 44.5, "Bombed; taken in tow by Salamander, then abandoned", "S"], ["07 14:56", 75, 45, "Shelled and torpedoed by U-457", "S"]],
    "sunk": "07 14:56",
    "sunkBy": "Ju 88s; finished by U-457",
-   "lost": 0
+   "lost": 0,
+   "damage": [["05 17:30", 40, "Bombed; under tow"]]
   },
   {
    "id": "panatlantic",
@@ -484,7 +490,8 @@
    "extra": [["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46, "The Matochkin group sails for Archangel", "R"], ["09 20:00", 69.9, 39.5, "Bombed 65 miles north-east of Iokanka", "R"], ["10 03:00", 69.417, 38.583, "Finished by U-376", "S"]],
    "sunk": "10 03:00",
    "sunkBy": "Ju 88s of II./KG 30; finished by U-376",
-   "lost": 0
+   "lost": 0,
+   "damage": [["09 20:00", 7, "Bombed"]]
   },
   {
    "id": "elcapitan",
@@ -496,7 +503,8 @@
    "extra": [["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46.2], ["09 20:00", 70.167, 41.667, "Bombed", "S"], ["10 00:45", 69.383, 40.833, "Finished by U-251", "S"]],
    "sunk": "10 00:45",
    "sunkBy": "Ju 88s of II./KG 30; finished by U-251",
-   "lost": 0
+   "lost": 0,
+   "damage": [["09 20:00", 5, "Bombed"]]
   },
   {
    "id": "bellingham",
@@ -523,7 +531,8 @@
    "type": "Merchant ship — Soviet tanker — torpedoed 4 July, arrived",
    "route": "convoy",
    "until": "04 20:20",
-   "extra": [["04 20:25", 75.96, 27.22, "Torpedoed; her cargo of linseed oil blows out — and she steams on at 9 knots", "R"], ["05 12:00", 75.7, 34], ["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46.4], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]]
+   "extra": [["04 20:25", 75.96, 27.22, "Torpedoed; her cargo of linseed oil blows out — and she steams on at 9 knots", "R"], ["05 12:00", 75.7, 34], ["07 12:00", 73.3, 54.5], ["09 12:00", 71.5, 46.4], ["09 20:00", 69, 42, "Rounds Cape Kanin", "R"], ["10 12:00", 66.3, 40.7, "White Sea", "R"], ["11 12:00", 64.63, 39.95, "Archangel", "S"], ["13 12:00", 64.63, 39.95]],
+   "damage": [["04 20:22", 12, "Torpedoed; linseed oil ablaze"]]
   },
   {
    "id": "oceanfreedom",

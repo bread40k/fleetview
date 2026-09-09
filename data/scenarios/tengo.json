@@ -52,7 +52,8 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_battleship_Yamato",
    "sunk": "07 14:23",
    "sunkBy": "TF 58 carrier aircraft — at least 11 torpedoes and 6 bombs",
-   "lost": 3055
+   "lost": 3055,
+   "damage": [["07 12:40", 3, "Two bombs aft, then torpedoes"]]
   },
   {
    "id": "yahagi",
@@ -63,7 +64,8 @@
    "wiki": "https://en.wikipedia.org/wiki/Japanese_cruiser_Yahagi_(1942)",
    "sunk": "07 14:05",
    "sunkBy": "TF 58 carrier aircraft — 12 bombs and 7 torpedoes",
-   "lost": 446
+   "lost": 446,
+   "damage": [["07 12:46", 2, "Torpedo in the engine room"]]
   },
   {
    "id": "hamakaze",
@@ -125,7 +127,8 @@
    "route": "yamato",
    "wiki": "https://en.wikipedia.org/wiki/Japanese_destroyer_Suzutsuki",
    "until": "07 12:32",
-   "extra": [["07 12:47", 30.55, 128.1, "500-lb bomb forward of the bridge; No. 2 turret explodes, bow blown off — 57 dead", "R"], ["07 14:30", 30.5, 128.15, "Turns for home steaming astern at 20 knots", "R"], ["07 17:30", 30.77, 128.2, "Passes the crippled Isokaze", "R"], ["08 12:00", 33.16, 129.72, "Arrives at Sasebo stern first; never repaired", "R"]]
+   "extra": [["07 12:47", 30.55, 128.1, "500-lb bomb forward of the bridge; No. 2 turret explodes, bow blown off — 57 dead", "R"], ["07 14:30", 30.5, 128.15, "Turns for home steaming astern at 20 knots", "R"], ["07 17:30", 30.77, 128.2, "Passes the crippled Isokaze", "R"], ["08 12:00", 33.16, 129.72, "Arrives at Sasebo stern first; never repaired", "R"]],
+   "damage": [["07 12:47", 24, "Bow blown off"]]
   },
   {
    "id": "fuyutsuki",
@@ -159,7 +162,15 @@
   },
   { "id": "bunkerhill", "name": "USS Bunker Hill", "force": "tf58", "type": "Fleet carrier (Mitscher flagship) — TG 58.3", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Bunker_Hill_(CV-17)" },
   { "id": "essex", "name": "USS Essex", "force": "tf58", "type": "Fleet carrier (Sherman flagship) — TG 58.3", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Essex_(CV-9)" },
-  { "id": "hancock", "name": "USS Hancock", "force": "tf58", "type": "Fleet carrier — TG 58.3", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Hancock_(CV-19)" },
+  {
+   "id": "hancock",
+   "name": "USS Hancock",
+   "force": "tf58",
+   "type": "Fleet carrier — TG 58.3",
+   "route": "tf58",
+   "wiki": "https://en.wikipedia.org/wiki/USS_Hancock_(CV-19)",
+   "damage": [["07 12:10", 8, "Kamikaze on the flight deck — 62 killed"]]
+  },
   { "id": "bataan", "name": "USS Bataan", "force": "tf58", "type": "Light carrier — TG 58.3", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Bataan_(CVL-29)" },
   { "id": "cabot", "name": "USS Cabot", "force": "tf58", "type": "Light carrier — TG 58.3", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Cabot_(CVL-28)" },
   { "id": "hornet", "name": "USS Hornet", "force": "tf58", "type": "Fleet carrier (Clark flagship) — TG 58.1", "route": "tf58", "wiki": "https://en.wikipedia.org/wiki/USS_Hornet_(CV-12)" },
@@ -487,7 +498,7 @@
   "bbox": [25.5, 126.3, 35.03, 133.5],
   "margin": 3,
   "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
-  "bakedAt": "2026-09-08",
+  "bakedAt": "2026-09-09",
   "ships": {
    "yamato": {
     "hash": "a7fb1162",

@@ -79,7 +79,15 @@
   "sagittario": { "name": "Tenente di Vascello Giuseppe Cigala Fulgosi", "role": "Commanding Officer, Sagittario", "flagship": "Sagittario", "bio": "Laid smoke and attacked Force C with torpedoes while his thirty-eight caiques turned back — and saw King break off. The Heraklion landing never happened, but not one of his soldiers drowned.", "fate": "Medaglia d'oro; survived the war." }
  },
  "ships": [
-  { "id": "warspite", "name": "HMS Warspite", "force": "a1", "type": "Battleship (Rawlings flagship)", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)" },
+  {
+   "id": "warspite",
+   "name": "HMS Warspite",
+   "force": "a1",
+   "type": "Battleship (Rawlings flagship)",
+   "route": "a1",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Warspite_(03)",
+   "damage": [["22 13:32", 24, "500-kg bomb; starboard batteries wrecked"]]
+  },
   { "id": "valiant", "name": "HMS Valiant", "force": "a1", "type": "Battleship", "route": "a1", "wiki": "https://en.wikipedia.org/wiki/HMS_Valiant_(1914)" },
   {
    "id": "napier",
@@ -128,7 +136,8 @@
    "extra": [["22 17:15", 36.02, 22.98, "Sinks; 722 lost, Captain Rowley among them — 85 survivors picked up by the Germans", "S"]],
    "sunk": "22 17:15",
    "sunkBy": "Ju 87s and Ju 88s of VIII Fliegerkorps",
-   "lost": 722
+   "lost": 722,
+   "damage": [["22 15:50", 2, "Stopped and burning"]]
   },
   {
    "id": "fiji",
@@ -141,7 +150,8 @@
    "extra": [["22 17:00", 35.4, 23.2, "Running south at 27 knots under continuous attack", "R"], ["22 18:45", 34.8, 23.3, "A single Bf 109's bomb lifts her plates; three more bombs at 19:15", "R"], ["22 20:15", 34.75, 23.25, "Capsizes; Kandahar and Kingston take 523 from the water after dark", "S"]],
    "sunk": "22 20:15",
    "sunkBy": "Bf 109 fighter-bombers and Ju 88s",
-   "lost": 241
+   "lost": 241,
+   "damage": [["22 18:45", 2, "Bomb hits"]]
   },
   {
    "id": "greyhound",
@@ -156,7 +166,15 @@
    "sunkBy": "Ju 87s",
    "lost": 76
   },
-  { "id": "naiad", "name": "HMS Naiad", "force": "c", "type": "Light cruiser (King flagship)", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Naiad_(93)" },
+  {
+   "id": "naiad",
+   "name": "HMS Naiad",
+   "force": "c",
+   "type": "Light cruiser (King flagship)",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Naiad_(93)",
+   "damage": [["22 10:30", 24, "Two turrets out, flooded"]]
+  },
   {
    "id": "perth",
    "name": "HMAS Perth",
@@ -165,7 +183,8 @@
    "route": "c",
    "wiki": "https://en.wikipedia.org/wiki/HMAS_Perth_(D29)",
    "until": "24 08:00",
-   "extra": [["29 06:00", 31.2, 29.88, "King's Force D: Phoebe, Perth, Glengyle, Calcutta, Coventry, three destroyers", "S"], ["29 23:30", 35.2, 24.14, "6,000 embarked overnight", "S"], ["30 03:20", 35.15, 24.2], ["30 09:30", 34, 25.5, "Perth hit in the fore boiler room", "R"], ["30 18:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]]
+   "extra": [["29 06:00", 31.2, 29.88, "King's Force D: Phoebe, Perth, Glengyle, Calcutta, Coventry, three destroyers", "S"], ["29 23:30", 35.2, 24.14, "6,000 embarked overnight", "S"], ["30 03:20", 35.15, 24.2], ["30 09:30", 34, 25.5, "Perth hit in the fore boiler room", "R"], ["30 18:00", 31.2, 29.88, null, "S"], ["1941-06-02 00:00", 31.2, 29.88]],
+   "damage": [["30 09:30", 12, "Fore boiler room hit"]]
   },
   {
    "id": "calcutta",
@@ -180,10 +199,26 @@
    "sunkBy": "Two Ju 88s",
    "lost": 118
   },
-  { "id": "carlisle", "name": "HMS Carlisle", "force": "c", "type": "Anti-aircraft cruiser", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Carlisle_(D67)" },
+  {
+   "id": "carlisle",
+   "name": "HMS Carlisle",
+   "force": "c",
+   "type": "Anti-aircraft cruiser",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Carlisle_(D67)",
+   "damage": [["22 13:21", 12, "Bomb hit; captain killed"]]
+  },
   { "id": "kandahar", "name": "HMS Kandahar", "force": "c", "type": "Destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Kandahar_(F28)" },
   { "id": "kingston", "name": "HMS Kingston", "force": "c", "type": "Destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Kingston_(F64)" },
-  { "id": "nubian", "name": "HMS Nubian", "force": "c", "type": "Tribal-class destroyer", "route": "c", "wiki": "https://en.wikipedia.org/wiki/HMS_Nubian_(F36)" },
+  {
+   "id": "nubian",
+   "name": "HMS Nubian",
+   "force": "c",
+   "type": "Tribal-class destroyer",
+   "route": "c",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Nubian_(F36)",
+   "damage": [["26 13:20", 24, "Stern blown off"]]
+  },
   {
    "id": "juno",
    "name": "HMS Juno",
@@ -203,7 +238,8 @@
    "route": "d",
    "wiki": "https://en.wikipedia.org/wiki/HMS_Dido_(37)",
    "until": "23 20:00",
-   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]]
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]],
+   "damage": [["29 08:15", 12, "B turret hit"]]
   },
   {
    "id": "orion",
@@ -213,7 +249,8 @@
    "route": "d",
    "wiki": "https://en.wikipedia.org/wiki/HMS_Orion_(85)",
    "until": "23 20:00",
-   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]]
+   "extra": [["28 06:00", 31.2, 29.88, "Force B for Heraklion: Orion, Ajax, Dido and six destroyers", "S"], ["28 17:00", 34, 27.5, "Bombed from 17:00, 90 miles from Scarpanto", "R"], ["28 21:00", 34.8, 26.2, "Ajax near-missed and sent home", "R"], ["28 23:30", 35.36000000000001, 25.13, "Heraklion: 4,000 troops embarked by 03:20", "S"], ["29 03:20", 35.35, 25.2, "Sails; Imperial's steering fails 25 minutes later", "R"], ["29 04:15", 35.383, 25.633, "Imperial's steering fails; Hotspur takes off Imperial's troops and sinks her", "S"], ["29 06:25", 35.35, 26.35, "Kaso Strait at dawn: Hereward hit and left; Ju 87s from Scarpanto", "S"], ["29 08:15", 34.9, 26.8, "Dido hit on B turret", "R"], ["29 10:45", 33.9, 27.5, "A bomb through Orion's bridge into her packed messdecks — 260 killed", "R"], ["29 20:00", 31.2, 29.88, "Orion enters Alexandria with ten tons of fuel and two rounds of 6-inch", "S"]],
+   "damage": [["29 10:45", 12, "Bomb through the bridge — 260 killed"]]
   },
   {
    "id": "ajax",
@@ -265,9 +302,25 @@
   { "id": "kipling", "name": "HMS Kipling", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Kipling_(F91)" },
   { "id": "kelvin", "name": "HMS Kelvin", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Kelvin_(F37)" },
   { "id": "jackal", "name": "HMS Jackal", "force": "5df", "type": "Destroyer", "route": "5df", "wiki": "https://en.wikipedia.org/wiki/HMS_Jackal_(F22)" },
-  { "id": "formidable", "name": "HMS Formidable", "force": "formidable", "type": "Fleet carrier", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Formidable_(67)" },
+  {
+   "id": "formidable",
+   "name": "HMS Formidable",
+   "force": "formidable",
+   "type": "Fleet carrier",
+   "route": "formidable",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Formidable_(67)",
+   "damage": [["26 13:20", 24, "Two bombs; starboard side blown out"]]
+  },
   { "id": "qe", "name": "HMS Queen Elizabeth", "force": "formidable", "type": "Battleship (Pridham-Wippell flagship)", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Queen_Elizabeth_(1913)" },
-  { "id": "barham", "name": "HMS Barham", "force": "formidable", "type": "Battleship", "route": "formidable", "wiki": "https://en.wikipedia.org/wiki/HMS_Barham_(04)" },
+  {
+   "id": "barham",
+   "name": "HMS Barham",
+   "force": "formidable",
+   "type": "Battleship",
+   "route": "formidable",
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Barham_(04)",
+   "damage": [["27 08:58", 12, "Bomb on Y turret"]]
+  },
   { "id": "nizam", "name": "HMAS Nizam", "force": "sphakia", "type": "Destroyer", "route": "sphakia1", "wiki": "https://en.wikipedia.org/wiki/HMAS_Nizam_(G38)" },
   {
    "id": "phoebe",

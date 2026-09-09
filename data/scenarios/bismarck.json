@@ -64,7 +64,8 @@
    "sunk": "27 10:39",
    "sunkBy": "Gunfire of Rodney & King George V, torpedoes from Dorsetshire, and scuttling charges — 114 survivors of 2,200",
    "wiki": "https://en.wikipedia.org/wiki/German_battleship_Bismarck",
-   "lost": 2086
+   "lost": 2086,
+   "damage": [["24 06:00", 12, "Three hits from Prince of Wales: oil leak, bow flooding"], ["27 09:02", 2, "Rodney and King George V"]]
   },
   {
    "id": "eugen",
@@ -97,7 +98,8 @@
    "route": "holland",
    "until": "24 06:00",
    "extra": [["24 06:13", 63.25, -31.72, "Prince of Wales retires under smoke — 7 hits, Y turret jammed"], ["24 12:00", 62, -33.5, "Joins Wake-Walker shadowing"], ["24 18:40", 60.5, -36.5, "Brief second exchange of fire"], ["25 06:00", 58.5, -34, "Detached to Iceland, short of fuel"], ["26 12:00", 62.5, -26], ["27 12:00", 64.4, -21.8, "Hvalfjörður, Iceland"], ["28 18:00", 64.4, -21.8]],
-   "wiki": "https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53)"
+   "wiki": "https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53)",
+   "damage": [["24 05:57", 12, "Seven hits; compass platform destroyed"]]
   },
   { "id": "norfolk", "name": "HMS Norfolk", "force": "wakewalker", "type": "Heavy cruiser (Wake-Walker flagship)", "route": "wakewalker", "wiki": "https://en.wikipedia.org/wiki/HMS_Norfolk_(78)" },
   {
@@ -386,7 +388,7 @@
   "u556": "U-556",
   "u74": "U-74"
  },
- "events": [["19 02:00", "Bismarck sails from Gotenhafen — Operation Rheinübung begins", 54.52, 18.55], ["20 13:00", "Swedish cruiser Gotland reports the German squadron", 57, 11.5], ["21 00:52", "Hood and Prince of Wales sail from Scapa Flow", 58.9, -3.1], ["21 09:00", "Bismarck anchors near Bergen", 60.35, 5.25], ["21 13:15", "Spitfire photographs Bismarck in Grimstadfjord", 60.35, 5.25], ["21 19:30", "Lütjens sails from Bergen without topping up Bismarck's fuel", 60.35, 5.25], ["22 19:30", "Reconnaissance finds Bergen empty", 60.35, 5.25], ["22 22:45", "Tovey sails with the Home Fleet", 58.9, -3.1], ["23 19:22", "Suffolk sights Bismarck in the Denmark Strait", 66.7, -27.5], ["24 02:00", "Force H ordered north from Gibraltar", 36.13, -5.35], ["24 05:52", "Battle of the Denmark Strait — Hood opens fire", 63.32, -31.6], ["24 06:00", "Hood blows up and sinks in three minutes", 63.33, -31.83], ["24 06:13", "Prince of Wales breaks off, damaged", 63.1, -31.6], ["24 18:14", "Prinz Eugen detached; Bismarck turns on her shadowers", 60.4, -36.8], ["24 22:10", "Victorious launches nine Swordfish", 60.1, -32.5], ["25 00:00", "Swordfish torpedo hits Bismarck amidships", 58.6, -37.6], ["25 03:06", "Suffolk loses contact — Bismarck vanishes", 57.3, -37.9], ["25 12:00", "Bismarck's long signal misplotted; Tovey heads north-east", 55.5, -32], ["25 19:00", "Admiralty and Tovey settle on Brest; Home Fleet turns south-east", 59.5, -25], ["26 10:30", "Catalina Z/209 finds Bismarck after 31 hours", 49.55, -21.8], ["26 14:50", "Ark Royal's first strike attacks Sheffield by mistake", 48.65, -17.4], ["26 20:47", "Swordfish torpedo jams Bismarck's rudders", 48.5, -16.8], ["26 22:38", "Piorun sights Bismarck; Vian's destroyers attack through the night", 48.6, -16.6], ["27 08:47", "Rodney and King George V open fire", 48.35, -16.4], ["27 09:31", "Bismarck's forward turrets knocked out", 48.3, -16.35], ["27 10:15", "Bismarck silent; Dorsetshire closes to torpedo", 48.2, -16.3], ["27 10:39", "Bismarck sinks", 48.17, -16.2], ["27 11:40", "Dorsetshire abandons rescue after U-boat alarm — 110 saved", 48.18, -16.2], ["27 19:00", "U-74 picks up three more survivors", 47.8, -16.05], ["28 13:00", "Mashona sunk by Luftwaffe bombers off Ireland", 52.97, -11.6], ["24 08:00", "Electra finds Hood's three survivors", 63.33, -31.8], ["27 10:45", "Dorsetshire and Maori rescue 110 Bismarck survivors", 48.18, -16.2], ["28 14:30", "Tartar rescues 184 of Mashona's crew", 52.97, -11.6]],
+ "events": [["19 02:00", "Bismarck sails from Gotenhafen — Operation Rheinübung begins", 54.52, 18.55], ["20 13:00", "Swedish cruiser Gotland reports the German squadron", 57, 11.5], ["21 00:52", "Hood and Prince of Wales sail from Scapa Flow", 58.9, -3.1], ["21 09:00", "Bismarck anchors near Bergen", 60.35, 5.25], ["21 13:15", "Spitfire photographs Bismarck in Grimstadfjord", 60.35, 5.25], ["21 19:30", "Lütjens sails from Bergen without topping up Bismarck's fuel", 60.35, 5.25], ["22 19:30", "Reconnaissance finds Bergen empty", 60.35, 5.25], ["22 22:45", "Tovey sails with the Home Fleet", 58.9, -3.1], ["23 19:22", "Suffolk sights Bismarck in the Denmark Strait", 66.7, -27.5], ["24 02:00", "Force H ordered north from Gibraltar", 36.13, -5.35], ["24 05:52", "Battle of the Denmark Strait — Hood opens fire", 63.32, -31.6], ["24 06:00", "Hood blows up and sinks in three minutes", 63.33, -31.83], ["24 06:13", "Prince of Wales breaks off, damaged", 63.1, -31.6], ["24 08:00", "Electra finds Hood's three survivors", 63.33, -31.8], ["24 18:14", "Prinz Eugen detached; Bismarck turns on her shadowers", 60.4, -36.8], ["24 22:10", "Victorious launches nine Swordfish", 60.1, -32.5], ["25 00:00", "Swordfish torpedo hits Bismarck amidships", 58.6, -37.6], ["25 03:06", "Suffolk loses contact — Bismarck vanishes", 57.3, -37.9], ["25 12:00", "Bismarck's long signal misplotted; Tovey heads north-east", 55.5, -32], ["25 19:00", "Admiralty and Tovey settle on Brest; Home Fleet turns south-east", 59.5, -25], ["26 10:30", "Catalina Z/209 finds Bismarck after 31 hours", 49.55, -21.8], ["26 14:50", "Ark Royal's first strike attacks Sheffield by mistake", 48.65, -17.4], ["26 20:47", "Swordfish torpedo jams Bismarck's rudders", 48.5, -16.8], ["26 22:38", "Piorun sights Bismarck; Vian's destroyers attack through the night", 48.6, -16.6], ["27 08:47", "Rodney and King George V open fire", 48.35, -16.4], ["27 09:31", "Bismarck's forward turrets knocked out", 48.3, -16.35], ["27 10:15", "Bismarck silent; Dorsetshire closes to torpedo", 48.2, -16.3], ["27 10:39", "Bismarck sinks", 48.17, -16.2], ["27 10:45", "Dorsetshire and Maori rescue 110 Bismarck survivors", 48.18, -16.2], ["27 11:40", "Dorsetshire abandons rescue after U-boat alarm — 110 saved", 48.18, -16.2], ["27 19:00", "U-74 picks up three more survivors", 47.8, -16.05], ["28 13:00", "Mashona sunk by Luftwaffe bombers off Ireland", 52.97, -11.6], ["28 14:30", "Tartar rescues 184 of Mashona's crew", 52.97, -11.6]],
  "ports": [
   { "name": "Gotenhafen", "lat": 54.52, "lon": 18.55, "control": "KM", "kind": "port", "note": "Bismarck's departure port (Gdynia)" },
   { "name": "Kiel", "lat": 54.32, "lon": 10.14, "control": "KM", "kind": "port", "note": "Kriegsmarine Baltic base" },
@@ -527,7 +529,7 @@
   "bbox": [35.13, -53, 68.5, 19.55],
   "margin": 3,
   "source": "Natural Earth 1:10m land (world-atlas 2.0.2)",
-  "bakedAt": "2026-09-08",
+  "bakedAt": "2026-09-09",
   "ships": {
    "bismarck": {
     "hash": "5cad8401",
