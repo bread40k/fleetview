@@ -200,6 +200,11 @@
   .legend.sizes svg{border:none;width:auto;height:14px}
 
   /* ---- sinking flash ---- */
+  .smoke{position:relative;width:0;height:0;pointer-events:none;--k:1}
+  .smoke i{position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(90,90,96,.85),rgba(60,60,66,.55) 60%,rgba(60,60,66,0));opacity:0;animation:smoke 3.2s ease-out infinite;filter:blur(.4px)}
+  .smoke i:nth-child(2){animation-delay:.65s;left:-4px} .smoke i:nth-child(3){animation-delay:1.3s;left:-8px} .smoke i:nth-child(4){animation-delay:1.95s;left:-5px} .smoke i:nth-child(5){animation-delay:2.6s;left:-7px}
+  @keyframes smoke{0%{transform:translate(0,0) scale(.5);opacity:0}12%{opacity:calc(.75*var(--k))}100%{transform:translate(18px,-46px) scale(2.6);opacity:0}}
+  html[data-mode="light"] .smoke i{background:radial-gradient(circle at 40% 40%,rgba(70,70,76,.8),rgba(50,50,56,.5) 60%,rgba(50,50,56,0))}
   .boom{position:relative;width:0;height:0;pointer-events:none}
   .boom .dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#ffb020;animation:flash .45s ease-in-out infinite alternate}
   .boom .ring{position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,160,40,.85);animation:ring 1.6s ease-out infinite}
@@ -482,7 +487,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = FV;
 // then only the selected campaign's JSON and the ship registry, and hand them to runApp() below.
 // Switching campaign changes the hash and reloads, so exactly one scenario is ever in memory.
 const $ = id => document.getElementById(id);
-const APP_VERSION = '2.7.1';
+const APP_VERSION = '2.7.2';
 const DATA_BASE = (document.querySelector('meta[name="fv-data"]') || {}).content || 'data/';
 const hashParams = Object.fromEntries(location.hash.replace(/^#/, '').split('&').filter(Boolean).map(kv => kv.split('=')));
 
@@ -668,7 +673,7 @@ function setTime(t, quiet){ state.t = Math.min(T1, Math.max(T0, t)); render(); i
 let raf = null, lastTs = 0;
 function tick(ts){
   if (!state.playing) return;
-  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed >= 600e3 ? EV.filter(e => e.key && Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; setTime(state.t + dt * (slow ? Math.min(180e3, state.speed) : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
+  if (lastTs){ const dt = (ts - lastTs) / 1000; const prev = state.t; const nearEv = state.autoSlow && state.speed >= 600e3 ? EV.filter(e => e.key && Math.abs(e.t - state.t) < 30*60e3).sort((a, b) => Math.abs(a.t - state.t) - Math.abs(b.t - state.t))[0] : null; const slow = !!nearEv; state.slowed = slow; state.slowEvent = nearEv || null; state.slowRate = Math.min(180e3, state.speed); setTime(state.t + dt * (slow ? state.slowRate : state.speed), true); crossEvents(prev, state.t); if (state.t >= T1) togglePlay(false); }
   lastTs = ts; raf = requestAnimationFrame(tick);
 }
 function togglePlay(on){ state.playing = on === undefined ? !state.playing : on; if (!state.playing){ state.slowed = false; state.slowEvent = null; } $('play').textContent = state.playing ? '❚❚ Pause' : '▶ Play'; lastTs = 0; if (state.playing) raf = requestAnimationFrame(tick); else cancelAnimationFrame(raf); }
@@ -993,10 +998,13 @@ const _render = render; render = function(){ _render(); renderFlags(); renderAir
 window.fvFlagPick = route => { const fl = FLAGS.find(f => f.route === route); if (fl && typeof showCommander === 'function'){ const host = FLAGS.find(h => h.onMap && (h === fl || (h.lastMerged || []).includes(fl))); showCommander(Object.assign({}, fl, { marker: host ? host.marker : fl.marker })); } };
 // ====================== SINKING FLASH, LOSS EVENTS, PORTS ======================
 const BOOM_WINDOW = 60 * 60e3; // sim-time the flash stays visible after a loss
+const SMOKE_WINDOW = 10 * 60 * 60e3; // a wreck smokes for ten hours of battle time, thinning as it goes
 const boomLayer = L.layerGroup().addTo(map);
 SHIPS.filter(s => s.sunk).forEach(s => {
   s.boom = L.marker([0,0], { icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: '<div class="boom"><div class="ring"></div><div class="ring2"></div><div class="dot"></div></div>' }), interactive: false, keyboard: false, zIndexOffset: 1200 });
   s.boomOn = false;
+  s.smoke = L.marker([0,0], { icon: L.divIcon({ className: 'fv', iconSize: [0,0], html: '<div class="smoke"><i></i><i></i><i></i><i></i><i></i></div>' }), interactive: false, keyboard: false, zIndexOffset: 1100 });
+  s.smokeOn = false;
 });
 function renderBooms(){
   const t = state.t;
@@ -1004,6 +1012,10 @@ function renderBooms(){
     const on = s.visible && t >= s.sunkT && t < s.sunkT + BOOM_WINDOW;
     if (on){ const w = s.wp[s.wp.length-1]; s.boom.setLatLng([w.lat, w.lon]); if (!s.boomOn){ boomLayer.addLayer(s.boom); s.boomOn = true; } }
     else if (s.boomOn){ boomLayer.removeLayer(s.boom); s.boomOn = false; }
+    const smoking = s.visible && t >= s.sunkT && t < s.sunkT + SMOKE_WINDOW && map.getZoom() >= 6;
+    if (smoking){ const w = s.wp[s.wp.length-1]; s.smoke.setLatLng([w.lat, w.lon]); if (!s.smokeOn){ boomLayer.addLayer(s.smoke); s.smokeOn = true; }
+      const el = s.smoke.getElement && s.smoke.getElement(); if (el && el.firstChild) el.firstChild.style.setProperty('--k', String(1 - (t - s.sunkT) / SMOKE_WINDOW)); }
+    else if (s.smokeOn){ boomLayer.removeLayer(s.smoke); s.smokeOn = false; }
   }
   // pulse the slider tick for a loss that just happened
   document.querySelectorAll('.tick').forEach(el => el.classList.toggle('hot', Math.abs(+el.dataset.t - t) < BOOM_WINDOW && t >= +el.dataset.t));
@@ -1220,7 +1232,7 @@ const slowRing = L.marker([0,0], { pane: 'slowring', interactive: false, keyboar
 function renderSlow(){
   const el = $('slowbanner'); const on = state.slowed && state.playing && state.slowEvent; const ev = state.slowEvent;
   el.classList.toggle('show', !!on);
-  if (on){ el.innerHTML = `<span class="ic">⏱</span><div><b>Slowed to 10 min/s</b><small>${fmtShort(ev.t)} · ${ev.title}</small></div>`; slowRing.setLatLng([ev.lat, ev.lon]); if (!slowRing._map) slowRing.addTo(map); }
+  if (on){ el.innerHTML = `<span class="ic">⏱</span><div><b>Slowed to ${(state.slowRate || 180e3) >= HOUR ? (state.slowRate / HOUR) + ' h' : (state.slowRate || 180e3) / 60e3 + ' min'}/s</b><small>${fmtShort(ev.t)} · ${ev.title}</small></div>`; slowRing.setLatLng([ev.lat, ev.lon]); if (!slowRing._map) slowRing.addTo(map); }
   else if (slowRing._map) map.removeLayer(slowRing);
 }
 // keep floating elements clear of the time bar whatever its height

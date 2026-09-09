@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.7.2 — 2026-09-09
+
+- **Smoke plumes** — a wreck now smokes for ten hours of battle time after sinking, the plume thinning as it goes (drawn from zoom 6 up, in the same layer as the sinking flash).
+- The "Slowed to …" banner now states the actual rate (3 min/s at normal speeds, matching the playback engine) instead of a fixed "10 min/s".
+
 ## v2.7.1 — 2026-09-09
 
 - **Slower playback**: 1 min/s and 3 min/s added to the speed menu. A scenario can set `defaultSpeed` (ms of battle time per second); Pearl Harbor now opens at 3 min/s — the whole attack lasted under two hours. "Slow down for key events" now drops to 3 min/s (was 10) and also engages at 10 min/s.
