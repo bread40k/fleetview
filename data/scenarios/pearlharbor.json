@@ -31,7 +31,7 @@
   ["Withdrawal", "07 13:30", [26, 201.5], 6]
  ],
  "defaultTime": "07 07:55",
- "footnote": "Hawaii time (UTC−10:30). The Kido Butai's track is reconstructed from its operation orders and the TROMs' distance statements — no daily fixes were published; the launch point is 'about 230 miles north of Oahu'. Berths on Battleship Row are placed from the harbour chart; Ward's midget from the 2002 wreck survey. The loss counter counts only the ships sunk in the harbour (1,870 men); 2,403 Americans died in all, 55 Japanese airmen and nine submariners. Formation members are spread slightly so they don't overlap.",
+ "footnote": "Hawaii time (UTC−10:30). The Kido Butai's track is reconstructed from its operation orders and the TROMs' distance statements — no daily fixes were published; the launch point is 'about 230 miles north of Oahu'. Berths on Battleship Row are placed from the harbour chart; Ward's midget from the 2002 wreck survey. The loss counter counts only the ships sunk in the harbour (1,870 men); 2,403 Americans died in all, 55 Japanese airmen and nine submariners. Playback defaults to 3 minutes per second — the whole attack lasted under two hours. Formation members are spread slightly so they don't overlap.",
  "forces": {
   "kdb": { "name": "IJN First Air Fleet — Kido Butai (Nagumo)", "color": "#e5484d", "nation": "IJN" },
   "supply": { "name": "IJN Supply Groups", "color": "#a3a3a3", "nation": "IJN" },
@@ -597,5 +597,6 @@
    "chicago": { "hash": "a4ce0fe3" },
    "indianapolis": { "hash": "0b2d4bed" }
   }
- }
+ },
+ "defaultSpeed": 180000
 }
