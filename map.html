@@ -1186,7 +1186,39 @@ function followStrike(id){ const k = strikeById[id]; if (!k) return; if (state.t
 function stopFollow(){ if (state.tour) stopTour(true); if (!state.follow) return; state.follow = null; $('followchip').style.display = 'none'; if (popupShip) fillPopup(popupShip); }
 $('followchip').onclick = () => stopFollow();
 map.on('dragstart', () => stopFollow());
-function renderFollow(){ if (state.tour) tourStep(); const s = state.follow; if (!s) return; const p = followPos(s, state.t); if (p){ if (!state._flying) map.setView([p.lat, p.lon], map.getZoom(), { animate: false }); } else if (isStrike(s) && !state.tour) stopFollow(); }
+function renderFollow(){ if (state.tour) tourStep(); const s = state.follow; if (!s) return; const p = followPos(s, state.t); if (p){ if (!state._flying) map.setView([p.lat, p.lon], map.getZoom(), { animate: false }); if (state.tour) tourZoom(s, p); } else if (isStrike(s) && !state.tour) stopFollow(); }
+
+// ---- guided camera zoom: frame the subject with whatever matters around it — the enemy within reach, her own formation,
+// the documented waypoint she is steering for, or a strike's target — and re-frame gently as that picture changes.
+const NM = 1852, MAXZOOM = 12;
+function frameRadius(s, p, t){
+  const pts = [];
+  if (isStrike(s)){   // outbound: carrier + target for the first half, then tighten onto the target; attack: close-up; return: the ship they are heading home to
+    if (p.phase !== 'return'){ const tg = pointOf(s.target, t); if (tg) pts.push(tg); }
+    if (p.phase === 'outbound' && p.from && (t - s.tLaunch) < (s.tArrive - s.tLaunch) / 2) pts.push(p.from);
+    if (p.phase === 'return'){ const home = s.recoverAt ? { lat: s.recoverAt.lat, lon: s.recoverAt.lon } : pointOf(s.from, t); if (home) pts.push(home); } }
+  else {
+    const nxt = s.wp.find(w => w.t > t && (w.note || w.src)); if (nxt && dist(p, nxt) < 120*NM) pts.push(nxt);
+    const myNation = (FORCES[s.force] || {}).nation;
+    for (const o of SHIPS){ if (o === s || !o.onMap || t >= o.sunkT) continue; const q = posAt(o, t); if (!q) continue; const d = dist(p, q), foe = (FORCES[o.force] || {}).nation !== myNation;
+      if ((foe && d < 90*NM) || (!foe && d < 12*NM)) pts.push(q); }
+    for (const k of STRIKES){ if (t < k.tLaunch || t > k.tRecover) continue; const q = strikeAt(k, t); if (q && dist(p, q) < 60*NM) pts.push(q); }
+  }
+  let r = 6*NM; for (const q of pts) r = Math.max(r, dist(p, q));
+  return r;
+}
+function dist(a, b){ const R = 6371000, dLat = (b.lat-a.lat)*Math.PI/180, dLon = (b.lon-a.lon)*Math.PI/180, la = a.lat*Math.PI/180, lb = b.lat*Math.PI/180; const h = Math.sin(dLat/2)**2 + Math.cos(la)*Math.cos(lb)*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+function zoomForRadius(r, lat){ const size = map.getSize ? map.getSize() : { x: 900, y: 700 }; const px = Math.min(size.x, size.y) * 0.62;   // the frame fills ~60% of the shorter side
+  return Math.log2(156543 * Math.cos(lat*Math.PI/180) * px / (2*r)); }
+function tourZoom(s, p){
+  if (state._flying || state.tourUserZoom) return;
+  const now = performance.now(); if (now - (state.tourZoomAt || 0) < 7000) return;
+  const zMin = Math.max(SC.view.min || 3, 4), zMax = Math.min(SC.view.max || MAXZOOM, MAXZOOM);
+  const want = Math.round(Math.min(zMax, Math.max(zMin, zoomForRadius(frameRadius(s, p, state.t), p.lat))));
+  if (Math.abs(want - map.getZoom()) < 1) return;
+  state.tourZoomAt = now; state._flying = true; map.flyTo([p.lat, p.lon], want, { duration: 1.4 }); setTimeout(() => state._flying = false, 1500);
+}
+map.on('zoomstart', () => { if (state.tour && !state._flying) state.tourUserZoom = true; });   // a manual pinch/scroll wins until the next subject
 
 // ---- guided camera: pick a subject automatically — the biggest carrier / land strike in the air, else the key ship
 // with the next documented moment — and hand the camera from one to the next as the battle unfolds.
@@ -1206,7 +1238,7 @@ function tourStep(){
   if (!stale) return;
   const pick = tourSubject(t); if (!pick){ return; }
   state.tourFrom = t; state.tourUntil = pick.until;
-  if (pick.s !== s){ setFollow(pick.s, true); const p = followPos(pick.s, t); if (p){ const z = Math.max(map.getZoom(), isStrike(pick.s) ? 7 : 6); state._flying = true; map.flyTo([p.lat, p.lon], z, { duration: 1.1 }); setTimeout(() => state._flying = false, 1200); } }
+  if (pick.s !== s){ setFollow(pick.s, true); state.tourUserZoom = false; const p = followPos(pick.s, t); if (p){ const zMin = Math.max(SC.view.min || 3, 4), zMax = Math.min(SC.view.max || MAXZOOM, MAXZOOM); const z = Math.round(Math.min(zMax, Math.max(zMin, zoomForRadius(frameRadius(pick.s, p, t), p.lat)))); state.tourZoomAt = performance.now(); state._flying = true; map.flyTo([p.lat, p.lon], z, { duration: 1.1 }); setTimeout(() => state._flying = false, 1200); } }
 }
 function startTour(){ state.tour = true; state.tourFrom = Infinity; state.tourUntil = -Infinity; $('optTour').checked = true; $('tourBtn').classList.add('on'); tourStep(); if (!state.playing && typeof togglePlay === 'function') togglePlay(true); render(); }
 function stopTour(keepFollow){ if (!state.tour) return; state.tour = false; $('optTour').checked = false; $('tourBtn').classList.remove('on'); if (!keepFollow){ state.follow = null; $('followchip').style.display = 'none'; } else if (state.follow) setFollow(state.follow, true); }
