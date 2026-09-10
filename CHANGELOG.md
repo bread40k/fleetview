@@ -6,6 +6,8 @@
 
 **Ship & commander search** — the search box on the landing page covers the whole registry (442 ships) and every campaign's commanders (92). A ship shows her class, nation, fate and Wikipedia link, plus one chip per campaign that opens the map at her first appearance; a commander shows role, flagship and campaigns. Diacritics are ignored (`soryu` finds Sōryū); `/` focuses the box; Enter opens the first result.
 
+**Mobile** — the guided camera is on by default on phones (turn it off once and it stays off); a 🎬 button in the timebar toggles it. Fleets and Timeline sheets now close by tapping the dimmed map or swiping their handle down, and a ⌂ Home button sits alongside them. The time scrubber and ship markers have much larger touch targets. The site can be added to the home screen as a standalone app (web manifest, icons, theme colour).
+
 **Data** — `index.json` campaigns now carry `region` (atlantic | med | pacific | arctic, derived from the theatre or set explicitly with `scenario.region`) and a `commanders` list. `tools/home-test.js` checks the landing page against the real JSON and runs as part of `build.sh`.
 
 ## v2.8 — 2026-09-09

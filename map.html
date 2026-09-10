@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FleetView — WW2 naval battles, time-scrubbable</title>
 <meta name="fv-data" content="data/">
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FleetView">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root{
@@ -312,8 +320,12 @@
   /* ---- mobile ---- */
   #mobilebar{display:none;position:absolute;z-index:1250;top:0;left:0;right:0;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;align-items:center;gap:8px;background:var(--panel);border-bottom:1px solid var(--panelBorder);backdrop-filter:var(--blur)}
   #mobilebar .t{font-weight:700;font-size:15px;margin-right:auto;letter-spacing:.2px}
-  #mobilebar .btn{height:30px;font-size:12px}
+  #mobilebar .btn{height:30px;font-size:12px;text-decoration:none}
   #mobilebar .btn.on{background:var(--accent);color:var(--accentText)}
+  #backdrop{display:none;position:fixed;inset:0;z-index:1350;background:rgba(0,0,0,.35);opacity:0;transition:opacity .3s}
+  #backdrop.on{display:block;opacity:1}
+  #tourBtn{display:none}
+  #tourBtn.on{background:var(--accent);color:var(--accentText);border-color:transparent}
   .sheetclose{display:none;position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--btn);color:var(--fg);font-size:14px;cursor:pointer;z-index:2}
   @media (max-width:760px), (pointer:coarse) and (max-width:1000px){
     #mobilebar{display:flex}
@@ -323,6 +335,9 @@
     html,body{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
     #side,#events{position:fixed;left:0;right:0;top:auto;bottom:0;width:auto;max-height:72vh!important;border-radius:16px 16px 0 0;border-bottom:none;transform:translateY(105%);visibility:hidden;transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s linear .32s;z-index:1400;padding-bottom:env(safe-area-inset-bottom);display:block;overflow-y:auto;-webkit-overflow-scrolling:touch}
     #side.open,#events.open{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s}
+    #side.dragging,#events.dragging{transition:none}
+    #side header,#events header{touch-action:none;cursor:grab}
+    #tourBtn{display:inline-flex}
     #forces,#evlist{overflow:visible;max-height:none!important;flex:none}
     #side header,#events header{position:relative;padding-right:48px}
     #side header::before,#events header::before{content:"";position:absolute;left:50%;top:6px;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:var(--line)}
@@ -349,6 +364,16 @@
     .shp .lbl{font-size:10.5px}
     .leaflet-popup-content{margin:10px 12px;font-size:12px}
   }
+  @media (pointer:coarse){
+    #track{height:40px;margin:10px 6px 14px}
+    #slider{height:40px;top:0}
+    #slider::-webkit-slider-runnable-track{height:8px;margin-top:0}
+    #slider::-webkit-slider-thumb{width:26px;height:26px;margin-top:-9px;border-width:4px}
+    #slider::-moz-range-track{height:8px}
+    #slider::-moz-range-thumb{width:18px;height:18px}
+    .shp .hit{left:calc(max(var(--sz), 36px) / -2);top:calc(max(var(--sz), 36px) / -2);width:max(var(--sz), 36px);height:max(var(--sz), 36px)}
+    .btn{min-height:36px}
+  }
   /* ---- rescue operations ---- */
   .resc{position:relative;width:0;height:0;cursor:pointer}
   .resc svg{position:absolute;left:-9px;top:-26px;width:18px;height:18px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));animation:bob 2.4s ease-in-out infinite}
@@ -370,8 +395,9 @@
 </head>
 <body>
 <div id="map"></div>
-<div id="mobilebar"><div class="t">FleetView</div><button id="mbShips" class="btn">☰ Fleets</button><button id="mbEvents" class="btn">≡ Timeline</button></div>
+<div id="mobilebar"><div class="t">FleetView</div><a href="home.html" class="btn" title="All battles, ship &amp; commander search">⌂ Home</a><button id="mbShips" class="btn">☰ Fleets</button><button id="mbEvents" class="btn">≡ Timeline</button></div>
 
+<div id="backdrop"></div>
 <aside id="side" class="panel">
   <header>
     <button class="sheetclose" data-close="side">✕</button>
@@ -411,6 +437,7 @@
     <button class="btn" id="bHour" title="←">−1 h</button>
     <button class="btn" id="fHour" title="→">+1 h</button>
     <button class="btn" id="fDay" title="Shift+→">+1 d</button>
+    <button class="btn" id="tourBtn" title="Guided camera: hands the view from one subject to the next">🎬</button>
     <button class="btn" id="followchip" style="display:none" title="Esc to stop">◎ Following <b></b> ✕</button>
     <select class="btn" id="speed" title="Playback speed"></select>
     <div id="losses"></div>
@@ -1177,10 +1204,12 @@ function tourStep(){
   state.tourFrom = t; state.tourUntil = pick.until;
   if (pick.s !== s){ setFollow(pick.s, true); const p = followPos(pick.s, t); if (p){ const z = Math.max(map.getZoom(), isStrike(pick.s) ? 7 : 6); state._flying = true; map.flyTo([p.lat, p.lon], z, { duration: 1.1 }); setTimeout(() => state._flying = false, 1200); } }
 }
-function startTour(){ state.tour = true; state.tourFrom = Infinity; state.tourUntil = -Infinity; $('optTour').checked = true; tourStep(); if (!state.playing && typeof togglePlay === 'function') togglePlay(true); render(); }
-function stopTour(keepFollow){ if (!state.tour) return; state.tour = false; $('optTour').checked = false; if (!keepFollow){ state.follow = null; $('followchip').style.display = 'none'; } else if (state.follow) setFollow(state.follow, true); }
+function startTour(){ state.tour = true; state.tourFrom = Infinity; state.tourUntil = -Infinity; $('optTour').checked = true; $('tourBtn').classList.add('on'); tourStep(); if (!state.playing && typeof togglePlay === 'function') togglePlay(true); render(); }
+function stopTour(keepFollow){ if (!state.tour) return; state.tour = false; $('optTour').checked = false; $('tourBtn').classList.remove('on'); if (!keepFollow){ state.follow = null; $('followchip').style.display = 'none'; } else if (state.follow) setFollow(state.follow, true); }
 $('optSat').onchange = e => { satOn = e.target.checked; renderSat(); };
-$('optTour').onchange = e => { if (e.target.checked) startTour(); else stopTour(false); };
+const saveTourPref = on => { try { localStorage.setItem('fleetview-tour', on ? '1' : '0'); } catch(e){} };
+$('optTour').onchange = e => { saveTourPref(e.target.checked); if (e.target.checked) startTour(); else stopTour(false); };
+$('tourBtn').onclick = () => { saveTourPref(!state.tour); if (state.tour) stopTour(false); else startTour(); };
 $('followchip').title = 'Esc to stop · Guided camera hands the view from one subject to the next';
 
 // ---- day / night terminator
@@ -1300,8 +1329,15 @@ const _render4 = render; render = function(){ _render4(); renderNight(); renderL
 
 // ====================== MOBILE SHEETS ======================
 const isMobile = () => window.matchMedia && window.matchMedia('(max-width:760px), (pointer:coarse) and (max-width:1000px)').matches;
-function openSheet(id){ ['side','events'].forEach(x => { $(x).classList.toggle('open', x === id); $(x === 'side' ? 'mbShips' : 'mbEvents').classList.toggle('on', x === id); }); }
-function closeSheets(){ ['side','events'].forEach(x => $(x).classList.remove('open')); $('mbShips').classList.remove('on'); $('mbEvents').classList.remove('on'); }
+function openSheet(id){ ['side','events'].forEach(x => { $(x).classList.toggle('open', x === id); $(x === 'side' ? 'mbShips' : 'mbEvents').classList.toggle('on', x === id); }); $('backdrop').classList.add('on'); }
+function closeSheets(){ ['side','events'].forEach(x => $(x).classList.remove('open')); $('mbShips').classList.remove('on'); $('mbEvents').classList.remove('on'); $('backdrop').classList.remove('on'); }
+$('backdrop').onclick = closeSheets;
+// swipe the sheet's header (drag handle) down to dismiss it
+['side','events'].forEach(id => { const sh = $(id), hd = sh.querySelector('header'); if (!hd || !hd.addEventListener) return; let y0 = null, dy = 0;
+  hd.addEventListener('touchstart', e => { if (!isMobile() || !sh.classList.contains('open')) return; y0 = e.touches[0].clientY; dy = 0; sh.classList.add('dragging'); }, { passive: true });
+  hd.addEventListener('touchmove', e => { if (y0 === null) return; dy = Math.max(0, e.touches[0].clientY - y0); sh.style.transform = `translateY(${dy}px)`; $('backdrop').style.opacity = String(Math.max(0, 1 - dy / 300)); }, { passive: true });
+  const end = () => { if (y0 === null) return; sh.classList.remove('dragging'); sh.style.transform = ''; $('backdrop').style.opacity = ''; if (dy > 90) closeSheets(); y0 = null; };
+  hd.addEventListener('touchend', end); hd.addEventListener('touchcancel', end); });
 $('mbShips').onclick = () => $('side').classList.contains('open') ? closeSheets() : openSheet('side');
 $('mbEvents').onclick = () => $('events').classList.contains('open') ? closeSheets() : openSheet('events');
 document.querySelectorAll('.sheetclose').forEach(b => b.onclick = closeSheets);
@@ -1369,6 +1405,11 @@ function layoutWar(){
 function renderWar(){ warpos.style.left = warPct(state.t) + '%'; }
 layoutWar(); if (window.ResizeObserver) new ResizeObserver(layoutWar).observe(warbar); window.addEventListener('resize', layoutWar);
 const _render6 = render; render = function(){ _render6(); renderWar(); };
+
+// On a phone the guided camera is on by default (panning a battle by thumb is the hard part); a manual off sticks via localStorage.
+// Runs last so every render layer exists before the first tour step.
+(function(){ let pref = null; try { pref = localStorage.getItem('fleetview-tour'); } catch(e){}
+  if (isMobile() && pref !== '0'){ startTour(); if (hashParams.t) togglePlay(false); } })();
 // ---- init
 (function init(){
   const m = (hashParams.t || '').match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/); if (m){ const v = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5]); if (v >= T0 && v <= T1) state.t = v; }

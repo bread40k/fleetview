@@ -40,6 +40,7 @@ Currently included:
 - Cross-campaign ship registry — a ship's popup links to her other campaigns and gives her eventual fate
 - Follow a ship or an air group; a guided-camera mode that hands the view from one subject to the next as the battle unfolds
 - Search, keyboard shortcuts, four UI themes (modern / wartime chart × light / dark)
+- Works on phones: bottom sheets, guided camera on by default, installable to the home screen
 - A landing page (`home.html`) with every battle as a card and a search across all ships and commanders in the registry
 
 Deep links: `https://bread40k.github.io/fleetview/map.html#s=bismarck&t=1941-05-27T10:30` (the older `/#s=…` form redirects there)
