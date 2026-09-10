@@ -347,13 +347,17 @@
     .ev{grid-template-columns:88px 1fr;padding:9px 14px}
     .ship{padding:7px 6px}
     #timebar{left:0;right:0;bottom:0;border-radius:0;border-left:none;border-right:none;border-bottom:none;padding:8px 10px calc(6px + env(safe-area-inset-bottom))}
-    #timebar .row{gap:6px}
+    #timebar .row{gap:5px;row-gap:6px;flex-wrap:wrap}
     #bDay,#fDay,#losses,#followchip b{display:none}
-    .btn{height:34px;min-width:34px}
-    .btn.primary{min-width:70px}
-    #speed{max-width:88px;font-size:11px}
-    #clock{margin-left:auto}
-    #clock .d{font-size:11px} #clock .h{font-size:17px} #clock small{font-size:9px}
+    .btn{height:34px;min-width:34px;padding:0 8px;white-space:nowrap;flex:none}
+    .btn.primary{min-width:0;padding:0 10px}
+    #tourBtn{padding:0 7px}
+    #followchip{padding:0 7px;font-size:0}          /* icon only: ◎ … ✕ */
+    #followchip::before{content:"◎ ✕";font-size:12px}
+    #speed{width:72px;min-width:0;max-width:none;font-size:11px;padding:0 16px 0 6px;background-position:calc(100% - 9px) 15px,calc(100% - 5px) 15px;text-overflow:ellipsis}
+    /* clock: one compact line, right-aligned; wraps under the buttons when the row is full (iPhone-width) */
+    #clock{margin-left:auto;min-width:150px;flex:1 1 auto;display:flex;align-items:baseline;justify-content:flex-end;gap:8px;overflow:hidden}
+    #clock .d{font-size:12px;white-space:nowrap} #clock .h{font-size:17px;white-space:nowrap} #clock small{display:inline;margin:0;font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
     #track{margin:10px 4px 16px}
     #warbar{height:12px;margin:8px 4px 0} #warbar .yr{display:none} #warcamps .camp{top:1px;height:10px} #warcamps .camp .cl{display:none!important} #warbar .ms{display:none} #warpos{top:-2px;height:16px}
     .day{font-size:9px}
