@@ -1,5 +1,13 @@
 # Changelog
 
+## v3.0 — 2026-09-10
+
+**Landing page** — the site now opens on `home.html`: the fifteen battles as cards grouped by year (month, theatre and title; left edge coloured by theatre — Atlantic blue, Mediterranean yellow, Pacific red, Arctic mint), a one-line pitch, and a footer. The map has moved to `map.html` and gained a `⌂ Home` link in its header; `index.html` is now a redirect, so every existing deep link (`index.html#s=…&t=…` or the bare `/#s=…`) still lands on the map at the right moment.
+
+**Ship & commander search** — the search box on the landing page covers the whole registry (442 ships) and every campaign's commanders (92). A ship shows her class, nation, fate and Wikipedia link, plus one chip per campaign that opens the map at her first appearance; a commander shows role, flagship and campaigns. Diacritics are ignored (`soryu` finds Sōryū); `/` focuses the box; Enter opens the first result.
+
+**Data** — `index.json` campaigns now carry `region` (atlantic | med | pacific | arctic, derived from the theatre or set explicitly with `scenario.region`) and a `commanders` list. `tools/home-test.js` checks the landing page against the real JSON and runs as part of `build.sh`.
+
 ## v2.8 — 2026-09-09
 
 **Major damage** — ships can now carry `damage: [[time, hours, note]]`. A hit that mattered historically draws a smaller smoke plume that travels with the ship for the given hours (or until she sinks) and is a slow-down point for playback. 91 entries added across all fifteen campaigns: Tirpitz in Kåfjord, the four Midway carriers between their hits and their sinkings, Yorktown twice, Shōkaku, Vittorio Veneto, Warspite and Formidable off Crete, Exeter, Musashi, Bismarck's Prince of Wales hits, Nevada and the harbour at Pearl…

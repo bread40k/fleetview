@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FleetView — WW2 naval battles, time-scrubbable</title>
+<meta name="description" content="An interactive, time-scrubbable map of the naval battles of the Second World War: every ship, air strike and torpedo, hour by hour.">
+<style>
+  :root{
+    --bg:#0b1220; --panel:rgba(13,20,36,.92); --panel2:rgba(20,30,52,.95); --line:rgba(255,255,255,.08);
+    --fg:#e6edf7; --fg2:#c3cfe0; --muted:#8b98ad; --faint:#5f6b7f; --accent:#f5c451; --accentHover:#ffd36b;
+    --btn:#1a2740; --btnHover:#243554; --sel:rgba(245,196,81,.08); --r:8px; --r-lg:12px; --shadow:0 10px 30px rgba(0,0,0,.35); --panelBorder:var(--line);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --atlantic:#3b82f6; --med:#eab308; --pacific:#ef4444; --arctic:#34d399;
+  }
+  html[data-style="modern"][data-mode="light"]{ --bg:#e9eef5; --panel:rgba(255,255,255,.9); --panel2:#ffffff; --line:rgba(15,23,42,.1); --fg:#111827; --fg2:#334155; --muted:#64748b; --faint:#a1a1aa; --accent:#c2410c; --accentHover:#ea580c; --btn:#f1f5f9; --btnHover:#e2e8f0; --sel:rgba(194,65,12,.08); --shadow:0 10px 30px rgba(15,23,42,.15); --atlantic:#2563eb; --med:#ca8a04; --pacific:#dc2626; --arctic:#10b981 }
+  html[data-style="chart"]{ --font:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif; --mono:"Courier New",Courier,"Lucida Console",monospace; --r:2px; --r-lg:3px }
+  html[data-style="chart"][data-mode="light"]{ --bg:#d8c9a6; --panel:rgba(242,231,207,.96); --panel2:#f2e7cf; --line:rgba(80,60,30,.22); --panelBorder:#8b7a57; --fg:#2b2418; --fg2:#4a3f2c; --muted:#7a6a4f; --faint:#a89a80; --accent:#9a3b1c; --accentHover:#b4472a; --btn:#e6d8b8; --btnHover:#d9c9a4; --sel:rgba(154,59,28,.1); --shadow:0 6px 18px rgba(60,40,10,.3); --atlantic:#2f5d9e; --med:#b8860b; --pacific:#a3332a; --arctic:#2e8b6d }
+  html[data-style="chart"][data-mode="dark"]{ --bg:#121716; --panel:rgba(28,34,32,.96); --panel2:#1f2624; --line:rgba(214,190,140,.18); --panelBorder:#6b6046; --fg:#e8dcc3; --fg2:#cdbf9d; --muted:#9a8c6c; --faint:#6b6350; --accent:#e0b04f; --accentHover:#f0c565; --btn:#2a312e; --btnHover:#38413d; --sel:rgba(224,176,79,.1); --shadow:0 6px 18px rgba(0,0,0,.5) }
+  html[data-style="chart"] h1{font-variant:small-caps;letter-spacing:1.5px}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  main{max-width:1040px;margin:0 auto;padding:48px 24px 40px}
+  header.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  h1{margin:0;font-size:34px;letter-spacing:.2px;display:flex;align-items:center;gap:12px}
+  h1 span{color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;border:1px solid var(--line);padding:2px 8px;border-radius:6px}
+  .top nav{display:flex;gap:14px;font-size:13px;color:var(--muted)}
+  .top nav a{text-decoration:none}.top nav a:hover{color:var(--fg)}
+  p.lede{margin:10px 0 0;max-width:640px;color:var(--fg2);font-size:15.5px}
+  #themebar{display:flex;gap:6px;margin-left:auto}
+  .btn{background:var(--btn);border:1px solid var(--line);color:var(--fg);border-radius:var(--r);height:30px;padding:0 10px;cursor:pointer;font-size:12.5px;font-family:var(--font)}
+  .btn:hover{background:var(--btnHover)}
+  select.btn{appearance:none;padding-right:22px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 12px) 13px,calc(100% - 8px) 13px;background-size:4px 4px;background-repeat:no-repeat}
+
+  /* ---- search ---- */
+  #searchbox{position:relative;margin:30px 0 8px}
+  #q{width:100%;height:46px;padding:0 44px 0 16px;font:inherit;font-size:16px;color:var(--fg);background:var(--panel2);border:1px solid var(--panelBorder);border-radius:var(--r-lg);outline:none;box-shadow:var(--shadow)}
+  #q:focus{border-color:var(--accent)}
+  #q::placeholder{color:var(--faint)}
+  #searchbox .key{position:absolute;right:14px;top:14px;color:var(--faint);font-family:var(--mono);font-size:11px;border:1px solid var(--line);padding:1px 6px;border-radius:5px;pointer-events:none}
+  #results{display:none;margin-top:8px;background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--panelBorder);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+  #results.on{display:block}
+  .hit{padding:12px 16px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+  .hit:first-child{border-top:0}
+  .hit .nm{font-weight:600;font-size:14.5px}
+  .hit .nm .cls{font-weight:400;color:var(--muted);margin-left:8px;font-size:12.5px}
+  .hit .nm .tag{font-size:10px;font-family:var(--mono);letter-spacing:.6px;color:var(--accent);border:1px solid var(--line);padding:0 5px;border-radius:4px;margin-left:8px;vertical-align:2px}
+  .hit .fate{color:var(--muted);font-size:12.5px;grid-column:1/-1}
+  .hit .fate.lost{color:var(--pacific)}
+  .hit .chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;text-decoration:none;color:var(--fg2);background:var(--btn);border:1px solid var(--line);border-radius:20px;padding:3px 10px 3px 8px}
+  .chip:hover{background:var(--btnHover);color:var(--fg)}
+  .chip i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+  .chip b{font-weight:500;color:var(--muted);font-family:var(--mono);font-size:11px}
+  .hit .wk{font-size:12px;color:var(--muted);text-decoration:none;align-self:start;white-space:nowrap}
+  .hit .wk:hover{color:var(--fg)}
+  .empty{padding:14px 16px;color:var(--muted);font-size:13px}
+
+  /* ---- campaigns ---- */
+  #campaigns{margin-top:36px}
+  .yr{display:flex;align-items:center;gap:14px;margin:26px 0 12px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:1.5px}
+  .yr:after{content:"";flex:1;height:1px;background:var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .card{display:block;text-decoration:none;color:inherit;background:var(--panel2);border:1px solid var(--panelBorder);border-left:4px solid var(--c);border-radius:var(--r-lg);padding:14px 16px 15px;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:transform .12s,border-color .12s,background .12s}
+  .card:hover{transform:translateY(-2px);background:var(--btnHover);border-color:var(--c)}
+  .card .when{color:var(--muted);font-size:12px;display:flex;gap:6px;align-items:center;font-family:var(--mono)}
+  .card .when b{font-weight:500;color:var(--c)}
+  .card .when b:before{content:"·";margin-right:6px;color:var(--faint)}
+  .card .ttl{margin-top:5px;font-size:15.5px;font-weight:600;line-height:1.3}
+  #legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:12px}
+  #legend span{display:inline-flex;align-items:center;gap:6px}
+  #legend i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+
+  footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;display:flex;gap:18px;flex-wrap:wrap}
+  footer a{color:var(--fg2);text-decoration:none}footer a:hover{color:var(--fg)}
+  @media (max-width:600px){ main{padding:28px 16px 32px} h1{font-size:28px} #q{font-size:15px} .grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:420px){ .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>FleetView <span id="version">v3.0</span></h1>
+    <nav>
+      <a href="map.html">Open the map →</a>
+      <a href="https://github.com/bread40k/fleetview" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+  <p class="lede">An interactive, time-scrubbable map of the naval battles of the Second World War — every ship, air strike and torpedo, hour by hour. Pick a battle, or look up a ship or a commander.</p>
+
+  <div id="searchbox">
+    <input id="q" type="search" placeholder="Search a ship or commander… e.g. Warspite, Nagumo, U-556" autocomplete="off" spellcheck="false" aria-label="Search ships and commanders">
+    <span class="key">/</span>
+    <div id="results" role="listbox"></div>
+  </div>
+
+  <section id="campaigns" aria-label="Campaigns"></section>
+  <div id="legend"></div>
+
+  <footer>
+    <span id="stats"></span>
+    <a href="https://github.com/bread40k/fleetview" target="_blank" rel="noopener">Source on GitHub</a>
+    <a href="https://github.com/bread40k/fleetview/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+    <span>Code MIT · Data CC BY-NC-SA</span>
+  </footer>
+</main>
+<script>
+// FleetView landing page. Reads data/index.json (campaigns + commanders) and data/ships.json (registry) — no build step.
+(function(){
+  const $ = id => document.getElementById(id);
+  // same theme preference as the map, so the hand-off doesn't flash
+  try { const p = JSON.parse(localStorage.getItem('fleetview-theme') || '{}'); if (p.style) document.documentElement.dataset.style = p.style; if (p.mode) document.documentElement.dataset.mode = p.mode; } catch(e){}
+  const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const REGION = { atlantic: 'Atlantic', med: 'Mediterranean', pacific: 'Pacific', arctic: 'Arctic' };
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fold = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const monthYear = iso => { const d = new Date(iso + 'Z'); return `${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
+  const mapLink = (id, t) => 'map.html#s=' + id + (t ? '&t=' + t : '');
+
+  // ---- campaign cards, grouped by year ----
+  function buildCards(index){
+    const by = {};
+    for (const c of index.campaigns){ const y = c.defaultTime.slice(0, 4); (by[y] = by[y] || []).push(c); }
+    return Object.keys(by).sort().map(y => `<div class="yr">${y}</div><div class="grid">` + by[y].map(c =>
+      `<a class="card" href="${mapLink(c.id)}" style="--c:var(--${c.region || 'atlantic'})" title="${esc(c.subtitle)}">` +
+      `<div class="when">${monthYear(c.defaultTime)}<b>${esc(c.theatre)}</b></div><div class="ttl">${esc(c.title)}</div></a>`).join('') + '</div>').join('');
+  }
+
+  // ---- search index: ships from the registry, commanders from each campaign ----
+  function buildSearch(index, registry){
+    const camp = Object.fromEntries(index.campaigns.map(c => [c.id, c]));
+    const items = [];
+    for (const s of Object.values(registry.ships || {})){
+      items.push({ kind: 'ship', key: fold(s.name + ' ' + (s.class || '') + ' ' + (s.nation || '')), name: s.name, sub: [s.class, s.nation].filter(Boolean).join(' · '), wiki: s.wiki,
+        fate: s.fate, lost: /^sunk|scuttled|lost/i.test(s.fate || ''),
+        links: s.appearances.map(a => ({ id: a.scenario, t: a.from, label: camp[a.scenario] ? camp[a.scenario].title : a.scenario, when: camp[a.scenario] ? monthYear(camp[a.scenario].defaultTime) : '', region: camp[a.scenario] ? camp[a.scenario].region : 'atlantic', note: a.sunk ? 'sunk' : '' })) });
+    }
+    const cmd = {};
+    for (const c of index.campaigns) for (const k of c.commanders || []){
+      const key = fold(k.name.replace(/^(vice |rear |lieutenant |lt\.? |captain |cdr\.? |commander |admiral |konteradmiral |vizeadmiral |kapitän zur see |ammiraglio |fregattenkapitän |commodore |general )+/i, ''));
+      const e = cmd[key] || (cmd[key] = { kind: 'commander', key: fold(k.name + ' ' + (k.role || '') + ' ' + (k.flagship || '')), name: k.name, roles: [], wiki: k.wiki, links: [] });
+      if (k.role && !e.roles.includes(k.role)) e.roles.push(k.role);
+      if (!e.links.some(l => l.id === c.id)) e.links.push({ id: c.id, label: c.title, when: monthYear(c.defaultTime), region: c.region, note: k.flagship ? 'in ' + k.flagship.split(',')[0] : '' });
+    }
+    for (const e of Object.values(cmd)){ e.sub = e.roles[0] || ''; items.push(e); }
+    return items;
+  }
+  function search(items, q, limit){
+    const words = fold(q).split(/\s+/).filter(Boolean); if (!words.length) return [];
+    const scored = [];
+    for (const it of items){ if (!words.every(w => it.key.includes(w))) continue; const name = fold(it.name); const rank = name.startsWith(words[0]) ? 0 : name.split(/\s+/).some(p => p.startsWith(words[0])) ? 1 : 2; scored.push([rank, it.kind === 'ship' ? 0 : 1, -it.links.length, it]); }
+    return scored.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2] || a[3].name.localeCompare(b[3].name)).slice(0, limit || 8).map(x => x[3]);
+  }
+  function renderHits(hits, q){
+    if (!q.trim()) return '';
+    if (!hits.length) return `<div class="empty">Nothing in the registry matches “${esc(q)}”.</div>`;
+    return hits.map(h => `<div class="hit"><div class="nm">${esc(h.name)}${h.sub ? `<span class="cls">${esc(h.sub)}</span>` : ''}${h.kind === 'commander' ? '<span class="tag">CDR</span>' : ''}</div>` +
+      (h.wiki ? `<a class="wk" href="${esc(/^https?:/.test(h.wiki) ? h.wiki : 'https://en.wikipedia.org/wiki/' + h.wiki)}" target="_blank" rel="noopener">Wikipedia ↗</a>` : '<span></span>') +
+      (h.fate ? `<div class="fate${h.lost ? ' lost' : ''}">${esc(h.fate)}</div>` : '') +
+      `<div class="chips">${h.links.map(l => `<a class="chip" href="${mapLink(l.id, l.t)}" style="--c:var(--${l.region || 'atlantic'})"><i></i>${esc(l.label)}<b>${esc(l.when)}${l.note ? ' · ' + esc(l.note) : ''}</b></a>`).join('')}</div></div>`).join('');
+  }
+
+  window.fvHome = { buildCards, buildSearch, search, renderHits };
+  if (typeof fetch !== 'function' || !document.getElementById('campaigns')) return;   // exercised by tools/home-test.js without a DOM
+
+  const base = 'data/';
+  Promise.all([fetch(base + 'index.json').then(r => r.json()), fetch(base + 'ships.json').then(r => r.json()).catch(() => ({ ships: {} }))]).then(([index, registry]) => {
+    $('campaigns').innerHTML = buildCards(index);
+    $('legend').innerHTML = Object.entries(REGION).filter(([k]) => index.campaigns.some(c => c.region === k)).map(([k, v]) => `<span style="--c:var(--${k})"><i></i>${v}</span>`).join('');
+    const n = index.campaigns.length, ships = Object.keys(registry.ships || {}).length, losses = index.campaigns.reduce((a, c) => a + (c.losses || 0), 0);
+    $('stats').textContent = `${n} battles · ${ships} ships · ${losses} sinkings`;
+    const items = buildSearch(index, registry);
+    const q = $('q'), res = $('results');
+    const update = () => { const hits = search(items, q.value); res.innerHTML = renderHits(hits, q.value); res.classList.toggle('on', !!q.value.trim()); };
+    q.addEventListener('input', update);
+    q.addEventListener('keydown', e => { if (e.key === 'Escape'){ q.value = ''; update(); q.blur(); } if (e.key === 'Enter'){ const a = res.querySelector('.chip'); if (a) location.href = a.href; } });
+    document.addEventListener('keydown', e => { if (e.key === '/' && document.activeElement !== q){ e.preventDefault(); q.focus(); } });
+    if (location.hash.startsWith('#q=')){ q.value = decodeURIComponent(location.hash.slice(3)); update(); }
+  }).catch(e => { $('campaigns').innerHTML = `<div class="empty">Could not load data/index.json — ${esc(e.message)}</div>`; });
+})();
+</script>
+</body>
+</html>

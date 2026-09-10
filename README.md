@@ -40,8 +40,9 @@ Currently included:
 - Cross-campaign ship registry — a ship's popup links to her other campaigns and gives her eventual fate
 - Follow a ship or an air group; a guided-camera mode that hands the view from one subject to the next as the battle unfolds
 - Search, keyboard shortcuts, four UI themes (modern / wartime chart × light / dark)
+- A landing page (`home.html`) with every battle as a card and a search across all ships and commanders in the registry
 
-Deep links: `https://bread40k.github.io/fleetview/#s=bismarck&t=1941-05-27T10:30`
+Deep links: `https://bread40k.github.io/fleetview/map.html#s=bismarck&t=1941-05-27T10:30` (the older `/#s=…` form redirects there)
 
 ## Running it
 
@@ -63,7 +64,7 @@ Runtime dependencies (loaded from CDNs, none installed):
 
 ```
 data/
-  index.json             campaign list (id, title, span, theatre, counts) + the war window — loaded first
+  index.json             campaign list (id, title, span, theatre, region, commanders, counts) + the war window — loaded first
   ships.json             cross-campaign ship registry: name, nation, class, wiki, fate, appearances
   milestones.json        non-naval reference dates shown as clickable dots under the war bar (embedded into index.json)
   scenarios/<id>.json    one self-contained campaign, loaded when selected
@@ -87,12 +88,12 @@ Times are `'DD HH:MM'` in the scenario's zone time (`base` gives the year and mo
 
 ### Building
 
-The site itself is static; the build only prepares the data and assembles `index.html`. Node ≥ 18, no packages.
+The site itself is static; the build only prepares the data and assembles `map.html` (the landing page `home.html` and the `index.html` redirect are copied from `src/`). Node ≥ 18, no packages.
 
 ```
 node tools/build-data.mjs           # validate scenarios → data/index.json + data/ships.json
 node tools/bake-routes.mjs [id]     # bake sea routing into the scenario JSON (downloads the coastline once, ~800 KB, cached in tools/cache/)
-bash tools/build.sh                 # the above + assemble index.html + smoke test
+bash tools/build.sh                 # the above + assemble map.html / home.html / index.html + smoke tests
 ```
 
 Routing records are keyed by a hash of each ship's waypoints: if you edit a track and don't re-bake, that ship simply sails straight legs (with a console warning) rather than showing a stale detour.
